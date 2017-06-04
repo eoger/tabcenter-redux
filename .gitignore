@@ -1,0 +1,4 @@
+.DS_Store
+src/index.js
+web-ext-artifacts
+node_modules

@@ -1,0 +1,311 @@
+html, body {
+    height: 100%;
+}
+
+body {
+    background-color: hsl(0, 0%, 99%);
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
+    color: #000;
+    font-size: 11px;
+    font-weight: 400;
+    display: flex;
+    flex-direction: column;
+}
+
+#spacer {
+    flex: 1;
+}
+
+#topmenu {
+    display: flex;
+    padding: 6px 4px;
+    border-bottom: 1px solid hsla(0, 0%, 0%, 0.2);
+}
+
+#topmenu > * {
+    height: 26px;
+    margin: 0 4px;
+}
+
+#newtab {
+    box-sizing: border-box;
+    display: flex;
+    flex: 0 20 auto;
+    min-width: 26px;
+    align-items: center;
+    padding: 2px 4px;
+    text-shadow: 0 1px rgba(255, 255, 255, .4);
+}
+
+/* This is important for event bubbling: when we click a tab, e.target
+   will be the tab, and not one of its child elements */
+img, .tab *:not(.clickable) {
+    pointer-events: none;
+}
+
+#newtab-label {
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+.topmenu-button {
+    border: 1px solid transparent; /* When we show a border on hover it won't move */
+    border-radius: 2.5px;
+}
+
+.topmenu-button:hover {
+    border: 1px solid hsla(0, 0%, 0%, 0.16);
+    background-color: hsla(0, 0%, 0%, 0.1);
+}
+
+.topmenu-button:active {
+    background-color: hsla(0, 0%, 0%, 0.16);
+}
+
+#newtab-icon {
+    min-width: 16px;
+    margin-right: 2px;
+}
+
+#searchbox {
+    display: flex;
+    flex: 20 0 auto;
+    min-width: 45px;
+    border: 1px solid rgba(0, 0, 0, 0.16);
+    border-radius: 2.5px;
+}
+
+#searchbox-input {
+    flex: 1;
+    margin-left: 1;
+    padding: 0;
+    box-shadow: none;
+    border: 0;
+}
+
+#disable, #autoshrink {
+    flex-shrink: 0;
+    min-width: 18px;
+    padding: 0 16px;
+    background-size: 16px 16px;
+    background-repeat: no-repeat;
+    background-position: center;
+}
+
+#disable {
+    background-image: url("img/tc-top.svg");
+    margin-right: 0px;
+}
+
+#autoshrink {
+    background-image: url("img/glyph-sidebar-collapse-16.svg");
+}
+
+#tablist-wrapper {
+    overflow-y: auto;
+}
+
+.tab {
+    display: flex;
+    align-items: center;
+    height: 56px;
+    padding-right: 12px;
+    border-bottom: 1px solid hsla(0, 0%, 0%, 0.06);
+}
+
+.tab.hidden {
+    display: none;
+}
+
+.tab.active {
+    background-color: hsla(0, 0%, 0%, 0.12);
+}
+
+.tab:not(.active):hover {
+    background-color: hsla(0, 0%, 0%, 0.08);
+}
+
+.tab-context {
+    --highlight-color: #1aa1ff;
+}
+
+.tab-context[container-color="blue"] {
+  --highlight-color: #0996f8;
+}
+
+.tab-context[container-color="turquoise"] {
+  --highlight-color: #01bdad;
+}
+
+.tab-context[container-color="green"] {
+  --highlight-color: #57bd35;
+}
+
+.tab-context[container-color="yellow"] {
+  --highlight-color: #ffcb00;
+}
+
+.tab-context[container-color="orange"] {
+  --highlight-color: #ff9216;
+}
+
+.tab-context[container-color="red"] {
+  --highlight-color: #d92215;
+}
+
+.tab-context[container-color="pink"] {
+  --highlight-color: #ea385e;
+}
+
+.tab-context[container-color="purple"] {
+  --highlight-color: #7a2f7a;
+}
+
+.tab-context {
+    min-width: 6px;
+    height: 100%;
+    background-image:
+        linear-gradient(to right, hsla(0, 0%, 0%, 0.25) 17%, hsla(0, 0%, 0%, 0.1) 17%, transparent 67%),
+        linear-gradient(to right, var(--highlight-color), var(--highlight-color));
+    background-position: 0 0;
+    background-repeat: no-repeat;
+    transition: background-position 150ms ease-out;
+}
+
+.tab:not(.active) > .tab-context.hasContext {
+    background-position: -3px 0;
+}
+
+.tab:not(.active) > .tab-context:not(.hasContext) {
+    background-position: -6px 0;
+}
+
+.tab-icon-overlay {
+    display: none;
+    position: relative;
+    width: 16px;
+    height: 16px;
+    border-radius: 10px;
+    margin-left: -16px;
+    left: 16px;
+    top: -19px;
+    background-color: white;
+    background-size: contain;
+    background-clip: padding-box;
+    border: 1px solid hsla(0, 0%, 0%, 0.2);
+    box-shadow: 0 1px 0 hsla(0, 0%, 0%, 0.5);
+}
+
+.tab-icon-overlay.sound {
+    display: block;
+    background-image: url("img/tab-audio-small.svg#tab-audio");
+}
+
+.tab-icon-overlay.muted {
+    display: block;
+    background-image: url("img/tab-audio-small.svg#tab-audio-muted");
+}
+
+.tab-meta-image {
+    margin: 6px;
+    min-width: 54px;
+    height: 40px;
+    border: 0;
+    background-image: url("img/thumbnail-blank.svg");
+    background-size: contain;
+    background-color: white;
+    background-repeat: no-repeat;
+    box-shadow: 0 0 2px 2px hsla(0, 0%, 0%, 0.02), 0 2px 0 hsla(0, 0%, 0%, 0.05), 0 0 0 1px hsla(0, 0%, 0%, 0.2);
+}
+
+.tab-icon {
+    width: 20px;
+    height: 20px;
+    padding: 2px;
+    margin-left: 0px;
+    margin-top: 20px;
+    border-radius :2px;
+    background-color: white;
+    box-shadow: 0 0 2px hsla(0, 0%, 0%, 0.08), 0 0 0 1px hsla(0, 0%, 0%, 0.08);
+    image-rendering: crisp-edges;
+}
+
+.tab-meta-image.has-thumbnail {
+    border: 2px solid white;
+}
+.tab-meta-image.has-thumbnail > .tab-icon {
+    margin-left: -2px;
+    margin-top: 18px;
+}
+
+.tab-title-wrapper {
+    flex: 1;
+    display: flex;
+    margin-right: 8px;
+    min-width: 0;
+    flex-direction: column;
+}
+
+.tab-title, .tab-host {
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+.tab-host {
+    color: rgb(127, 127, 127);
+}
+
+.tab-pin {
+    display: none;
+}
+
+.tab.pinned .tab-pin {
+    min-width: 16px;
+    height: 16px;
+    display: block;
+    background-image: url("img/glyph-pin-pinned-12.svg");
+    background-position: center center;
+    background-repeat: no-repeat;
+    background-size: 12px;
+}
+
+.tab-close {
+    display: none;
+}
+
+.tab:not(.pinned):hover > .tab-close {
+    display: block;
+    width: 24px;
+    height: 24px;
+    margin-left: 8px;
+    background-color: hsla(0, 0%, 0%, 0.1);
+    background-image: url("img/glyph-close-16.svg");
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: 16px;
+    border-radius: 2.5px;
+}
+
+.tab-close:hover {
+    background-color: hsla(0, 0%, 0%, 0.16) !important;
+}
+.tab-close:active {
+    background-color: hsla(0, 0%, 0%, 0.2) !important;
+}
+
+#moretabs:not([hasMoreTabs]) {
+    display: none;
+}
+
+#moretabs {
+    display: flex;
+    align-items: center;
+    height: 36px;
+    padding-left: 31px;
+}
+
+#moretabs:hover {
+    background-color: hsla(0, 0%, 0%, 0.1);
+}

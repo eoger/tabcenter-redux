@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<!-- P2: implement reverse tab order -->
+<!-- P2: replacing native context menus is impossible - bug 1367160 -->
+<!-- P2: not sure how to implement the new container tab menu (native?) -->
+<!-- P2: Localization -->
+<!-- P2: the shrink and disable buttons are impossible to implement, replace by a "go to settings" button? -->
+<!-- P2: chrome:// favicons not displayed -->
+<!-- P2: created tabs do not have focus on the address bar -->
+<!-- P3: Tooltips! -->
+<!-- P2: write a proper readme -->
+<!-- P3: visual polish (nicer drag and drop, animations, glow for search input, etc) -->
+<!-- P3: inactive tabs (which heuristic does tabcenter use?) should have a different text color -->
+
+<html>
+  <head>
+    <meta charset="utf-8">
+    <link rel="stylesheet" href="tabcenter.css"/>
+  </head>
+  <body>
+    <div id="topmenu">
+      <div id="newtab" class="topmenu-button">
+        <img id="newtab-icon" src="img/glyph-new-16.svg" />
+        <span id="newtab-label">New Tab</span>
+      </div>
+      <label id="searchbox">
+        <img src="img/find.svg" id="searchbox-icon" />
+        <input type="text" id="searchbox-input" size="1" />
+      </label>
+      <div id="disable" class="topmenu-button"></div>
+      <div id="autoshrink" class="topmenu-button"></div>
+    </div>
+    <div id="tablist-wrapper">
+      <div id="tablist"></div>
+      <div id="moretabs" draggable="true"></div>
+    </div>
+    <div id="spacer" draggable="true"></div>
+    <script src="index.js"></script>
+  </body>
+</html>

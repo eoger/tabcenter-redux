@@ -1,0 +1,23 @@
+{
+  "name": "tabcenter-redux",
+  "version": "1.0.0",
+  "scripts": {
+    "lint": "eslint .",
+    "build": "webpack",
+    "dev": "webpack --watch"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/eoger/tabcenter-redux.git"
+  },
+  "author": "Edouard Oger",
+  "license": "MPL-2.0",
+  "bugs": {
+    "url": "https://github.com/eoger/tabcenter-redux/issues"
+  },
+  "homepage": "https://github.com/eoger/tabcenter-redux#readme",
+  "devDependencies": {
+    "eslint": "^3.19.0",
+    "webpack": "^2.6.1"
+  }
+}

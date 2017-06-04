@@ -1,0 +1,24 @@
+<?xml version="1.0"?>
+<!-- This Source Code Form is subject to the terms of the Mozilla Public
+   - License, v. 2.0. If a copy of the MPL was not distributed with this
+   - file, You can obtain one at http://mozilla.org/MPL/2.0/. -->
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="16" height="16" viewBox="0 0 16 16">
+  <style>
+    path {
+      fill: #4c4c4c;
+    }
+
+    .stroke {
+      stroke: #4c4c4c;
+      stroke-width: 1;
+      stroke-linecap: round;
+      stroke-linejoin: round;
+      fill: none;
+    }
+  </style>
+
+
+  <line class="stroke" x1="7.5" y1="7.5" x2="12.5" y2="7.5" />
+  <path class="stroke" d="M 9.5,4.5 l -3,3 l 3,3" />
+  <path d="M335,124H323a2,2,0,0,1-2-2V111a2,2,0,0,1,2-2h12a2,2,0,0,1,2,2v11A2,2,0,0,1,335,124Zm-11.5-13a0.5,0.5,0,1,0,.5.5A0.5,0.5,0,0,0,323.5,111Zm0,2a0.5,0.5,0,1,0,.5.5A0.5,0.5,0,0,0,323.5,113Zm0,2a0.5,0.5,0,1,0,.5.5A0.5,0.5,0,0,0,323.5,115Zm0,2a0.5,0.5,0,1,0,.5.5A0.5,0.5,0,0,0,323.5,117Zm0,2a0.5,0.5,0,1,0,.5.5A0.5,0.5,0,0,0,323.5,119Zm0,2a0.5,0.5,0,1,0,.5.5A0.5,0.5,0,0,0,323.5,121ZM336,111a1,1,0,0,0-1-1h-9v13h9a1,1,0,0,0,1-1V111Z" transform="translate(-321 -109)"/>
+</svg>

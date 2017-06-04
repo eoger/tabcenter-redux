@@ -1,0 +1,35 @@
+{
+  "description": "Tab Center Redux",
+  "homepage_url": "https://github.com/eoger/tabcenter-redux",
+  "manifest_version": 2,
+  "name": "Tab Center Redux",
+  "version": "0.1",
+  "sidebar_action": {
+    "default_title": "Tabs",
+    "default_panel": "tabcenter.html",
+    "default_icon": "icons/tabcenter.svg"
+  },
+  "icons": {
+    "48": "icons/tabcenter.svg"
+  },
+  "permissions": [
+    "<all_urls>",
+    "contextualIdentities",
+    "cookies",
+    "tabs"
+  ],
+  "commands": {
+    "_execute_sidebar_action": {
+      "suggested_key": {
+          "default": "Ctrl+Shift+O",
+          "mac": "Command+Shift+O"
+      }
+    },
+    "focus-searchbox": {
+      "suggested_key": {
+        "default": "Ctrl+Shift+L",
+        "mac": "Command+Shift+L"
+      }
+    }
+  }
+}
