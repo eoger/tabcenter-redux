@@ -3,7 +3,7 @@
   "homepage_url": "https://github.com/eoger/tabcenter-redux",
   "manifest_version": 2,
   "name": "Tab Center Redux",
-  "version": "0.1",
+  "version": "0.1.1",
   "sidebar_action": {
     "default_title": "Tabs",
     "default_panel": "tabcenter.html",
