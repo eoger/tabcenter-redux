@@ -3,6 +3,7 @@ const SideTab = require("./tab.js");
 function SideTabList() {
   this.tabs = new Map();
   this.active = null;
+  this._tabsShrinked = false;
   this.windowId = null;
   this.view = document.getElementById("tablist");
   this.setupListeners();
@@ -10,7 +11,7 @@ function SideTabList() {
 
 SideTabList.prototype = {
   setupListeners() {
-    const spacer = document.getElementById("spacer");
+    this._spacerView = document.getElementById("spacer");
     const moreTabs = document.getElementById("moretabs");
 
     // Tab events
@@ -32,7 +33,7 @@ SideTabList.prototype = {
     this.view.addEventListener("click", e => this.onClick(e));
     this.view.addEventListener("mousedown", e => this.onMouseDown(e));
 
-    spacer.addEventListener("dblclick", () => this.onSpacerDblClick());
+    this._spacerView.addEventListener("dblclick", () => this.onSpacerDblClick());
     moreTabs.addEventListener("click", () => this.clearSearch());
 
     // Drag-and-drop
@@ -201,6 +202,7 @@ SideTabList.prototype = {
     } else {
       moreTabs.removeAttribute("hasMoreTabs");
     }
+    this.maybeShrinkTabs();
   },
   async populate(windowId) {
     if (windowId && this.windowId === null) {
@@ -222,6 +224,36 @@ SideTabList.prototype = {
   },
   getTabById(tabId) {
     return this.tabs.get(tabId, null);
+  },
+  get tabsShrinked() {
+    return this._tabsShrinked;
+  },
+  set tabsShrinked(shrinked) {
+    this._tabsShrinked = shrinked;
+    if (shrinked) {
+      this.view.classList.add("shrinked");
+    } else {
+      this.view.classList.remove("shrinked");
+    }
+  },
+  maybeShrinkTabs() {
+    const spaceLeft = this._spacerView.offsetHeight;
+    if (!this.tabsShrinked && spaceLeft == 0) {
+      this.tabsShrinked = true;
+      return;
+    }
+    if (this.tabsShrinked) {
+      // Could we fit everything if we switched back to the "normal" mode?
+      const wrapperHeight = document.getElementById("tablist-wrapper").offsetHeight;
+      const estimatedTabHeight = 56; // Not very scientific, but it "mostly" works.
+
+      // TODO: We are not accounting for the "More Tabs" element displayed when
+      // filtering tabs.
+      let visibleTabs = [...this.tabs.values()].filter(tab => tab.visible);
+      if (visibleTabs.length * estimatedTabHeight <= wrapperHeight) {
+        this.tabsShrinked = false;
+      }
+    }
   },
   create(tab) {
     if (!this.checkWindow(tab)) {
@@ -252,6 +284,9 @@ SideTabList.prototype = {
         this.setContext(tab, context);
       });
     }
+    // TODO: This probably means that for a tab-bulk insert (like in _populate),
+    // This will be called multiple times for nothing and cause reflows.
+    this.maybeShrinkTabs();
   },
   setActive(tabId) {
     let sidetab = this.getTabById(tabId);
@@ -291,6 +326,7 @@ SideTabList.prototype = {
       sidetab.view.remove();
       this.tabs.delete(tabId);
     }
+    this.maybeShrinkTabs();
   },
   getTabsViews() {
     return this.view.getElementsByClassName("tab");

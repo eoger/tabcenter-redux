@@ -103,6 +103,9 @@ img, .tab *:not(.clickable) {
 }
 
 #tablist-wrapper {
+    height: 100%;
+    display: flex;
+    flex-direction: column;
     overflow-y: auto;
 }
 
@@ -197,6 +200,11 @@ img, .tab *:not(.clickable) {
     box-shadow: 0 1px 0 hsla(0, 0%, 0%, 0.5);
 }
 
+#tablist.shrinked .tab-icon-overlay {
+    left: 13px;
+    top: -7px;
+}
+
 .tab-icon-overlay.sound {
     display: block;
     background-image: url("img/tab-audio-small.svg#tab-audio");
@@ -207,7 +215,7 @@ img, .tab *:not(.clickable) {
     background-image: url("img/tab-audio-small.svg#tab-audio-muted");
 }
 
-.tab-meta-image {
+#tablist:not(.shrinked) .tab-meta-image {
     margin: 6px;
     min-width: 54px;
     height: 40px;
@@ -219,22 +227,32 @@ img, .tab *:not(.clickable) {
     box-shadow: 0 0 2px 2px hsla(0, 0%, 0%, 0.02), 0 2px 0 hsla(0, 0%, 0%, 0.05), 0 0 0 1px hsla(0, 0%, 0%, 0.2);
 }
 
+#tablist.shrinked .tab-meta-image {
+    background: none !important; /* Because the JS script sets it manually */
+    /* Make it the same size as the favicon it contains */
+    height: 20px;
+    width: 20px;
+}
+
 .tab-icon {
     width: 20px;
     height: 20px;
     padding: 2px;
+    image-rendering: -moz-crisp-edges;
+}
+
+#tablist:not(.shrinked) .tab-icon {
     margin-left: 0px;
     margin-top: 20px;
     border-radius :2px;
     background-color: white;
     box-shadow: 0 0 2px hsla(0, 0%, 0%, 0.08), 0 0 0 1px hsla(0, 0%, 0%, 0.08);
-    image-rendering: crisp-edges;
 }
 
-.tab-meta-image.has-thumbnail {
+#tablist:not(.shrinked) .tab-meta-image.has-thumbnail {
     border: 2px solid white;
 }
-.tab-meta-image.has-thumbnail > .tab-icon {
+#tablist:not(.shrinked) .tab-meta-image.has-thumbnail > .tab-icon {
     margin-left: -2px;
     margin-top: 18px;
 }
@@ -247,6 +265,10 @@ img, .tab *:not(.clickable) {
     flex-direction: column;
 }
 
+#tablist.shrinked .tab-title-wrapper {
+    margin-left: 6px;
+}
+
 .tab-title, .tab-host {
     white-space: nowrap;
     overflow: hidden;
@@ -255,6 +277,10 @@ img, .tab *:not(.clickable) {
 
 .tab-host {
     color: rgb(127, 127, 127);
+}
+
+#tablist.shrinked .tab-host {
+    display: none;
 }
 
 .tab-pin {
@@ -293,6 +319,10 @@ img, .tab *:not(.clickable) {
 }
 .tab-close:active {
     background-color: hsla(0, 0%, 0%, 0.2) !important;
+}
+
+#tablist.shrinked .tab {
+    height: 35px;
 }
 
 #moretabs:not([hasMoreTabs]) {

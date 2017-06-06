@@ -8,6 +8,7 @@ function SideTab() {
   this.title = null;
   this.muted = null;
   this.pinned = null;
+  this.visible = true;
 }
 
 SideTab.prototype = {
@@ -78,6 +79,7 @@ SideTab.prototype = {
     toggleClass(this.view, "active", active);
   },
   updateVisibility(show) {
+    this.visible = show;
     toggleClass(this.view, "hidden", !show);
   },
   updateAudible(audible) {
