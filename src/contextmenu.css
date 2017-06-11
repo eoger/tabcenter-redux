@@ -1,0 +1,31 @@
+ul.contextmenu {
+  display: inline-block;
+  position: absolute;
+  border: solid 1px #CCCCCC;
+  margin: 0;
+  padding: 0;
+  background-color: #f2f2f2;
+  box-shadow: 1px 1px 1px #888888;
+}
+
+.contextmenu > hr {
+  display: block;
+  height: 1px;
+  background-color: #D7D7D7;
+  border: 0;
+  margin: 0;
+  margin-left: 23px;
+  margin-right: 2px;
+}
+
+.contextmenu > li {
+  display: block;
+  font-size: 15px;
+  padding: 3px 20px 3px 23px;
+  -moz-user-select: none;
+}
+
+.contextmenu > li:hover {
+  background-color: #3E93F9;
+  color: white;
+}

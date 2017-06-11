@@ -1,4 +1,5 @@
 const SideTab = require("./tab.js");
+const ContextMenu = require("./contextmenu.js");
 
 function SideTabList() {
   this.tabs = new Map();
@@ -32,6 +33,17 @@ SideTabList.prototype = {
     // Read more here: https://davidwalsh.name/event-delegate
     this.view.addEventListener("click", e => this.onClick(e));
     this.view.addEventListener("mousedown", e => this.onMouseDown(e));
+    this.view.addEventListener("contextmenu", e => this.onContextMenu(e));
+    window.addEventListener("keyup", (e) => {
+      if (e.keyCode === 27) { // Context menu closed on ESC key pressed
+        this.hideContextMenu();
+      }
+    });
+    window.addEventListener("click", e => {
+      if(e.which == 1) {
+        this.hideContextMenu();
+      }
+    });
 
     this._spacerView.addEventListener("dblclick", () => this.onSpacerDblClick());
     moreTabs.addEventListener("click", () => this.clearSearch());
@@ -90,8 +102,50 @@ SideTabList.prototype = {
       browser.tabs.update(tabId, {active: true});
     }
   },
+  hideContextMenu() {
+    if (this.contextMenu) {
+      this.contextMenu.hide();
+      this.contextMenu = null;
+    }
+  },
+  onContextMenu(e) {
+    this.hideContextMenu();
+    e.preventDefault();
+    if (!e.target || !e.target.classList.contains("tab")) {
+      return;
+    }
+    const tabId = this.getTabIdForEvent(e);
+    const items = this.createContextMenuItems(tabId);
+    this.contextMenu = new ContextMenu(e.clientX, e.clientY, items);
+    this.contextMenu.show();
+  },
+  createContextMenuItems(tabId) {
+    const tab = this.getTabById(tabId);
+    const items = [];
+    items.push({
+      label: "Reload Tab",
+      onCommandFn: () => {
+        browser.tabs.reload(tabId);
+      }
+    });
+    items.push({
+      label: tab.muted ? "Unmute Tab" : "Mute Tab",
+      onCommandFn: () => {
+        browser.tabs.update(tabId, {"muted": !tab.muted});
+      }
+    });
+    items.push({
+      label: "separator"
+    });
+    items.push({
+      label: tab.pinned ? "Unpin Tab" : "Pin Tab",
+      onCommandFn: () => {
+        browser.tabs.update(tabId, {"pinned": !tab.pinned});
+      }
+    });
+    return items;
+  },
   onClick(e) {
-    e.stopPropagation();
     if (!e.target) {
       return;
     }
@@ -103,7 +157,7 @@ SideTabList.prototype = {
       browser.tabs.remove(tabId);
     } else if (e.target.classList.contains("tab-icon-overlay")) {
       const tabId = this.getTabIdForEvent(e);
-      let tab = this.getTabById(tabId);
+      const tab = this.getTabById(tabId);
       browser.tabs.update(tabId, {"muted": !tab.muted});
     }
   },
