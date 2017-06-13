@@ -245,9 +245,11 @@ SideTabList.prototype = {
     this.filter();
   },
   filter(query = "") {
+    query = normalizeStr(query);
     let notShown = 0;
     for (let tab of this.tabs.values()) {
-      const show = tab.url.includes(query) || tab.title.includes(query);
+      const show = normalizeStr(tab.url).includes(query) ||
+                   normalizeStr(tab.title).includes(query);
       notShown += !show ? 1 : 0;
       tab.updateVisibility(show);
     }
@@ -460,5 +462,10 @@ SideTabList.prototype = {
     this.updateThumbnail(currentTabId, thumbnail);
   }
 };
+
+// Remove case and accents/diacritics.
+function normalizeStr(str) {
+  return str.toLowerCase().normalize("NFD").replace(/[\u0300-\u036f]/g, "");
+}
 
 module.exports = SideTabList;
