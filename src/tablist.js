@@ -123,13 +123,14 @@ SideTabList.prototype = {
     const tab = this.getTabById(tabId);
     const items = [];
     items.push({
-      label: "Reload Tab",
+      label: browser.i18n.getMessage("contextMenuReloadTab"),
       onCommandFn: () => {
         browser.tabs.reload(tabId);
       }
     });
     items.push({
-      label: tab.muted ? "Unmute Tab" : "Mute Tab",
+      label: browser.i18n.getMessage(tab.muted ? "contextMenuUnmuteTab" :
+                                                 "contextMenuMuteTab"),
       onCommandFn: () => {
         browser.tabs.update(tabId, {"muted": !tab.muted});
       }
@@ -138,7 +139,8 @@ SideTabList.prototype = {
       label: "separator"
     });
     items.push({
-      label: tab.pinned ? "Unpin Tab" : "Pin Tab",
+      label: browser.i18n.getMessage(tab.pinned ? "contextMenuUnpinTab" :
+                                                  "contextMenuPinTab"),
       onCommandFn: () => {
         browser.tabs.update(tabId, {"pinned": !tab.pinned});
       }
@@ -251,7 +253,9 @@ SideTabList.prototype = {
     }
     let moreTabs = document.getElementById("moretabs");
     if (notShown > 0) {
-      moreTabs.textContent = `${notShown} more tab(s)…`;
+      // Sadly browser.i18n doesn't support plurals, which is why we
+      // only show a boring "Show all tabs…" message.
+      moreTabs.textContent = browser.i18n.getMessage("allTabsLabel");
       moreTabs.setAttribute("hasMoreTabs", true);
     } else {
       moreTabs.removeAttribute("hasMoreTabs");

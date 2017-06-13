@@ -6,6 +6,7 @@ function TabCenter() {
 
 TabCenter.prototype = {
   async init() {
+    this.setupLabels();
     const data = await browser.windows.getCurrent();
     this.sideTabList = new SideTabList();
     this.sideTabList.populate(data.id);
@@ -29,6 +30,10 @@ TabCenter.prototype = {
         this.sideTabList.clearSearch();
       }
     });
+  },
+  setupLabels() {
+    document.getElementById("newtab-label").textContent =
+      browser.i18n.getMessage("newTabLabel");
   }
 };
 

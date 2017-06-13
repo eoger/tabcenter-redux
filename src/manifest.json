@@ -1,11 +1,12 @@
 {
-  "description": "Tab Center Redux",
+  "name": "__MSG_extensionName__",
+  "description": "__MSG_extensionDescription__",
   "homepage_url": "https://github.com/eoger/tabcenter-redux",
   "manifest_version": 2,
-  "name": "Tab Center Redux",
   "version": "0.1.1",
+  "default_locale": "en",
   "sidebar_action": {
-    "default_title": "Tabs",
+    "default_title": "__MSG_sidebarTitle__",
     "default_panel": "tabcenter.html",
     "default_icon": "icons/tabcenter.svg"
   },
