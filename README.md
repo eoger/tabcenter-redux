@@ -6,7 +6,7 @@ A lot of features from the [original addon](https://github.com/bwinton/TabCenter
 
 ## Help localize the project!
 The strings to translate can be found in [src/_locales](https://github.com/eoger/tabcenter-redux/tree/master/src/_locales).  
-If the project takes off, the localization work will be moved to a decicated platform like [Pontoon](https://pontoon.mozilla.org/).
+If the add-on takes off, the localization work will be moved to a dedicated platform like [Pontoon](https://pontoon.mozilla.org/).
 
 ## How can I contribute?
 
