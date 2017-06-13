@@ -4,6 +4,10 @@ Your favorite vertical tabbed browsing addon, now compatible with Firefox 57+.
   
 A lot of features from the [original addon](https://github.com/bwinton/TabCenter/) are not ported yet, feel free to contribute!
 
+## Help localize the project!
+The strings to translate can be found in [src/_locales](https://github.com/eoger/tabcenter-redux/tree/master/src/_locales).  
+If the project takes off, the localization work will be moved to a decicated platform like [Pontoon](https://pontoon.mozilla.org/).
+
 ## How can I contribute?
 
 You need to have a recent version of node.  
