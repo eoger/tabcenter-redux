@@ -58,6 +58,7 @@ SideTab.prototype = {
 
     const close = document.createElement("div");
     close.className = "tab-close clickable";
+    close.title = browser.i18n.getMessage("closeTabButtonTooltip");
 
     tab.appendChild(context);
     tab.appendChild(iconOverlay);
@@ -69,6 +70,7 @@ SideTab.prototype = {
   updateTitle(title) {
     this.title = title;
     this._titleView.innerText = title;
+    this.view.title = title;
   },
   updateURL(url) {
     const host = new URL(url).host || url;

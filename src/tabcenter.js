@@ -6,6 +6,7 @@ function TabCenter() {
 
 TabCenter.prototype = {
   async init() {
+    this._newTabButtonView = document.getElementById("newtab-label");
     this.setupLabels();
     const data = await browser.windows.getCurrent();
     this.sideTabList = new SideTabList();
@@ -22,7 +23,7 @@ TabCenter.prototype = {
         searboxInput.focus();
       }
     });
-    document.getElementById("newtab").addEventListener("click", () => {
+    this._newTabButtonView.addEventListener("click", () => {
       browser.tabs.create({});
     });
     window.addEventListener("keyup", (e) => {
@@ -32,8 +33,8 @@ TabCenter.prototype = {
     });
   },
   setupLabels() {
-    document.getElementById("newtab-label").textContent =
-      browser.i18n.getMessage("newTabLabel");
+    this._newTabButtonView.textContent = browser.i18n.getMessage("newTabBtnLabel");
+    this._newTabButtonView.title = browser.i18n.getMessage("newTabBtnTooltip");
   }
 };
 

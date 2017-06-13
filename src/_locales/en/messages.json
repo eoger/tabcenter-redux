@@ -12,9 +12,17 @@
     "description": "Label shown in the sidebar selector."
   },
 
-  "newTabLabel": {
+  "newTabBtnLabel": {
     "message": "New Tab",
     "description": "Label of the New Tab button in the top menu."
+  },
+
+  "newTabBtnTooltip": {
+    "message": "Open a new tab"
+  },
+
+  "closeTabButtonTooltip": {
+    "message": "Close tab"
   },
 
   "allTabsLabel": {
