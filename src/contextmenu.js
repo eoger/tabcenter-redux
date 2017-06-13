@@ -9,8 +9,8 @@ ContextMenu.prototype = {
   show() {
     this.rootNode = document.createElement("ul");
     this.rootNode.classList = "contextmenu";
-    this.rootNode.style.left = this.posX + "px";
-    this.rootNode.style.top = this.posY + "px";
+    this.rootNode.style.left = `${this.posX}px`;
+    this.rootNode.style.top = `${this.posY}px`;
     const fragment = document.createDocumentFragment();
     for (let { label, onCommandFn } of this.items) {
       let item;
@@ -33,6 +33,6 @@ ContextMenu.prototype = {
       this.rootNode.remove();
     }
   }
-}
+};
 
 module.exports = ContextMenu;

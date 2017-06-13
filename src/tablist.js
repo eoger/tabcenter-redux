@@ -40,7 +40,7 @@ SideTabList.prototype = {
       }
     });
     window.addEventListener("click", e => {
-      if(e.which == 1) {
+      if (e.which == 1) {
         this.hideContextMenu();
       }
     });
