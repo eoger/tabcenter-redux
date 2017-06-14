@@ -24,7 +24,7 @@ body {
     border-bottom: 1px solid hsla(0, 0%, 0%, 0.2);
 }
 
-#topmenu > * {
+#topmenu > .topmenu-item {
     height: 26px;
     margin: 0 4px;
 }
@@ -51,11 +51,111 @@ img, .tab *:not(.clickable) {
     text-overflow: ellipsis;
 }
 
+#newtab-menu {
+    display: flex;
+    position: absolute;
+    top: 31px;
+    left: 8px;
+    flex-direction: column;
+    background-color: #F2F2F2;
+    border: 1px solid #C9C9C9;
+    box-shadow: 1px 1px 1px #888888;
+}
+
+.newtab-menu-identity:hover {
+    background-color: #D5D5D5;
+}
+
+.newtab-menu-identity {
+    display: flex;
+    align-items: center;
+    padding: 7px 0 7px 22px;
+}
+
+.newtab-menu-identity-label {
+    pointer-events: none;
+    padding-left: 6px;
+    padding-right: 16px;
+}
+
+[data-identity-color="blue"] {
+  --identity-tab-color: #0996f8;
+  --identity-icon-color: #00a7e0;
+}
+
+[data-identity-color="turquoise"] {
+  --identity-tab-color: #01bdad;
+  --identity-icon-color: #01bdad;
+}
+
+[data-identity-color="green"] {
+  --identity-tab-color: #57bd35;
+  --identity-icon-color:  #7dc14c;
+}
+
+[data-identity-color="yellow"] {
+  --identity-tab-color: #ffcb00;
+  --identity-icon-color: #ffcb00;
+}
+
+[data-identity-color="orange"] {
+  --identity-tab-color: #ff9216;
+  --identity-icon-color: #ff9216;
+}
+
+[data-identity-color="red"] {
+  --identity-tab-color: #d92215;
+  --identity-icon-color: #d92215;
+}
+
+[data-identity-color="pink"] {
+  --identity-tab-color: #ea385e;
+  --identity-icon-color: #ee5195;
+}
+
+[data-identity-color="purple"] {
+  --identity-tab-color: #7a2f7a;
+  --identity-icon-color: #7a2f7a;
+}
+
+[data-identity-icon="fingerprint"] {
+  --identity-icon: url("img/usercontext-fingerprint.svg");
+}
+
+[data-identity-icon="briefcase"] {
+  --identity-icon: url("img/usercontext-briefcase.svg");
+}
+
+[data-identity-icon="dollar"] {
+  --identity-icon: url("img/usercontext-dollar.svg");
+}
+
+[data-identity-icon="cart"] {
+  --identity-icon: url("img/usercontext-cart.svg");
+}
+
+[data-identity-icon="circle"] {
+  --identity-icon: url("img/usercontext-circle.svg");
+}
+
+.newtab-menu-identity-icon {
+    pointer-events: none;
+    width: 16px;
+    height: 16px;
+    background-image: var(--identity-icon);
+    -moz-context-properties: fill;
+    fill: var(--identity-icon-color);
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-position: center center;
+}
+
 .topmenu-button {
     border: 1px solid transparent; /* When we show a border on hover it won't move */
     border-radius: 2.5px;
 }
 
+#newtab.menuopened,
 .topmenu-button:hover {
     border: 1px solid hsla(0, 0%, 0%, 0.16);
     background-color: hsla(0, 0%, 0%, 0.1);
@@ -119,10 +219,6 @@ img, .tab *:not(.clickable) {
     border-bottom: 1px solid hsla(0, 0%, 0%, 0.06);
 }
 
-.tab.hidden {
-    display: none;
-}
-
 .tab.active {
     background-color: hsla(0, 0%, 0%, 0.12);
 }
@@ -131,40 +227,8 @@ img, .tab *:not(.clickable) {
     background-color: hsla(0, 0%, 0%, 0.08);
 }
 
-.tab-context {
-    --highlight-color: #1aa1ff;
-}
-
-.tab-context[container-color="blue"] {
-  --highlight-color: #0996f8;
-}
-
-.tab-context[container-color="turquoise"] {
-  --highlight-color: #01bdad;
-}
-
-.tab-context[container-color="green"] {
-  --highlight-color: #57bd35;
-}
-
-.tab-context[container-color="yellow"] {
-  --highlight-color: #ffcb00;
-}
-
-.tab-context[container-color="orange"] {
-  --highlight-color: #ff9216;
-}
-
-.tab-context[container-color="red"] {
-  --highlight-color: #d92215;
-}
-
-.tab-context[container-color="pink"] {
-  --highlight-color: #ea385e;
-}
-
-.tab-context[container-color="purple"] {
-  --highlight-color: #7a2f7a;
+.tab-context:not(.hasContext) {
+    --identity-tab-color: #1aa1ff;
 }
 
 .tab-context {
@@ -172,7 +236,7 @@ img, .tab *:not(.clickable) {
     height: 100%;
     background-image:
         linear-gradient(to right, hsla(0, 0%, 0%, 0.25) 17%, hsla(0, 0%, 0%, 0.1) 17%, transparent 67%),
-        linear-gradient(to right, var(--highlight-color), var(--highlight-color));
+        linear-gradient(to right, var(--identity-tab-color), var(--identity-tab-color));
     background-position: 0 0;
     background-repeat: no-repeat;
     transition: background-position 150ms ease-out;
@@ -340,4 +404,8 @@ img, .tab *:not(.clickable) {
 
 #moretabs:hover {
     background-color: hsla(0, 0%, 0%, 0.1);
+}
+
+.hidden {
+    display: none !important;
 }

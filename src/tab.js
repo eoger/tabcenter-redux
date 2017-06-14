@@ -109,7 +109,7 @@ SideTab.prototype = {
       return;
     }
     this._contextView.classList.add("hasContext");
-    this._contextView.setAttribute("container-color", context.color);
+    this._contextView.setAttribute("data-identity-color", context.color);
   },
   updateThumbnail(thumbnail) {
     this._metaImageView.style.backgroundImage = `url(${thumbnail})`;

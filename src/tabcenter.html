@@ -6,16 +6,17 @@
   </head>
   <body>
     <div id="topmenu">
-      <div id="newtab" class="topmenu-button">
+      <div id="newtab" class="topmenu-button topmenu-item">
         <img id="newtab-icon" src="img/glyph-new-16.svg" />
         <span id="newtab-label"></span>
       </div>
-      <label id="searchbox">
+      <div id="newtab-menu" class="hidden"></div>
+      <label id="searchbox" class="topmenu-item">
         <img src="img/find.svg" id="searchbox-icon" />
         <input type="text" id="searchbox-input" size="1" />
       </label>
-      <div id="disable" class="topmenu-button"></div>
-      <div id="autoshrink" class="topmenu-button"></div>
+      <div id="disable" class="topmenu-button topmenu-item"></div>
+      <div id="autoshrink" class="topmenu-button topmenu-item"></div>
     </div>
     <div id="tablist-wrapper">
       <div id="tablist"></div>
