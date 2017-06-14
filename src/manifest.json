@@ -3,7 +3,7 @@
   "description": "__MSG_extensionDescription__",
   "homepage_url": "https://github.com/eoger/tabcenter-redux",
   "manifest_version": 2,
-  "version": "0.1.2",
+  "version": "0.2",
   "default_locale": "en",
   "sidebar_action": {
     "default_title": "__MSG_sidebarTitle__",
