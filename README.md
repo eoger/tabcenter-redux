@@ -1,8 +1,9 @@
 # TabCenter Redux
 
-Your favorite vertical tabbed browsing addon, now compatible with Firefox 57+.  
+Your favorite vertical tabbed browsing add-on, now compatible with Firefox 57+.  
+[Install the extension](https://addons.mozilla.org/firefox/addon/tab-center-redux/).
   
-A lot of features from the [original addon](https://github.com/bwinton/TabCenter/) are not ported yet, feel free to contribute!
+Some features from the [original add-on](https://github.com/bwinton/TabCenter/) are not ported yet, feel free to contribute!
 
 ## Help localize the project!
 The strings to translate can be found in [src/_locales](https://github.com/eoger/tabcenter-redux/tree/master/src/_locales).  
