@@ -53,5 +53,25 @@
   "contextMenuUnmuteTab": {
     "message": "Unmute Tab",
     "description": "Unmute Tab context menu item label."
+  },
+
+  "contextMenuCloseTab": {
+    "message": "Close Tab"
+  },
+
+  "contextMenuMoveTabToNewWindow": {
+    "message": "Move to New Window"
+  },
+
+  "contextMenuReloadAllTabs": {
+    "message": "Reload All Tabs"
+  },
+
+  "contextMenuCloseTabsUnderneath": {
+    "message": "Close Tabs Underneath"
+  },
+
+  "contextMenuCloseOtherTabs": {
+    "message": "Close Other Tabs"
   }
 }

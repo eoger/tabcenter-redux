@@ -145,6 +145,47 @@ SideTabList.prototype = {
         browser.tabs.update(tabId, {"pinned": !tab.pinned});
       }
     });
+    items.push({
+      label: browser.i18n.getMessage("contextMenuMoveTabToNewWindow"),
+      onCommandFn: () => {
+        browser.windows.create({ tabId });
+      }
+    });
+    items.push({
+      label: "separator"
+    });
+    items.push({
+      label: browser.i18n.getMessage("contextMenuReloadAllTabs"),
+      onCommandFn: () => {
+        for (let tab of this.tabs.values()) {
+          browser.tabs.reload(tab.id);
+        }
+      }
+    });
+    items.push({
+      label: browser.i18n.getMessage("contextMenuCloseTabsUnderneath"),
+      onCommandFn: () => {
+        const tabPos = this.getPos(tabId);
+        const orderedIds = [...this.getTabsViews()].map(el => parseInt(el.getAttribute("data-tab-id")));
+        browser.tabs.remove(orderedIds.slice(tabPos + 1));
+      }
+    });
+    items.push({
+      label: browser.i18n.getMessage("contextMenuCloseOtherTabs"),
+      onCommandFn: () => {
+        browser.tabs.remove([...this.tabs.values()] .map(tab => tab.id)
+                                                    .filter(id => id != tabId));
+      }
+    });
+    items.push({
+      label: "separator"
+    });
+    items.push({
+      label: browser.i18n.getMessage("contextMenuCloseTab"),
+      onCommandFn: () => {
+        browser.tabs.remove(tabId);
+      }
+    });
     return items;
   },
   onClick(e) {
