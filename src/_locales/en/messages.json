@@ -73,5 +73,13 @@
 
   "contextMenuCloseOtherTabs": {
     "message": "Close Other Tabs"
+  },
+
+  "optionsTitle": {
+    "message": "Settings"
+  },
+
+  "optionsAlwaysShrinkTabs": {
+    "message": "Always Shrink Tabs"
   }
 }

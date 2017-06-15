@@ -4,13 +4,22 @@ const ContextMenu = require("./contextmenu.js");
 function SideTabList() {
   this.tabs = new Map();
   this.active = null;
+  this.alwaysShrink = false;
   this._tabsShrinked = false;
   this.windowId = null;
   this.view = document.getElementById("tablist");
-  this.setupListeners();
 }
 
 SideTabList.prototype = {
+  async init() {
+    this.alwaysShrink = (await browser.storage.local.get({
+      alwaysShrink: false
+    })).alwaysShrink;
+    if (this.alwaysShrink) {
+      this.maybeShrinkTabs();
+    }
+    this.setupListeners();
+  },
   setupListeners() {
     this._spacerView = document.getElementById("spacer");
     const moreTabs = document.getElementById("moretabs");
@@ -52,6 +61,14 @@ SideTabList.prototype = {
     document.addEventListener("dragstart", e => this.onDragStart(e));
     document.addEventListener("dragover", e => this.onDragOver(e));
     document.addEventListener("drop", e => this.onDrop(e));
+
+    // Pref changes
+    browser.storage.onChanged.addListener(changes => {
+      if (changes.alwaysShrink) {
+        this.alwaysShrink = changes.alwaysShrink.newValue;
+        this.maybeShrinkTabs();
+      }
+    });
   },
   onBrowserTabMoved(tabId, moveInfo) {
     this.setPos(tabId, moveInfo.fromIndex < moveInfo.toIndex ?
@@ -338,6 +355,11 @@ SideTabList.prototype = {
     }
   },
   maybeShrinkTabs() {
+    if (this.alwaysShrink) {
+      this.tabsShrinked = true;
+      return;
+    }
+
     const spaceLeft = this._spacerView.offsetHeight;
     if (!this.tabsShrinked && spaceLeft == 0) {
       this.tabsShrinked = true;

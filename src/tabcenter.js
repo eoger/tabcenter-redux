@@ -3,7 +3,7 @@ const SideTabList = require("./tablist.js");
 const LONG_PRESS_DELAY = 500;
 
 function TabCenter() {
-  this.init();
+  this.sideTabList = new SideTabList();
 }
 
 TabCenter.prototype = {
@@ -11,9 +11,9 @@ TabCenter.prototype = {
     this._newTabButtonView = document.getElementById("newtab");
     this._newTabMenu = document.getElementById("newtab-menu");
     this.setupLabels();
+    await this.sideTabList.init();
     const data = await browser.windows.getCurrent();
-    this.sideTabList = new SideTabList();
-    this.sideTabList.populate(data.id);
+    await this.sideTabList.populate(data.id);
     this.setupListeners();
   },
   setupListeners() {
@@ -100,7 +100,10 @@ TabCenter.prototype = {
 };
 
 // Start-it up!
-new TabCenter();
+(async function() {
+  const tabCenter = new TabCenter();
+  await tabCenter.init();
+})();
 
 // TODO: Find a solution to show only our items in the tab context menu while
 // keeping a native look. Until then disable it. See bug 1367160
