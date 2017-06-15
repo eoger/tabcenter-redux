@@ -75,6 +75,10 @@
     "message": "Close Other Tabs"
   },
 
+  "settingsBtnTooltip": {
+    "message": "Open settings"
+  },
+
   "optionsTitle": {
     "message": "Settings"
   },

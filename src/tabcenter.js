@@ -11,6 +11,7 @@ TabCenter.prototype = {
     this._newTabButtonView = document.getElementById("newtab");
     this._newTabMenu = document.getElementById("newtab-menu");
     this._newTabLabelView = document.getElementById("newtab-label");
+    this._settingsView = document.getElementById("settings");
     this.setupLabels();
     await this.sideTabList.init();
     const data = await browser.windows.getCurrent();
@@ -20,10 +21,8 @@ TabCenter.prototype = {
   setupListeners() {
     const searchbox = document.getElementById("searchbox");
     const searboxInput = document.getElementById("searchbox-input");
-    document.getElementById("settings").addEventListener("click", () => {
-      browser.tabs.create({
-        url: browser.runtime.getURL("/options/options.html")
-      });
+    this._settingsView.addEventListener("click", () => {
+      browser.runtime.openOptionsPage();
     });
     searboxInput.addEventListener("keyup", (e) => {
       this.sideTabList.filter(e.target.value);
@@ -70,6 +69,7 @@ TabCenter.prototype = {
   setupLabels() {
     this._newTabLabelView.textContent = browser.i18n.getMessage("newTabBtnLabel");
     this._newTabLabelView.title = browser.i18n.getMessage("newTabBtnTooltip");
+    this._settingsView.title = browser.i18n.getMessage("settingsBtnTooltip");
   },
   async showNewTabMenu() {
     this._newTabMenuShown = true;
