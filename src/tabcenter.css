@@ -24,12 +24,8 @@ body {
     border-bottom: 1px solid hsla(0, 0%, 0%, 0.2);
 }
 
-#topmenu > .topmenu-item {
-    height: 26px;
-    margin: 0 4px;
-}
-
 #newtab {
+    margin: 0 4px;
     box-sizing: border-box;
     display: flex;
     flex: 0 20 auto;
@@ -49,6 +45,12 @@ img, .tab *:not(.clickable) {
     white-space: nowrap;
     overflow: hidden;
     text-overflow: ellipsis;
+}
+
+@media screen and (max-width: 190px) {
+    #newtab-label {
+        display: none;
+    }
 }
 
 #newtab-menu {
@@ -172,6 +174,7 @@ img, .tab *:not(.clickable) {
 
 #searchbox {
     display: flex;
+    margin: 0 4px;
     flex: 20 0 auto;
     min-width: 45px;
     border: 1px solid rgba(0, 0, 0, 0.16);
@@ -186,22 +189,14 @@ img, .tab *:not(.clickable) {
     border: 0;
 }
 
-#disable, #autoshrink {
+#settings {
     flex-shrink: 0;
     min-width: 18px;
-    padding: 0 16px;
+    padding: 0 12px;
     background-size: 16px 16px;
     background-repeat: no-repeat;
     background-position: center;
-}
-
-#disable {
-    background-image: url("img/tc-top.svg");
-    margin-right: 0px;
-}
-
-#autoshrink {
-    background-image: url("img/glyph-sidebar-collapse-16.svg");
+    background-image: url("img/settings.svg");
 }
 
 #tablist-wrapper {

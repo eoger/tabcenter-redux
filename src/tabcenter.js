@@ -18,6 +18,11 @@ TabCenter.prototype = {
   },
   setupListeners() {
     const searboxInput = document.getElementById("searchbox-input");
+    document.getElementById("settings").addEventListener("click", () => {
+      browser.tabs.create({
+        url: browser.runtime.getURL("/options/options.html")
+      });
+    });
     searboxInput.addEventListener("keyup", (e) => {
       this.sideTabList.filter(e.target.value);
     });
