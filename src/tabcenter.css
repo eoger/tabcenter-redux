@@ -55,6 +55,7 @@ img, .tab *:not(.clickable) {
 
 #newtab-menu {
     display: flex;
+    z-index: 1;
     position: absolute;
     top: 31px;
     left: 8px;
