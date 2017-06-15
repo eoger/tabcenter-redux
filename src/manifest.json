@@ -16,7 +16,6 @@
   "permissions": [
     "<all_urls>",
     "contextualIdentities",
-    "cookies",
     "storage",
     "tabs"
   ],
