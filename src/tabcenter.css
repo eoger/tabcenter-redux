@@ -179,6 +179,12 @@ img, .tab *:not(.clickable) {
     min-width: 45px;
     border: 1px solid rgba(0, 0, 0, 0.16);
     border-radius: 2.5px;
+    transition: border-color 0.1s, box-shadow 0.1s;
+}
+
+#searchbox.focused {
+    border: 1px solid hsla(210, 100%, 60%, 0.6);
+    box-shadow: 0 0 0 3px hsla(210, 100%, 60%, 0.45);
 }
 
 #searchbox-input {

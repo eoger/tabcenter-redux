@@ -10,6 +10,7 @@ TabCenter.prototype = {
   async init() {
     this._newTabButtonView = document.getElementById("newtab");
     this._newTabMenu = document.getElementById("newtab-menu");
+    this._newTabLabelView = document.getElementById("newtab-label");
     this.setupLabels();
     await this.sideTabList.init();
     const data = await browser.windows.getCurrent();
@@ -17,6 +18,7 @@ TabCenter.prototype = {
     this.setupListeners();
   },
   setupListeners() {
+    const searchbox = document.getElementById("searchbox");
     const searboxInput = document.getElementById("searchbox-input");
     document.getElementById("settings").addEventListener("click", () => {
       browser.tabs.create({
@@ -25,6 +27,14 @@ TabCenter.prototype = {
     });
     searboxInput.addEventListener("keyup", (e) => {
       this.sideTabList.filter(e.target.value);
+    });
+    searboxInput.addEventListener("focus", () => {
+      searchbox.classList.add("focused");
+      this._newTabLabelView.classList.add("hidden");
+    });
+    searboxInput.addEventListener("blur", () => {
+      searchbox.classList.remove("focused");
+      this._newTabLabelView.classList.remove("hidden");
     });
     browser.commands.onCommand.addListener((command) => {
       if (command == "focus-searchbox") {
@@ -58,9 +68,8 @@ TabCenter.prototype = {
     });
   },
   setupLabels() {
-    const newTabLabel = document.getElementById("newtab-label");
-    newTabLabel.textContent = browser.i18n.getMessage("newTabBtnLabel");
-    newTabLabel.title = browser.i18n.getMessage("newTabBtnTooltip");
+    this._newTabLabelView.textContent = browser.i18n.getMessage("newTabBtnLabel");
+    this._newTabLabelView.title = browser.i18n.getMessage("newTabBtnTooltip");
   },
   async showNewTabMenu() {
     this._newTabMenuShown = true;
