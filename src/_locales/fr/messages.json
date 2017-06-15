@@ -1,0 +1,89 @@
+{
+  "extensionName": {
+    "message": "Tab Center Redux"
+  },
+
+  "extensionDescription": {
+    "message": "Tab Center essaie de résoudre certains des problèmes suite à l'utilisation des onglets (principalement, le problème « j'ai trop d'onglets ») et propose une base d'interface utilisateur plus souple pour innover. Cette première version propose un arrangement vertical des onglets. Ce module est fortement inspiré et emprunte des idées à l'excellent module VerticalTabs."
+  },
+
+  "sidebarTitle": {
+    "message": "Onglets",
+    "description": "Label affiché dans le selecteur de barre latérale."
+  },
+
+  "newTabBtnLabel": {
+    "message": "Nouvel onglet",
+    "description": "Label du bouton Nouvel onglet du menu supérieur."
+  },
+
+  "newTabBtnTooltip": {
+    "message": "Ouvrir un nouvel onglet"
+  },
+
+  "closeTabButtonTooltip": {
+    "message": "Fermer l'onglet"
+  },
+
+  "allTabsLabel": {
+    "message": "Tous les onglets…",
+    "description": "Affiché au bas de la liste des onglets si certains sont masqués par une requête de recherche."
+  },
+
+  "contextMenuReloadTab": {
+    "message": "Actualiser l'onglet",
+    "description": "Label de l'élément Actualiser l'onglet du menu contextuel."
+  },
+
+  "contextMenuPinTab": {
+    "message": "Épingler cet onglet",
+    "description": "Label de l'élément Épingler cet onglet du menu contextuel."
+  },
+
+  "contextMenuUnpinTab": {
+    "message": "Relâcher l'onglet",
+    "description": "Label de l'élément Relâcher l'onglet du menu contextuel."
+  },
+
+  "contextMenuMuteTab": {
+    "message": "Rendre l'onglet muet",
+    "description": "Label de l'élément Rendre l'onglet muet du menu contextuel."
+  },
+
+  "contextMenuUnmuteTab": {
+    "message": "Réactiver le son de l'onglet",
+    "description": "Label de l'élément Réactiver le son de l'onglet du menu contextuel."
+  },
+
+  "contextMenuCloseTab": {
+    "message": "Fermer l'onglet"
+  },
+
+  "contextMenuMoveTabToNewWindow": {
+    "message": "Déplacer vers une nouvelle fenêtre"
+  },
+
+  "contextMenuReloadAllTabs": {
+    "message": "Actualiser tous les onglets"
+  },
+
+  "contextMenuCloseTabsUnderneath": {
+    "message": "Fermer les onglets en dessous"
+  },
+
+  "contextMenuCloseOtherTabs": {
+    "message": "Fermer les autres onglets"
+  },
+
+  "settingsBtnTooltip": {
+    "message": "Ouvrir les paramètres"
+  },
+
+  "optionsTitle": {
+    "message": "Paramètres"
+  },
+
+  "optionsAlwaysShrinkTabs": {
+    "message": "Toujours réduire les onglets"
+  }
+}
