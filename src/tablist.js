@@ -117,9 +117,13 @@ SideTabList.prototype = {
       return;
     }
 
-    if (e.which == 1 && e.target.classList.contains("tab")) {
+    if (e.target.classList.contains("tab")) {
       const tabId = this.getTabIdForEvent(e);
-      browser.tabs.update(tabId, {active: true});
+      if (e.which == 1) {
+        browser.tabs.update(tabId, {active: true});
+      } else if (e.which == 2) {
+        browser.tabs.remove(tabId);
+      }
     }
   },
   hideContextMenu() {
