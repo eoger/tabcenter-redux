@@ -79,6 +79,9 @@ SideTab.prototype = {
   },
   updateActive(active) {
     toggleClass(this.view, "active", active);
+    if (active) {
+      this.view.scrollIntoView({behavior: "smooth"});
+    }
   },
   updateVisibility(show) {
     this.visible = show;
