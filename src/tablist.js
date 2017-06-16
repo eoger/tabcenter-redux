@@ -186,21 +186,25 @@ SideTabList.prototype = {
         }
       }
     });
-    items.push({
-      label: browser.i18n.getMessage("contextMenuCloseTabsUnderneath"),
-      onCommandFn: () => {
-        const tabPos = this.getPos(tabId);
-        const orderedIds = [...this.getTabsViews()].map(el => parseInt(el.getAttribute("data-tab-id")));
-        browser.tabs.remove(orderedIds.slice(tabPos + 1));
-      }
-    });
-    items.push({
-      label: browser.i18n.getMessage("contextMenuCloseOtherTabs"),
-      onCommandFn: () => {
-        browser.tabs.remove([...this.tabs.values()] .map(tab => tab.id)
-                                                    .filter(id => id != tabId));
-      }
-    });
+    if (!tab.pinned) {
+      items.push({
+        label: browser.i18n.getMessage("contextMenuCloseTabsUnderneath"),
+        onCommandFn: () => {
+          const tabPos = this.getPos(tabId);
+          const orderedIds = [...this.getTabsViews()].map(el => parseInt(el.getAttribute("data-tab-id")));
+          browser.tabs.remove(orderedIds.slice(tabPos + 1));
+        }
+      });
+      items.push({
+        label: browser.i18n.getMessage("contextMenuCloseOtherTabs"),
+        onCommandFn: () => {
+          const toClose = [...this.tabs.values()]
+                          .filter(tab => tab.id != tabId && !tab.pinned)
+                          .map(tab => tab.id)
+          browser.tabs.remove(toClose);
+        }
+      });
+    }
     items.push({
       label: "separator"
     });
