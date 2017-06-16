@@ -4,7 +4,9 @@
   "scripts": {
     "lint": "eslint .",
     "build": "webpack",
-    "dev": "webpack --watch"
+    "watch": "webpack --watch",
+    "webext": "web-ext run -s src",
+    "dev": "npm-run-all --parallel watch webext"
   },
   "repository": {
     "type": "git",
@@ -17,7 +19,9 @@
   },
   "homepage": "https://github.com/eoger/tabcenter-redux#readme",
   "devDependencies": {
-    "eslint": "^3.19.0",
-    "webpack": "^2.6.1"
+    "eslint": "3.19.0",
+    "npm-run-all": "4.0.2",
+    "web-ext": "1.9.1",
+    "webpack": "2.6.1"
   }
 }
