@@ -522,6 +522,9 @@ SideTabList.prototype = {
     }
   },
   async updateCurrentTabThumbnail() {
+    if (this.alwaysShrink) {
+      return;
+    }
     // TODO: sadly we can only capture a thumbnail of the current tab. bug 1246693
     let currentTabId = this.active;
     let thumbnail = await browser.tabs.captureVisibleTab(this.windowId, {
