@@ -79,6 +79,17 @@ SideTab.prototype = {
   },
   updateActive(active) {
     toggleClass(this.view, "active", active);
+    if (active) {
+      let {top, bottom} = this.view.getBoundingClientRect();
+      const {top: parentTop, height} = this.view.parentNode.parentNode.getBoundingClientRect();
+      top -= parentTop;
+      bottom -= parentTop;
+      if (top < 0) {
+        this.view.scrollIntoView({block: "start", behavior: "smooth"});
+      } else if (bottom > height) {
+        this.view.scrollIntoView({block: "end", behavior: "smooth"});
+      }
+    }
   },
   updateVisibility(show) {
     this.visible = show;
