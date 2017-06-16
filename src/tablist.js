@@ -76,6 +76,9 @@ SideTabList.prototype = {
     );
   },
   onBrowserTabUpdated(tabId, changeInfo, tab) {
+    if (!this.checkWindow(tab)) {
+      return;
+    }
     if (changeInfo.hasOwnProperty("title")) {
       this.setTitle(tab);
     }
@@ -413,13 +416,14 @@ SideTabList.prototype = {
   },
   setActive(tabId) {
     let sidetab = this.getTabById(tabId);
-    if (sidetab) {
-      if (this.active) {
-        this.getTabById(this.active).updateActive(false);
-      }
-      sidetab.updateActive(true);
-      this.active = tabId;
+    if (!sidetab) { // It's probably in another window
+      return;
     }
+    if (this.active) {
+      this.getTabById(this.active).updateActive(false);
+    }
+    sidetab.updateActive(true);
+    this.active = tabId;
     this.updateCurrentTabThumbnail();
   },
   updateThumbnail(tabId, thumbnail) {
@@ -441,14 +445,15 @@ SideTabList.prototype = {
     }
   },
   remove(tabId) {
-    let sidetab = this.getTabById(tabId);
     if (this.active == tabId) {
       this.active = null;
     }
-    if (sidetab) {
-      sidetab.view.remove();
-      this.tabs.delete(tabId);
+    let sidetab = this.getTabById(tabId);
+    if (!sidetab) {
+      return;
     }
+    sidetab.view.remove();
+    this.tabs.delete(tabId);
     this.maybeShrinkTabs();
   },
   getTabsViews() {
@@ -519,7 +524,7 @@ SideTabList.prototype = {
   async updateCurrentTabThumbnail() {
     // TODO: sadly we can only capture a thumbnail of the current tab. bug 1246693
     let currentTabId = this.active;
-    let thumbnail = await browser.tabs.captureVisibleTab(null, {
+    let thumbnail = await browser.tabs.captureVisibleTab(this.windowId, {
       format: "png"
     });
     this.updateThumbnail(currentTabId, thumbnail);
