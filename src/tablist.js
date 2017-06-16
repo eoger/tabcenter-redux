@@ -200,7 +200,7 @@ SideTabList.prototype = {
         onCommandFn: () => {
           const toClose = [...this.tabs.values()]
                           .filter(tab => tab.id != tabId && !tab.pinned)
-                          .map(tab => tab.id)
+                          .map(tab => tab.id);
           browser.tabs.remove(toClose);
         }
       });

@@ -29,3 +29,13 @@ ul.contextmenu {
   background-color: #3E93F9;
   color: white;
 }
+
+/* DARK THEME CUSTOMIZATIONS */
+body.dark-theme ul.contextmenu {
+  border: solid 1px #555;
+  background-color: #3D414A;
+}
+
+body.dark-theme .contextmenu > hr {
+  background-color: #888;
+}

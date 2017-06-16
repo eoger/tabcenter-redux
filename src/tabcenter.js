@@ -17,6 +17,10 @@ TabCenter.prototype = {
     const data = await browser.windows.getCurrent();
     await this.sideTabList.populate(data.id);
     this.setupListeners();
+    const darkTheme = (await browser.storage.local.get({
+      darkTheme: false
+    })).darkTheme;
+    this.toggleTheme(darkTheme);
   },
   setupListeners() {
     const searchbox = document.getElementById("searchbox");
@@ -65,11 +69,23 @@ TabCenter.prototype = {
         this.hideNewTabMenu();
       }
     });
+    browser.storage.onChanged.addListener(changes => {
+      if (changes.darkTheme) {
+        this.toggleTheme(changes.darkTheme.newValue);
+      }
+    });
   },
   setupLabels() {
     this._newTabLabelView.textContent = browser.i18n.getMessage("newTabBtnLabel");
     this._newTabLabelView.title = browser.i18n.getMessage("newTabBtnTooltip");
     this._settingsView.title = browser.i18n.getMessage("settingsBtnTooltip");
+  },
+  toggleTheme(darkTheme) {
+    if (darkTheme) {
+      document.body.classList.add("dark-theme");
+    } else {
+      document.body.classList.remove("dark-theme");
+    }
   },
   async showNewTabMenu() {
     this._newTabMenuShown = true;

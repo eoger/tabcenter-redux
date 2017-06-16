@@ -411,3 +411,57 @@ img, .tab *:not(.clickable) {
 .hidden {
     display: none !important;
 }
+
+/* DARK THEME CUSTOMIZATIONS */
+body.dark-theme {
+    background-color: rgb(39, 43, 53);
+    color: rgb(245, 247, 250);
+}
+
+body.dark-theme #newtab {
+    text-shadow: 0 1px rgba(0, 0, 0, .4);
+}
+
+body.dark-theme #newtab.menuopened,
+body.dark-theme .topmenu-button:hover {
+    background-color: rgba(255, 255, 255, 0.1);
+}
+
+body.dark-theme .topmenu-button:active {
+    background-color: rgba(255, 255, 255, 0.2);
+}
+
+body.dark-theme #newtab-menu {
+    background-color: #3D414A;
+}
+
+body.dark-theme .newtab-menu-identity:hover {
+    background-color: rgb(86, 117, 185);
+}
+
+body.dark-theme #searchbox {
+    border: 1px solid rgb(29, 35, 40);
+}
+
+body.dark-theme #searchbox-icon,
+body.dark-theme #searchbox-input {
+    background-color: rgb(23, 27, 31);
+    color: rgb(245, 247, 250);
+}
+
+body.dark-theme .tab-host {
+    color: #85846D;
+}
+
+body.dark-theme .tab.active .tab-host {
+    color: #eaeaea;
+}
+
+body.dark-theme .tab.active {
+    background-color: rgb(86, 117, 185);
+}
+
+body.dark-theme .tab-icon-overlay {
+    background-color: #333;
+}
+

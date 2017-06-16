@@ -20,7 +20,7 @@ h1 {
   grid-template-columns: 260px auto;
 }
 
-#alwaysShrink {
+input[type="checkbox"] {
   display: block;
   height: 33px;
   width: 33px;
