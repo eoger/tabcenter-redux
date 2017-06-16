@@ -118,6 +118,10 @@ SideTabList.prototype = {
       const tabId = this.getTabIdForEvent(e);
       browser.tabs.update(tabId, {active: true});
     }
+    else if (e.which == 2 && e.target.classList.contains("tab") || e.target.classList == "tab-close clickable") {
+      const tabId = this.getTabIdForEvent(e);
+      browser.tabs.remove(tabId);
+    }
   },
   hideContextMenu() {
     if (this.contextMenu) {
