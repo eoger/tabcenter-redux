@@ -53,6 +53,9 @@ SideTabList.prototype = {
         this.hideContextMenu();
       }
     });
+    window.addEventListener("blur", () => {
+      this.hideContextMenu();
+    });
 
     this._spacerView.addEventListener("dblclick", () => this.onSpacerDblClick());
     moreTabs.addEventListener("click", () => this.clearSearch());
