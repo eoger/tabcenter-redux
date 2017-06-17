@@ -22,10 +22,10 @@ SideTabList.prototype = {
   },
   setupListeners() {
     this._spacerView = document.getElementById("spacer");
-    const moreTabs = document.getElementById("moretabs");
+    this._moreTabsView = document.getElementById("moretabs");
 
     // Tab events
-    browser.tabs.onActivated.addListener(({tabId}) => this.setActive(tabId));
+    browser.tabs.onActivated.addListener(({tabId}) => this.onBrowserTabActivated(tabId));
     browser.tabs.onCreated.addListener(tab => this.create(tab));
     browser.tabs.onUpdated.addListener((tabId, changeInfo, tab) =>
                                        this.onBrowserTabUpdated(tabId, changeInfo, tab));
@@ -33,7 +33,7 @@ SideTabList.prototype = {
     browser.tabs.onMoved.addListener((tabId, moveInfo) => this.onBrowserTabMoved(tabId, moveInfo));
     browser.tabs.onAttached.addListener(async tabId => {
       let tab = await browser.tabs.get(tabId);
-      this.create(tab);
+      await this.create(tab);
     });
     browser.tabs.onDetached.addListener(tabId => this.remove(tabId));
 
@@ -58,7 +58,7 @@ SideTabList.prototype = {
     });
 
     this._spacerView.addEventListener("dblclick", () => this.onSpacerDblClick());
-    moreTabs.addEventListener("click", () => this.clearSearch());
+    this._moreTabsView.addEventListener("click", () => this.clearSearch());
 
     // Drag-and-drop
     document.addEventListener("dragstart", e => this.onDragStart(e));
@@ -73,6 +73,11 @@ SideTabList.prototype = {
       }
     });
   },
+  onBrowserTabActivated(tabId) {
+    this.setActive(tabId);
+    this.updateTabThumbnail(tabId);
+    this.scrollToActiveTab();
+  },
   onBrowserTabMoved(tabId, moveInfo) {
     this.setPos(tabId, moveInfo.fromIndex < moveInfo.toIndex ?
                        moveInfo.toIndex + 1: moveInfo.toIndex
@@ -86,9 +91,7 @@ SideTabList.prototype = {
       this.setTitle(tab);
     }
     if (changeInfo.hasOwnProperty("url")) {
-      // TODO: if the tab updating is not the active one, this will have
-      // the effect of updating the active tab thumbnail, but whatever.
-      this.updateCurrentTabThumbnail();
+      this.updateTabThumbnail(tabId);
       this.setURL(tab);
     }
     if (changeInfo.hasOwnProperty("mutedInfo")) {
@@ -98,21 +101,16 @@ SideTabList.prototype = {
       this.setAudible(tab);
     }
     if (changeInfo.status === "loading") {
-      this.updateCurrentTabThumbnail();
+      this.updateTabThumbnail(tabId);
       this.setSpinner(tab);
     }
     if (changeInfo.status === "complete") {
-      this.updateCurrentTabThumbnail();
+      this.updateTabThumbnail(tabId);
       this.setIcon(tab);
     }
     if (changeInfo.hasOwnProperty("pinned")) {
       this.setPinned(tab);
     }
-  },
-  getTabIdForEvent(e) {
-    let el = e.target;
-    while (!el.getAttribute("data-tab-id") && (el = el.parentElement));
-    return parseInt(el.getAttribute("data-tab-id"));
   },
   onMouseDown(e) {
     // Don't put preventDefault here or drag-and-drop won't work
@@ -120,8 +118,8 @@ SideTabList.prototype = {
       return;
     }
 
-    if (e.target.classList.contains("tab")) {
-      const tabId = this.getTabIdForEvent(e);
+    if (SideTab.isTabEvent(e)) {
+      const tabId = SideTab.tabIdForEvent(e);
       if (e.which == 1) {
         browser.tabs.update(tabId, {active: true});
       } else if (e.which == 2) {
@@ -138,10 +136,10 @@ SideTabList.prototype = {
   onContextMenu(e) {
     this.hideContextMenu();
     e.preventDefault();
-    if (!e.target || !e.target.classList.contains("tab")) {
+    if (!e.target || !SideTab.isTabEvent(e)) {
       return;
     }
-    const tabId = this.getTabIdForEvent(e);
+    const tabId = SideTab.tabIdForEvent(e);
     const items = this.createContextMenuItems(tabId);
     this.contextMenu = new ContextMenu(e.clientX, e.clientY, items);
     this.contextMenu.show();
@@ -194,7 +192,7 @@ SideTabList.prototype = {
         label: browser.i18n.getMessage("contextMenuCloseTabsUnderneath"),
         onCommandFn: () => {
           const tabPos = this.getPos(tabId);
-          const orderedIds = [...this.getTabsViews()].map(el => parseInt(el.getAttribute("data-tab-id")));
+          const orderedIds = [...SideTab.getAllTabsViews()].map(el => parseInt(SideTab.tabIdForView(el)));
           browser.tabs.remove(orderedIds.slice(tabPos + 1));
         }
       });
@@ -224,23 +222,21 @@ SideTabList.prototype = {
       return;
     }
 
-    // TODO: Not a big fan of className-testing here here,
-    //       which exposes the internal implementation of a tab.
-    if (e.target.classList.contains("tab-close")) {
-      const tabId = this.getTabIdForEvent(e);
+    if (SideTab.isCloseButtonEvent(e)) {
+      const tabId = SideTab.tabIdForEvent(e);
       browser.tabs.remove(tabId);
-    } else if (e.target.classList.contains("tab-icon-overlay")) {
-      const tabId = this.getTabIdForEvent(e);
+    } else if (SideTab.isIconOverlayEvent(e)) {
+      const tabId = SideTab.tabIdForEvent(e);
       const tab = this.getTabById(tabId);
       browser.tabs.update(tabId, {"muted": !tab.muted});
     }
   },
   onDragStart(e) {
-    if (!e.target || !e.target.classList.contains("tab")) {
+    if (!e.target || !SideTab.isTabEvent(e)) {
       return;
     }
     e.dataTransfer.setData("text/x-tabcenter-tab", JSON.stringify({
-      tabId: parseInt(e.target.getAttribute("data-tab-id")),
+      tabId: parseInt(SideTab.tabIdForEvent(e)),
       origWindowId: this.windowId
     }));
     e.dataTransfer.dropEffect = "move";
@@ -249,9 +245,9 @@ SideTabList.prototype = {
     e.preventDefault();
   },
   onDrop(e) {
-    if (!e.target || (!e.target.classList.contains("tab") &&
-                      e.target.id != "spacer" &&
-                      e.target.id != "moretabs")) {
+    if (!e.target || (!SideTab.isTabEvent(e) &&
+                      e.target != this._spacerView &&
+                      e.target != this._moreTabsView)) {
       return;
     }
     e.preventDefault();
@@ -279,12 +275,12 @@ SideTabList.prototype = {
 
     let curTab = this.getTabById(tabId);
 
-    if (e.target.id == "spacer" || e.target.id == "moretabs") {
+    if (e.target == this._spacerView || e.target == this._moreTabsView) {
       this.moveTabToBottom(curTab);
       return;
     }
 
-    let dropTabId = this.getTabIdForEvent(e);
+    let dropTabId = SideTab.tabIdForEvent(e);
 
     if (tabId == dropTabId) {
       return;
@@ -340,14 +336,13 @@ SideTabList.prototype = {
       notShown += !show ? 1 : 0;
       tab.updateVisibility(show);
     }
-    let moreTabs = document.getElementById("moretabs");
     if (notShown > 0) {
       // Sadly browser.i18n doesn't support plurals, which is why we
       // only show a boring "Show all tabs…" message.
-      moreTabs.textContent = browser.i18n.getMessage("allTabsLabel");
-      moreTabs.setAttribute("hasMoreTabs", true);
+      this._moreTabsView.textContent = browser.i18n.getMessage("allTabsLabel");
+      this._moreTabsView.setAttribute("hasMoreTabs", true);
     } else {
-      moreTabs.removeAttribute("hasMoreTabs");
+      this._moreTabsView.removeAttribute("hasMoreTabs");
     }
     this.maybeShrinkTabs();
   },
@@ -355,10 +350,18 @@ SideTabList.prototype = {
     if (windowId && this.windowId === null) {
       this.windowId = windowId;
     }
-    const tabs = await browser.tabs.query({currentWindow: true});
+    const tabs = await browser.tabs.query({windowId});
+    // Sort the tabs by index so we can insert them in sequence.
+    tabs.sort((a, b) => a.index - b.index);
+    const fragment = document.createDocumentFragment();
     for (let tab of tabs) {
-      this.create(tab);
+      const sidetab = await this._create(tab);
+      fragment.appendChild(sidetab.view);
     }
+    this.view.appendChild(fragment);
+    this.maybeShrinkTabs();
+    this.updateTabThumbnail(this.active);
+    this.scrollToActiveTab();
   },
   checkWindow(tab) {
     return (tab.windowId == this.windowId);
@@ -407,38 +410,28 @@ SideTabList.prototype = {
       }
     }
   },
-  create(tab) {
-    if (!this.checkWindow(tab)) {
+  async _create(tabInfo) {
+    let tab = new SideTab();
+    this.tabs.set(tabInfo.id, tab);
+    await tab.create(tabInfo);
+    if (tabInfo.active) {
+      this.setActive(tab.id);
+    }
+    return tab;
+  },
+  async create(tabInfo) {
+    if (!this.checkWindow(tabInfo)) {
       return;
     }
     this.clearSearch();
 
-    // TODO: Merge constructor and create() maybe?
-    let sidetab = new SideTab();
-    sidetab.create(tab);
-    this.view.appendChild(sidetab.view);
-    this.tabs.set(tab.id, sidetab);
+    await this._create(tabInfo);
+    this.setPos(tabInfo.id, tabInfo.index);
 
-    // TODO: the stuff bellow seems rather ineficient and will cause reflows.
-    // We should be setting the right state directly in create()
-    this.setPos(tab.id, tab.index);
-    if (tab.active) {
-      this.setActive(tab.id);
-    }
-    this.setTitle(tab);
-    this.setURL(tab);
-    this.setMuted(tab);
-    this.setAudible(tab);
-    this.setIcon(tab);
-    this.setPinned(tab);
-    if (tab.cookieStoreId) {
-      browser.contextualIdentities.get(tab.cookieStoreId).then((context) => {
-        this.setContext(tab, context);
-      });
-    }
-    // TODO: This probably means that for a tab-bulk insert (like in _populate),
-    // This will be called multiple times for nothing and cause reflows.
     this.maybeShrinkTabs();
+    if (tabInfo.active) {
+      this.scrollToActiveTab();
+    }
   },
   setActive(tabId) {
     let sidetab = this.getTabById(tabId);
@@ -450,12 +443,20 @@ SideTabList.prototype = {
     }
     sidetab.updateActive(true);
     this.active = tabId;
-    this.updateCurrentTabThumbnail();
   },
   updateThumbnail(tabId, thumbnail) {
     let sidetab = this.getTabById(tabId);
     if (sidetab) {
       sidetab.updateThumbnail(thumbnail);
+    }
+  },
+  scrollToActiveTab() {
+    if (!this.active) {
+      return;
+    }
+    const sidetab = this.getTabById(this.active);
+    if (sidetab) {
+      sidetab.scrollIntoView();
     }
   },
   setTitle(tab) {
@@ -482,15 +483,12 @@ SideTabList.prototype = {
     this.tabs.delete(tabId);
     this.maybeShrinkTabs();
   },
-  getTabsViews() {
-    return this.view.getElementsByClassName("tab");
-  },
   getPos(tabId) {
     let sidetab = this.getTabById(tabId);
     if (!sidetab) {
       return;
     }
-    let orderedIds = [...this.getTabsViews()].map(el => parseInt(el.getAttribute("data-tab-id")));
+    let orderedIds = [...SideTab.getAllTabsViews()].map(el => parseInt(SideTab.tabIdForView(el)));
     return orderedIds.indexOf(sidetab.id);
   },
   setPos(tabId, pos) {
@@ -500,7 +498,7 @@ SideTabList.prototype = {
       return;
     }
     let element = sidetab.view;
-    let elements = this.getTabsViews();
+    let elements = SideTab.getAllTabsViews();
     if (!elements[pos]) {
       this.view.insertBefore(element, elements[pos-1].nextSibling);
     } else {
@@ -522,11 +520,7 @@ SideTabList.prototype = {
   setIcon(tab) {
     let sidetab = this.getTab(tab);
     if (sidetab) {
-      if (tab.favIconUrl) {
-        sidetab.setIcon(tab.favIconUrl);
-      } else {
-        sidetab.resetIcon();
-      }
+      sidetab.updateIcon(tab.favIconUrl);
     }
   },
   setSpinner(tab) {
@@ -547,16 +541,18 @@ SideTabList.prototype = {
       sidetab.updateContext(context);
     }
   },
-  async updateCurrentTabThumbnail() {
+  async updateTabThumbnail(tabId) {
     if (this.alwaysShrink) {
       return;
     }
     // TODO: sadly we can only capture a thumbnail of the current tab. bug 1246693
-    let currentTabId = this.active;
+    if (this.active != tabId) {
+      return;
+    }
     let thumbnail = await browser.tabs.captureVisibleTab(this.windowId, {
       format: "png"
     });
-    this.updateThumbnail(currentTabId, thumbnail);
+    this.updateThumbnail(tabId, thumbnail);
   }
 };
 

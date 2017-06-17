@@ -8,6 +8,11 @@ function TabCenter() {
 
 TabCenter.prototype = {
   async init() {
+    const darkTheme = (await browser.storage.local.get({
+      darkTheme: false
+    })).darkTheme;
+    this.toggleTheme(darkTheme);
+
     this._newTabButtonView = document.getElementById("newtab");
     this._newTabMenu = document.getElementById("newtab-menu");
     this._newTabLabelView = document.getElementById("newtab-label");
@@ -17,10 +22,6 @@ TabCenter.prototype = {
     const data = await browser.windows.getCurrent();
     await this.sideTabList.populate(data.id);
     this.setupListeners();
-    const darkTheme = (await browser.storage.local.get({
-      darkTheme: false
-    })).darkTheme;
-    this.toggleTheme(darkTheme);
   },
   setupListeners() {
     const searchbox = document.getElementById("searchbox");

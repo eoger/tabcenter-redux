@@ -1,7 +1,3 @@
-function toggleClass(node, className, boolean) {
-  boolean ? node.classList.add(className) : node.classList.remove(className);
-}
-
 function SideTab() {
   this.id = null;
   this.url = null;
@@ -12,12 +8,26 @@ function SideTab() {
 }
 
 SideTab.prototype = {
-  create(tabInfo) {
+  async create(tabInfo) {
     this.id = tabInfo.id;
+    this.buildViewStructure();
 
+    this.view.id = `tab-${this.id}`;
+    this.view.setAttribute("data-tab-id", this.id);
+
+    this.updateTitle(tabInfo.title);
+    this.updateURL(tabInfo.url);
+    this.updateAudible(tabInfo.audible);
+    this.updatedMuted(tabInfo.mutedInfo.muted);
+    this.updateIcon(tabInfo.favIconUrl);
+    this.updatePinned(tabInfo.pinned);
+    if (tabInfo.cookieStoreId) {
+      const context = await browser.contextualIdentities.get(tabInfo.cookieStoreId);
+      this.updateContext(context);
+    }
+  },
+  buildViewStructure() {
     const tab = document.createElement("div");
-    tab.id = `tab-${this.id}`;
-    tab.setAttribute("data-tab-id", this.id);
     tab.className = "tab";
     tab.draggable = true;
     this.view = tab;
@@ -79,16 +89,16 @@ SideTab.prototype = {
   },
   updateActive(active) {
     toggleClass(this.view, "active", active);
-    if (active) {
-      let {top, bottom} = this.view.getBoundingClientRect();
-      const {top: parentTop, height} = this.view.parentNode.parentNode.getBoundingClientRect();
-      top -= parentTop;
-      bottom -= parentTop;
-      if (top < 0) {
-        this.view.scrollIntoView({block: "start", behavior: "smooth"});
-      } else if (bottom > height) {
-        this.view.scrollIntoView({block: "end", behavior: "smooth"});
-      }
+  },
+  scrollIntoView() {
+    const {top: parentTop, height} = this.view.parentNode.parentNode.getBoundingClientRect();
+    let {top, bottom} = this.view.getBoundingClientRect();
+    top -= parentTop;
+    bottom -= parentTop;
+    if (top < 0) {
+      this.view.scrollIntoView({block: "start", behavior: "smooth"});
+    } else if (bottom > height) {
+      this.view.scrollIntoView({block: "end", behavior: "smooth"});
     }
   },
   updateVisibility(show) {
@@ -102,14 +112,21 @@ SideTab.prototype = {
     this.muted = muted;
     toggleClass(this._iconOverlayView, "muted", muted);
   },
-  setIcon(url) {
+  updateIcon(favIconUrl) {
+    if (favIconUrl) {
+      this._setIcon(favIconUrl);
+    } else {
+      this._resetIcon();
+    }
+  },
+  _setIcon(url) {
     this._iconView.src = url;
   },
-  setSpinner() {
-    this.setIcon("img/loading-spinner.svg");
+  _resetIcon() {
+    this._setIcon("img/defaultFavicon.svg");
   },
-  resetIcon() {
-    this.setIcon("img/defaultFavicon.svg");
+  setSpinner() {
+    this._setIcon("img/loading-spinner.svg");
   },
   updatePinned(pinned) {
     this.pinned = pinned;
@@ -127,5 +144,34 @@ SideTab.prototype = {
     this._metaImageView.classList.add("has-thumbnail");
   }
 };
+
+// Static methods
+Object.assign(SideTab, {
+  // This will return false for example when e.target is the close button.
+  isTabEvent(e) {
+    return e.target && e.target.classList.contains("tab");
+  },
+  isCloseButtonEvent(e) {
+    return e.target && e.target.classList.contains("tab-close");
+  },
+  isIconOverlayEvent(e) {
+    return e.target && e.target.classList.contains("tab-icon-overlay");
+  },
+  tabIdForView(el) {
+    return el.getAttribute("data-tab-id");
+  },
+  tabIdForEvent(e) {
+    let el = e.target;
+    while (!SideTab.tabIdForView(el) && (el = el.parentElement));
+    return parseInt(SideTab.tabIdForView(el));
+  },
+  getAllTabsViews() {
+    return document.getElementsByClassName("tab");
+  }
+});
+
+function toggleClass(node, className, boolean) {
+  boolean ? node.classList.add(className) : node.classList.remove(className);
+}
 
 module.exports = SideTab;

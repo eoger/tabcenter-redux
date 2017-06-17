@@ -1,4 +1,4 @@
-// Make sure the menu doesn't stick the the sides of the sidebar
+// Make sure the menu doesn't stick to the sides of the sidebar
 const OVERFLOW_MENU_MARGIN = 6;
 
 function ContextMenu(clickPosX, clickPosY, items) {
