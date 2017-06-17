@@ -147,9 +147,25 @@ SideTab.prototype = {
 
 // Static methods
 Object.assign(SideTab, {
-  // This will return false for example when e.target is the close button.
-  isTabEvent(e) {
-    return e.target && e.target.classList.contains("tab");
+  // If strict is true, this will return false for subviews (e.g the close button).
+  isTabEvent(e, strict = true) {
+    let el = e.target;
+    if (!el) {
+      return false;
+    }
+    const isTabNode = (node) => node && node.classList.contains("tab");
+    if (isTabNode(el)) {
+      return true;
+    }
+    if (strict) {
+      return false;
+    }
+    while ((el = el.parentElement)) {
+      if (isTabNode(el)) {
+        return true;
+      }
+    }
+    return false;
   },
   isCloseButtonEvent(e) {
     return e.target && e.target.classList.contains("tab-close");
@@ -158,6 +174,9 @@ Object.assign(SideTab, {
     return e.target && e.target.classList.contains("tab-icon-overlay");
   },
   tabIdForView(el) {
+    if (!el) {
+      return null;
+    }
     return el.getAttribute("data-tab-id");
   },
   tabIdForEvent(e) {

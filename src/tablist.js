@@ -118,13 +118,13 @@ SideTabList.prototype = {
       return;
     }
 
-    if (SideTab.isTabEvent(e)) {
-      const tabId = SideTab.tabIdForEvent(e);
-      if (e.which == 1) {
-        browser.tabs.update(tabId, {active: true});
-      } else if (e.which == 2) {
-        browser.tabs.remove(tabId);
-      }
+    if (e.which == 1 && SideTab.isTabEvent(e)) {
+      browser.tabs.update(SideTab.tabIdForEvent(e), {active: true});
+      return;
+    }
+    if (e.which == 2 && SideTab.isTabEvent(e, false)) {
+      browser.tabs.remove(SideTab.tabIdForEvent(e));
+      return;
     }
   },
   hideContextMenu() {
@@ -136,7 +136,7 @@ SideTabList.prototype = {
   onContextMenu(e) {
     this.hideContextMenu();
     e.preventDefault();
-    if (!e.target || !SideTab.isTabEvent(e)) {
+    if (!e.target || !SideTab.isTabEvent(e, false)) {
       return;
     }
     const tabId = SideTab.tabIdForEvent(e);
@@ -245,7 +245,7 @@ SideTabList.prototype = {
     e.preventDefault();
   },
   onDrop(e) {
-    if (!e.target || (!SideTab.isTabEvent(e) &&
+    if (!e.target || (!SideTab.isTabEvent(e, false) &&
                       e.target != this._spacerView &&
                       e.target != this._moreTabsView)) {
       return;
