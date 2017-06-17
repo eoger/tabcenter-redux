@@ -239,7 +239,7 @@ SideTabList.prototype = {
     if (!e.target || !e.target.classList.contains("tab")) {
       return;
     }
-    e.dataTransfer.setData("text/plain", JSON.stringify({
+    e.dataTransfer.setData("text/x-tabcenter-tab", JSON.stringify({
       tabId: parseInt(e.target.getAttribute("data-tab-id")),
       origWindowId: this.windowId
     }));
@@ -255,7 +255,22 @@ SideTabList.prototype = {
       return;
     }
     e.preventDefault();
-    let { tabId, origWindowId } = JSON.parse(e.dataTransfer.getData("text"));
+
+    const dt = e.dataTransfer;
+    const linkURL = dt.getData("text/x-moz-url-data"); // dragged link
+    if (linkURL) {
+      browser.tabs.create({
+        url: linkURL,
+        windowId: this.windowId
+      });
+      return;
+    }
+    const tabStr = dt.getData("text/x-tabcenter-tab");
+    if (!tabStr) {
+      console.warn("Unknown drag-and-drop operation. Aborting.");
+      return;
+    }
+    let { tabId, origWindowId } = JSON.parse(tabStr);
     let currentWindowId = this.windowId;
     if (currentWindowId != origWindowId) {
       browser.tabs.move(tabId, { windowId: currentWindowId, index: -1 });
