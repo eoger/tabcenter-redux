@@ -33,7 +33,7 @@ SideTabList.prototype = {
     browser.tabs.onMoved.addListener((tabId, moveInfo) => this.onBrowserTabMoved(tabId, moveInfo));
     browser.tabs.onAttached.addListener(async tabId => {
       let tab = await browser.tabs.get(tabId);
-      await this.create(tab);
+      this.create(tab);
     });
     browser.tabs.onDetached.addListener(tabId => this.remove(tabId));
 
@@ -355,7 +355,7 @@ SideTabList.prototype = {
     tabs.sort((a, b) => a.index - b.index);
     const fragment = document.createDocumentFragment();
     for (let tab of tabs) {
-      const sidetab = await this._create(tab);
+      const sidetab = this._create(tab);
       fragment.appendChild(sidetab.view);
     }
     this.view.appendChild(fragment);
@@ -410,22 +410,22 @@ SideTabList.prototype = {
       }
     }
   },
-  async _create(tabInfo) {
+  _create(tabInfo) {
     let tab = new SideTab();
     this.tabs.set(tabInfo.id, tab);
-    await tab.create(tabInfo);
+    tab.create(tabInfo);
     if (tabInfo.active) {
       this.setActive(tab.id);
     }
     return tab;
   },
-  async create(tabInfo) {
+  create(tabInfo) {
     if (!this.checkWindow(tabInfo)) {
       return;
     }
     this.clearSearch();
 
-    await this._create(tabInfo);
+    this._create(tabInfo);
     this.setPos(tabInfo.id, tabInfo.index);
 
     this.maybeShrinkTabs();

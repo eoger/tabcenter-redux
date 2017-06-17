@@ -8,7 +8,7 @@ function SideTab() {
 }
 
 SideTab.prototype = {
-  async create(tabInfo) {
+  create(tabInfo) {
     this.id = tabInfo.id;
     this.buildViewStructure();
 
@@ -22,8 +22,12 @@ SideTab.prototype = {
     this.updateIcon(tabInfo.favIconUrl);
     this.updatePinned(tabInfo.pinned);
     if (tabInfo.cookieStoreId) {
-      const context = await browser.contextualIdentities.get(tabInfo.cookieStoreId);
-      this.updateContext(context);
+      // This work is done in the background on purpose: making create() async
+      // creates all sorts of bugs, because it is called in observers (which
+      // cannot be async).
+      browser.contextualIdentities.get(tabInfo.cookieStoreId).then(context => {
+        this.updateContext(context);
+      });
     }
   },
   buildViewStructure() {
