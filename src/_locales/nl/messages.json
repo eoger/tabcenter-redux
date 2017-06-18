@@ -1,0 +1,93 @@
+{
+  "extensionName": {
+    "message": "Tab Center Redux"
+  },
+
+  "extensionDescription": {
+    "message": "Tab Center is een poging om sommige problemen op te lossen die ontstaan zijn uit de manier waarop mensen tabbladen gebruiken (vooral het “teveel tabbladen“ probleem) en een veelzijdigere gebruikersinterface te bieden voor toekomstige innovatie. De eerste versie van deze Firefox-add-on schikt tabbladen verticaal in plaats van horizontaal. Het is hevig geïnspireerd op en leent ideeën van de uitstekende VerticalTabs-add-on."
+  },
+
+  "sidebarTitle": {
+    "message": "Tabbladen",
+    "description": "Label dat getoond wordt in de zijbalk."
+  },
+
+  "newTabBtnLabel": {
+    "message": "Nieuw tabblad",
+    "description": "Label van de knop Nieuw tabblad in het bovenste menu."
+  },
+
+  "newTabBtnTooltip": {
+    "message": "Open een nieuw tabblad"
+  },
+
+  "closeTabButtonTooltip": {
+    "message": "Tabblad sluiten"
+  },
+
+  "allTabsLabel": {
+    "message": "Toon alle tabbladen…",
+    "description": "Wordt getoond aan de onderkant van de tabbladenlijst wanneer sommige tabbladen gefilterd zijn door de huidige zoekopdracht."
+  },
+
+  "contextMenuReloadTab": {
+    "message": "Tabblad vernieuwen",
+    "description": "Label voor contextmenuitem Tabblad vernieuwen."
+  },
+
+  "contextMenuPinTab": {
+    "message": "Tabblad vastmaken",
+    "description": "Label voor contextmenuitem Tabblad vastmaken."
+  },
+
+  "contextMenuUnpinTab": {
+    "message": "Tabblad losmaken",
+    "description": "Label voor contextmenuitem voor Tabblad losmaken."
+  },
+
+  "contextMenuMuteTab": {
+    "message": "Tabblad dempen",
+    "description": "Label voor contextmenuitem Tabblad dempen."
+  },
+
+  "contextMenuUnmuteTab": {
+    "message": "Tabblad dempen opheffen",
+    "description": "Label voor contextmenuitem Tabblad dempen opheffen."
+  },
+
+  "contextMenuCloseTab": {
+    "message": "Tabblad sluiten"
+  },
+
+  "contextMenuMoveTabToNewWindow": {
+    "message": "Verplaatsen naar nieuw venster"
+  },
+
+  "contextMenuReloadAllTabs": {
+    "message": "Alle tabbladen vernieuwen"
+  },
+
+  "contextMenuCloseTabsUnderneath": {
+    "message": "Onderliggende tabbladen sluiten"
+  },
+
+  "contextMenuCloseOtherTabs": {
+    "message": "Overige tabbladen sluiten"
+  },
+
+  "settingsBtnTooltip": {
+    "message": "Instellingen openen"
+  },
+
+  "optionsTitle": {
+    "message": "Instellingen"
+  },
+
+  "optionsAlwaysShrinkTabs": {
+    "message": "Tabbladen altijd inkrimpen"
+  },
+
+  "optionsDarkTheme": {
+    "message": "Donker thema"
+  }
+}
