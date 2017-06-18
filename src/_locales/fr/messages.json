@@ -85,5 +85,9 @@
 
   "optionsAlwaysShrinkTabs": {
     "message": "Toujours réduire les onglets"
+  },
+
+  "optionsDarkTheme": {
+    "message": "Thème sombre"
   }
 }
