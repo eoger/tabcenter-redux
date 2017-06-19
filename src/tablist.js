@@ -124,6 +124,8 @@ SideTabList.prototype = {
     }
     if (e.which == 2 && SideTab.isTabEvent(e, false)) {
       browser.tabs.remove(SideTab.tabIdForEvent(e));
+      // return false does not work to prevent autoscrolling when using addEventListener
+      e.preventDefault();
       return;
     }
   },
