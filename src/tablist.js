@@ -124,6 +124,7 @@ SideTabList.prototype = {
     }
     if (e.which == 2 && SideTab.isTabEvent(e, false)) {
       browser.tabs.remove(SideTab.tabIdForEvent(e));
+      e.preventDefault();
       return;
     }
   },
