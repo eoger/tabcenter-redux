@@ -26,10 +26,6 @@ module.exports = {
         "after": true
       }
     ],
-    "linebreak-style": [
-      "error",
-      "unix"
-    ],
     "no-console": [
       0
     ],
