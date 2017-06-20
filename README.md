@@ -1,4 +1,4 @@
-# TabCenter Redux
+# Tab Center Redux
 
 Your favorite vertical tabbed browsing add-on, now compatible with Firefox 57+.  
 [Install the extension](https://addons.mozilla.org/firefox/addon/tab-center-redux/).
