@@ -1,2 +1,3 @@
-# Normalize line endings by converting to LF on checkin, in case core.autocrlf is not set
-* text=auto
+*.html text
+*.css text
+*.js text
