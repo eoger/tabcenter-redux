@@ -70,6 +70,9 @@ TabCenter.prototype = {
         this.hideNewTabMenu();
       }
     });
+    window.addEventListener("blur", () => {
+      this.hideNewTabMenu();
+    });
     browser.storage.onChanged.addListener(changes => {
       if (changes.darkTheme) {
         this.toggleTheme(changes.darkTheme.newValue);
