@@ -1,0 +1,8 @@
+language: node_js
+node_js:
+  - "4.2.0"
+branches:
+  only:
+    - master
+script:
+  - npm run lint
