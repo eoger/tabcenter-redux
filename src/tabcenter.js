@@ -142,5 +142,9 @@ TabCenter.prototype = {
 // TODO: Find a solution to show only our items in the tab context menu while
 // keeping a native look. Until then disable it. See bug 1367160
 document.addEventListener("contextmenu", (e) => {
+  const searboxInput = document.getElementById("searchbox-input");
+  if (e.target === searboxInput) {
+    return;
+  }
   e.preventDefault();
 }, false);
