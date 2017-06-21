@@ -72,6 +72,7 @@ SideTab.prototype = {
 
     const close = document.createElement("div");
     close.className = "tab-close clickable";
+    close.draggable = true;
     close.title = browser.i18n.getMessage("closeTabButtonTooltip");
 
     tab.appendChild(context);
