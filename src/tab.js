@@ -50,7 +50,7 @@ SideTab.prototype = {
 
     const icon = document.createElement("img");
     icon.className = "tab-icon";
-    icon.addEventListener("error", () => this.resetIcon());
+    icon.addEventListener("error", () => this._resetIcon());
     metaImage.appendChild(icon);
     this._iconView = icon;
 
