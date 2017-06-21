@@ -8,10 +8,7 @@ function TabCenter() {
 
 TabCenter.prototype = {
   async init() {
-    const darkTheme = (await browser.storage.local.get({
-      darkTheme: false
-    })).darkTheme;
-    this.toggleTheme(darkTheme);
+    this._detectDarkTheme();
 
     this._newTabButtonView = document.getElementById("newtab");
     this._newTabMenu = document.getElementById("newtab-menu");
@@ -83,6 +80,12 @@ TabCenter.prototype = {
     this._newTabLabelView.textContent = browser.i18n.getMessage("newTabBtnLabel");
     this._newTabLabelView.title = browser.i18n.getMessage("newTabBtnTooltip");
     this._settingsView.title = browser.i18n.getMessage("settingsBtnTooltip");
+  },
+  async _detectDarkTheme() {
+    const darkTheme = (await browser.storage.local.get({
+      darkTheme: false
+    })).darkTheme;
+    this.toggleTheme(darkTheme);
   },
   toggleTheme(darkTheme) {
     if (darkTheme) {
