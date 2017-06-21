@@ -29,7 +29,7 @@ TabCenter.prototype = {
     this._settingsView.addEventListener("click", () => {
       browser.runtime.openOptionsPage();
     });
-    searboxInput.addEventListener("keyup", (e) => {
+    searboxInput.addEventListener("input", (e) => {
       this.sideTabList.filter(e.target.value);
     });
     searboxInput.addEventListener("focus", () => {
