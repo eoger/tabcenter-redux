@@ -50,12 +50,23 @@ TabCenter.prototype = {
         browser.tabs.create({});
       }
     });
-    this._newTabButtonView.addEventListener("mousedown", () => {
-      this._longPressTimer = setTimeout(() => {
-        if (browser.contextualIdentities) {
-          this.showNewTabMenu();
-        }
-      }, LONG_PRESS_DELAY);
+    this._newTabButtonView.addEventListener("mousedown", async e => {
+      switch (e.which) {
+      case 1:
+        this._longPressTimer = setTimeout(() => {
+          if (browser.contextualIdentities) {
+            this.showNewTabMenu();
+          }
+        }, LONG_PRESS_DELAY);
+        break;
+      case 2:
+        var currentTab = await browser.tabs.query({ active: true });
+        await browser.tabs.create({ index: currentTab[0].index + 1 });
+        break;
+      case 3:
+        this.showNewTabMenu();
+        break;
+      }
     });
     this._newTabButtonView.addEventListener("mouseup", () => {
       clearTimeout(this._longPressTimer);
