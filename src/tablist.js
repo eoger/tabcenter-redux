@@ -332,8 +332,8 @@ SideTabList.prototype = {
     query = normalizeStr(query);
     let notShown = 0;
     for (let tab of this.tabs.values()) {
-      const show = normalizeStr(tab.url).includes(query) ||
-                   normalizeStr(tab.title).includes(query);
+      const show = normalizeStr(tab.url).match(query) ||
+                   normalizeStr(tab.title).match(query);
       notShown += !show ? 1 : 0;
       tab.updateVisibility(show);
     }
