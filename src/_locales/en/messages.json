@@ -89,5 +89,9 @@
 
   "optionsDarkTheme": {
     "message": "Dark theme"
+  },
+
+  "useRegExpFilter": {
+    "message": "Allow Regular Expressions in the Search Box"
   }
 }
