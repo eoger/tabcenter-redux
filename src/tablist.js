@@ -8,6 +8,7 @@ function SideTabList() {
   this._tabsShrinked = false;
   this.windowId = null;
   this.view = document.getElementById("tablist");
+  this.viewWrapper = document.getElementById("tablist-wrapper");
 }
 
 SideTabList.prototype = {
@@ -225,6 +226,10 @@ SideTabList.prototype = {
 
     if (SideTab.isCloseButtonEvent(e)) {
       const tabId = SideTab.tabIdForEvent(e);
+      this.isClickOnCloseButton = true; // notify remove() don't `maybeShrinkTabs`
+      if (this.isScrollbarVisible()) { // adding scroll bar may change the position of close buttons
+        this.viewWrapper.classList.add("scroll-y"); // Temporarily keep a virtual scroll bar
+      }
       browser.tabs.remove(tabId);
     } else if (SideTab.isIconOverlayEvent(e)) {
       const tabId = SideTab.tabIdForEvent(e);
@@ -392,6 +397,7 @@ SideTabList.prototype = {
       this.tabsShrinked = true;
       return;
     }
+    //
 
     const spaceLeft = this._spacerView.offsetHeight;
     if (!this.tabsShrinked && spaceLeft == 0) {
@@ -400,7 +406,7 @@ SideTabList.prototype = {
     }
     if (this.tabsShrinked) {
       // Could we fit everything if we switched back to the "normal" mode?
-      const wrapperHeight = document.getElementById("tablist-wrapper").offsetHeight;
+      const wrapperHeight = this.viewWrapper.offsetHeight;
       const estimatedTabHeight = 56; // Not very scientific, but it "mostly" works.
 
       // TODO: We are not accounting for the "More Tabs" element displayed when
@@ -410,6 +416,27 @@ SideTabList.prototype = {
         this.tabsShrinked = false;
       }
     }
+  },
+  handleEvent(event) {
+    switch (event.type) {
+    case "mousemove":
+      this.onmousemove(event);
+      break;
+    }
+  },
+  onmousemove(e) { // I can't use other patterns to successfully remove the listener
+    // Todo: handle resize for selectedtabb at bottom and with scrollbar.
+
+    if (e.target.classList.contains("tab-close")) {
+      return; // Allow mouse movement on close button.
+    }
+    this.isClickOnCloseButton = false; // Begin maybeShrinkTabs
+    this.viewWrapper.classList.remove("scroll-y");
+    this.maybeShrinkTabs();
+    this.viewWrapper.removeEventListener("mousemove", this, false);
+  },
+  isScrollbarVisible() {
+    return (this._spacerView.offsetHeight === 0);
   },
   _create(tabInfo) {
     let tab = new SideTab();
@@ -482,7 +509,11 @@ SideTabList.prototype = {
     }
     sidetab.view.remove();
     this.tabs.delete(tabId);
-    this.maybeShrinkTabs();
+    if (!this.isClickOnCloseButton) {
+      this.maybeShrinkTabs();
+    } else {
+      this.viewWrapper.addEventListener("mousemove", this, false);
+    }
   },
   getPos(tabId) {
     let sidetab = this.getTabById(tabId);
