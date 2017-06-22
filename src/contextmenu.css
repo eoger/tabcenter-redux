@@ -20,7 +20,7 @@ ul.contextmenu {
 
 .contextmenu > li {
   display: block;
-  font-size: 15px;
+  font-size: 12px;
   padding: 3px 20px 3px 23px;
   -moz-user-select: none;
 }
