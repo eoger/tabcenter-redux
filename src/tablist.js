@@ -8,6 +8,8 @@ function SideTabList() {
   this._tabsShrinked = false;
   this.windowId = null;
   this.view = document.getElementById("tablist");
+  this.pinnedCount = 0;
+  this.pinnedStyle = null;
 }
 
 SideTabList.prototype = {
@@ -55,6 +57,9 @@ SideTabList.prototype = {
     });
     window.addEventListener("blur", () => {
       this.hideContextMenu();
+    });
+    window.addEventListener("resize", () => {
+      this.updatePinnedStyle();
     });
 
     this._spacerView.addEventListener("dblclick", () => this.onSpacerDblClick());
@@ -109,6 +114,7 @@ SideTabList.prototype = {
       this.setIcon(tab);
     }
     if (changeInfo.hasOwnProperty("pinned")) {
+      this.updatePinnedCount(changeInfo.pinned ? 1 : -1);
       this.setPinned(tab);
     }
   },
@@ -415,6 +421,7 @@ SideTabList.prototype = {
     let tab = new SideTab();
     this.tabs.set(tabInfo.id, tab);
     tab.create(tabInfo);
+    this.updatePinnedCount(tabInfo.pinned ? 1 : 0);
     if (tabInfo.active) {
       this.setActive(tab.id);
     }
@@ -480,6 +487,7 @@ SideTabList.prototype = {
     if (!sidetab) {
       return;
     }
+    this.updatePinnedCount(sidetab.pinned ? -1 : 0);
     sidetab.view.remove();
     this.tabs.delete(tabId);
     this.maybeShrinkTabs();
@@ -554,6 +562,34 @@ SideTabList.prototype = {
       format: "png"
     });
     this.updateThumbnail(tabId, thumbnail);
+  },
+  updatePinnedCount(change) {
+    this.pinnedCount += change;
+    this.updatePinnedStyle();
+  },
+  updatePinnedStyle() {
+    const tabWidth = 32;
+    const tabHeight = 35;
+    const columns = Math.floor(window.innerWidth / tabWidth);
+    const rows = Math.ceil(this.pinnedCount / columns);
+    const offset = rows * tabHeight;
+
+    const style = document.createElement("style");
+    document.head.appendChild(style);
+    style.sheet.insertRule(`
+      #tablist-wrapper {
+        padding-top: ${offset}px;
+      }
+    `);
+    style.sheet.insertRule(`
+      .tab.pinned {
+        margin-top: -${offset}px;
+      }
+    `);
+    if (this.pinnedStyle) {
+      this.pinnedStyle.remove();
+    }
+    this.pinnedStyle = style;
   }
 };
 

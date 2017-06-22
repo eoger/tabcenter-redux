@@ -3,8 +3,12 @@
   "version": "1.0.0",
   "scripts": {
     "lint": "eslint .",
-    "build": "webpack",
-    "dev": "webpack --watch"
+    "build": "npm-run-all build:*",
+    "dev": "npm-run-all --parallel dev:*",
+    "build:webpack": "webpack",
+    "dev:webpack": "webpack --watch",
+    "build:sass": "node-sass src --output src",
+    "dev:sass": "npm-run-all build:sass \"build:sass -- --watch\""
   },
   "repository": {
     "type": "git",
@@ -18,6 +22,8 @@
   "homepage": "https://github.com/eoger/tabcenter-redux#readme",
   "devDependencies": {
     "eslint": "^3.19.0",
+    "node-sass": "^4.5.3",
+    "npm-run-all": "^4.0.2",
     "webpack": "^2.6.1"
   }
 }

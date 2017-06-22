@@ -1,4 +1,5 @@
 .DS_Store
 src/index.js
+src/pinnedtabs.css
 web-ext-artifacts
 node_modules

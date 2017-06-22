@@ -1,0 +1,36 @@
+.tab.pinned {
+    position: fixed;
+    padding-right: 6px;
+    transition: transform 0.4s cubic-bezier(0.075, 0.82, 0.165, 1);
+    
+    .tab-title-wrapper,
+    .tab-pin {
+      display: none;
+  }
+
+  $maxTabs: 60;
+  $maxWidth: 600;
+  $tabWidth: 32;
+  $tabHeight: 35;
+
+  // indices (tabNumber, row, column) are 0-based
+
+  @for $tabNumber from 1 to $maxTabs {
+    &:nth-child(#{$tabNumber + 1}) {
+      transform: translateY(#{$tabNumber * $tabHeight}px);
+    }
+  }
+
+  $maxColumns: floor($maxWidth / $tabWidth);
+  @for $columns from 2 to $maxColumns + 1 {
+    @media (min-width: #{$columns * $tabWidth}px) {
+      @for $tabNumber from $columns - 1 to $maxTabs {
+        $row: floor($tabNumber / $columns);
+        $column: $tabNumber % $columns;
+        &:nth-child(#{$tabNumber + 1}) {
+            transform: translate(#{$column * $tabWidth}px, #{$row * $tabHeight}px);
+        }
+      }
+    }
+  }
+}
