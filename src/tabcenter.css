@@ -147,6 +147,34 @@ img, .tab *:not(.clickable) {
   --identity-icon: url("img/usercontext.svg#circle");
 }
 
+[data-identity-icon="gift"] {
+  --identity-icon: url("img/usercontext.svg#gift");
+}
+
+[data-identity-icon="vacation"] {
+  --identity-icon: url("img/usercontext.svg#vacation");
+}
+
+[data-identity-icon="food"] {
+  --identity-icon: url("img/usercontext.svg#food");
+}
+
+[data-identity-icon="fruit"] {
+  --identity-icon: url("img/usercontext.svg#fruit");
+}
+
+[data-identity-icon="pet"] {
+  --identity-icon: url("img/usercontext.svg#pet");
+}
+
+[data-identity-icon="tree"] {
+  --identity-icon: url("img/usercontext.svg#tree");
+}
+
+[data-identity-icon="chill"] {
+  --identity-icon: url("img/usercontext.svg#chill");
+}
+
 .newtab-menu-identity-icon {
     pointer-events: none;
     width: 16px;
