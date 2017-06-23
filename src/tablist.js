@@ -233,7 +233,7 @@ SideTabList.prototype = {
     }
   },
   onDragStart(e) {
-    if (!e.target || !SideTab.isTabEvent(e)) {
+    if (!e.target || !SideTab.isTabEvent(e) || SideTab.isCloseButtonEvent(e)) {
       return;
     }
     e.dataTransfer.setData("text/x-tabcenter-tab", JSON.stringify({
