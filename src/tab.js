@@ -185,6 +185,7 @@ Object.assign(SideTab, {
   },
   tabIdForEvent(e) {
     let el = e.target;
+    // eslint-disable-next-line curly
     while (!SideTab.tabIdForView(el) && (el = el.parentElement));
     return parseInt(SideTab.tabIdForView(el));
   },

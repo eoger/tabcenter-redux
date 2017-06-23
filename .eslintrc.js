@@ -14,6 +14,9 @@ module.exports = {
       "error",
       "1tbs"
     ],
+    "curly": [
+      "error"
+    ],
     "indent": [
       "error",
       2
