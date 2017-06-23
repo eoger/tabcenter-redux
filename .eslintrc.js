@@ -32,6 +32,9 @@ module.exports = {
     "no-multi-spaces": [
       "error"
     ],
+    "no-trailing-spaces": [
+      "error"
+    ],
     "no-var": [
       "error"
     ],
