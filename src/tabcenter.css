@@ -128,23 +128,23 @@ img, .tab *:not(.clickable) {
 }
 
 [data-identity-icon="fingerprint"] {
-  --identity-icon: url("img/usercontext-fingerprint.svg");
+  --identity-icon: url("img/usercontext.svg#fingerprint");
 }
 
 [data-identity-icon="briefcase"] {
-  --identity-icon: url("img/usercontext-briefcase.svg");
+  --identity-icon: url("img/usercontext.svg#briefcase");
 }
 
 [data-identity-icon="dollar"] {
-  --identity-icon: url("img/usercontext-dollar.svg");
+  --identity-icon: url("img/usercontext.svg#dollar");
 }
 
 [data-identity-icon="cart"] {
-  --identity-icon: url("img/usercontext-cart.svg");
+  --identity-icon: url("img/usercontext.svg#cart");
 }
 
 [data-identity-icon="circle"] {
-  --identity-icon: url("img/usercontext-circle.svg");
+  --identity-icon: url("img/usercontext.svg#circle");
 }
 
 .newtab-menu-identity-icon {
@@ -154,6 +154,7 @@ img, .tab *:not(.clickable) {
     background-image: var(--identity-icon);
     -moz-context-properties: fill;
     fill: var(--identity-icon-color);
+    filter: url("img/filters.svg#fill");
     background-size: contain;
     background-repeat: no-repeat;
     background-position: center center;
