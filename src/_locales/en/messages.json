@@ -87,6 +87,10 @@
     "message": "Always Shrink Tabs"
   },
 
+  "optionsPinTabs": {
+    "message": "Pin pinned tabs to the top"
+  },
+
   "optionsDarkTheme": {
     "message": "Dark theme"
   }

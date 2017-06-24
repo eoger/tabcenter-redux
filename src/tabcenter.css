@@ -308,7 +308,7 @@ img, .tab *:not(.clickable) {
 }
 
 #tablist.shrinked .tab-icon-overlay,
-.tab.pinned .tab-icon-overlay {
+.pin-tabs .tab.pinned .tab-icon-overlay {
     left: 13px;
     top: -7px;
 }
@@ -323,7 +323,8 @@ img, .tab *:not(.clickable) {
     background-image: url("img/tab-audio-small.svg#tab-audio-muted");
 }
 
-#tablist:not(.shrinked) .tab:not(.pinned) .tab-meta-image {
+#tablist:not(.shrinked) .tab:not(.pinned) .tab-meta-image,
+#tablist-wrapper:not(.pin-tabs) #tablist:not(.shrinked) .tab-meta-image {
     margin: 6px;
     min-width: 54px;
     height: 40px;
@@ -336,7 +337,7 @@ img, .tab *:not(.clickable) {
 }
 
 #tablist.shrinked .tab-meta-image,
-.tab.pinned .tab-meta-image {
+.pin-tabs .tab.pinned .tab-meta-image {
     background: none !important; /* Because the JS script sets it manually */
     /* Make it the same size as the favicon it contains */
     height: 20px;
@@ -350,7 +351,8 @@ img, .tab *:not(.clickable) {
     image-rendering: -moz-crisp-edges;
 }
 
-#tablist:not(.shrinked) .tab:not(.pinned) .tab-icon {
+#tablist:not(.shrinked) .tab:not(.pinned) .tab-icon,
+#tablist-wrapper:not(.pin-tabs) #tablist:not(.shrinked) .tab-icon {
     margin-left: 0px;
     margin-top: 20px;
     border-radius :2px;
@@ -358,10 +360,12 @@ img, .tab *:not(.clickable) {
     box-shadow: 0 0 2px hsla(0, 0%, 0%, 0.08), 0 0 0 1px hsla(0, 0%, 0%, 0.08);
 }
 
-#tablist:not(.shrinked) .tab:not(.pinned) .tab-meta-image.has-thumbnail {
+#tablist:not(.shrinked) .tab:not(.pinned) .tab-meta-image.has-thumbnail,
+#tablist-wrapper:not(.pin-tabs) #tablist:not(.shrinked) .tab-meta-image.has-thumbnail {
     border: 2px solid white;
 }
-#tablist:not(.shrinked) .tab:not(.pinned) .tab-meta-image.has-thumbnail > .tab-icon {
+#tablist:not(.shrinked) .tab:not(.pinned) .tab-meta-image.has-thumbnail > .tab-icon,
+#tablist-wrapper:not(.pin-tabs) #tablist:not(.shrinked) .tab-meta-image.has-thumbnail > .tab-icon {
     margin-left: -2px;
     margin-top: 18px;
 }
@@ -374,7 +378,7 @@ img, .tab *:not(.clickable) {
 }
 
 #tablist.shrinked .tab-title-wrapper,
-.tab.pinned .tab-title-wrapper {
+.pin-tabs .tab.pinned .tab-title-wrapper {
     margin-left: 6px;
 }
 
@@ -388,7 +392,7 @@ img, .tab *:not(.clickable) {
 }
 
 #tablist.shrinked .tab-host,
-.tab.pinned .tab-host {
+.pin-tabs .tab.pinned .tab-host {
     display: none;
 }
 
@@ -470,7 +474,7 @@ img, .tab *:not(.clickable) {
 }
 
 #tablist.shrinked .tab,
-.tab.pinned {
+.pin-tabs .tab.pinned {
     height: 35px;
 }
 
