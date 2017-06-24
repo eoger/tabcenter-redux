@@ -10,6 +10,8 @@ function SideTabList() {
   this.view = document.getElementById("tablist");
   this.pinnedCount = 0;
   this.pinnedStyle = null;
+  this.pinTabs = false;
+  this.filtered = false;
 }
 
 SideTabList.prototype = {
@@ -20,10 +22,10 @@ SideTabList.prototype = {
     if (this.alwaysShrink) {
       this.maybeShrinkTabs();
     }
-    const pinTabs = (await browser.storage.local.get({
+    this.pinTabs = (await browser.storage.local.get({
       pinTabs: false
     })).pinTabs;
-    this.togglePinTabs(pinTabs);
+    this.updatePinTabsStatus();
     this.setupListeners();
   },
   setupListeners() {
@@ -81,7 +83,8 @@ SideTabList.prototype = {
         this.maybeShrinkTabs();
       }
       if (changes.pinTabs) {
-        this.togglePinTabs(changes.pinTabs.newValue);
+        this.pinTabs = changes.pinTabs.newValue;
+        this.updatePinTabsStatus();
       }
     });
   },
@@ -355,9 +358,12 @@ SideTabList.prototype = {
       // only show a boring "Show all tabs…" message.
       this._moreTabsView.textContent = browser.i18n.getMessage("allTabsLabel");
       this._moreTabsView.setAttribute("hasMoreTabs", true);
+      this.filtered = true;
     } else {
       this._moreTabsView.removeAttribute("hasMoreTabs");
+      this.filtered = false;
     }
+    this.updatePinTabsStatus();
     this.maybeShrinkTabs();
   },
   async populate(windowId) {
@@ -424,8 +430,8 @@ SideTabList.prototype = {
       }
     }
   },
-  togglePinTabs(pinTabs) {
-    if (pinTabs) {
+  updatePinTabsStatus() {
+    if (this.pinTabs && !this.filtered) {
       this.view.parentElement.classList.add("pin-tabs");
     } else {
       this.view.parentElement.classList.remove("pin-tabs");
