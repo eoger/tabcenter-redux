@@ -7,7 +7,7 @@
     "dev": "npm-run-all --parallel dev:*",
     "build:webpack": "webpack",
     "dev:webpack": "webpack --watch",
-    "build:sass": "node-sass src --output src",
+    "build:sass": "node-sass-chokidar src --output src",
     "dev:sass": "npm-run-all build:sass \"build:sass -- --watch\""
   },
   "repository": {
@@ -22,7 +22,7 @@
   "homepage": "https://github.com/eoger/tabcenter-redux#readme",
   "devDependencies": {
     "eslint": "^3.19.0",
-    "node-sass": "^4.5.3",
+    "node-sass-chokidar": "0.0.3",
     "npm-run-all": "^4.0.2",
     "webpack": "^2.6.1"
   }
