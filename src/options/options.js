@@ -2,10 +2,13 @@ document.getElementById("optionsTitle").textContent =
   browser.i18n.getMessage("optionsTitle");
 document.getElementById("alwaysShrinkLabel").textContent =
   browser.i18n.getMessage("optionsAlwaysShrinkTabs");
+document.getElementById("pinTabsLabel").textContent =
+  browser.i18n.getMessage("optionsPinTabs");
 document.getElementById("darkThemeLabel").textContent =
   browser.i18n.getMessage("optionsDarkTheme");
 
 setupCheckboxOption("alwaysShrink", "alwaysShrink");
+setupCheckboxOption("pinTabs", "pinTabs");
 setupCheckboxOption("darkTheme", "darkTheme");
 
 function setupCheckboxOption(checkboxId, optionName) {

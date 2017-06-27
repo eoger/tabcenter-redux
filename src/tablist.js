@@ -8,6 +8,10 @@ function SideTabList() {
   this._tabsShrinked = false;
   this.windowId = null;
   this.view = document.getElementById("tablist");
+  this.pinnedCount = 0;
+  this.pinnedStyle = null;
+  this.pinTabs = false;
+  this.filtered = false;
 }
 
 SideTabList.prototype = {
@@ -18,6 +22,10 @@ SideTabList.prototype = {
     if (this.alwaysShrink) {
       this.maybeShrinkTabs();
     }
+    this.pinTabs = (await browser.storage.local.get({
+      pinTabs: false
+    })).pinTabs;
+    this.updatePinTabsStatus();
     this.setupListeners();
   },
   setupListeners() {
@@ -56,6 +64,9 @@ SideTabList.prototype = {
     window.addEventListener("blur", () => {
       this.hideContextMenu();
     });
+    window.addEventListener("resize", () => {
+      this.updatePinnedStyle();
+    });
 
     this._spacerView.addEventListener("dblclick", () => this.onSpacerDblClick());
     this._moreTabsView.addEventListener("click", () => this.clearSearch());
@@ -70,6 +81,10 @@ SideTabList.prototype = {
       if (changes.alwaysShrink) {
         this.alwaysShrink = changes.alwaysShrink.newValue;
         this.maybeShrinkTabs();
+      }
+      if (changes.pinTabs) {
+        this.pinTabs = changes.pinTabs.newValue;
+        this.updatePinTabsStatus();
       }
     });
   },
@@ -109,6 +124,7 @@ SideTabList.prototype = {
       this.setIcon(tab);
     }
     if (changeInfo.hasOwnProperty("pinned")) {
+      this.updatePinnedCount(changeInfo.pinned ? 1 : -1);
       this.setPinned(tab);
     }
   },
@@ -342,9 +358,12 @@ SideTabList.prototype = {
       // only show a boring "Show all tabs…" message.
       this._moreTabsView.textContent = browser.i18n.getMessage("allTabsLabel");
       this._moreTabsView.setAttribute("hasMoreTabs", true);
+      this.filtered = true;
     } else {
       this._moreTabsView.removeAttribute("hasMoreTabs");
+      this.filtered = false;
     }
+    this.updatePinTabsStatus();
     this.maybeShrinkTabs();
   },
   async populate(windowId) {
@@ -411,10 +430,18 @@ SideTabList.prototype = {
       }
     }
   },
+  updatePinTabsStatus() {
+    if (this.pinTabs && !this.filtered) {
+      this.view.parentElement.classList.add("pin-tabs");
+    } else {
+      this.view.parentElement.classList.remove("pin-tabs");
+    }
+  },
   _create(tabInfo) {
     let tab = new SideTab();
     this.tabs.set(tabInfo.id, tab);
     tab.create(tabInfo);
+    this.updatePinnedCount(tabInfo.pinned ? 1 : 0);
     if (tabInfo.active) {
       this.setActive(tab.id);
     }
@@ -480,6 +507,7 @@ SideTabList.prototype = {
     if (!sidetab) {
       return;
     }
+    this.updatePinnedCount(sidetab.pinned ? -1 : 0);
     sidetab.view.remove();
     this.tabs.delete(tabId);
     this.maybeShrinkTabs();
@@ -554,6 +582,34 @@ SideTabList.prototype = {
       format: "png"
     });
     this.updateThumbnail(tabId, thumbnail);
+  },
+  updatePinnedCount(change) {
+    this.pinnedCount += change;
+    this.updatePinnedStyle();
+  },
+  updatePinnedStyle() {
+    const tabWidth = 32;
+    const tabHeight = 35;
+    const columns = Math.floor(window.innerWidth / tabWidth);
+    const rows = Math.ceil(this.pinnedCount / columns);
+    const offset = rows * tabHeight;
+
+    const style = document.createElement("style");
+    document.head.appendChild(style);
+    style.sheet.insertRule(`
+      .pin-tabs {
+        padding-top: ${offset}px;
+      }
+    `);
+    style.sheet.insertRule(`
+      .pin-tabs .tab.pinned {
+        margin-top: -${offset}px;
+      }
+    `);
+    if (this.pinnedStyle) {
+      this.pinnedStyle.remove();
+    }
+    this.pinnedStyle = style;
   }
 };
 
