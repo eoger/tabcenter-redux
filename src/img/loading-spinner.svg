@@ -1,1 +1,155 @@
-<?xml version="1.0" encoding="utf-8"?><svg width='12px' height='12px' xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100" preserveAspectRatio="xMidYMid" class="uil-ring"><rect x="0" y="0" width="100" height="100" fill="none" class="bk"></rect><circle cx="50" cy="50" r="35" stroke-dasharray="131.9468914507713 87.96459430051422" stroke="#d25353" fill="none" stroke-width="30"><animateTransform attributeName="transform" type="rotate" values="0 50 50;180 50 50;360 50 50;" keyTimes="0;0.5;1" dur="1s" repeatCount="indefinite" begin="0s"></animateTransform></circle></svg>
+<svg xmlns="http://www.w3.org/2000/svg"
+     xmlns:cc="http://creativecommons.org/ns#"
+     xmlns:dc="http://purl.org/dc/elements/1.1/"
+     xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+     width="16" height="16" viewBox="0 0 100 100">
+  <metadata>
+    <rdf:RDF>
+      <cc:Work rdf:about="">
+        <dc:format>image/svg+xml</dc:format>
+        <dc:type rdf:resource="http://purl.org/dc/dcmitype/MovingImage"/>
+        <dc:title>Spinner Icon</dc:title>
+        <dc:creator>asamuzaK.jp</dc:creator>
+      </cc:Work>
+    </rdf:RDF>
+  </metadata>
+  <defs>
+    <clipPath id="clip-spinner">
+      <polygon points="43 0, 57 0, 50 50"/>
+    </clipPath>
+    <symbol id="spinner">
+      <circle cx="50%" cy="50%" r="38" stroke-width="20"
+              clip-path="url(#clip-spinner)"/>
+    </symbol>
+    <symbol id="loading-icon">
+      <use href="#spinner" stroke-opacity=".00625"
+           transform="rotate(16 50 50)"/>
+      <use href="#spinner" stroke-opacity=".0125"
+           transform="rotate(24 50 50)"/>
+      <use href="#spinner" stroke-opacity=".025"
+           transform="rotate(32 50 50)"/>
+      <use href="#spinner" stroke-opacity=".05"
+           transform="rotate(40 50 50)"/>
+      <use href="#spinner" stroke-opacity=".075"
+           transform="rotate(48 50 50)"/>
+      <use href="#spinner" stroke-opacity=".1"
+           transform="rotate(56 50 50)"/>
+      <use href="#spinner" stroke-opacity=".125"
+           transform="rotate(64 50 50)"/>
+      <use href="#spinner" stroke-opacity=".15"
+           transform="rotate(72 50 50)"/>
+      <use href="#spinner" stroke-opacity=".175"
+           transform="rotate(80 50 50)"/>
+      <use href="#spinner" stroke-opacity=".2"
+           transform="rotate(88 50 50)"/>
+      <use href="#spinner" stroke-opacity=".225"
+           transform="rotate(96 50 50)"/>
+      <use href="#spinner" stroke-opacity=".25"
+           transform="rotate(104 50 50)"/>
+      <use href="#spinner" stroke-opacity=".275"
+           transform="rotate(112 50 50)"/>
+      <use href="#spinner" stroke-opacity=".3"
+           transform="rotate(120 50 50)"/>
+      <use href="#spinner" stroke-opacity=".325"
+           transform="rotate(128 50 50)"/>
+      <use href="#spinner" stroke-opacity=".35"
+           transform="rotate(136 50 50)"/>
+      <use href="#spinner" stroke-opacity=".375"
+           transform="rotate(144 50 50)"/>
+      <use href="#spinner" stroke-opacity=".4"
+           transform="rotate(152 50 50)"/>
+      <use href="#spinner" stroke-opacity=".425"
+           transform="rotate(160 50 50)"/>
+      <use href="#spinner" stroke-opacity=".45"
+           transform="rotate(168 50 50)"/>
+      <use href="#spinner" stroke-opacity=".475"
+           transform="rotate(176 50 50)"/>
+      <use href="#spinner" stroke-opacity=".5"
+           transform="rotate(184 50 50)"/>
+      <use href="#spinner" stroke-opacity=".525"
+           transform="rotate(192 50 50)"/>
+      <use href="#spinner" stroke-opacity=".55"
+           transform="rotate(200 50 50)"/>
+      <use href="#spinner" stroke-opacity=".575"
+           transform="rotate(208 50 50)"/>
+      <use href="#spinner" stroke-opacity=".6"
+           transform="rotate(216 50 50)"/>
+      <use href="#spinner" stroke-opacity=".625"
+           transform="rotate(224 50 50)"/>
+      <use href="#spinner" stroke-opacity=".65"
+           transform="rotate(232 50 50)"/>
+      <use href="#spinner" stroke-opacity=".675"
+           transform="rotate(240 50 50)"/>
+      <use href="#spinner" stroke-opacity=".7"
+           transform="rotate(248 50 50)"/>
+      <use href="#spinner" stroke-opacity=".725"
+           transform="rotate(256 50 50)"/>
+      <use href="#spinner" stroke-opacity=".75"
+           transform="rotate(264 50 50)"/>
+      <use href="#spinner" stroke-opacity=".8"
+           transform="rotate(272 50 50)"/>
+      <use href="#spinner" stroke-opacity=".825"
+           transform="rotate(280 50 50)"/>
+      <use href="#spinner" stroke-opacity=".85"
+           transform="rotate(288 50 50)"/>
+      <use href="#spinner" stroke-opacity=".875"
+           transform="rotate(296 50 50)"/>
+      <use href="#spinner" stroke-opacity=".9"
+           transform="rotate(304 50 50)"/>
+      <use href="#spinner" stroke-opacity=".925"
+           transform="rotate(312 50 50)"/>
+      <use href="#spinner" stroke-opacity=".95"
+           transform="rotate(320 50 50)"/>
+      <use href="#spinner" stroke-opacity=".975"
+           transform="rotate(328 50 50)"/>
+      <use href="#spinner" stroke-opacity="1"
+           transform="rotate(336 50 50)"/>
+      <use href="#spinner" stroke-opacity="1"
+           transform="rotate(344 50 50)"/>
+      <use href="#spinner" stroke-opacity="1"
+           transform="rotate(352 50 50)"/>
+    </symbol>
+    <style>
+      @keyframes spin-clockwise {
+        0% {
+          transform: rotate(0deg);
+          transform-origin: 50% 50%;
+        }
+        25% {
+          transform: rotate(90deg);
+        }
+        50% {
+          transform: rotate(180deg);
+        }
+        75% {
+          transform: rotate(270deg);
+        }
+        100% {
+          transform: rotate(360deg);
+          transform-origin: 50% 50%;
+        }
+      }
+      g:not(#loading):not(:target),
+      g:target ~ #loading {
+        display: none;
+        animation: none;
+      }
+      .loading {
+        fill: transparent;
+        animation: spin-clockwise 1s linear infinite;
+      }
+      #loading-invert {
+        stroke: context-stroke #FFF;
+      }
+      #loading {
+        stroke: context-stroke HighLight;
+      }
+    </style>
+  </defs>
+  <g id="loading-invert" class="loading">
+    <use href="#loading-icon"/>
+  </g>
+  <g id="loading" class="loading">
+    <use href="#loading-icon"/>
+  </g>
+</svg>
