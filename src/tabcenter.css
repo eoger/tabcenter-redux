@@ -346,6 +346,8 @@ img, .tab *:not(.clickable) {
     height: 20px;
     padding: 2px;
     image-rendering: -moz-crisp-edges;
+    -moz-context-properties: stroke;
+    stroke: HighLight;
 }
 
 #tablist:not(.shrinked) .tab-icon {
@@ -537,5 +539,9 @@ body.dark-theme .tab.active .tab-host {
 
 body.dark-theme .tab-icon-overlay {
     background-color: #333;
+}
+
+body.dark-theme .tab-icon {
+    stroke: #FFF;
 }
 
