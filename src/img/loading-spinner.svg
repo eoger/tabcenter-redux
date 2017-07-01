@@ -16,7 +16,7 @@
   </metadata>
   <defs>
     <clipPath id="clip-spinner">
-      <polygon points="43 0, 57 0, 50 50"/>
+      <polygon points="43,0 57,0 50,50"/>
     </clipPath>
     <symbol id="spinner">
       <circle cx="50%" cy="50%" r="38" stroke-width="20"
