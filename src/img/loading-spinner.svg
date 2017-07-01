@@ -1,15 +1,16 @@
 <svg xmlns="http://www.w3.org/2000/svg"
      xmlns:cc="http://creativecommons.org/ns#"
-     xmlns:dc="http://purl.org/dc/elements/1.1/"
+     xmlns:dcterms="http://purl.org/dc/terms/"
      xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
      width="16" height="16" viewBox="0 0 100 100">
   <metadata>
     <rdf:RDF>
       <cc:Work rdf:about="">
-        <dc:format>image/svg+xml</dc:format>
-        <dc:type rdf:resource="http://purl.org/dc/dcmitype/MovingImage"/>
-        <dc:title>Spinner Icon</dc:title>
-        <dc:creator>asamuzaK.jp</dc:creator>
+        <dcterms:format>image/svg+xml</dcterms:format>
+        <dcterms:type rdf:resource="http://purl.org/dc/dcmitype/MovingImage"/>
+        <dcterms:title>Loading Spinner Icon</dcterms:title>
+        <dcterms:creator>asamuzaK.jp</dcterms:creator>
+        <dcterms:license rdf:resource="https://www.mozilla.org/en-US/MPL/2.0/"/>
       </cc:Work>
     </rdf:RDF>
   </metadata>
