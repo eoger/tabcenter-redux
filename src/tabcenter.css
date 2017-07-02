@@ -542,5 +542,5 @@ body.dark-theme .tab-icon-overlay {
 }
 
 body.dark-theme #tablist.shrinked .tab-icon {
-    stroke: #FFF;
+    stroke: rgb(245, 247, 250);
 }
