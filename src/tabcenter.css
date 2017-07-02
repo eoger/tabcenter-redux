@@ -541,6 +541,6 @@ body.dark-theme .tab-icon-overlay {
     background-color: #333;
 }
 
-body.dark-theme .tab-icon {
+body.dark-theme #tablist.shrinked .tab-icon {
     stroke: #FFF;
 }
