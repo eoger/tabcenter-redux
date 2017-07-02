@@ -130,7 +130,7 @@ SideTab.prototype = {
     this._setIcon("img/defaultFavicon.svg");
   },
   setSpinner() {
-    // Workaround until context-fill is enabled in sidebar by default.
+    // Workaround until context-stroke is enabled in sidebar by default.
     const isDarkTheme = document.body.classList.contains("dark-theme");
     const isShrinked = document.getElementById("tablist").classList.contains("shrinked");
     const frag = isDarkTheme && isShrinked && "#loading-invert" || "";
