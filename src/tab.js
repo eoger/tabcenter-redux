@@ -130,7 +130,11 @@ SideTab.prototype = {
     this._setIcon("img/defaultFavicon.svg");
   },
   setSpinner() {
-    this._setIcon("img/loading-spinner.svg");
+    // Workaround until context-stroke is enabled in sidebar by default.
+    const isDarkTheme = document.body.classList.contains("dark-theme");
+    const isShrinked = document.getElementById("tablist").classList.contains("shrinked");
+    const frag = isDarkTheme && isShrinked && "#loading-invert" || "";
+    this._setIcon(`img/loading-spinner.svg${frag}`);
   },
   updatePinned(pinned) {
     this.pinned = pinned;
