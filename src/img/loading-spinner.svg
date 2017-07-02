@@ -140,7 +140,7 @@
         animation: spin-clockwise 1s linear infinite;
       }
       #loading-invert {
-        stroke: context-stroke #FFF;
+        stroke: context-stroke rgb(245, 247, 250);
       }
       #loading {
         stroke: context-stroke HighLight;
