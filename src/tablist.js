@@ -322,14 +322,19 @@ SideTabList.prototype = {
   async onScroll(e){
 	if (!this.scrollTabs) return;
 	e.preventDefault();
-	let activeTabQuery = await browser.tabs.query({currentWindow: true, active: true});
-	let tab = activeTabQuery[0];
-	let allTabsQuery = await browser.tabs.query({currentWindow: true});
-	let newIndex = tab.index + (e.deltaY / 3);
-	if (newIndex >= allTabsQuery.length) newIndex = 0;
-	if (newIndex < 0) newIndex = allTabsQuery.length - 1;
-	let newTab = allTabsQuery[newIndex];
+	// One query is (slightly) better for performance
+	let tabs = await browser.tabs.query({currentWindow: true});
+	for (let tab of tabs) if (tab.active) var currentTab = tab;
+	// WheelEvent.deltaY only returns -3 or 3, so we can easily take that
+	// and modify the current tab's index, then account for wrap
+	let newTabIndex = currentTab.index + (e.deltaY / 3);
+	if (newTabIndex >= tabs.length) newTabIndex = 0;
+	if (newTabIndex < 0) newTabIndex = tabs.length - 1;
+	let newTab = tabs[newTabIndex];
+	// I toyed with using internal functions, but just letting them
+	// react to the built-in function seems best.
     browser.tabs.update(newTab.id, {active: true});
+	e.stopPropagation();
   },
   onSpacerDblClick() {
     browser.tabs.create({});
