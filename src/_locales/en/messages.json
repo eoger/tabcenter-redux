@@ -89,5 +89,9 @@
 
   "optionsDarkTheme": {
     "message": "Dark theme"
+  },
+  
+  "optionsScrollThroughTabs": {
+    "message": "Scroll through tabs"
   }
 }

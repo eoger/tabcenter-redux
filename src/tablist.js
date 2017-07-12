@@ -8,6 +8,7 @@ function SideTabList() {
   this._tabsShrinked = false;
   this.windowId = null;
   this.view = document.getElementById("tablist");
+  this.scrollTabs = false;
 }
 
 SideTabList.prototype = {
@@ -18,6 +19,11 @@ SideTabList.prototype = {
     if (this.alwaysShrink) {
       this.maybeShrinkTabs();
     }
+	
+	this.scrollTabs = (await browser.storage.local.get({
+      scrollTabs: false
+    })).scrollTabs;
+	
     this.setupListeners();
   },
   setupListeners() {
@@ -64,6 +70,9 @@ SideTabList.prototype = {
     document.addEventListener("dragstart", e => this.onDragStart(e));
     document.addEventListener("dragover", e => this.onDragOver(e));
     document.addEventListener("drop", e => this.onDrop(e));
+	
+	// Scroll to switch tabs
+	document.addEventListener("wheel", e => this.onScroll(e));
 
     // Pref changes
     browser.storage.onChanged.addListener(changes => {
@@ -71,6 +80,9 @@ SideTabList.prototype = {
         this.alwaysShrink = changes.alwaysShrink.newValue;
         this.maybeShrinkTabs();
       }
+	  if (changes.scrollTabs) {
+		  this.scrollTabs = changes.scrollTabs.newValue;
+	  }
     });
   },
   onBrowserTabActivated(tabId) {
@@ -306,6 +318,18 @@ SideTabList.prototype = {
     let newPos = curTabPos < dropTabPos ? Math.min(this.tabs.size, dropTabPos) :
     Math.max(0, dropTabPos);
     browser.tabs.move(tabId, { index: newPos });
+  },
+  async onScroll(e){
+	if (!this.scrollTabs) return;
+	e.preventDefault();
+	let activeTabQuery = await browser.tabs.query({currentWindow: true, active: true});
+	let tab = activeTabQuery[0];
+	let allTabsQuery = await browser.tabs.query({currentWindow: true});
+	let newIndex = tab.index + (e.deltaY / 3);
+	if (newIndex >= allTabsQuery.length) newIndex = 0;
+	if (newIndex < 0) newIndex = allTabsQuery.length - 1;
+	let newTab = allTabsQuery[newIndex];
+    browser.tabs.update(newTab.id, {active: true});
   },
   onSpacerDblClick() {
     browser.tabs.create({});
