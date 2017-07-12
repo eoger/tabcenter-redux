@@ -19,11 +19,11 @@ SideTabList.prototype = {
     if (this.alwaysShrink) {
       this.maybeShrinkTabs();
     }
-    
+
     this.scrollTabs = (await browser.storage.local.get({
       scrollTabs: false
     })).scrollTabs;
-    
+
     this.setupListeners();
   },
   setupListeners() {
@@ -70,7 +70,7 @@ SideTabList.prototype = {
     document.addEventListener("dragstart", e => this.onDragStart(e));
     document.addEventListener("dragover", e => this.onDragOver(e));
     document.addEventListener("drop", e => this.onDrop(e));
-    
+
     // Scroll to switch tabs
     document.addEventListener("wheel", e => this.onScroll(e));
 
@@ -81,7 +81,7 @@ SideTabList.prototype = {
         this.maybeShrinkTabs();
       }
       if (changes.scrollTabs) {
-          this.scrollTabs = changes.scrollTabs.newValue;
+        this.scrollTabs = changes.scrollTabs.newValue;
       }
     });
   },
@@ -319,17 +319,28 @@ SideTabList.prototype = {
     Math.max(0, dropTabPos);
     browser.tabs.move(tabId, { index: newPos });
   },
-  async onScroll(e){
-    if (!this.scrollTabs) return;
+  async onScroll(e) {
+    if (!this.scrollTabs) {
+      return;
+    }
     e.preventDefault();
     // Gets tabs in window, then derives active tab
     let tabs = await browser.tabs.query({currentWindow: true});
-    for (let tab of tabs) if (tab.active) var currentTab = tab;
+    let currentTab = null;
+    for (let tab of tabs) {
+      if (tab.active) {
+        currentTab = tab;
+      }
+    }
     // WheelEvent.deltaY only returns -3 or 3. We take that
     // and modify the current tab's index, then account for wrap.
     let newTabIndex = currentTab.index + (e.deltaY / 3);
-    if (newTabIndex >= tabs.length) newTabIndex = 0;
-    if (newTabIndex < 0) newTabIndex = tabs.length - 1;
+    if (newTabIndex >= tabs.length) {
+      newTabIndex = 0;
+    }
+    if (newTabIndex < 0) {
+      newTabIndex = tabs.length - 1;
+    }
     let newTab = tabs[newTabIndex];
     // Changes tab. Internal functions react.
     browser.tabs.update(newTab.id, {active: true});
