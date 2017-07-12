@@ -91,7 +91,7 @@
     "message": "Dark theme"
   },
   
-  "optionsScrollThroughTabs": {
-    "message": "Scroll changes tabs"
+  "optionsScrollTabs": {
+    "message": "Scroll to change tabs"
   }
 }

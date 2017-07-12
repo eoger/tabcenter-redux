@@ -4,12 +4,12 @@ document.getElementById("alwaysShrinkLabel").textContent =
   browser.i18n.getMessage("optionsAlwaysShrinkTabs");
 document.getElementById("darkThemeLabel").textContent =
   browser.i18n.getMessage("optionsDarkTheme");
-document.getElementById("scrollThroughTabsLabel").textContent =
-  browser.i18n.getMessage("optionsScrollThroughTabs");
+document.getElementById("scrollTabsLabel").textContent =
+  browser.i18n.getMessage("optionsScrollTabs");
 
 setupCheckboxOption("alwaysShrink", "alwaysShrink");
 setupCheckboxOption("darkTheme", "darkTheme");
-setupCheckboxOption("scrollThroughTabs", "scrollTabs");
+setupCheckboxOption("scrollTabs", "scrollTabs");
 
 function setupCheckboxOption(checkboxId, optionName) {
   const checkbox = document.getElementById(checkboxId);
