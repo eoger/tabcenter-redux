@@ -19,11 +19,11 @@ SideTabList.prototype = {
     if (this.alwaysShrink) {
       this.maybeShrinkTabs();
     }
-	
-	this.scrollTabs = (await browser.storage.local.get({
+    
+    this.scrollTabs = (await browser.storage.local.get({
       scrollTabs: false
     })).scrollTabs;
-	
+    
     this.setupListeners();
   },
   setupListeners() {
@@ -70,9 +70,9 @@ SideTabList.prototype = {
     document.addEventListener("dragstart", e => this.onDragStart(e));
     document.addEventListener("dragover", e => this.onDragOver(e));
     document.addEventListener("drop", e => this.onDrop(e));
-	
-	// Scroll to switch tabs
-	document.addEventListener("wheel", e => this.onScroll(e));
+    
+    // Scroll to switch tabs
+    document.addEventListener("wheel", e => this.onScroll(e));
 
     // Pref changes
     browser.storage.onChanged.addListener(changes => {
@@ -80,9 +80,9 @@ SideTabList.prototype = {
         this.alwaysShrink = changes.alwaysShrink.newValue;
         this.maybeShrinkTabs();
       }
-	  if (changes.scrollTabs) {
-		  this.scrollTabs = changes.scrollTabs.newValue;
-	  }
+      if (changes.scrollTabs) {
+          this.scrollTabs = changes.scrollTabs.newValue;
+      }
     });
   },
   onBrowserTabActivated(tabId) {
@@ -320,21 +320,21 @@ SideTabList.prototype = {
     browser.tabs.move(tabId, { index: newPos });
   },
   async onScroll(e){
-	if (!this.scrollTabs) return;
-	e.preventDefault();
-	// Gets tabs in window, then derives active tab
-	let tabs = await browser.tabs.query({currentWindow: true});
-	for (let tab of tabs) if (tab.active) var currentTab = tab;
-	// WheelEvent.deltaY only returns -3 or 3. We take that
-	// and modify the current tab's index, then account for wrap.
-	let newTabIndex = currentTab.index + (e.deltaY / 3);
-	if (newTabIndex >= tabs.length) newTabIndex = 0;
-	if (newTabIndex < 0) newTabIndex = tabs.length - 1;
-	let newTab = tabs[newTabIndex];
-	// Changes tab. Internal functions react.
+    if (!this.scrollTabs) return;
+    e.preventDefault();
+    // Gets tabs in window, then derives active tab
+    let tabs = await browser.tabs.query({currentWindow: true});
+    for (let tab of tabs) if (tab.active) var currentTab = tab;
+    // WheelEvent.deltaY only returns -3 or 3. We take that
+    // and modify the current tab's index, then account for wrap.
+    let newTabIndex = currentTab.index + (e.deltaY / 3);
+    if (newTabIndex >= tabs.length) newTabIndex = 0;
+    if (newTabIndex < 0) newTabIndex = tabs.length - 1;
+    let newTab = tabs[newTabIndex];
+    // Changes tab. Internal functions react.
     browser.tabs.update(newTab.id, {active: true});
-	// Unclear if this helps.
-	//e.stopPropagation();
+    // Unclear if this helps.
+    //e.stopPropagation();
   },
   onSpacerDblClick() {
     browser.tabs.create({});
