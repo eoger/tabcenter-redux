@@ -41,6 +41,7 @@ SideTabList.prototype = {
     // Because defining event listeners for each tab is a terrible idea.
     // Read more here: https://davidwalsh.name/event-delegate
     this.view.addEventListener("click", e => this.onClick(e));
+    this.view.addEventListener("auxclick", e => this.onAuxClick(e));
     this.view.addEventListener("mousedown", e => this.onMouseDown(e));
     this.view.addEventListener("contextmenu", e => this.onContextMenu(e));
     window.addEventListener("keyup", (e) => {
@@ -58,6 +59,7 @@ SideTabList.prototype = {
     });
 
     this._spacerView.addEventListener("dblclick", () => this.onSpacerDblClick());
+    this._spacerView.addEventListener("auxclick", e => this.onSpacerAuxClick(e));
     this._moreTabsView.addEventListener("click", () => this.clearSearch());
 
     // Drag-and-drop
@@ -122,6 +124,13 @@ SideTabList.prototype = {
       browser.tabs.update(SideTab.tabIdForEvent(e), {active: true});
       return;
     }
+    // Prevent autoscrolling on middle click
+    if (e.which == 2) {
+      e.preventDefault();
+      return;
+    }
+  },
+  onAuxClick(e) {
     if (e.which == 2 && SideTab.isTabEvent(e, false)) {
       browser.tabs.remove(SideTab.tabIdForEvent(e));
       e.preventDefault();
@@ -309,6 +318,11 @@ SideTabList.prototype = {
   },
   onSpacerDblClick() {
     browser.tabs.create({});
+  },
+  onSpacerAuxClick(e) {
+    if (e.which == 2) {
+      browser.tabs.create({});
+    }
   },
   async moveTabToBottom(tab) {
     let sameCategoryTabs = await browser.tabs.query({
