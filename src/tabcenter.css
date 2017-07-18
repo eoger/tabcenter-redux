@@ -12,7 +12,7 @@ html, body {
 
 body {
     background-color: hsl(var(--tab-background-normal));
-    font: message-box;
+    font-family: Lucida Grande !important;
     color: #000;
     display: flex;
     flex-direction: column;
@@ -28,7 +28,7 @@ body {
     border-bottom: 1px solid hsla(0, 0%, 0%, 0.2);
 
       /*Uncomment the line below to remove the top menu entirely*/
-      /*display: none;*/
+      display: none;
 }
 
 #newtab {
@@ -256,9 +256,14 @@ img, .tab *:not(.clickable) {
 .tab {
     display: flex;
     align-items: center;
-    height: 40px !important;
+    height: 56px;
     font-size: 12px !important;
     position: relative;
+}
+
+/*Slightly increases the height of shrinked tabs*/
+#tablist.shrinked .tab{
+  height: 40px;
 }
 
 .tab.active {
@@ -274,7 +279,6 @@ img, .tab *:not(.clickable) {
 }
 
 .tab-context {
-  margin-right: 5px; /*Adds a slight gap before the tab's text*/
     min-width: 6px;
     height: 100%;
     background-image:
@@ -283,6 +287,11 @@ img, .tab *:not(.clickable) {
     background-position: 0 0;
     background-repeat: no-repeat;
     transition: background-position 150ms ease-out;
+}
+
+/*Adds a slight gap before the tab's text*/
+#tablist.shrinked .tab-context{
+  margin-right: 5px;
 }
 
 .tab:not(.active) > .tab-context.hasContext {
@@ -503,7 +512,7 @@ body.dark-theme .tab{
 }
 
 /*Adds a background to tab icons to make them easier to see*/
-body.dark-theme .tab-icon{
+body.dark-theme #tablist.shrinked .tab-icon{
   background-color: #e6e6e6;
   border-radius: 20px;
   filter: brightness(50%);
@@ -541,11 +550,15 @@ body.dark-theme #searchbox-input {
 }
 
 body.dark-theme .tab-host {
-    color: #85846D;
+    color: #606060;
+}
+
+body.dark-theme .tab:hover .tab-host {
+    color: #808080;
 }
 
 body.dark-theme .tab.active .tab-host {
-    color: #eaeaea;
+    color: #c0c0c0;
 }
 
 body.dark-theme .tab-icon-overlay {
@@ -573,7 +586,7 @@ body.dark-theme .tab:not(.pinned) > .tab-close {
 }
 
 /*Brightens the tab icon background on hover*/
-body.dark-theme .tab:hover .tab-icon{
+body.dark-theme #tablist.shrinked .tab:hover .tab-icon{
     background-color: #e6e6e6;
     filter: brightness(75%);
 }
@@ -589,9 +602,9 @@ body.dark-theme .tab.active{
 }
 
 /*Makes active tab icon background white*/
-body.dark-theme .tab.active .tab-icon{
-    background-color: #fff !important;
-    filter: brightness(100%) !important;
+body.dark-theme #tablist.shrinked .tab.active .tab-icon{
+    background-color: #fff;
+    filter: brightness(100%);
 }
 
 /*Brightens the top menu to help distinguish it from the tabs*/
