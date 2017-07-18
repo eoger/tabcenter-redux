@@ -12,7 +12,7 @@ html, body {
 
 body {
     background-color: hsl(var(--tab-background-normal));
-    font-family: Lucida Grande !important;
+    font: message-box;
     color: #000;
     display: flex;
     flex-direction: column;
