@@ -2,8 +2,8 @@
 
 :root {
     --tab-background-normal: 0, 0%, 99%;
-    --tab-background-active: 0, 0%, 87%;
-    --tab-background-hover: 0, 0%, 91%;
+    --tab-background-active: 0, 0%, 90%;
+    --tab-background-hover: 0, 0%, 94%;
 }
 
 html, body {
@@ -26,6 +26,9 @@ body {
     display: flex;
     padding: 6px 4px;
     border-bottom: 1px solid hsla(0, 0%, 0%, 0.2);
+
+      /*Uncomment the line below to remove the top menu entirely*/
+      /*display: none;*/
 }
 
 #newtab {
@@ -253,8 +256,8 @@ img, .tab *:not(.clickable) {
 .tab {
     display: flex;
     align-items: center;
-    height: 56px;
-    border-bottom: 1px solid hsla(0, 0%, 0%, 0.06);
+    height: 40px !important;
+    font-size: 12px !important;
     position: relative;
 }
 
@@ -271,6 +274,7 @@ img, .tab *:not(.clickable) {
 }
 
 .tab-context {
+  margin-right: 5px; /*Adds a slight gap before the tab's text*/
     min-width: 6px;
     height: 100%;
     background-image:
@@ -343,7 +347,6 @@ img, .tab *:not(.clickable) {
     width: 20px;
     height: 20px;
     padding: 2px;
-    image-rendering: -moz-crisp-edges;
 }
 
 #tablist:not(.shrinked) .tab-icon {
@@ -489,9 +492,21 @@ img, .tab *:not(.clickable) {
 /* DARK THEME CUSTOMIZATIONS */
 body.dark-theme {
     --tab-background-normal: 223, 15.2%, 18%;
-    --tab-background-active: 221, 41.4%, 53.1%;
-    --tab-background-hover: 222, 28.3%, 35.55%;
-    color: rgb(245, 247, 250);
+    --tab-background-active: 221, 41.4%, 33.1%;
+    --tab-background-hover: 222, 28.3%, 25.55%;
+    color: #c0c0c0; /*Lightened text to make it easier to read*/
+}
+
+/*Unselected tab text is slightly muted in appearance*/
+body.dark-theme .tab{
+  color: #808080;
+}
+
+/*Adds a background to tab icons to make them easier to see*/
+body.dark-theme .tab-icon{
+  background-color: #e6e6e6;
+  border-radius: 20px;
+  filter: brightness(50%);
 }
 
 body.dark-theme #newtab {
@@ -521,7 +536,7 @@ body.dark-theme #searchbox {
 
 body.dark-theme #searchbox-icon,
 body.dark-theme #searchbox-input {
-    background-color: rgb(23, 27, 31);
+    background-color: #111; /*Darken this to help it stand out more*/
     color: rgb(245, 247, 250);
 }
 
@@ -537,3 +552,49 @@ body.dark-theme .tab-icon-overlay {
     background-color: #333;
 }
 
+/*Makes the new tab icon easier to see*/
+body.dark-theme #newtab-icon{
+  filter: brightness(200%);
+}
+
+/*Makes the pin icon easier to see*/
+body.dark-theme .tab.pinned .tab-pin{
+    background-image: url("img/glyph-pin-pinned-12-inverted.svg");
+}
+
+/*Makes the settings icon easier to see*/
+body.dark-theme #settings {
+    background-image: url("img/settings-inverted.svg");
+}
+
+/*Makes the tab close icon easier to see*/
+body.dark-theme .tab:not(.pinned) > .tab-close {
+    background-image: url("img/glyph-close-16-inverted.svg");
+}
+
+/*Brightens the tab icon background on hover*/
+body.dark-theme .tab:hover .tab-icon{
+    background-color: #e6e6e6;
+    filter: brightness(75%);
+}
+
+/*Brightens the tab text on hover*/
+body.dark-theme .tab:hover{
+    color: #e6e6e6;
+}
+
+/*Makes active tab text white*/
+body.dark-theme .tab.active{
+    color: #fff;
+}
+
+/*Makes active tab icon background white*/
+body.dark-theme .tab.active .tab-icon{
+    background-color: #fff !important;
+    filter: brightness(100%) !important;
+}
+
+/*Brightens the top menu to help distinguish it from the tabs*/
+body.dark-theme #topmenu {
+  background-color: #393f4c;
+}
