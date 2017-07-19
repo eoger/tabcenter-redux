@@ -1,0 +1,93 @@
+{
+  "extensionName": {
+    "message": "Tab Center Redux"
+  },
+
+  "extensionDescription": {
+    "message": "Tab Center jest próbą rozwiązania problemów, które pojawiły się w wyniku tego jak ludzie używają kart (szczególnie zbyt wielu kart) i wprowadza wszechstronny interfejs użytkownika dla przyszłych innowacji. Pierwsza wersja tej wtyczki układa karty pionowo, a nie poziomo. Ta wtyczka jest mocno zainspirowana wspaniałą wtyczką VerticalTabs."
+  },
+
+  "sidebarTitle": {
+    "message": "Karty",
+    "description": "Label shown in the sidebar selector."
+  },
+
+  "newTabBtnLabel": {
+    "message": "Nowa karta",
+    "description": "Etykieta przycisku nowej karty w górnym menu."
+  },
+
+  "newTabBtnTooltip": {
+    "message": "Otwórz nową kartę"
+  },
+
+  "closeTabButtonTooltip": {
+    "message": "Zamknij kartę"
+  },
+
+  "allTabsLabel": {
+    "message": "Pokaż wszystkie karty…",
+    "description": "Shown at the bottom of the list of tabs if some tabs are filtered by the current search query."
+  },
+
+  "contextMenuReloadTab": {
+    "message": "Przeładuj kartę",
+    "description": "Reload Tab context menu item label."
+  },
+
+  "contextMenuPinTab": {
+    "message": "Przypnij kartę",
+    "description": "Pin Tab context menu item label."
+  },
+
+  "contextMenuUnpinTab": {
+    "message": "Odepnij kartę",
+    "description": "Unpin Tab context menu item label."
+  },
+
+  "contextMenuMuteTab": {
+    "message": "Wycisz kartę",
+    "description": "Mute Tab context menu item label."
+  },
+
+  "contextMenuUnmuteTab": {
+    "message": "Wyłącz wyciszenie karty",
+    "description": "Unmute Tab context menu item label."
+  },
+
+  "contextMenuCloseTab": {
+    "message": "Zamknij kartę"
+  },
+
+  "contextMenuMoveTabToNewWindow": {
+    "message": "Przenieś do nowego okna"
+  },
+
+  "contextMenuReloadAllTabs": {
+    "message": "Przeładuj wszystkie karty"
+  },
+
+  "contextMenuCloseTabsUnderneath": {
+    "message": "Zamknij karty poniżej"
+  },
+
+  "contextMenuCloseOtherTabs": {
+    "message": "Zamknij inne karty"
+  },
+
+  "settingsBtnTooltip": {
+    "message": "Otwórz ustawienia"
+  },
+
+  "optionsTitle": {
+    "message": "Ustawienia"
+  },
+
+  "optionsAlwaysShrinkTabs": {
+    "message": "Zawsze zmniejszaj kartę"
+  },
+
+  "optionsDarkTheme": {
+    "message": "Ciemny motyw"
+  }
+}
