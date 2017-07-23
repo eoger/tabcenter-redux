@@ -89,5 +89,9 @@
 
   "optionsDarkTheme": {
     "message": "黑夜主题"
+  },
+
+  "useRegExpFilter": {
+    "message": "允许在搜索框中使用正则表达式"
   }
 }

@@ -18,6 +18,10 @@ SideTabList.prototype = {
     if (this.alwaysShrink) {
       this.maybeShrinkTabs();
     }
+
+    this.useRegExpFilter = (await browser.storage.local.get({
+      useRegExpFilter: false
+    })).useRegExpFilter;
     this.setupListeners();
   },
   setupListeners() {
@@ -70,6 +74,11 @@ SideTabList.prototype = {
       if (changes.alwaysShrink) {
         this.alwaysShrink = changes.alwaysShrink.newValue;
         this.maybeShrinkTabs();
+      }
+    });
+    browser.storage.onChanged.addListener(changes => {
+      if (changes.useRegExpFilter) {
+        this.useRegExpFilter = changes.useRegExpFilter.newValue;
       }
     });
   },
@@ -332,8 +341,14 @@ SideTabList.prototype = {
     query = normalizeStr(query);
     let notShown = 0;
     for (let tab of this.tabs.values()) {
-      const show = normalizeStr(tab.url).includes(query) ||
-                   normalizeStr(tab.title).includes(query);
+      let show;
+      let url = normalizeStr(tab.url);
+      let title = normalizeStr(tab.title);
+      if (this.useRegExpFilter) {
+        show = url.match(query) || title.match(query);
+      } else {
+        show = url.includes(query) || title.includes(query);
+      }
       notShown += !show ? 1 : 0;
       tab.updateVisibility(show);
     }
