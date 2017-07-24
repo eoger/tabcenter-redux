@@ -114,10 +114,6 @@ SideTabList.prototype = {
   },
   onMouseDown(e) {
     // Don't put preventDefault here or drag-and-drop won't work
-    if (!e.target) {
-      return;
-    }
-
     if (e.which == 1 && SideTab.isTabEvent(e)) {
       browser.tabs.update(SideTab.tabIdForEvent(e), {active: true});
       return;
@@ -137,7 +133,7 @@ SideTabList.prototype = {
   onContextMenu(e) {
     this.hideContextMenu();
     e.preventDefault();
-    if (!e.target || !SideTab.isTabEvent(e, false)) {
+    if (!SideTab.isTabEvent(e, false)) {
       return;
     }
     const tabId = SideTab.tabIdForEvent(e);
@@ -219,10 +215,6 @@ SideTabList.prototype = {
     return items;
   },
   onClick(e) {
-    if (!e.target) {
-      return;
-    }
-
     if (SideTab.isCloseButtonEvent(e)) {
       const tabId = SideTab.tabIdForEvent(e);
       browser.tabs.remove(tabId);
@@ -233,7 +225,7 @@ SideTabList.prototype = {
     }
   },
   onDragStart(e) {
-    if (!e.target || !SideTab.isTabEvent(e)) {
+    if (!SideTab.isTabEvent(e)) {
       return;
     }
     e.dataTransfer.setData("text/x-tabcenter-tab", JSON.stringify({
@@ -246,9 +238,9 @@ SideTabList.prototype = {
     e.preventDefault();
   },
   onDrop(e) {
-    if (!e.target || (!SideTab.isTabEvent(e, false) &&
-                      e.target != this._spacerView &&
-                      e.target != this._moreTabsView)) {
+    if (!SideTab.isTabEvent(e, false) &&
+        e.target != this._spacerView &&
+        e.target != this._moreTabsView) {
       return;
     }
     e.preventDefault();
