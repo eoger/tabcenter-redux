@@ -1,11 +1,11 @@
 document.getElementById("optionsTitle").textContent =
   browser.i18n.getMessage("optionsTitle");
-document.getElementById("alwaysShrinkLabel").textContent =
-  browser.i18n.getMessage("optionsAlwaysShrinkTabs");
+document.getElementById("compactModeLabel").textContent =
+  browser.i18n.getMessage("optionsCompactMode");
 document.getElementById("darkThemeLabel").textContent =
   browser.i18n.getMessage("optionsDarkTheme");
 
-setupCheckboxOption("alwaysShrink", "alwaysShrink");
+setupCheckboxOption("compactMode", "compactMode");
 setupCheckboxOption("darkTheme", "darkTheme");
 
 function setupCheckboxOption(checkboxId, optionName) {

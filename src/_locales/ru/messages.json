@@ -83,10 +83,6 @@
     "message": "Настройки"
   },
 
-  "optionsAlwaysShrinkTabs": {
-    "message": "Всегда сжимать вкладки"
-  },
-
   "optionsDarkTheme": {
     "message": "Темная тема"
   }
