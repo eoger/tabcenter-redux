@@ -4,7 +4,7 @@ const ContextMenu = require("./contextmenu.js");
 function SideTabList() {
   this.tabs = new Map();
   this.active = null;
-  this.alwaysShrink = false;
+  this.compactMode = false;
   this._tabsShrinked = false;
   this.windowId = null;
   this.view = document.getElementById("tablist");
@@ -12,10 +12,10 @@ function SideTabList() {
 
 SideTabList.prototype = {
   async init() {
-    this.alwaysShrink = (await browser.storage.local.get({
-      alwaysShrink: false
-    })).alwaysShrink;
-    if (this.alwaysShrink) {
+    this.compactMode = (await browser.storage.local.get({
+      compactMode: false
+    })).compactMode;
+    if (this.compactMode) {
       this.maybeShrinkTabs();
     }
     this.setupListeners();
@@ -67,8 +67,8 @@ SideTabList.prototype = {
 
     // Pref changes
     browser.storage.onChanged.addListener(changes => {
-      if (changes.alwaysShrink) {
-        this.alwaysShrink = changes.alwaysShrink.newValue;
+      if (changes.compactMode) {
+        this.compactMode = changes.compactMode.newValue;
         this.maybeShrinkTabs();
       }
     });
@@ -388,7 +388,7 @@ SideTabList.prototype = {
     }
   },
   maybeShrinkTabs() {
-    if (this.alwaysShrink) {
+    if (this.compactMode) {
       this.tabsShrinked = true;
       return;
     }
@@ -543,7 +543,7 @@ SideTabList.prototype = {
     }
   },
   async updateTabThumbnail(tabId) {
-    if (this.alwaysShrink) {
+    if (this.compactMode) {
       return;
     }
     // TODO: sadly we can only capture a thumbnail of the current tab. bug 1246693

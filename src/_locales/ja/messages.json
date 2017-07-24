@@ -83,10 +83,6 @@
     "message": "設定"
   },
 
-  "optionsAlwaysShrinkTabs": {
-    "message": "常にタブを縮小表示する"
-  },
-
   "optionsDarkTheme": {
     "message": "暗いテーマ"
   }

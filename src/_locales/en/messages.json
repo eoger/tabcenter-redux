@@ -83,11 +83,11 @@
     "message": "Settings"
   },
 
-  "optionsAlwaysShrinkTabs": {
-    "message": "Always Shrink Tabs"
+  "optionsCompactMode": {
+    "message": "Compact Mode"
   },
 
   "optionsDarkTheme": {
-    "message": "Dark theme"
+    "message": "Dark Theme"
   }
 }
