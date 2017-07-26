@@ -1,0 +1,93 @@
+{
+  "extensionName": {
+    "message": "Tab Center Redux"
+  },
+
+  "extensionDescription": {
+    "message": "我們試圖用 Tab Center 解決人們使用分頁的習慣造成的困擾（最著名的莫過於「太多分頁啦」），並為可預見的創新提供更加穩固的基礎使用者界面。借鑑自絕讚的 VerticalTabs 套件，我們將分頁垂直排列而非傳統的水平排列。"
+  },
+
+  "sidebarTitle": {
+    "message": "分頁",
+    "description": "在邊欄選項裡的標籤"
+  },
+
+  "newTabBtnLabel": {
+    "message": "新分頁",
+    "description": "在頂部選單中「新分頁」按鈕旁的標籤"
+  },
+
+  "newTabBtnTooltip": {
+    "message": "開啟新分頁"
+  },
+
+  "closeTabButtonTooltip": {
+    "message": "關閉分頁"
+  },
+
+  "allTabsLabel": {
+    "message": "顯示所有分頁…",
+    "description": "當做過搜尋/篩選、有部份分頁被隱藏的時候，在分頁清單底部出現的標籤"
+  },
+
+  "contextMenuReloadTab": {
+    "message": "重新載入分頁",
+    "description": "右鍵選單中「重新載入分頁」功能的標籤文字"
+  },
+
+  "contextMenuPinTab": {
+    "message": "釘選分頁",
+    "description": "右鍵選單中「釘選分頁」功能的標籤文字"
+  },
+
+  "contextMenuUnpinTab": {
+    "message": "還原成普通分頁",
+    "description": "右鍵選單中「取消釘選」功能的標籤文字"
+  },
+
+  "contextMenuMuteTab": {
+    "message": "分頁靜音",
+    "description": "右鍵選單中「靜音」功能的標籤文字"
+  },
+
+  "contextMenuUnmuteTab": {
+    "message": "取消分頁靜音",
+    "description": "右鍵選單中「取消靜音」功能的標籤文字"
+  },
+
+  "contextMenuCloseTab": {
+    "message": "關閉分頁"
+  },
+
+  "contextMenuMoveTabToNewWindow": {
+    "message": "移動到新視窗"
+  },
+
+  "contextMenuReloadAllTabs": {
+    "message": "重新載入所有分頁"
+  },
+
+  "contextMenuCloseTabsUnderneath": {
+    "message": "關閉下方分頁"
+  },
+
+  "contextMenuCloseOtherTabs": {
+    "message": "關閉其他分頁"
+  },
+
+  "settingsBtnTooltip": {
+    "message": "開啟設定"
+  },
+
+  "optionsTitle": {
+    "message": "設定"
+  },
+
+  "optionsCompactMode": {
+    "message": "緊密模式"
+  },
+
+  "optionsDarkTheme": {
+    "message": "暗色主題"
+  }
+}
