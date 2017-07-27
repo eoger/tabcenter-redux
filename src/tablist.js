@@ -91,7 +91,6 @@ SideTabList.prototype = {
       this.setTitle(tab);
     }
     if (changeInfo.hasOwnProperty("url")) {
-      this.updateTabThumbnail(tabId);
       this.setURL(tab);
     }
     if (changeInfo.hasOwnProperty("mutedInfo")) {
@@ -101,7 +100,6 @@ SideTabList.prototype = {
       this.setAudible(tab);
     }
     if (changeInfo.status === "loading") {
-      this.updateTabThumbnail(tabId);
       this.setSpinner(tab);
     }
     if (changeInfo.status === "complete") {
