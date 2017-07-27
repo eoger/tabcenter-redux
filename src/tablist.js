@@ -90,6 +90,9 @@ SideTabList.prototype = {
     if (changeInfo.hasOwnProperty("title")) {
       this.setTitle(tab);
     }
+    if (changeInfo.hasOwnProperty("favIconUrl")) {
+      this.setIcon(tab);
+    }
     if (changeInfo.hasOwnProperty("url")) {
       this.updateTabThumbnail(tabId);
       this.setURL(tab);
