@@ -81,5 +81,13 @@
 
   "optionsTitle": {
     "message": "Nastavení"
+  },
+
+  "optionsCompactMode": {
+    "message": "Kompaktní režim"
+  },
+
+  "optionsDarkTheme": {
+    "message": "Tmavý vzhled"
   }
 }
