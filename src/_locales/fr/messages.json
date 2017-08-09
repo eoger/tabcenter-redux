@@ -83,6 +83,10 @@
     "message": "Paramètres"
   },
 
+ "optionsCompactMode": {
+    "message": "Mode compact"
+  },
+
   "optionsDarkTheme": {
     "message": "Thème sombre"
   }
