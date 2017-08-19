@@ -8,6 +8,9 @@ function SideTabList() {
   this._tabsShrinked = false;
   this.windowId = null;
   this.view = document.getElementById("tablist");
+  this._resizeCanvas = document.createElement("canvas");
+  this._resizeCanvas.mozOpaque = true;
+  this._resizeCanvasCtx = this._resizeCanvas.getContext("2d");
 }
 
 SideTabList.prototype = {
@@ -549,6 +552,20 @@ SideTabList.prototype = {
       sidetab.updateContext(context);
     }
   },
+  _resizeBase64Image(b64) {
+    return new Promise(resolve => {
+      const img = new Image();
+      img.onload = () => {
+        const height = 192;
+        const width = Math.floor(img.width * 192 / img.height);
+        this._resizeCanvas.width = width;
+        this._resizeCanvas.height = height;
+        this._resizeCanvasCtx.drawImage(img, 0, 0, width, height);
+        resolve(this._resizeCanvas.toDataURL());
+      };
+      img.src = b64;
+    });
+  },
   async updateTabThumbnail(tabId) {
     if (this.compactMode) {
       return;
@@ -557,10 +574,11 @@ SideTabList.prototype = {
     if (this.active != tabId) {
       return;
     }
-    let thumbnail = await browser.tabs.captureVisibleTab(this.windowId, {
+    const thumbnailBase64 = await browser.tabs.captureVisibleTab(this.windowId, {
       format: "png"
     });
-    this.updateThumbnail(tabId, thumbnail);
+    const resizedBase64 = await this._resizeBase64Image(thumbnailBase64);
+    this.updateThumbnail(tabId, resizedBase64);
   }
 };
 
