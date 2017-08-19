@@ -122,9 +122,26 @@ TabCenter.prototype = {
     for (let identity of identities) {
       const identityItem = document.createElement("div");
       identityItem.className = "newtab-menu-identity";
-      identityItem.addEventListener("mouseup", () => {
-        this.hideNewTabMenu();
-        browser.tabs.create({ cookieStoreId: identity.cookieStoreId });
+      identityItem.addEventListener("mouseup", async e => {
+        switch (e.which) {
+        case 1: {
+          browser.tabs.create({ cookieStoreId: identity.cookieStoreId });
+          this.hideNewTabMenu();
+          break;
+        }
+        case 2: {
+          // Insert the new tab after the current one on middle-click
+          let currentIndex = (await browser.tabs.query({ active: true }))[0].index;
+          browser.tabs.create({ cookieStoreId: identity.cookieStoreId, 
+            index: currentIndex + 1 });
+          this.hideNewTabMenu();
+          break;
+        }
+        case 3: {
+          // Open Container settings if future support, or show an instruction.
+          break;
+        }
+        }
       });
       const identityIcon = document.createElement("div");
       identityIcon.classList.add("newtab-menu-identity-icon");
