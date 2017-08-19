@@ -48,12 +48,24 @@ TabCenter.prototype = {
         browser.tabs.create({});
       }
     });
-    this._newTabButtonView.addEventListener("mousedown", () => {
-      this._longPressTimer = setTimeout(() => {
-        if (browser.contextualIdentities) {
+    this._newTabButtonView.addEventListener("mousedown", async e => {
+      switch (e.which) {
+      case 1: {
+        this._longPressTimer = setTimeout(() => {
           this.showNewTabMenu();
-        }
-      }, LONG_PRESS_DELAY);
+        }, LONG_PRESS_DELAY);
+        break;
+      }
+      case 2: {
+        let currentTab = await browser.tabs.query({ active: true })[0];
+        await browser.tabs.create({ index: currentTab.index + 1 });
+        break;
+      }
+      case 3: {
+        this.showNewTabMenu();
+        break;
+      }
+      }
     });
     this._newTabButtonView.addEventListener("mouseup", () => {
       clearTimeout(this._longPressTimer);
@@ -115,9 +127,15 @@ TabCenter.prototype = {
     }
   },
   async showNewTabMenu() {
-    this._newTabMenuShown = true;
+    if (!browser.contextualIdentities) {
+      return; // no support
+    }
     // Create the identities
     const identities = await browser.contextualIdentities.query({});
+    if (!identities) {
+      return; // this feature is disabled
+    }
+    this._newTabMenuShown = true;
     const fragment = document.createDocumentFragment();
     for (let identity of identities) {
       const identityItem = document.createElement("div");
