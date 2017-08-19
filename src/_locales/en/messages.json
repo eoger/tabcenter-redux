@@ -89,5 +89,17 @@
 
   "optionsDarkTheme": {
     "message": "Dark Theme"
+  },
+
+  "optionsAdvancedTitle": {
+    "message": "Advanced"
+  },
+
+  "optionsCustomCSS": {
+    "message": "Custom stylesheet"
+  },
+
+  "optionsSaveCustomCSS": {
+    "message": "Save CSS"
   }
 }

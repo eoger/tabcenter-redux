@@ -8,6 +8,7 @@ function TabCenter() {
 
 TabCenter.prototype = {
   async init() {
+    this._injectCustomCSS();
     this._detectDarkTheme();
 
     this._newTabButtonView = document.getElementById("newtab");
@@ -74,12 +75,31 @@ TabCenter.prototype = {
       if (changes.darkTheme) {
         this.toggleTheme(changes.darkTheme.newValue);
       }
+      if (changes.customCSS) {
+        const customCSSNode = document.getElementById("customCSS");
+        if (customCSSNode) {
+          customCSSNode.remove();
+        }
+        this._injectCustomCSS();
+      }
     });
   },
   setupLabels() {
     this._newTabLabelView.textContent = browser.i18n.getMessage("newTabBtnLabel");
     this._newTabLabelView.title = browser.i18n.getMessage("newTabBtnTooltip");
     this._settingsView.title = browser.i18n.getMessage("settingsBtnTooltip");
+  },
+  async _injectCustomCSS() {
+    const customCSS = (await browser.storage.local.get({
+      customCSS: ""
+    })).customCSS;
+    if (!customCSS) {
+      return;
+    }
+    const styleNode = document.createElement("style");
+    styleNode.id = "customCSS";
+    styleNode.innerHTML = customCSS;
+    document.body.appendChild(styleNode);
   },
   async _detectDarkTheme() {
     const darkTheme = (await browser.storage.local.get({

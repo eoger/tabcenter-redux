@@ -6,11 +6,18 @@
   </head>
   <body>
     <h1 id="optionsTitle"></h1>
-    <div id="options">
-        <div><label for="compactMode" id="compactModeLabel"></label></div>
+    <div class="options">
+        <div><label for="compactMode" id="optionsCompactMode"></label></div>
         <div><input id="compactMode" type="checkbox" /></div>
-        <div><label for="darkTheme" id="darkThemeLabel"></label></div>
+        <div><label for="darkTheme" id="optionsDarkTheme"></label></div>
         <div><input id="darkTheme" type="checkbox" /></div>
+    </div>
+    <h1 id="optionsAdvancedTitle"></h1>
+    <div class="options">
+      <div><label for="customCSS" id="optionsCustomCSS"></label></div>
+      <div><textarea id="customCSS"></textarea></div>
+      <div></div>
+      <div><button id="optionsSaveCustomCSS" /></div>
     </div>
     <script src="options.js"></script>
   </body>
