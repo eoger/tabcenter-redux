@@ -448,7 +448,7 @@ img, .tab *:not(.clickable) {
     background-position: center;
     background-repeat: no-repeat;
     background-size: 16px;
-    border-radius: 2.5px;
+    border-radius: 12px;
     opacity: 0;
 }
 
