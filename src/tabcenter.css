@@ -376,6 +376,12 @@ img, .tab *:not(.clickable) {
 .tab-title, .tab-host {
     white-space: nowrap;
     overflow: hidden;
+    font-size: 12px;
+}
+
+.tab-title {
+    font-weight: 600;
+    opacity: 0.7;
 }
 
 .tab-host {
