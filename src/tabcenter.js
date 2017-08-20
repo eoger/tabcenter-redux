@@ -48,11 +48,16 @@ TabCenter.prototype = {
         browser.tabs.create({});
       }
     });
+    this._newTabButtonView.addEventListener("auxclick", e => {
+      if (e.which == 2) {
+        this._createTabAfterCurrent();
+      } else if (e.which == 3) {
+        this.showNewTabMenu();
+      }
+    });
     this._newTabButtonView.addEventListener("mousedown", () => {
       this._longPressTimer = setTimeout(() => {
-        if (browser.contextualIdentities) {
-          this.showNewTabMenu();
-        }
+        this.showNewTabMenu();
       }, LONG_PRESS_DELAY);
     });
     this._newTabButtonView.addEventListener("mouseup", () => {
@@ -114,17 +119,40 @@ TabCenter.prototype = {
       document.body.classList.remove("dark-theme");
     }
   },
+  async _createTabAfterCurrent(cookieStoreId = null) {
+    let currentIndex = (await browser.tabs.query({ active: true }))[0].index;
+    let props = { index: currentIndex + 1 };
+    if (cookieStoreId) {
+      props.cookieStoreId = cookieStoreId;
+    }
+    browser.tabs.create(props);
+  },
   async showNewTabMenu() {
+    if (!browser.contextualIdentities) {
+      return;
+    }
     this._newTabMenuShown = true;
     // Create the identities
     const identities = await browser.contextualIdentities.query({});
+    if (!identities) {
+      return;
+    }
     const fragment = document.createDocumentFragment();
     for (let identity of identities) {
       const identityItem = document.createElement("div");
       identityItem.className = "newtab-menu-identity";
-      identityItem.addEventListener("mouseup", () => {
+      identityItem.addEventListener("mouseup", e => {
+        if (e.which != 1) {
+          return;
+        }
         this.hideNewTabMenu();
         browser.tabs.create({ cookieStoreId: identity.cookieStoreId });
+      });
+      identityItem.addEventListener("auxclick", e => {
+        if (e.which == 2) {
+          this.hideNewTabMenu();
+          this._createTabAfterCurrent(identity.cookieStoreId);
+        }
       });
       const identityIcon = document.createElement("div");
       identityIcon.classList.add("newtab-menu-identity-icon");
