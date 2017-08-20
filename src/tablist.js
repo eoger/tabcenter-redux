@@ -7,6 +7,7 @@ function SideTabList() {
   this.compactMode = false;
   this._tabsShrinked = false;
   this.windowId = null;
+  this._filterActive = false;
   this.view = document.getElementById("tablist");
   this._resizeCanvas = document.createElement("canvas");
   this._resizeCanvas.mozOpaque = true;
@@ -335,10 +336,14 @@ SideTabList.prototype = {
     await browser.tabs.move(tab.id, { index: lastIndex });
   },
   clearSearch() {
+    if (!this._filterActive) {
+      return;
+    }
     document.getElementById("searchbox-input").value = "";
     this.filter();
   },
   filter(query = "") {
+    this._filterActive = query != "";
     query = normalizeStr(query);
     let notShown = 0;
     for (let tab of this.tabs.values()) {
