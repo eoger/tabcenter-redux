@@ -26,7 +26,7 @@
   },
 
   "allTabsLabel": {
-    "message": "Toon alle tabbladen…",
+    "message": "Alle tabbladen tonen…",
     "description": "Wordt getoond aan de onderkant van de tabbladenlijst wanneer sommige tabbladen gefilterd zijn door de huidige zoekopdracht."
   },
 
@@ -83,7 +83,23 @@
     "message": "Instellingen"
   },
 
+  "optionsCompactMode": {
+    "message": "Compacte modus"
+  },
+
   "optionsDarkTheme": {
     "message": "Donker thema"
+  },
+  
+  "optionsAdvancedTitle": {
+    "message": "Geavanceerd"
+  },
+
+  "optionsCustomCSS": {
+    "message": "Aangepaste CSS-stijlen"
+  },
+
+  "optionsSaveCustomCSS": {
+    "message": "CSS opslaan"
   }
 }
