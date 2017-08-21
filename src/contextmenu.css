@@ -30,6 +30,11 @@ ul.contextmenu {
   color: white;
 }
 
+.contextmenu > li.disabled {
+  pointer-events: none;
+  color: grey;
+}
+
 /* DARK THEME CUSTOMIZATIONS */
 body.dark-theme ul.contextmenu {
   border: solid 1px #555;

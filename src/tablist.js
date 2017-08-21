@@ -226,6 +226,24 @@ SideTabList.prototype = {
         browser.tabs.remove(tabId);
       }
     });
+
+    items.push({
+      label: browser.i18n.getMessage("contextMenuUndoCloseTab"),
+      isEnabled: async () => {
+        const sessions = await browser.sessions.getRecentlyClosed({
+          maxResults: 1
+        });
+        return sessions.length;
+      },
+      onCommandFn: async () => {
+        const sessions = await browser.sessions.getRecentlyClosed({
+          maxResults: 1
+        });
+        if (sessions.length && sessions[0].tab) {
+          browser.sessions.restore(sessions[0].tab.sessionId);
+        }
+      }
+    });
     return items;
   },
   onClick(e) {

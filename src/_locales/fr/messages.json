@@ -59,6 +59,10 @@
     "message": "Fermer l'onglet"
   },
 
+  "contextMenuUndoCloseTab": {
+    "message": "Annuler la fermeture de l'onglet"
+  },
+
   "contextMenuMoveTabToNewWindow": {
     "message": "Déplacer vers une nouvelle fenêtre"
   },
