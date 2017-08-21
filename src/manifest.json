@@ -17,6 +17,7 @@
     "<all_urls>",
     "contextualIdentities",
     "cookies",
+    "sessions",
     "storage",
     "tabs"
   ],
