@@ -89,5 +89,18 @@
 
   "optionsDarkTheme": {
     "message": "Thème sombre"
+  },
+
+  "optionsAdvancedTitle": {
+    "message": "Avancé"
+  },
+
+  "optionsCustomCSS": {
+    "message": "Feuille de style personnalisée"
+  },
+
+  "optionsSaveCustomCSS": {
+    "message": "Enregistrer la CSS"
   }
+
 }
