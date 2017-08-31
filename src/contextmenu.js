@@ -13,15 +13,28 @@ ContextMenu.prototype = {
     this.rootNode = document.createElement("ul");
     this.rootNode.classList = "contextmenu";
     const fragment = document.createDocumentFragment();
-    for (let { label, onCommandFn } of this.items) {
+    for (let { label, isEnabled, onCommandFn } of this.items) {
       let item;
       if (label == "separator") {
         item = document.createElement("hr");
       } else {
         item = document.createElement("li");
         item.textContent = label;
-        if (onCommandFn) {
-          item.addEventListener("click", e => onCommandFn(e));
+
+        if (isEnabled) {
+          isEnabled().then(result => {
+            if (!result) {
+              item.className = "disabled";
+            } else {
+              if (onCommandFn) {
+                item.addEventListener("click", e => onCommandFn(e));
+              }
+            }
+          });
+        } else {
+          if (onCommandFn) {
+            item.addEventListener("click", e => onCommandFn(e));
+          }
         }
       }
       fragment.appendChild(item);
