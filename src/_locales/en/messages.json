@@ -59,6 +59,10 @@
     "message": "Close Tab"
   },
 
+  "contextMenuUndoCloseTab": {
+    "message": "Undo Close Tab"
+  },
+
   "contextMenuMoveTabToNewWindow": {
     "message": "Move to New Window"
   },
