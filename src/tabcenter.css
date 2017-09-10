@@ -236,7 +236,7 @@ img, .tab *:not(.clickable) {
     background-size: 16px 16px;
     background-repeat: no-repeat;
     background-position: center;
-    background-image: url("img/settings.svg");
+    background-image: url("img/settings.svg#standard");
 }
 
 #tablist-wrapper {
@@ -423,7 +423,7 @@ img, .tab *:not(.clickable) {
     height: 16px;
     margin-right: 12px;
     display: block;
-    background-image: url("img/glyph-pin-pinned-12.svg");
+    background-image: url("img/glyph-pin-pinned-12.svg#standard");
     background-position: center center;
     background-repeat: no-repeat;
     background-size: 12px;
@@ -444,7 +444,7 @@ img, .tab *:not(.clickable) {
     right: 12px;
     margin: auto;
     background-color: hsla(0, 0%, 0%, 0.1);
-    background-image: url("img/glyph-close-16.svg");
+    background-image: url("img/glyph-close-16.svg#standard");
     background-position: center;
     background-repeat: no-repeat;
     background-size: 16px;
@@ -489,9 +489,13 @@ img, .tab *:not(.clickable) {
 /* DARK THEME CUSTOMIZATIONS */
 body.dark-theme {
     --tab-background-normal: 223, 15.2%, 18%;
-    --tab-background-active: 221, 41.4%, 53.1%;
-    --tab-background-hover: 222, 28.3%, 35.55%;
-    color: rgb(245, 247, 250);
+    --tab-background-active: 221, 41.4%, 33.1%;
+    --tab-background-hover: 222, 28.3%, 25.55%;
+    color: #c0c0c0;
+}
+
+body.dark-theme .tab {
+  color: #808080;
 }
 
 body.dark-theme #newtab {
@@ -522,18 +526,60 @@ body.dark-theme #searchbox {
 body.dark-theme #searchbox-icon,
 body.dark-theme #searchbox-input {
     background-color: rgb(23, 27, 31);
-    color: rgb(245, 247, 250);
+    color: #111;
 }
 
 body.dark-theme .tab-host {
-    color: #85846D;
+    color: #606060;
+}
+
+body.dark-theme .tab:hover .tab-host {
+    color: #808080;
 }
 
 body.dark-theme .tab.active .tab-host {
-    color: #eaeaea;
+    color: #c0c0c0;
 }
 
 body.dark-theme .tab-icon-overlay {
     background-color: #333;
+}
+
+body.dark-theme #newtab-icon{
+  filter: brightness(200%);
+}
+
+body.dark-theme #settings {
+    background-image: url("img/settings.svg#inverted");
+}
+
+body.dark-theme .tab.pinned .tab-pin {
+    background-image: url("img/glyph-pin-pinned-12.svg#inverted");
+}
+
+body.dark-theme .tab:not(.pinned) > .tab-close {
+    background-image: url("img/glyph-close-16.svg#inverted");
+}
+
+body.dark-theme #tablist.shrinked .tab:hover .tab-icon{
+    background-color: #e6e6e6;
+    filter: brightness(75%);
+}
+
+body.dark-theme .tab:hover{
+    color: #e6e6e6;
+}
+
+body.dark-theme .tab.active{
+    color: #fff;
+}
+
+body.dark-theme #tablist.shrinked .tab.active .tab-icon{
+    background-color: #fff;
+    filter: brightness(100%);
+}
+
+body.dark-theme #topmenu {
+  background-color: #393f4c;
 }
 
