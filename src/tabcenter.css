@@ -344,8 +344,11 @@ img, .tab *:not(.clickable) {
     height: 20px;
     padding: 2px;
     image-rendering: -moz-crisp-edges;
+    position: relative;
+    left: 0;
 }
 
+#pinnedtablist .tab-icon
 #tablist:not(.shrinked) .tab-icon {
     margin-left: 0px;
     margin-top: 20px;
@@ -416,6 +419,27 @@ img, .tab *:not(.clickable) {
 
 .tab-pin {
     display: none;
+}
+
+.tab.pinned {
+    border: none;
+    display: inline-block;
+    height: 30px !important;
+    overflow: hidden;
+    width: 30px;
+}
+
+#pinnedtablist .tab-icon {
+    top: -25px;
+    left: 5px;
+    z-index: 1;
+    box-shadow: none !important;
+    background-color: transparent !important;
+}
+
+#pinnedtablist.shrinked .tab-icon {
+    top: -25px;
+    left: 5px;
 }
 
 .tab.pinned .tab-pin {
