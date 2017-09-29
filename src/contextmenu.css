@@ -6,6 +6,7 @@ ul.contextmenu {
   padding: 0;
   background-color: #f2f2f2;
   box-shadow: 1px 1px 1px #888888;
+  z-index: 100;
 }
 
 .contextmenu > hr {

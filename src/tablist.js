@@ -9,6 +9,7 @@ function SideTabList() {
   this.windowId = null;
   this._filterActive = false;
   this.view = document.getElementById("tablist");
+  this.pinnedview = document.getElementById("pinnedtablist");
   this._resizeCanvas = document.createElement("canvas");
   this._resizeCanvas.mozOpaque = true;
   this._resizeCanvasCtx = this._resizeCanvas.getContext("2d");
@@ -48,6 +49,10 @@ SideTabList.prototype = {
     this.view.addEventListener("auxclick", e => this.onAuxClick(e));
     this.view.addEventListener("mousedown", e => this.onMouseDown(e));
     this.view.addEventListener("contextmenu", e => this.onContextMenu(e));
+    this.pinnedview.addEventListener("click", e => this.onClick(e));
+    this.pinnedview.addEventListener("auxclick", e => this.onAuxClick(e));
+    this.pinnedview.addEventListener("mousedown", e => this.onMouseDown(e));
+    this.pinnedview.addEventListener("contextmenu", e => this.onContextMenu(e));
     window.addEventListener("keyup", (e) => {
       if (e.keyCode === 27) { // Context menu closed on ESC key pressed
         this.hideContextMenu();
@@ -387,12 +392,15 @@ SideTabList.prototype = {
     const tabs = await browser.tabs.query({windowId});
     // Sort the tabs by index so we can insert them in sequence.
     tabs.sort((a, b) => a.index - b.index);
-    const fragment = document.createDocumentFragment();
+    const pinnedFragment = document.createDocumentFragment();
+    const unpinnedFragment = document.createDocumentFragment();
     for (let tab of tabs) {
       const sidetab = this._create(tab);
+      let fragment = tab.pinned ? pinnedFragment : unpinnedFragment;
       fragment.appendChild(sidetab.view);
     }
-    this.view.appendChild(fragment);
+    this.pinnedview.appendChild(pinnedFragment);
+    this.view.appendChild(unpinnedFragment);
     this.maybeShrinkTabs();
     this.updateTabThumbnail(this.active);
     this.scrollToActiveTab();
@@ -435,11 +443,16 @@ SideTabList.prototype = {
       // Could we fit everything if we switched back to the "normal" mode?
       const wrapperHeight = document.getElementById("tablist-wrapper").offsetHeight;
       const estimatedTabHeight = 56; // Not very scientific, but it "mostly" works.
+      const estimatedPinnedHeight = 30; // Not very scientific, but it "mostly" works.
 
       // TODO: We are not accounting for the "More Tabs" element displayed when
       // filtering tabs.
-      let visibleTabs = [...this.tabs.values()].filter(tab => tab.visible);
-      if (visibleTabs.length * estimatedTabHeight <= wrapperHeight) {
+      let allTabs = [...this.tabs.values()].filter(tab => tab.visible)
+      let visibleTabs = allTabs.filter(tab => !tab.pinned);
+      let pinnedTabs = allTabs.filter(tab => tab.pinned);
+      let estimatedHeight = visibleTabs.length * estimatedTabHeight +
+        Math.ceil(pinnedTabs.length / 7) * estimatedPinnedHeight;
+      if (estimatedHeight <= wrapperHeight) {
         this.tabsShrinked = false;
       }
     }
@@ -532,12 +545,13 @@ SideTabList.prototype = {
       return;
     }
     let element = sidetab.view;
+    let parent = sidetab.pinned ? this.pinnedview : this.view;
     let elements = SideTab.getAllTabsViews();
-    if (!elements[pos]) {
-      this.view.insertBefore(element, elements[pos-1].nextSibling);
-    } else {
-      this.view.insertBefore(element, elements[pos]);
+    let nextSibling = elements[pos];
+    if (!nextSibling || (nextSibling.parentElement !== parent)) {
+      nextSibling = elements[pos-1].nextSibling;
     }
+    parent.insertBefore(element, nextSibling);
   },
   setAudible(tab) {
     let sidetab = this.getTab(tab);
@@ -567,6 +581,10 @@ SideTabList.prototype = {
     let sidetab = this.getTab(tab);
     if (sidetab) {
       sidetab.updatePinned(tab.pinned);
+      let newView = tab.pinned ? this.pinnedview : this.view;
+      newView.appendChild(sidetab.view);
+      this.setPos(tab.id, tab.index);
+      this.maybeShrinkTabs();
     }
   },
   setContext(tab, context) {
