@@ -1,0 +1,93 @@
+{
+  "extensionName": {
+    "message": "Tab Center Redux"
+  },
+
+  "extensionDescription": {
+    "message": "Tab Center versucht, einige Probleme zu lösen, die häufig bei der Verwendung von Tabs auftreten (insbesondere das "zu viele Tabs"-Problem. Außerdem soll es eine flexiblere Basis für zukünftige Innovationen der Benutzeroberfläche bieten. Die erste Version dieses AddOns für Firefox ordnet die offenen Tabs vertikal an anstelle von horizontal. Es wurde stark inspiriert durch das exzellente AddOn VerticalTabs und übernimmt viele Ideen von diesem."
+  },
+
+  "sidebarTitle": {
+    "message": "Tabs",
+    "description": "Beschriftung für die Auswahl in der Seitenleiste."
+  },
+
+  "newTabBtnLabel": {
+    "message": "Neuer Tab",
+    "description": "Beschriftung für den "Neuer Tab"-Button im oberen Menu."
+  },
+
+  "newTabBtnTooltip": {
+    "message": "Öffne einen neuen Tab"
+  },
+
+  "closeTabButtonTooltip": {
+    "message": "Schließe den Tab"
+  },
+
+  "allTabsLabel": {
+    "message": "Zeige alle Tabs…",
+    "description": "Wird am Ende der Tab-Liste angezeigt, wenn einige der aktuellen Tabs aufgrund eines Filters nicht angezeigt werden."
+  },
+
+  "contextMenuReloadTab": {
+    "message": "Lade Tab neu",
+    "description": "Eintrag im Kontext-Menu zum Neuladen eines Tabs."
+  },
+
+  "contextMenuPinTab": {
+    "message": "Hefte Tab an",
+    "description": "Eintrag im Kontext-Menu zum Anheften eines Tabs."
+  },
+
+  "contextMenuUnpinTab": {
+    "message": "Löse Tab ab",
+    "description": "Eintrag im Kontext-Menu zum Ablösen eines Tabs."
+  },
+
+  "contextMenuMuteTab": {
+    "message": "Schalte Tab stumm",
+    "description": "Eintrag im Kontext-Menu zum Stummschalten eines Tabs."
+  },
+
+  "contextMenuUnmuteTab": {
+    "message": "Hebe Stummschaltung auf",
+    "description": "Eintrag im Kontext-Menu zum Aufheben der Stummschaltung eines Tabs."
+  },
+
+  "contextMenuCloseTab": {
+    "message": "Schließe Tab"
+  },
+
+  "contextMenuMoveTabToNewWindow": {
+    "message": "Verschiebe in neues Fenster"
+  },
+
+  "contextMenuReloadAllTabs": {
+    "message": "Lade alle Tabs neu"
+  },
+
+  "contextMenuCloseTabsUnderneath": {
+    "message": "Schließe alle Tabs unter diesem"
+  },
+
+  "contextMenuCloseOtherTabs": {
+    "message": "Schließe alle anderen Tabs"
+  },
+
+  "settingsBtnTooltip": {
+    "message": "Öffne Einstellungen"
+  },
+
+  "optionsTitle": {
+    "message": "Einstellungen"
+  },
+
+  "optionsCompactMode": {
+    "message": "Kompakte Darstellung"
+  },
+
+  "optionsDarkTheme": {
+    "message": "Dunkle Darstellung"
+  }
+}
