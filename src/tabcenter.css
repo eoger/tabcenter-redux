@@ -250,7 +250,7 @@ img, .tab *:not(.clickable) {
     overflow-x: hidden;
 }
 
-.tab {
+.tab:not(.pinned) {
     display: flex;
     align-items: center;
     height: 56px;
@@ -291,13 +291,14 @@ img, .tab *:not(.clickable) {
 
 .tab-icon-overlay {
     display: none;
+    z-index: 1;
     position: relative;
     width: 16px;
     height: 16px;
-    border-radius: 10px;
     margin-left: -16px;
     left: 16px;
     top: -19px;
+    border-radius: 50%;
     background-color: white;
     background-size: contain;
     background-clip: padding-box;
@@ -306,8 +307,13 @@ img, .tab *:not(.clickable) {
 }
 
 #tablist.shrinked .tab-icon-overlay {
-    left: 13px;
-    top: -7px;
+    width: 13px;
+    height: 13px;
+    margin: 0 0 -13px -13px;
+    left: auto;
+    top: auto;
+    bottom: 0px;
+    right: -22px;
 }
 
 .tab-icon-overlay.sound {
@@ -344,11 +350,8 @@ img, .tab *:not(.clickable) {
     height: 20px;
     padding: 2px;
     image-rendering: -moz-crisp-edges;
-    position: relative;
-    left: 0;
 }
 
-#pinnedtablist .tab-icon
 #tablist:not(.shrinked) .tab-icon {
     margin-left: 0px;
     margin-top: 20px;
@@ -409,56 +412,11 @@ img, .tab *:not(.clickable) {
     --tab-background: var(--tab-background-hover);
 }
 
-.tab:not(.pinned):hover > .tab-title-wrapper::after {
+.tab:hover > .tab-title-wrapper::after {
     transform: translateX(0);
 }
 
-.tab.pinned .tab-title-wrapper::after {
-    transform: translateX(8px);
-}
-
-.tab-pin {
-    display: none;
-}
-
-.tab.pinned {
-    border: none;
-    display: inline-block;
-    height: 30px !important;
-    overflow: hidden;
-    width: 30px;
-}
-
-#pinnedtablist .tab-icon {
-    top: -25px;
-    left: 5px;
-    z-index: 1;
-    box-shadow: none !important;
-    background-color: transparent !important;
-}
-
-#pinnedtablist.shrinked .tab-icon {
-    top: -25px;
-    left: 5px;
-}
-
-.tab.pinned .tab-pin {
-    min-width: 16px;
-    height: 16px;
-    margin-right: 12px;
-    display: block;
-    background-image: url("img/glyph-pin-pinned-12.svg#standard");
-    background-position: center center;
-    background-repeat: no-repeat;
-    background-size: 12px;
-    z-index: 0;
-}
-
 .tab-close {
-    display: none;
-}
-
-.tab:not(.pinned) > .tab-close {
     position: absolute;
     display: block;
     width: 24px;
@@ -476,7 +434,7 @@ img, .tab *:not(.clickable) {
     opacity: 0;
 }
 
-.tab:not(.pinned):hover > .tab-close {
+.tab:hover > .tab-close {
     opacity: 1;
 }
 
@@ -489,6 +447,44 @@ img, .tab *:not(.clickable) {
 
 #tablist.shrinked .tab {
     height: 35px;
+}
+
+#pinnedtablist {
+    display: flex;
+    flex-wrap: wrap;
+    background-color: hsla(0, 0%, 0%, 0.02);
+}
+
+#pinnedtablist:empty {
+    display: none;
+}
+
+.tab.pinned > .tab-icon-overlay {
+    width: 13px;
+    height: 13px;
+    margin: 0 0 -13px 0px;
+    left: auto;
+    top: auto;
+    bottom: -12px;
+    right: -13px;
+}
+
+.tab.pinned > .tab-meta-image {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.tab.pinned .tab-icon {
+    width: 22px;
+    height: 22px;
+    margin: 2px;
+}
+
+.tab.pinned > .tab-context,
+.tab.pinned > .tab-title-wrapper,
+.tab.pinned > .tab-close {
+    display: none;
 }
 
 #moretabs:not([hasMoreTabs]) {
@@ -569,7 +565,7 @@ body.dark-theme .tab-icon-overlay {
     background-color: #333;
 }
 
-body.dark-theme #newtab-icon{
+body.dark-theme #newtab-icon {
   filter: brightness(200%);
 }
 
@@ -577,33 +573,34 @@ body.dark-theme #settings {
     background-image: url("img/settings.svg#inverted");
 }
 
-body.dark-theme .tab.pinned .tab-pin {
-    background-image: url("img/glyph-pin-pinned-12.svg#inverted");
-}
-
-body.dark-theme .tab:not(.pinned) > .tab-close {
+body.dark-theme .tab-close {
     background-image: url("img/glyph-close-16.svg#inverted");
 }
 
-body.dark-theme #tablist.shrinked .tab:hover .tab-icon{
+body.dark-theme #tablist.shrinked .tab:hover .tab-icon,
+body.dark-theme #pinnedtablist .tab:hover .tab-icon {
     background-color: #e6e6e6;
     filter: brightness(75%);
 }
 
-body.dark-theme .tab:hover{
+body.dark-theme .tab:hover {
     color: #e6e6e6;
 }
 
-body.dark-theme .tab.active{
+body.dark-theme .tab.active {
     color: #fff;
 }
 
-body.dark-theme #tablist.shrinked .tab.active .tab-icon{
+body.dark-theme #tablist.shrinked .tab.active .tab-icon {
     background-color: #fff;
     filter: brightness(100%);
 }
 
 body.dark-theme #topmenu {
   background-color: #393f4c;
+}
+
+body.dark-theme #pinnedtablist {
+  background-color: #2c323f;
 }
 

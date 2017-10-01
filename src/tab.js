@@ -67,9 +67,6 @@ SideTab.prototype = {
     titleWrapper.appendChild(host);
     this._hostView = host;
 
-    const pin = document.createElement("div");
-    pin.className = "tab-pin";
-
     const close = document.createElement("div");
     close.className = "tab-close clickable";
     close.title = browser.i18n.getMessage("closeTabButtonTooltip");
@@ -78,7 +75,6 @@ SideTab.prototype = {
     tab.appendChild(iconOverlay);
     tab.appendChild(metaImage);
     tab.appendChild(titleWrapper);
-    tab.appendChild(pin);
     tab.appendChild(close);
   },
   updateTitle(title) {
@@ -135,6 +131,9 @@ SideTab.prototype = {
   updatePinned(pinned) {
     this.pinned = pinned;
     toggleClass(this.view, "pinned", pinned);
+    if (pinned) {
+      this.resetThumbnail();
+    }
   },
   updateContext(context) {
     if (!context) {
@@ -146,6 +145,10 @@ SideTab.prototype = {
   updateThumbnail(thumbnail) {
     this._metaImageView.style.backgroundImage = `url(${thumbnail})`;
     this._metaImageView.classList.add("has-thumbnail");
+  },
+  resetThumbnail() {
+    this._metaImageView.style.backgroundImage = "";
+    this._metaImageView.classList.remove("has-thumbnail");
   }
 };
 

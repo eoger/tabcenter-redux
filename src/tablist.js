@@ -442,16 +442,18 @@ SideTabList.prototype = {
     if (this.tabsShrinked) {
       // Could we fit everything if we switched back to the "normal" mode?
       const wrapperHeight = document.getElementById("tablist-wrapper").offsetHeight;
-      const estimatedTabHeight = 56; // Not very scientific, but it "mostly" works.
-      const estimatedPinnedHeight = 30; // Not very scientific, but it "mostly" works.
+      // These constants are not very scientific, but they "mostly" work.
+      const estimatedTabHeight = 56;
+      const estimatedPinnedHeight = 26;
+      const pinnedTabsPerRow = 8;
 
       // TODO: We are not accounting for the "More Tabs" element displayed when
       // filtering tabs.
-      let allTabs = [...this.tabs.values()].filter(tab => tab.visible)
+      let allTabs = [...this.tabs.values()].filter(tab => tab.visible);
       let visibleTabs = allTabs.filter(tab => !tab.pinned);
       let pinnedTabs = allTabs.filter(tab => tab.pinned);
       let estimatedHeight = visibleTabs.length * estimatedTabHeight +
-        Math.ceil(pinnedTabs.length / 7) * estimatedPinnedHeight;
+        Math.ceil(pinnedTabs.length / pinnedTabsPerRow) * estimatedPinnedHeight;
       if (estimatedHeight <= wrapperHeight) {
         this.tabsShrinked = false;
       }
@@ -613,6 +615,10 @@ SideTabList.prototype = {
     }
     // TODO: sadly we can only capture a thumbnail of the current tab. bug 1246693
     if (this.active != tabId) {
+      return;
+    }
+    let sidetab = this.getTabById(tabId);
+    if (!sidetab || sidetab.pinned) {
       return;
     }
     const thumbnailBase64 = await browser.tabs.captureVisibleTab(this.windowId, {
