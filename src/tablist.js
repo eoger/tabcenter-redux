@@ -5,6 +5,7 @@ function SideTabList() {
   this.tabs = new Map();
   this.active = null;
   this.compactMode = false;
+  this._compactPins = true;
   this._tabsShrinked = false;
   this.windowId = null;
   this._filterActive = false;
@@ -17,9 +18,12 @@ function SideTabList() {
 
 SideTabList.prototype = {
   async init() {
-    this.compactMode = (await browser.storage.local.get({
-      compactMode: false
-    })).compactMode;
+    let options = (await browser.storage.local.get({
+      compactMode: false,
+      compactPins: true
+    }));
+    this.compactPins = options.compactPins;
+    this.compactMode = options.compactMode;
     if (this.compactMode) {
       this.maybeShrinkTabs();
     }
@@ -78,6 +82,10 @@ SideTabList.prototype = {
 
     // Pref changes
     browser.storage.onChanged.addListener(changes => {
+      if (changes.compactPins) {
+        this.compactPins = changes.compactPins.newValue;
+        this.maybeShrinkTabs();
+      }
       if (changes.compactMode) {
         this.compactMode = changes.compactMode.newValue;
         this.maybeShrinkTabs();
@@ -417,6 +425,17 @@ SideTabList.prototype = {
   getTabById(tabId) {
     return this.tabs.get(tabId, null);
   },
+  get compactPins() {
+    return this._compactPins;
+  },
+  set compactPins(compact) {
+    this._compactPins = compact;
+    if (compact) {
+      this.pinnedview.classList.add("compact");
+    } else {
+      this.pinnedview.classList.remove("compact");
+    }
+  },
   get tabsShrinked() {
     return this._tabsShrinked;
   },
@@ -424,8 +443,10 @@ SideTabList.prototype = {
     this._tabsShrinked = shrinked;
     if (shrinked) {
       this.view.classList.add("shrinked");
+      this.pinnedview.classList.add("shrinked");
     } else {
       this.view.classList.remove("shrinked");
+      this.pinnedview.classList.remove("shrinked");
     }
   },
   maybeShrinkTabs() {
@@ -615,10 +636,6 @@ SideTabList.prototype = {
     }
     // TODO: sadly we can only capture a thumbnail of the current tab. bug 1246693
     if (this.active != tabId) {
-      return;
-    }
-    let sidetab = this.getTabById(tabId);
-    if (!sidetab || sidetab.pinned) {
       return;
     }
     const thumbnailBase64 = await browser.tabs.captureVisibleTab(this.windowId, {

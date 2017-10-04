@@ -5,8 +5,9 @@ function TabCenterOptions() {
 
 TabCenterOptions.prototype = {
   setupLabels() {
-    const options = ["optionsTitle", "optionsCompactMode", "optionsDarkTheme",
-      "optionsAdvancedTitle", "optionsCustomCSS", "optionsSaveCustomCSS"];
+    const options = ["optionsTitle", "optionsCompactMode",
+      "optionsCompactPins", "optionsDarkTheme", "optionsAdvancedTitle",
+      "optionsCustomCSS", "optionsSaveCustomCSS"];
     for (let opt of options) {
       this._setupTextContentLabel(opt);
     }
@@ -16,17 +17,19 @@ TabCenterOptions.prototype = {
   },
   setupStateAndListeners() {
     this._setupCheckboxOption("compactMode", "compactMode");
+    this._setupCheckboxOption("compactPins", "compactPins");
     this._setupCheckboxOption("darkTheme", "darkTheme");
 
-    // Custom CSS
     browser.storage.local.get({
-      ["customCSS"]: ""
+      "compactPins": true,
+      "customCSS": ""
     }).then(prefs => {
       document.getElementById("customCSS").value = prefs["customCSS"];
+      document.getElementById("compactPins").checked = prefs["compactPins"];
     });
     document.getElementById("optionsSaveCustomCSS").addEventListener("click", () => {
       browser.storage.local.set({
-        ["customCSS"]: document.getElementById("customCSS").value
+        "customCSS": document.getElementById("customCSS").value
       });
     });
   },
