@@ -1,89 +1,85 @@
 {
-  "extensionName": {
-    "message": "Tab Center Redux"
+  "extensionDescription":{
+    "message":"标签页中心旨在解决人们使用标签页（尤其是太多标签页）时遇到的一些问题，并为未来的创新功能提供更多的基础。此 Firefox 附加组件以垂直方式而非水平方式排列标签页。它的灵感极大来源于附加组件 VerticalTabs 的想法。"
   },
-
-  "extensionDescription": {
-    "message": "标签页中心旨在解决人们使用标签页（尤其是太多标签页）时遇到的一些问题，并为未来的创新功能提供更多的基础。此 Firefox 附加组件以垂直方式而非水平方式排列标签页。它的灵感极大来源于附加组件 VerticalTabs 的想法。"
+  "sidebarTitle":{
+    "message":"标签页",
+    "description":"Label shown in the sidebar selector."
   },
-
-  "sidebarTitle": {
-    "message": "标签页",
-    "description": "Label shown in the sidebar selector."
+  "newTabBtnLabel":{
+    "message":"新标签页",
+    "description":"Label of the New Tab button in the top menu."
   },
-
-  "newTabBtnLabel": {
-    "message": "新标签页",
-    "description": "Label of the New Tab button in the top menu."
+  "newTabBtnTooltip":{
+    "message":"打开新标签页"
   },
-
-  "newTabBtnTooltip": {
-    "message": "打开新标签页"
+  "closeTabButtonTooltip":{
+    "message":"关闭标签页"
   },
-
-  "closeTabButtonTooltip": {
-    "message": "关闭标签页"
+  "allTabsLabel":{
+    "message":"显示所有标签页…",
+    "description":"Shown at the bottom of the list of tabs if some tabs are filtered by the current search query."
   },
-
-  "allTabsLabel": {
-    "message": "显示所有标签页…",
-    "description": "Shown at the bottom of the list of tabs if some tabs are filtered by the current search query."
+  "contextMenuReloadTab":{
+    "message":"重新载入标签页",
+    "description":"Reload Tab context menu item label."
   },
-
-  "contextMenuReloadTab": {
-    "message": "重新载入标签页",
-    "description": "Reload Tab context menu item label."
+  "contextMenuPinTab":{
+    "message":"固定标签页",
+    "description":"Pin Tab context menu item label."
   },
-
-  "contextMenuPinTab": {
-    "message": "固定标签页",
-    "description": "Pin Tab context menu item label."
+  "contextMenuUnpinTab":{
+    "message":"取消固定标签页",
+    "description":"Unpin Tab context menu item label."
   },
-
-  "contextMenuUnpinTab": {
-    "message": "取消固定标签页",
-    "description": "Unpin Tab context menu item label."
+  "contextMenuMuteTab":{
+    "message":"静音标签页",
+    "description":"Mute Tab context menu item label."
   },
-
-  "contextMenuMuteTab": {
-    "message": "静音标签页",
-    "description": "Mute Tab context menu item label."
+  "contextMenuUnmuteTab":{
+    "message":"取消静音标签页",
+    "description":"Unmute Tab context menu item label."
   },
-
-  "contextMenuUnmuteTab": {
-    "message": "取消静音标签页",
-    "description": "Unmute Tab context menu item label."
+  "contextMenuCloseTab":{
+    "message":"关闭标签页"
   },
-
-  "contextMenuCloseTab": {
-    "message": "关闭标签页"
+  "contextMenuUndoCloseTab":{
+    "message":"Undo Close Tab"
   },
-
-  "contextMenuMoveTabToNewWindow": {
-    "message": "移动到新窗口"
+  "contextMenuDuplicateTab":{
+    "message":"Duplicate Tab"
   },
-
-  "contextMenuReloadAllTabs": {
-    "message": "重新载入全部标签页"
+  "contextMenuMoveTabToNewWindow":{
+    "message":"移动到新窗口"
   },
-
-  "contextMenuCloseTabsUnderneath": {
-    "message": "关闭下方标签页"
+  "contextMenuReloadAllTabs":{
+    "message":"重新载入全部标签页"
   },
-
-  "contextMenuCloseOtherTabs": {
-    "message": "关闭其他标签页"
+  "contextMenuCloseTabsUnderneath":{
+    "message":"关闭下方标签页"
   },
-
-  "settingsBtnTooltip": {
-    "message": "打开设置"
+  "contextMenuCloseOtherTabs":{
+    "message":"关闭其他标签页"
   },
-
-  "optionsTitle": {
-    "message": "设置"
+  "settingsBtnTooltip":{
+    "message":"打开设置"
   },
-
-  "optionsDarkTheme": {
-    "message": "黑夜主题"
+  "optionsTitle":{
+    "message":"设置"
+  },
+  "optionsCompactMode":{
+    "message":"Compact Mode"
+  },
+  "optionsDarkTheme":{
+    "message":"黑夜主题"
+  },
+  "optionsAdvancedTitle":{
+    "message":"Advanced"
+  },
+  "optionsCustomCSS":{
+    "message":"Custom stylesheet"
+  },
+  "optionsSaveCustomCSS":{
+    "message":"Save CSS"
   }
 }

@@ -1,5 +1,5 @@
 {
-  "name": "__MSG_extensionName__",
+  "name": "Tab Center Redux",
   "description": "__MSG_extensionDescription__",
   "homepage_url": "https://github.com/eoger/tabcenter-redux",
   "manifest_version": 2,
