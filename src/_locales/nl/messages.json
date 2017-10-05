@@ -1,7 +1,4 @@
 {
-  "extensionName":{
-    "message":"Tab Center Redux"
-  },
   "extensionDescription":{
     "message":"Tab Center is een poging om sommige problemen op te lossen die ontstaan zijn uit de manier waarop mensen tabbladen gebruiken (vooral het “teveel tabbladen“ probleem) en een veelzijdigere gebruikersinterface te bieden voor toekomstige innovatie. De eerste versie van deze Firefox-add-on schikt tabbladen verticaal in plaats van horizontaal. Het is hevig geïnspireerd op en leent ideeën van de uitstekende VerticalTabs-add-on."
   },
