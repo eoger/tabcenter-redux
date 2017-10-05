@@ -1,7 +1,4 @@
 {
-  "extensionName":{
-    "message":"Tab Center Redux"
-  },
   "extensionDescription":{
     "message":"分頁中心試圖解決人們使用分頁（尤其是太多分頁）時遇到的一些問題，並為未來的創新功能提供更多的基礎。此 Firefox 附加組件以垂直方式而非水平方式排列分頁。它的靈感極大來源於附加組件 VerticalTabs 的想法。"
   },
