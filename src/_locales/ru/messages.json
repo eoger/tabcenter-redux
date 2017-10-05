@@ -43,12 +43,6 @@
   "contextMenuCloseTab":{
     "message":"Закрыть вкладку"
   },
-  "contextMenuUndoCloseTab":{
-    "message":"Undo Close Tab"
-  },
-  "contextMenuDuplicateTab":{
-    "message":"Duplicate Tab"
-  },
   "contextMenuMoveTabToNewWindow":{
     "message":"Переместить в новое окно"
   },
@@ -67,19 +61,7 @@
   "optionsTitle":{
     "message":"Настройки"
   },
-  "optionsCompactMode":{
-    "message":"Compact Mode"
-  },
   "optionsDarkTheme":{
     "message":"Темная тема"
-  },
-  "optionsAdvancedTitle":{
-    "message":"Advanced"
-  },
-  "optionsCustomCSS":{
-    "message":"Custom stylesheet"
-  },
-  "optionsSaveCustomCSS":{
-    "message":"Save CSS"
   }
 }
