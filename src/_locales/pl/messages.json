@@ -43,12 +43,6 @@
   "contextMenuCloseTab":{
     "message":"Zamknij kartę"
   },
-  "contextMenuUndoCloseTab":{
-    "message":"Undo Close Tab"
-  },
-  "contextMenuDuplicateTab":{
-    "message":"Duplicate Tab"
-  },
   "contextMenuMoveTabToNewWindow":{
     "message":"Przenieś do nowego okna"
   },
@@ -67,19 +61,7 @@
   "optionsTitle":{
     "message":"Ustawienia"
   },
-  "optionsCompactMode":{
-    "message":"Compact Mode"
-  },
   "optionsDarkTheme":{
     "message":"Ciemny motyw"
-  },
-  "optionsAdvancedTitle":{
-    "message":"Advanced"
-  },
-  "optionsCustomCSS":{
-    "message":"Custom stylesheet"
-  },
-  "optionsSaveCustomCSS":{
-    "message":"Save CSS"
   }
 }
