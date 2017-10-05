@@ -524,10 +524,18 @@ img, .tab *:not(.clickable) {
     align-items: center;
 }
 
+.tab.pinned .tab-icon-wrapper {
+    height: 26px;
+    width: 26px;
+}
+
 .tab.pinned .tab-icon {
-    width: 22px;
-    height: 22px;
     margin: 2px;
+}
+
+.tab.pinned:not(.loading) .tab-icon {
+    width: 18px;
+    height: 18px;
 }
 
 .tab.pinned > .tab-context,
