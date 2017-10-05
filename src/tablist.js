@@ -276,9 +276,16 @@ SideTabList.prototype = {
     if (!SideTab.isTabEvent(e)) {
       return;
     }
+    const tabId = SideTab.tabIdForEvent(e);
+    const tab = this.getTabById(tabId);
     e.dataTransfer.setData("text/x-tabcenter-tab", JSON.stringify({
       tabId: parseInt(SideTab.tabIdForEvent(e)),
       origWindowId: this.windowId
+    }));
+    e.dataTransfer.setData("text/x-moz-place", JSON.stringify({
+      type: "text/x-moz-place",
+      title: tab.title,
+      uri: tab.url
     }));
     e.dataTransfer.dropEffect = "move";
   },
