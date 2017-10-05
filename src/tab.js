@@ -72,6 +72,9 @@ SideTab.prototype = {
 
     const close = document.createElement("div");
     close.className = "tab-close clickable";
+    // This makes the close button an event target for dragstart, which
+    // allows us to cancel the drag if the user initiated the drag from here!
+    close.draggable = true;
     close.title = browser.i18n.getMessage("closeTabButtonTooltip");
 
     tab.appendChild(context);
