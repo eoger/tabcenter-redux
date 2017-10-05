@@ -46,6 +46,9 @@
   "contextMenuUndoCloseTab":{
     "message":"Tabblad sluiten ongedaan maken"
   },
+  "contextMenuDuplicateTab":{
+    "message":"Tabblad dupliceren"
+  },
   "contextMenuMoveTabToNewWindow":{
     "message":"Verplaatsen naar nieuw venster"
   },
