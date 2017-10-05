@@ -1,110 +1,88 @@
 {
-  "extensionName": {
-    "message": "Tab Center Redux"
+  "extensionName":{
+    "message":"Tab Center Redux"
   },
-
-  "extensionDescription": {
-    "message": "Tab Center essaie de résoudre certains des problèmes suite à l'utilisation des onglets (principalement, le problème « j'ai trop d'onglets ») et propose une base d'interface utilisateur plus souple pour innover. Cette première version propose un arrangement vertical des onglets. Ce module est fortement inspiré et emprunte des idées à l'excellent module VerticalTabs."
+  "extensionDescription":{
+    "message":"Tab Center essaie de résoudre certains des problèmes suite à l'utilisation des onglets (principalement, le problème « j'ai trop d'onglets ») et propose une base d'interface utilisateur plus souple pour innover. Cette première version propose un arrangement vertical des onglets. Ce module est fortement inspiré et emprunte des idées à l'excellent module VerticalTabs."
   },
-
-  "sidebarTitle": {
-    "message": "Onglets",
-    "description": "Label affiché dans le selecteur de barre latérale."
+  "sidebarTitle":{
+    "message":"Onglets",
+    "description":"Label shown in the sidebar selector."
   },
-
-  "newTabBtnLabel": {
-    "message": "Nouvel onglet",
-    "description": "Label du bouton Nouvel onglet du menu supérieur."
+  "newTabBtnLabel":{
+    "message":"Nouvel onglet",
+    "description":"Label of the New Tab button in the top menu."
   },
-
-  "newTabBtnTooltip": {
-    "message": "Ouvrir un nouvel onglet"
+  "newTabBtnTooltip":{
+    "message":"Ouvrir un nouvel onglet"
   },
-
-  "closeTabButtonTooltip": {
-    "message": "Fermer l'onglet"
+  "closeTabButtonTooltip":{
+    "message":"Fermer l'onglet"
   },
-
-  "allTabsLabel": {
-    "message": "Tous les onglets…",
-    "description": "Affiché au bas de la liste des onglets si certains sont masqués par une requête de recherche."
+  "allTabsLabel":{
+    "message":"Tous les onglets…",
+    "description":"Shown at the bottom of the list of tabs if some tabs are filtered by the current search query."
   },
-
-  "contextMenuReloadTab": {
-    "message": "Actualiser l'onglet",
-    "description": "Label de l'élément Actualiser l'onglet du menu contextuel."
+  "contextMenuReloadTab":{
+    "message":"Actualiser l'onglet",
+    "description":"Reload Tab context menu item label."
   },
-
-  "contextMenuPinTab": {
-    "message": "Épingler cet onglet",
-    "description": "Label de l'élément Épingler cet onglet du menu contextuel."
+  "contextMenuPinTab":{
+    "message":"Épingler cet onglet",
+    "description":"Pin Tab context menu item label."
   },
-
-  "contextMenuUnpinTab": {
-    "message": "Relâcher l'onglet",
-    "description": "Label de l'élément Relâcher l'onglet du menu contextuel."
+  "contextMenuUnpinTab":{
+    "message":"Relâcher l'onglet",
+    "description":"Unpin Tab context menu item label."
   },
-
-  "contextMenuMuteTab": {
-    "message": "Rendre l'onglet muet",
-    "description": "Label de l'élément Rendre l'onglet muet du menu contextuel."
+  "contextMenuMuteTab":{
+    "message":"Rendre l'onglet muet",
+    "description":"Mute Tab context menu item label."
   },
-
-  "contextMenuUnmuteTab": {
-    "message": "Réactiver le son de l'onglet",
-    "description": "Label de l'élément Réactiver le son de l'onglet du menu contextuel."
+  "contextMenuUnmuteTab":{
+    "message":"Réactiver le son de l'onglet",
+    "description":"Unmute Tab context menu item label."
   },
-
-  "contextMenuCloseTab": {
-    "message": "Fermer l'onglet"
+  "contextMenuCloseTab":{
+    "message":"Fermer l'onglet"
   },
-
-  "contextMenuUndoCloseTab": {
-    "message": "Annuler la fermeture de l'onglet"
+  "contextMenuUndoCloseTab":{
+    "message":"Annuler la fermeture de l'onglet"
   },
-
-  "contextMenuMoveTabToNewWindow": {
-    "message": "Déplacer vers une nouvelle fenêtre"
+  "contextMenuDuplicateTab":{
+    "message":"Duplicate Tab"
   },
-
-  "contextMenuReloadAllTabs": {
-    "message": "Actualiser tous les onglets"
+  "contextMenuMoveTabToNewWindow":{
+    "message":"Déplacer vers une nouvelle fenêtre"
   },
-
-  "contextMenuCloseTabsUnderneath": {
-    "message": "Fermer les onglets en dessous"
+  "contextMenuReloadAllTabs":{
+    "message":"Actualiser tous les onglets"
   },
-
-  "contextMenuCloseOtherTabs": {
-    "message": "Fermer les autres onglets"
+  "contextMenuCloseTabsUnderneath":{
+    "message":"Fermer les onglets en dessous"
   },
-
-  "settingsBtnTooltip": {
-    "message": "Ouvrir les paramètres"
+  "contextMenuCloseOtherTabs":{
+    "message":"Fermer les autres onglets"
   },
-
-  "optionsTitle": {
-    "message": "Paramètres"
+  "settingsBtnTooltip":{
+    "message":"Ouvrir les paramètres"
   },
-
- "optionsCompactMode": {
-    "message": "Mode compact"
+  "optionsTitle":{
+    "message":"Paramètres"
   },
-
-  "optionsDarkTheme": {
-    "message": "Thème sombre"
+  "optionsCompactMode":{
+    "message":"Mode compact"
   },
-
-  "optionsAdvancedTitle": {
-    "message": "Avancé"
+  "optionsDarkTheme":{
+    "message":"Thème sombre"
   },
-
-  "optionsCustomCSS": {
-    "message": "Feuille de style personnalisée"
+  "optionsAdvancedTitle":{
+    "message":"Avancé"
   },
-
-  "optionsSaveCustomCSS": {
-    "message": "Enregistrer la CSS"
+  "optionsCustomCSS":{
+    "message":"Feuille de style personnalisée"
+  },
+  "optionsSaveCustomCSS":{
+    "message":"Enregistrer la CSS"
   }
-
 }
