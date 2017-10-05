@@ -428,6 +428,10 @@ img, .tab *:not(.clickable) {
     margin-left: 6px;
 }
 
+.tab.discarded .tab-title {
+    color: grey;
+}
+
 .tab-title, .tab-host {
     white-space: nowrap;
     overflow: hidden;
@@ -604,6 +608,10 @@ body.dark-theme #searchbox-icon,
 body.dark-theme #searchbox-input {
     background-color: rgb(23, 27, 31);
     color: #111;
+}
+
+body.dark-theme .tab.discarded .tab-title {
+    color: #626262;
 }
 
 body.dark-theme .tab-host {

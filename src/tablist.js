@@ -125,6 +125,9 @@ SideTabList.prototype = {
     if (changeInfo.hasOwnProperty("pinned")) {
       this.setPinned(tab);
     }
+    if (changeInfo.hasOwnProperty("discarded")) {
+      this.setDiscarded(tab);
+    }
   },
   onMouseDown(e) {
     // Don't put preventDefault here or drag-and-drop won't work
@@ -470,7 +473,7 @@ SideTabList.prototype = {
   _create(tabInfo) {
     let tab = new SideTab();
     this.tabs.set(tabInfo.id, tab);
-    tab.create(tabInfo);
+    tab.init(tabInfo);
     if (tabInfo.active) {
       this.setActive(tab.id);
     }
@@ -595,13 +598,21 @@ SideTabList.prototype = {
   },
   setPinned(tab) {
     let sidetab = this.getTab(tab);
-    if (sidetab) {
-      sidetab.updatePinned(tab.pinned);
-      let newView = tab.pinned ? this.pinnedview : this.view;
-      newView.appendChild(sidetab.view);
-      this.setPos(tab.id, tab.index);
-      this.maybeShrinkTabs();
+    if (!sidetab) {
+      return;
     }
+    sidetab.updatePinned(tab.pinned);
+    let newView = tab.pinned ? this.pinnedview : this.view;
+    newView.appendChild(sidetab.view);
+    this.setPos(tab.id, tab.index);
+    this.maybeShrinkTabs();
+  },
+  setDiscarded(tab) {
+    let sidetab = this.getTab(tab);
+    if (!sidetab) {
+      return;
+    }
+    sidetab.updateDiscarded(tab.discarded);
   },
   setContext(tab, context) {
     let sidetab = this.getTab(tab);

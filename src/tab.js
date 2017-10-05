@@ -8,7 +8,7 @@ function SideTab() {
 }
 
 SideTab.prototype = {
-  create(tabInfo) {
+  init(tabInfo) {
     this.id = tabInfo.id;
     this.buildViewStructure();
 
@@ -21,6 +21,7 @@ SideTab.prototype = {
     this.updatedMuted(tabInfo.mutedInfo.muted);
     this.updateIcon(tabInfo.favIconUrl);
     this.updatePinned(tabInfo.pinned);
+    this.updateDiscarded(tabInfo.discarded);
     if (tabInfo.cookieStoreId) {
       // This work is done in the background on purpose: making create() async
       // creates all sorts of bugs, because it is called in observers (which
@@ -129,6 +130,9 @@ SideTab.prototype = {
     if (pinned) {
       this.resetThumbnail();
     }
+  },
+  updateDiscarded(discarded) {
+    toggleClass(this.view, "discarded", discarded);
   },
   updateContext(context) {
     if (!context) {
