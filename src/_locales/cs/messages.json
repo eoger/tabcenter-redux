@@ -1,93 +1,88 @@
 {
-  "extensionName": {
-    "message": "Tab Center Redux"
+  "extensionName":{
+    "message":"Tab Center Redux"
   },
-
-  "extensionDescription": {
-    "message": "Tab Center je pokus vyřešit některé problémy, které vznikly kvůli tomu, jak lidé panely používají (především problém s příliš velkým počtem otevřených panelů) a snaží se poskytnout univerzální základ uživatelského rozhraní pro další inovace. První verze tohoto doplňku řadí panely vertikálně a ne horizontálně. Byla inspirována skvělým doplňkem VerticalTabs, odkud přejímá některé nápady."
+  "extensionDescription":{
+    "message":"Tab Center je pokus vyřešit některé problémy, které vznikly kvůli tomu, jak lidé panely používají (především problém s příliš velkým počtem otevřených panelů) a snaží se poskytnout univerzální základ uživatelského rozhraní pro další inovace. První verze tohoto doplňku řadí panely vertikálně a ne horizontálně. Byla inspirována skvělým doplňkem VerticalTabs, odkud přejímá některé nápady."
   },
-
-  "sidebarTitle": {
-    "message": "Panely",
-    "description": "Label shown in the sidebar selector."
+  "sidebarTitle":{
+    "message":"Panely",
+    "description":"Label shown in the sidebar selector."
   },
-
-  "newTabBtnLabel": {
-    "message": "Nový panel",
-    "description": "Label of the New Tab button in the top menu."
+  "newTabBtnLabel":{
+    "message":"Nový panel",
+    "description":"Label of the New Tab button in the top menu."
   },
-
-  "newTabBtnTooltip": {
-    "message": "Otevře nový panel"
+  "newTabBtnTooltip":{
+    "message":"Otevře nový panel"
   },
-
-  "closeTabButtonTooltip": {
-    "message": "Zavře panel"
+  "closeTabButtonTooltip":{
+    "message":"Zavře panel"
   },
-
-  "allTabsLabel": {
-    "message": "Zobrazit všechny panely…",
-    "description": "Shown at the bottom of the list of tabs if some tabs are filtered by the current search query."
+  "allTabsLabel":{
+    "message":"Zobrazit všechny panely…",
+    "description":"Shown at the bottom of the list of tabs if some tabs are filtered by the current search query."
   },
-
-  "contextMenuReloadTab": {
-    "message": "Obnovit panel",
-    "description": "Reload Tab context menu item label."
+  "contextMenuReloadTab":{
+    "message":"Obnovit panel",
+    "description":"Reload Tab context menu item label."
   },
-
-  "contextMenuPinTab": {
-    "message": "Připnout panel",
-    "description": "Pin Tab context menu item label."
+  "contextMenuPinTab":{
+    "message":"Připnout panel",
+    "description":"Pin Tab context menu item label."
   },
-
-  "contextMenuUnpinTab": {
-    "message": "Odepnout panel",
-    "description": "Unpin Tab context menu item label."
+  "contextMenuUnpinTab":{
+    "message":"Odepnout panel",
+    "description":"Unpin Tab context menu item label."
   },
-
-  "contextMenuMuteTab": {
-    "message": "Vypnout zvuk panelu",
-    "description": "Mute Tab context menu item label."
+  "contextMenuMuteTab":{
+    "message":"Vypnout zvuk panelu",
+    "description":"Mute Tab context menu item label."
   },
-
-  "contextMenuUnmuteTab": {
-    "message": "Zapnout zvuk panelu",
-    "description": "Unmute Tab context menu item label."
+  "contextMenuUnmuteTab":{
+    "message":"Zapnout zvuk panelu",
+    "description":"Unmute Tab context menu item label."
   },
-
-  "contextMenuCloseTab": {
-    "message": "Zavřít panel"
+  "contextMenuCloseTab":{
+    "message":"Zavřít panel"
   },
-
-  "contextMenuMoveTabToNewWindow": {
-    "message": "Přesunout do nového okna"
+  "contextMenuUndoCloseTab":{
+    "message":"Undo Close Tab"
   },
-
-  "contextMenuReloadAllTabs": {
-    "message": "Obnovit všechny panely"
+  "contextMenuDuplicateTab":{
+    "message":"Duplicate Tab"
   },
-
-  "contextMenuCloseTabsUnderneath": {
-    "message": "Zavřít panely níže"
+  "contextMenuMoveTabToNewWindow":{
+    "message":"Přesunout do nového okna"
   },
-
-  "contextMenuCloseOtherTabs": {
-    "message": "Zavřít ostatní panely"
+  "contextMenuReloadAllTabs":{
+    "message":"Obnovit všechny panely"
   },
-
-  "settingsBtnTooltip": {
-    "message": "Otevřít nastavení"
+  "contextMenuCloseTabsUnderneath":{
+    "message":"Zavřít panely níže"
   },
-
-  "optionsTitle": {
-    "message": "Nastavení"
+  "contextMenuCloseOtherTabs":{
+    "message":"Zavřít ostatní panely"
   },
-
-  "optionsCompactMode": {
-    "message": "Kompaktní režim"
+  "settingsBtnTooltip":{
+    "message":"Otevřít nastavení"
   },
-
-  "optionsDarkTheme": {
-    "message": "Tmavý vzhled"
+  "optionsTitle":{
+    "message":"Nastavení"
+  },
+  "optionsCompactMode":{
+    "message":"Kompaktní režim"
+  },
+  "optionsDarkTheme":{
+    "message":"Tmavý vzhled"
+  },
+  "optionsAdvancedTitle":{
+    "message":"Advanced"
+  },
+  "optionsCustomCSS":{
+    "message":"Custom stylesheet"
+  },
+  "optionsSaveCustomCSS":{
+    "message":"Save CSS"
   }
 }
