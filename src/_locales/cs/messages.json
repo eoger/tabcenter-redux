@@ -43,12 +43,6 @@
   "contextMenuCloseTab":{
     "message":"Zavřít panel"
   },
-  "contextMenuUndoCloseTab":{
-    "message":"Undo Close Tab"
-  },
-  "contextMenuDuplicateTab":{
-    "message":"Duplicate Tab"
-  },
   "contextMenuMoveTabToNewWindow":{
     "message":"Přesunout do nového okna"
   },
@@ -72,14 +66,5 @@
   },
   "optionsDarkTheme":{
     "message":"Tmavý vzhled"
-  },
-  "optionsAdvancedTitle":{
-    "message":"Advanced"
-  },
-  "optionsCustomCSS":{
-    "message":"Custom stylesheet"
-  },
-  "optionsSaveCustomCSS":{
-    "message":"Save CSS"
   }
 }
