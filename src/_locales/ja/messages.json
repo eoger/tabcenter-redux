@@ -1,7 +1,4 @@
 {
-  "extensionName":{
-    "message":"Tab Center Redux"
-  },
   "extensionDescription":{
     "message":"Tab Center は、ユーザーのタブの使い方から生じるいくつかの問題 (特に「タブを開きすぎてしまう」状況) を解決し、将来の革新に向けてより自在な UI の基礎を提供しようとする試みです。この Firefox アドオンの初回版では、タブを水平ではなく垂直に配置してみました。これは素晴らしい VerticalTabs アドオンに強く触発され、そのアイデアを借用したものです。"
   },
