@@ -1,89 +1,67 @@
 {
-  "extensionName": {
-    "message": "Tab Center Redux"
+  "extensionDescription":{
+    "message":"Tab Center это попытка решить некоторые проблемы, возникшие из-за того, как люди используют вкладки (в первую очередь проблема “слишком много вкладок”) и предоставить более универсальный UI для будущих инноваций. Первая версия этого дополнения для Firefox упорядочивает вкладки вертикально, а не горизонтально. Вдохновение и идеи были заимствованы из отличного расширения VerticalTabs."
   },
-
-  "extensionDescription": {
-    "message": "Tab Center это попытка решить некоторые проблемы, возникшие из-за того, как люди используют вкладки (в первую очередь проблема “слишком много вкладок”) и предоставить более универсальный UI для будущих инноваций. Первая версия этого дополнения для Firefox упорядочивает вкладки вертикально, а не горизонтально. Вдохновение и идеи были заимствованы из отличного расширения VerticalTabs."
+  "sidebarTitle":{
+    "message":"Вкладки",
+    "description":"Label shown in the sidebar selector."
   },
-
-  "sidebarTitle": {
-    "message": "Вкладки",
-    "description": "Label shown in the sidebar selector."
+  "newTabBtnLabel":{
+    "message":"Новая вкладка",
+    "description":"Label of the New Tab button in the top menu."
   },
-
-  "newTabBtnLabel": {
-    "message": "Новая вкладка",
-    "description": "Label of the New Tab button in the top menu."
+  "newTabBtnTooltip":{
+    "message":"Открыть новую вкладку"
   },
-
-  "newTabBtnTooltip": {
-    "message": "Открыть новую вкладку"
+  "closeTabButtonTooltip":{
+    "message":"Закрыть вкладку"
   },
-
-  "closeTabButtonTooltip": {
-    "message": "Закрыть вкладку"
+  "allTabsLabel":{
+    "message":"Показать все вкладки…",
+    "description":"Shown at the bottom of the list of tabs if some tabs are filtered by the current search query."
   },
-
-  "allTabsLabel": {
-    "message": "Показать все вкладки…",
-    "description": "Отображается внизу списка вкладок, если некоторые из них отфильтрованы поисковым запросом."
+  "contextMenuReloadTab":{
+    "message":"Перезагрузить вкладку",
+    "description":"Reload Tab context menu item label."
   },
-
-  "contextMenuReloadTab": {
-    "message": "Перезагрузить вкладку",
-    "description": "Reload Tab context menu item label."
+  "contextMenuPinTab":{
+    "message":"Закрепить вкладку",
+    "description":"Pin Tab context menu item label."
   },
-
-  "contextMenuPinTab": {
-    "message": "Закрепить вкладку",
-    "description": "Pin Tab context menu item label."
+  "contextMenuUnpinTab":{
+    "message":"Открепить вкладку",
+    "description":"Unpin Tab context menu item label."
   },
-
-  "contextMenuUnpinTab": {
-    "message": "Открепить вкладку",
-    "description": "Unpin Tab context menu item label."
+  "contextMenuMuteTab":{
+    "message":"Убрать звук во вкладке",
+    "description":"Mute Tab context menu item label."
   },
-
-  "contextMenuMuteTab": {
-    "message": "Убрать звук во вкладке",
-    "description": "Mute Tab context menu item label."
+  "contextMenuUnmuteTab":{
+    "message":"Восстановить звук во вкладке",
+    "description":"Unmute Tab context menu item label."
   },
-
-  "contextMenuUnmuteTab": {
-    "message": "Восстановить звук во вкладке",
-    "description": "Unmute Tab context menu item label."
+  "contextMenuCloseTab":{
+    "message":"Закрыть вкладку"
   },
-
-  "contextMenuCloseTab": {
-    "message": "Закрыть вкладку"
+  "contextMenuMoveTabToNewWindow":{
+    "message":"Переместить в новое окно"
   },
-
-  "contextMenuMoveTabToNewWindow": {
-    "message": "Переместить в новое окно"
+  "contextMenuReloadAllTabs":{
+    "message":"Перезагрузить все вкладки"
   },
-
-  "contextMenuReloadAllTabs": {
-    "message": "Перезагрузить все вкладки"
+  "contextMenuCloseTabsUnderneath":{
+    "message":"Закрыть вкладки ниже"
   },
-
-  "contextMenuCloseTabsUnderneath": {
-    "message": "Закрыть вкладки ниже"
+  "contextMenuCloseOtherTabs":{
+    "message":"Закрыть другие вкладки"
   },
-
-  "contextMenuCloseOtherTabs": {
-    "message": "Закрыть другие вкладки"
+  "settingsBtnTooltip":{
+    "message":"Открыть настройки"
   },
-
-  "settingsBtnTooltip": {
-    "message": "Открыть настройки"
+  "optionsTitle":{
+    "message":"Настройки"
   },
-
-  "optionsTitle": {
-    "message": "Настройки"
-  },
-
-  "optionsDarkTheme": {
-    "message": "Темная тема"
+  "optionsDarkTheme":{
+    "message":"Темная тема"
   }
 }

@@ -1,109 +1,79 @@
 {
-    "extensionName": {
-        "message": "Tab Center Redux"
-    },
-
-    "extensionDescription": {
-        "message": "分頁中心試圖解決人們使用分頁（尤其是太多分頁）時遇到的一些問題，並為未來的創新功能提供更多的基礎。此 Firefox 附加組件以垂直方式而非水平方式排列分頁。它的靈感極大來源於附加組件 VerticalTabs 的想法。"
-    },
-
-    "sidebarTitle": {
-        "message": "分頁",
-        "description": "Label shown in the sidebar selector."
-    },
-
-    "newTabBtnLabel": {
-        "message": "新分頁",
-        "description": "Label of the New Tab button in the top menu."
-    },
-
-    "newTabBtnTooltip": {
-        "message": "開啟新分頁"
-    },
-
-    "closeTabButtonTooltip": {
-        "message": "關閉分頁"
-    },
-
-    "allTabsLabel": {
-        "message": "顯示所有分頁…",
-        "description": "Shown at the bottom of the list of tabs if some tabs are filtered by the current search query."
-    },
-
-    "contextMenuReloadTab": {
-        "message": "重新載入分頁",
-        "description": "Reload Tab context menu item label."
-    },
-
-    "contextMenuPinTab": {
-        "message": "固定分頁",
-        "description": "Pin Tab context menu item label."
-    },
-
-    "contextMenuUnpinTab": {
-        "message": "取消固定分頁",
-        "description": "Unpin Tab context menu item label."
-    },
-
-    "contextMenuMuteTab": {
-        "message": "分頁靜音",
-        "description": "Mute Tab context menu item label."
-    },
-
-    "contextMenuUnmuteTab": {
-        "message": "取消分頁靜音",
-        "description": "Unmute Tab context menu item label."
-    },
-
-    "contextMenuCloseTab": {
-        "message": "關閉分頁"
-    },
-
-    "contextMenuUndoCloseTab": {
-        "message": "Undo Close Tab"
-    },
-
-    "contextMenuMoveTabToNewWindow": {
-        "message": "移動到新視窗"
-    },
-
-    "contextMenuReloadAllTabs": {
-        "message": "重新載入全部分頁"
-    },
-
-    "contextMenuCloseTabsUnderneath": {
-        "message": "關閉下方分頁"
-    },
-
-    "contextMenuCloseOtherTabs": {
-        "message": "關閉其他分頁"
-    },
-
-    "settingsBtnTooltip": {
-        "message": "開啟設定"
-    },
-
-    "optionsTitle": {
-        "message": "設定"
-    },
-
-    "optionsCompactMode": {
-        "message": "精簡模式"
-    },
-
-    "optionsDarkTheme": {
-        "message": "暗色主題"
-    },
-
-    "optionsAdvancedTitle": {
-        "message": "進階"
-    },
-
-    "optionsCustomCSS": {
-        "message": "自訂樣式表"
-    },
-
-    "optionsSaveCustomCSS": {
-        "message": "儲存 CSS"
-    }
+  "extensionDescription":{
+    "message":"分頁中心試圖解決人們使用分頁（尤其是太多分頁）時遇到的一些問題，並為未來的創新功能提供更多的基礎。此 Firefox 附加組件以垂直方式而非水平方式排列分頁。它的靈感極大來源於附加組件 VerticalTabs 的想法。"
+  },
+  "sidebarTitle":{
+    "message":"分頁",
+    "description":"Label shown in the sidebar selector."
+  },
+  "newTabBtnLabel":{
+    "message":"新分頁",
+    "description":"Label of the New Tab button in the top menu."
+  },
+  "newTabBtnTooltip":{
+    "message":"開啟新分頁"
+  },
+  "closeTabButtonTooltip":{
+    "message":"關閉分頁"
+  },
+  "allTabsLabel":{
+    "message":"顯示所有分頁…",
+    "description":"Shown at the bottom of the list of tabs if some tabs are filtered by the current search query."
+  },
+  "contextMenuReloadTab":{
+    "message":"重新載入分頁",
+    "description":"Reload Tab context menu item label."
+  },
+  "contextMenuPinTab":{
+    "message":"固定分頁",
+    "description":"Pin Tab context menu item label."
+  },
+  "contextMenuUnpinTab":{
+    "message":"取消固定分頁",
+    "description":"Unpin Tab context menu item label."
+  },
+  "contextMenuMuteTab":{
+    "message":"分頁靜音",
+    "description":"Mute Tab context menu item label."
+  },
+  "contextMenuUnmuteTab":{
+    "message":"取消分頁靜音",
+    "description":"Unmute Tab context menu item label."
+  },
+  "contextMenuCloseTab":{
+    "message":"關閉分頁"
+  },
+  "contextMenuMoveTabToNewWindow":{
+    "message":"移動到新視窗"
+  },
+  "contextMenuReloadAllTabs":{
+    "message":"重新載入全部分頁"
+  },
+  "contextMenuCloseTabsUnderneath":{
+    "message":"關閉下方分頁"
+  },
+  "contextMenuCloseOtherTabs":{
+    "message":"關閉其他分頁"
+  },
+  "settingsBtnTooltip":{
+    "message":"開啟設定"
+  },
+  "optionsTitle":{
+    "message":"設定"
+  },
+  "optionsCompactMode":{
+    "message":"精簡模式"
+  },
+  "optionsDarkTheme":{
+    "message":"暗色主題"
+  },
+  "optionsAdvancedTitle":{
+    "message":"進階"
+  },
+  "optionsCustomCSS":{
+    "message":"自訂樣式表"
+  },
+  "optionsSaveCustomCSS":{
+    "message":"儲存 CSS"
+  }
 }
