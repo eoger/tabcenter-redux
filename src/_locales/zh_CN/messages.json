@@ -1,7 +1,4 @@
 {
-  "extensionName":{
-    "message":"Tab Center Redux"
-  },
   "extensionDescription":{
     "message":"标签页中心旨在解决人们使用标签页（尤其是太多标签页）时遇到的一些问题，并为未来的创新功能提供更多的基础。此 Firefox 附加组件以垂直方式而非水平方式排列标签页。它的灵感极大来源于附加组件 VerticalTabs 的想法。"
   },
