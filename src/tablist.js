@@ -292,6 +292,17 @@ SideTabList.prototype = {
   onDragOver(e) {
     e.preventDefault();
   },
+  _findMozURL(dataTransfer) {
+    const urlData = dataTransfer.getData("text/x-moz-url-data"); // page link
+    if (urlData) {
+      return urlData;
+    }
+    const mozPlaceData = dataTransfer.getData("text/x-moz-place"); // bookmark
+    if (mozPlaceData) {
+      return JSON.parse(mozPlaceData).uri;
+    }
+    return null;
+  },
   onDrop(e) {
     if (!SideTab.isTabEvent(e, false) &&
         e.target != this._spacerView &&
@@ -301,20 +312,23 @@ SideTabList.prototype = {
     e.preventDefault();
 
     const dt = e.dataTransfer;
-    const linkURL = dt.getData("text/x-moz-url-data"); // dragged link
-    if (linkURL) {
-      browser.tabs.create({
-        url: linkURL,
-        windowId: this.windowId
-      });
-      return;
-    }
     const tabStr = dt.getData("text/x-tabcenter-tab");
-    if (!tabStr) {
+    if (tabStr) {
+      return this.handleDroppedTabCenterTab(e, JSON.parse(tabStr));
+    }
+    const mozURL = this._findMozURL(dt);
+    if (!mozURL) {
       console.warn("Unknown drag-and-drop operation. Aborting.");
       return;
     }
-    let { tabId, origWindowId } = JSON.parse(tabStr);
+    browser.tabs.create({
+      url: mozURL,
+      windowId: this.windowId
+    });
+    return;
+  },
+  handleDroppedTabCenterTab(e, tab) {
+    let { tabId, origWindowId } = tab;
     let currentWindowId = this.windowId;
     if (currentWindowId != origWindowId) {
       browser.tabs.move(tabId, { windowId: currentWindowId, index: -1 });
