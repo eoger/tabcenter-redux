@@ -189,6 +189,12 @@ SideTabList.prototype = {
       }
     });
     items.push({
+      label: browser.i18n.getMessage("contextMenuDuplicateTab"),
+      onCommandFn: () => {
+        browser.tabs.duplicate(tabId);
+      }
+    });
+    items.push({
       label: browser.i18n.getMessage("contextMenuMoveTabToNewWindow"),
       onCommandFn: () => {
         browser.windows.create({ tabId });

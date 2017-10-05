@@ -63,6 +63,10 @@
     "message": "Undo Close Tab"
   },
 
+  "contextMenuDuplicateTab": {
+    "message": "Duplicate Tab"
+  },
+
   "contextMenuMoveTabToNewWindow": {
     "message": "Move to New Window"
   },
