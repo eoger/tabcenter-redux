@@ -43,6 +43,9 @@
   "contextMenuCloseTab":{
     "message":"Tabblad sluiten"
   },
+  "contextMenuUndoCloseTab":{
+    "message":"Tabblad sluiten ongedaan maken"
+  },
   "contextMenuMoveTabToNewWindow":{
     "message":"Verplaatsen naar nieuw venster"
   },
