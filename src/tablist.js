@@ -114,9 +114,10 @@ SideTabList.prototype = {
       this.setAudible(tab);
     }
     if (changeInfo.status === "loading") {
-      this.setSpinner(tab);
+      this.setLoading(tab, true);
     }
     if (changeInfo.status === "complete") {
+      this.setLoading(tab, false);
       this.updateTabThumbnail(tabId);
       this.setIcon(tab);
     }
@@ -573,10 +574,10 @@ SideTabList.prototype = {
       sidetab.updateIcon(tab.favIconUrl);
     }
   },
-  setSpinner(tab) {
+  setLoading(tab, isLoading) {
     let sidetab = this.getTab(tab);
     if (sidetab) {
-      sidetab.setSpinner();
+      sidetab.setLoading(isLoading);
     }
   },
   setPinned(tab) {

@@ -48,10 +48,12 @@ SideTab.prototype = {
     metaImage.className = "tab-meta-image";
     this._metaImageView = metaImage;
 
-    const icon = document.createElement("img");
+    const iconWrapper = document.createElement("div");
+    iconWrapper.className = "tab-icon-wrapper";
+    const icon = document.createElement("div");
     icon.className = "tab-icon";
-    icon.addEventListener("error", () => this._resetIcon());
-    metaImage.appendChild(icon);
+    iconWrapper.appendChild(icon);
+    metaImage.appendChild(iconWrapper);
     this._iconView = icon;
 
     const titleWrapper = document.createElement("div");
@@ -113,20 +115,13 @@ SideTab.prototype = {
     toggleClass(this._iconOverlayView, "muted", muted);
   },
   updateIcon(favIconUrl) {
-    if (favIconUrl) {
-      this._setIcon(favIconUrl);
-    } else {
-      this._resetIcon();
+    if (!favIconUrl) {
+      return;
     }
+    this._iconView.style.backgroundImage = `url("${favIconUrl}")`;
   },
-  _setIcon(url) {
-    this._iconView.src = url;
-  },
-  _resetIcon() {
-    this._setIcon("img/defaultFavicon.svg");
-  },
-  setSpinner() {
-    this._setIcon("img/loading-spinner.svg");
+  setLoading(isLoading) {
+    toggleClass(this.view, "loading", isLoading);
   },
   updatePinned(pinned) {
     this.pinned = pinned;

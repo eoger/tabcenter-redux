@@ -345,14 +345,21 @@ img, .tab *:not(.clickable) {
     width: 20px;
 }
 
-.tab-icon {
-    width: 20px;
-    height: 20px;
-    padding: 2px;
-    image-rendering: -moz-crisp-edges;
+#tablist:not(.shrinked) .tab-meta-image.has-thumbnail {
+    border: 2px solid white;
 }
 
-#tablist:not(.shrinked) .tab-icon {
+.tab-icon {
+    background-image: url("img/defaultFavicon.svg");
+}
+
+.tab-icon-wrapper {
+    height: 20px;
+    width: 20px;
+    padding: 2px;
+}
+
+#tablist:not(.shrinked) .tab-icon-wrapper {
     margin-left: 0px;
     margin-top: 20px;
     border-radius :2px;
@@ -360,12 +367,54 @@ img, .tab *:not(.clickable) {
     box-shadow: 0 0 2px hsla(0, 0%, 0%, 0.08), 0 0 0 1px hsla(0, 0%, 0%, 0.08);
 }
 
-#tablist:not(.shrinked) .tab-meta-image.has-thumbnail {
-    border: 2px solid white;
-}
-#tablist:not(.shrinked) .tab-meta-image.has-thumbnail > .tab-icon {
+#tablist:not(.shrinked) .tab-meta-image.has-thumbnail > .tab-icon-wrapper {
     margin-left: -2px;
     margin-top: 18px;
+}
+
+.tab-icon {
+    width: 16px;
+    height: 16px;
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: contain;
+    background-origin: content-box;
+    image-rendering: -moz-crisp-edges;
+}
+
+.tab.loading .tab-icon {
+    position: relative;
+    overflow: hidden;
+    background-image: none !important;
+}
+
+.tab.loading .tab-icon::before {
+    content: "";
+    position: absolute;
+    background-image: url("img/loading-spinner.svg#standard");
+    background-position: left center;
+    background-repeat: no-repeat;
+    width: 960px;
+    height: 100%;
+    animation: tab-throbber-animation 1.05s steps(60) infinite;
+    -moz-context-properties: fill;
+
+    /* XXX: It would be nice to transition between the "connecting" color and the
+     "loading" color (see the `.tab-throbber[progress]::before` rule below);
+     however, that currently forces main thread painting. When this is fixed
+     (after WebRender lands), we can do something like
+     `transition: fill 0.333s, opacity 0.333s;` */
+
+    fill: currentColor;
+    opacity: 0.7;
+}
+
+@keyframes tab-throbber-animation {
+  100% { transform: translateX(-100%); }
+}
+
+@keyframes tab-throbber-animation-rtl {
+  100% { transform: translateX(100%); }
 }
 
 .tab-title-wrapper {
@@ -577,10 +626,8 @@ body.dark-theme .tab-close {
     background-image: url("img/glyph-close-16.svg#inverted");
 }
 
-body.dark-theme #tablist.shrinked .tab:hover .tab-icon,
-body.dark-theme #pinnedtablist .tab:hover .tab-icon {
-    background-color: #e6e6e6;
-    filter: brightness(75%);
+body.dark-theme #tablist.shrinked .tab.loading .tab-icon::before {
+    background-image: url("img/loading-spinner.svg#inverted");
 }
 
 body.dark-theme .tab:hover {
@@ -589,11 +636,6 @@ body.dark-theme .tab:hover {
 
 body.dark-theme .tab.active {
     color: #fff;
-}
-
-body.dark-theme #tablist.shrinked .tab.active .tab-icon {
-    background-color: #fff;
-    filter: brightness(100%);
 }
 
 body.dark-theme #topmenu {
