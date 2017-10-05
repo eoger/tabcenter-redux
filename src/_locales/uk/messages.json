@@ -43,12 +43,6 @@
   "contextMenuCloseTab":{
     "message":"Закрити вкладку"
   },
-  "contextMenuUndoCloseTab":{
-    "message":"Undo Close Tab"
-  },
-  "contextMenuDuplicateTab":{
-    "message":"Duplicate Tab"
-  },
   "contextMenuMoveTabToNewWindow":{
     "message":"Перенести в нове вікно"
   },
