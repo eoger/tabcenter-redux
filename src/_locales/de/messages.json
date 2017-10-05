@@ -1,0 +1,70 @@
+{
+  "extensionDescription":{
+    "message":"Tab Center versucht, einige Probleme zu lösen, die häufig bei der Verwendung von Tabs auftreten (insbesondere das \"zu viele Tabs\"-Problem). Außerdem soll es eine flexiblere Basis für zukünftige Innovationen der Benutzeroberfläche bieten. Die erste Version dieses AddOns für Firefox ordnet die offenen Tabs vertikal an anstelle von horizontal. Es wurde stark inspiriert durch das exzellente AddOn VerticalTabs und übernimmt viele Ideen von diesem."
+  },
+  "sidebarTitle":{
+    "message":"Tabs",
+    "description":"Label shown in the sidebar selector."
+  },
+  "newTabBtnLabel":{
+    "message":"Neuer Tab",
+    "description":"Label of the New Tab button in the top menu."
+  },
+  "newTabBtnTooltip":{
+    "message":"Öffne einen neuen Tab"
+  },
+  "closeTabButtonTooltip":{
+    "message":"Schließe den Tab"
+  },
+  "allTabsLabel":{
+    "message":"Zeige alle Tabs…",
+    "description":"Shown at the bottom of the list of tabs if some tabs are filtered by the current search query."
+  },
+  "contextMenuReloadTab":{
+    "message":"Lade Tab neu",
+    "description":"Reload Tab context menu item label."
+  },
+  "contextMenuPinTab":{
+    "message":"Hefte Tab an",
+    "description":"Pin Tab context menu item label."
+  },
+  "contextMenuUnpinTab":{
+    "message":"Löse Tab ab",
+    "description":"Unpin Tab context menu item label."
+  },
+  "contextMenuMuteTab":{
+    "message":"Schalte Tab stumm",
+    "description":"Mute Tab context menu item label."
+  },
+  "contextMenuUnmuteTab":{
+    "message":"Hebe Stummschaltung auf",
+    "description":"Unmute Tab context menu item label."
+  },
+  "contextMenuCloseTab":{
+    "message":"Schließe Tab"
+  },
+  "contextMenuMoveTabToNewWindow":{
+    "message":"Verschiebe in neues Fenster"
+  },
+  "contextMenuReloadAllTabs":{
+    "message":"Lade alle Tabs neu"
+  },
+  "contextMenuCloseTabsUnderneath":{
+    "message":"Schließe alle Tabs unter diesem"
+  },
+  "contextMenuCloseOtherTabs":{
+    "message":"Schließe alle anderen Tabs"
+  },
+  "settingsBtnTooltip":{
+    "message":"Öffne Einstellungen"
+  },
+  "optionsTitle":{
+    "message":"Einstellungen"
+  },
+  "optionsCompactMode":{
+    "message":"Kompakte Darstellung"
+  },
+  "optionsDarkTheme":{
+    "message":"Dunkle Darstellung"
+  }
+}
