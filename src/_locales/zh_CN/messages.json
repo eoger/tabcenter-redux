@@ -43,12 +43,6 @@
   "contextMenuCloseTab":{
     "message":"关闭标签页"
   },
-  "contextMenuUndoCloseTab":{
-    "message":"Undo Close Tab"
-  },
-  "contextMenuDuplicateTab":{
-    "message":"Duplicate Tab"
-  },
   "contextMenuMoveTabToNewWindow":{
     "message":"移动到新窗口"
   },
@@ -67,19 +61,7 @@
   "optionsTitle":{
     "message":"设置"
   },
-  "optionsCompactMode":{
-    "message":"Compact Mode"
-  },
   "optionsDarkTheme":{
     "message":"黑夜主题"
-  },
-  "optionsAdvancedTitle":{
-    "message":"Advanced"
-  },
-  "optionsCustomCSS":{
-    "message":"Custom stylesheet"
-  },
-  "optionsSaveCustomCSS":{
-    "message":"Save CSS"
   }
 }
