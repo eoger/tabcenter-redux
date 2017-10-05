@@ -1,105 +1,88 @@
 {
-  "extensionName": {
-    "message": "Tab Center Redux"
+  "extensionName":{
+    "message":"Tab Center Redux"
   },
-
-  "extensionDescription": {
-    "message": "Tab Center is een poging om sommige problemen op te lossen die ontstaan zijn uit de manier waarop mensen tabbladen gebruiken (vooral het “teveel tabbladen“ probleem) en een veelzijdigere gebruikersinterface te bieden voor toekomstige innovatie. De eerste versie van deze Firefox-add-on schikt tabbladen verticaal in plaats van horizontaal. Het is hevig geïnspireerd op en leent ideeën van de uitstekende VerticalTabs-add-on."
+  "extensionDescription":{
+    "message":"Tab Center is een poging om sommige problemen op te lossen die ontstaan zijn uit de manier waarop mensen tabbladen gebruiken (vooral het “teveel tabbladen“ probleem) en een veelzijdigere gebruikersinterface te bieden voor toekomstige innovatie. De eerste versie van deze Firefox-add-on schikt tabbladen verticaal in plaats van horizontaal. Het is hevig geïnspireerd op en leent ideeën van de uitstekende VerticalTabs-add-on."
   },
-
-  "sidebarTitle": {
-    "message": "Tabbladen",
-    "description": "Label dat getoond wordt in de zijbalk."
+  "sidebarTitle":{
+    "message":"Tabbladen",
+    "description":"Label shown in the sidebar selector."
   },
-
-  "newTabBtnLabel": {
-    "message": "Nieuw tabblad",
-    "description": "Label van de knop Nieuw tabblad in het bovenste menu."
+  "newTabBtnLabel":{
+    "message":"Nieuw tabblad",
+    "description":"Label of the New Tab button in the top menu."
   },
-
-  "newTabBtnTooltip": {
-    "message": "Open een nieuw tabblad"
+  "newTabBtnTooltip":{
+    "message":"Open een nieuw tabblad"
   },
-
-  "closeTabButtonTooltip": {
-    "message": "Tabblad sluiten"
+  "closeTabButtonTooltip":{
+    "message":"Tabblad sluiten"
   },
-
-  "allTabsLabel": {
-    "message": "Alle tabbladen tonen…",
-    "description": "Wordt getoond aan de onderkant van de tabbladenlijst wanneer sommige tabbladen gefilterd zijn door de huidige zoekopdracht."
+  "allTabsLabel":{
+    "message":"Alle tabbladen tonen…",
+    "description":"Shown at the bottom of the list of tabs if some tabs are filtered by the current search query."
   },
-
-  "contextMenuReloadTab": {
-    "message": "Tabblad vernieuwen",
-    "description": "Label voor contextmenuitem Tabblad vernieuwen."
+  "contextMenuReloadTab":{
+    "message":"Tabblad vernieuwen",
+    "description":"Reload Tab context menu item label."
   },
-
-  "contextMenuPinTab": {
-    "message": "Tabblad vastmaken",
-    "description": "Label voor contextmenuitem Tabblad vastmaken."
+  "contextMenuPinTab":{
+    "message":"Tabblad vastmaken",
+    "description":"Pin Tab context menu item label."
   },
-
-  "contextMenuUnpinTab": {
-    "message": "Tabblad losmaken",
-    "description": "Label voor contextmenuitem voor Tabblad losmaken."
+  "contextMenuUnpinTab":{
+    "message":"Tabblad losmaken",
+    "description":"Unpin Tab context menu item label."
   },
-
-  "contextMenuMuteTab": {
-    "message": "Tabblad dempen",
-    "description": "Label voor contextmenuitem Tabblad dempen."
+  "contextMenuMuteTab":{
+    "message":"Tabblad dempen",
+    "description":"Mute Tab context menu item label."
   },
-
-  "contextMenuUnmuteTab": {
-    "message": "Tabblad dempen opheffen",
-    "description": "Label voor contextmenuitem Tabblad dempen opheffen."
+  "contextMenuUnmuteTab":{
+    "message":"Tabblad dempen opheffen",
+    "description":"Unmute Tab context menu item label."
   },
-
-  "contextMenuCloseTab": {
-    "message": "Tabblad sluiten"
+  "contextMenuCloseTab":{
+    "message":"Tabblad sluiten"
   },
-
-  "contextMenuMoveTabToNewWindow": {
-    "message": "Verplaatsen naar nieuw venster"
+  "contextMenuUndoCloseTab":{
+    "message":"Undo Close Tab"
   },
-
-  "contextMenuReloadAllTabs": {
-    "message": "Alle tabbladen vernieuwen"
+  "contextMenuDuplicateTab":{
+    "message":"Duplicate Tab"
   },
-
-  "contextMenuCloseTabsUnderneath": {
-    "message": "Onderliggende tabbladen sluiten"
+  "contextMenuMoveTabToNewWindow":{
+    "message":"Verplaatsen naar nieuw venster"
   },
-
-  "contextMenuCloseOtherTabs": {
-    "message": "Overige tabbladen sluiten"
+  "contextMenuReloadAllTabs":{
+    "message":"Alle tabbladen vernieuwen"
   },
-
-  "settingsBtnTooltip": {
-    "message": "Instellingen openen"
+  "contextMenuCloseTabsUnderneath":{
+    "message":"Onderliggende tabbladen sluiten"
   },
-
-  "optionsTitle": {
-    "message": "Instellingen"
+  "contextMenuCloseOtherTabs":{
+    "message":"Overige tabbladen sluiten"
   },
-
-  "optionsCompactMode": {
-    "message": "Compacte modus"
+  "settingsBtnTooltip":{
+    "message":"Instellingen openen"
   },
-
-  "optionsDarkTheme": {
-    "message": "Donker thema"
+  "optionsTitle":{
+    "message":"Instellingen"
   },
-  
-  "optionsAdvancedTitle": {
-    "message": "Geavanceerd"
+  "optionsCompactMode":{
+    "message":"Compacte modus"
   },
-
-  "optionsCustomCSS": {
-    "message": "Aangepaste CSS-stijlen"
+  "optionsDarkTheme":{
+    "message":"Donker thema"
   },
-
-  "optionsSaveCustomCSS": {
-    "message": "CSS opslaan"
+  "optionsAdvancedTitle":{
+    "message":"Geavanceerd"
+  },
+  "optionsCustomCSS":{
+    "message":"Aangepaste CSS-stijlen"
+  },
+  "optionsSaveCustomCSS":{
+    "message":"CSS opslaan"
   }
 }
