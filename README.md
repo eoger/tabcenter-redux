@@ -4,7 +4,8 @@ Your favorite vertical tabbed browsing add-on, now compatible with Firefox 57+.
 [Install the extension](https://addons.mozilla.org/firefox/addon/tab-center-redux/).
 
 ## Help localize the project!
-The strings to translate can be found in [src/_locales](https://github.com/eoger/tabcenter-redux/tree/master/src/_locales).
+You can contribute by helping translate Tab Center Redux [on Crowdin](https://crowdin.com/project/tab-center-redux).  
+[![Crowdin](https://d322cqt584bo4o.cloudfront.net/tab-center-redux/localized.svg)](https://crowdin.com/project/tab-center-redux)
 
 ## How can I contribute?
 
