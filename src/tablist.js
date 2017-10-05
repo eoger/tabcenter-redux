@@ -551,6 +551,12 @@ SideTabList.prototype = {
     let element = sidetab.view;
     let parent = sidetab.pinned ? this.pinnedview : this.view;
     let elements = SideTab.getAllTabsViews();
+    // Can happen with browser.tabs.closeWindowWithLastTab set to true or during
+    // session restore.
+    if (!elements.length) {
+      parent.appendChild(element);
+      return;
+    }
     let nextSibling = elements[pos];
     if (!nextSibling || (nextSibling.parentElement !== parent)) {
       nextSibling = elements[pos-1].nextSibling;
