@@ -38,6 +38,7 @@ SideTabList.prototype = {
     browser.tabs.onMoved.addListener((tabId, moveInfo) => this.onBrowserTabMoved(tabId, moveInfo));
     browser.tabs.onAttached.addListener(async tabId => {
       let tab = await browser.tabs.get(tabId);
+      tab.id = tabId; // Replace the ID by the new tab ID (they are different!).
       this.create(tab);
     });
     browser.tabs.onDetached.addListener(tabId => this.remove(tabId));
