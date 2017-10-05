@@ -379,7 +379,7 @@ img, .tab *:not(.clickable) {
     background-position: center;
     background-size: contain;
     background-origin: content-box;
-    image-rendering: -moz-crisp-edges;
+    image-rendering: pixelated;
 }
 
 .tab.loading .tab-icon {
