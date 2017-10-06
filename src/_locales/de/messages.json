@@ -11,17 +11,17 @@
     "description":"Label of the New Tab button in the top menu."
   },
   "newTabBtnTooltip":{
-    "message":"Öffne einen neuen Tab"
+    "message":"Einen neuen Tab öffnen"
   },
   "closeTabButtonTooltip":{
-    "message":"Schließe den Tab"
+    "message":"Tab schließen"
   },
   "allTabsLabel":{
     "message":"Zeige alle Tabs…",
     "description":"Shown at the bottom of the list of tabs if some tabs are filtered by the current search query."
   },
   "contextMenuReloadTab":{
-    "message":"Lade Tab neu",
+    "message":"Tab neu laden",
     "description":"Reload Tab context menu item label."
   },
   "contextMenuPinTab":{
