@@ -73,9 +73,10 @@ SideTabList.prototype = {
     this._moreTabsView.addEventListener("click", () => this.clearSearch());
 
     // Drag-and-drop
-    document.addEventListener("dragstart", e => this.onDragStart(e));
-    document.addEventListener("dragover", e => this.onDragOver(e));
-    document.addEventListener("drop", e => this.onDrop(e));
+    window.addEventListener("dragstart", e => this.onDragStart(e));
+    window.addEventListener("dragover", e => this.onDragOver(e));
+    window.addEventListener("drop", e => this.onDrop(e));
+    window.addEventListener("dragend", e => this.onDragEnd(e));
 
     // Pref changes
     browser.storage.onChanged.addListener(changes => {
@@ -273,6 +274,7 @@ SideTabList.prototype = {
     }
   },
   onDragStart(e) {
+    this.dropEventHandled = false;
     if (!SideTab.isTabEvent(e)) {
       return;
     }
@@ -304,6 +306,7 @@ SideTabList.prototype = {
     return null;
   },
   onDrop(e) {
+    this.dropEventHandled = true;
     if (!SideTab.isTabEvent(e, false) &&
         e.target != this._spacerView &&
         e.target != this._moreTabsView) {
@@ -367,6 +370,18 @@ SideTabList.prototype = {
     let newPos = curTabPos < dropTabPos ? Math.min(this.tabs.size, dropTabPos) :
     Math.max(0, dropTabPos);
     browser.tabs.move(tabId, { index: newPos });
+  },
+  onDragEnd(e) {
+    if (this.dropEventHandled) {
+      return;
+    }
+    const tabStr = e.dataTransfer.getData("text/x-tabcenter-tab");
+    if (!tabStr) {
+      console.warn("This shouldn't happen. Open an issue on Github please!");
+      return;
+    }
+    let { tabId } = JSON.parse(tabStr);
+    browser.windows.create({ tabId });
   },
   onSpacerDblClick() {
     browser.tabs.create({});
