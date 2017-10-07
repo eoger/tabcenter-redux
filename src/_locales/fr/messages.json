@@ -17,7 +17,7 @@
     "message":"Fermer l'onglet"
   },
   "allTabsLabel":{
-    "message":"Tous les onglets…",
+    "message":"Afficher tous les onglets…",
     "description":"Shown at the bottom of the list of tabs if some tabs are filtered by the current search query."
   },
   "contextMenuReloadTab":{
