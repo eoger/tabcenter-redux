@@ -38,8 +38,8 @@ ul.contextmenu {
 
 /* DARK THEME CUSTOMIZATIONS */
 body.dark-theme ul.contextmenu {
-  border: solid 1px #555;
-  background-color: #3D414A;
+  border: solid 1px rgba(12, 12, 13, 0.3);
+  background-color: #38383d;
 }
 
 body.dark-theme .contextmenu > hr {

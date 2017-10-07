@@ -4,10 +4,19 @@
    - file, You can obtain one at http://mozilla.org/MPL/2.0/. -->
 <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="16" height="16" viewBox="0 0 16 16">
   <style>
-    polygon {
-      fill: #4c4c4c;
+    .icon:not(:target) {
+      display: none;
+    }
+    #standard {
+      fill: "#4c4c4c";
+    }
+    #inverted {
+      fill: hsla(240, 9%, 98%, 0.8);
     }
   </style>
-
-  <polygon points="14,7 9,7 9,2 7,2 7,7 2,7 2,9 7,9 7,14 9,14 9,9 14,9 "/>
+  <defs>
+ 	<polygon id="new" points="14,7 9,7 9,2 7,2 7,7 2,7 2,9 7,9 7,14 9,14 9,9 14,9 "/>
+ </defs>
+ <use id="standard" class="icon" xlink:href="#new" />
+ <use id="inverted" class="icon" xlink:href="#new" />
 </svg>

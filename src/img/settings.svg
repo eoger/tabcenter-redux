@@ -11,7 +11,7 @@
       fill: "context-fill";
     }
     #inverted {
-      fill: #C0C0C0;
+      fill: hsla(240, 9%, 98%, 0.8);
     }
   </style>
   <defs>
