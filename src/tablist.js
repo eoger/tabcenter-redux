@@ -10,6 +10,7 @@ function SideTabList() {
   this._filterActive = false;
   this.view = document.getElementById("tablist");
   this.pinnedview = document.getElementById("pinnedtablist");
+  this._wrapperView = document.getElementById("tablist-wrapper");
   this._resizeCanvas = document.createElement("canvas");
   this._resizeCanvas.mozOpaque = true;
   this._resizeCanvasCtx = this._resizeCanvas.getContext("2d");
@@ -488,11 +489,8 @@ SideTabList.prototype = {
     }
     if (this.tabsShrinked) {
       // Could we fit everything if we switched back to the "normal" mode?
-      const wrapperHeight = document.getElementById("tablist-wrapper").offsetHeight;
-      // These constants are not very scientific, but they "mostly" work.
-      const estimatedTabHeight = 56;
-      const estimatedPinnedHeight = 26;
-      const pinnedTabsPerRow = 8;
+      const wrapperHeight = this._wrapperView.offsetHeight;
+      const estimatedTabHeight = 56; // Not very scientific, but it "mostly" works.
 
       // TODO: We are not accounting for the "More Tabs" element displayed when
       // filtering tabs.
@@ -500,7 +498,7 @@ SideTabList.prototype = {
       let visibleTabs = allTabs.filter(tab => !tab.pinned);
       let pinnedTabs = allTabs.filter(tab => tab.pinned);
       let estimatedHeight = visibleTabs.length * estimatedTabHeight +
-        Math.ceil(pinnedTabs.length / pinnedTabsPerRow) * estimatedPinnedHeight;
+                            (pinnedTabs.length ? this.pinnedview.offsetHeight : 0);
       if (estimatedHeight <= wrapperHeight) {
         this.tabsShrinked = false;
       }

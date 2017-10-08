@@ -529,8 +529,8 @@ img, .tab *:not(.clickable) {
 }
 
 .tab.pinned .tab-icon-wrapper {
-    height: 26px;
-    width: 26px;
+    height: 24px;
+    width: 24px;
 }
 
 .tab.pinned .tab-icon {
@@ -538,8 +538,8 @@ img, .tab *:not(.clickable) {
 }
 
 .tab.pinned:not(.loading) .tab-icon {
-    width: 18px;
-    height: 18px;
+    width: 16px;
+    height: 16px;
 }
 
 .tab.pinned > .tab-context,
