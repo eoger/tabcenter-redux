@@ -73,13 +73,15 @@ img, .tab *:not(.clickable) {
     top: 31px;
     left: 8px;
     flex-direction: column;
-    background-color: hsl(var(--tab-background-active));
+    color: black;
+    background-color: #f2f2f2;
     border: 1px solid #C9C9C9;
     box-shadow: 1px 1px 1px #888888;
 }
 
 .newtab-menu-identity:hover {
-    background-color: #D5D5D5;
+    background-color: #3E93F9;
+    color: white;
 }
 
 .newtab-menu-identity {
@@ -539,7 +541,7 @@ img, .tab *:not(.clickable) {
 .tab.pinned > .tab-icon-overlay {
     width: 13px;
     height: 13px;
-    margin: 0 0 -13px 0px;
+    margin: 0 0 -13px 0;
     left: auto;
     top: auto;
     bottom: -12px;
@@ -605,14 +607,6 @@ body.dark-theme {
     --close-button-active: rgba(238, 238, 241, .2);
     --menu-button-hover: rgba(238, 238, 241, .2);
     --menu-button-active: rgba(238, 238, 241, .3);
-}
-
-body.dark-theme .newtab-menu-identity:hover {
-    background-color: rgb(86, 117, 185);
-}
-
-body.dark-theme .tab-icon-overlay {
-    background-color: #333;
 }
 
 body.dark-theme #searchbox-icon {
