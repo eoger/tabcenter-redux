@@ -1,9 +1,9 @@
 @import url("contextmenu.css");
 
 :root {
-    --tab-background-normal: 220, 6%, 90%, 1;
-    --tab-background-active: 210, 11%, 96%, 1;
-    --tab-background-hover: 240, 4%, 5%, 0.1;
+    --tab-background-normal: 220, 6%, 90%;
+    --tab-background-active: 210, 11%, 96%;
+    --tab-background-hover: 220, 3%, 81%;
     --tab-border-color: rgba(12, 12, 13, .2);
     --searchbox-background: #fff;
     --primary-border-color: rgba(12, 12, 13, .2);
@@ -20,7 +20,7 @@ html, body {
 }
 
 body {
-    background-color: hsla(var(--tab-background-normal));
+    background-color: hsl(var(--tab-background-normal));
     font: message-box;
     color: var(--primary-text-color);
     display: flex;
@@ -34,7 +34,7 @@ body {
 #topmenu {
     display: flex;
     padding: 6px 4px;
-    background-color: hsla(var(--tab-background-active));
+    background-color: hsl(var(--tab-background-active));
 }
 
 #newtab {
@@ -46,10 +46,6 @@ body {
     align-items: center;
     padding: 2px 4px;
     text-shadow: 0 1px rgba(255, 255, 255, .4);
-}
-
-.tab {
-    color: var(--primary-text-color);
 }
 
 /* This is important for event bubbling: when we click a tab, e.target
@@ -77,7 +73,7 @@ img, .tab *:not(.clickable) {
     top: 31px;
     left: 8px;
     flex-direction: column;
-    background-color: hsla(var(--tab-background-active));
+    background-color: hsl(var(--tab-background-active));
     border: 1px solid #C9C9C9;
     box-shadow: 1px 1px 1px #888888;
 }
@@ -282,7 +278,7 @@ img, .tab *:not(.clickable) {
 }
 
 .tab.active {
-    background-color: hsla(var(--tab-background-active));
+    background-color: hsl(var(--tab-background-active));
 }
 
 .tab:not(.active):hover {
@@ -533,7 +529,7 @@ img, .tab *:not(.clickable) {
 #pinnedtablist {
     display: flex;
     flex-wrap: wrap;
-    background-color: hsla(var(--tab-background-active));
+    background-color: hsl(var(--tab-background-active));
 }
 
 #pinnedtablist:empty {
@@ -597,9 +593,9 @@ img, .tab *:not(.clickable) {
 
 /* DARK THEME CUSTOMIZATIONS */
 body.dark-theme {
-    --tab-background-normal: 240, 4%, 5%, 1;
-    --tab-background-active: 240, 4%, 23%, 1;
-    --tab-background-hover: 240, 4%, 23%, 0.7;
+    --tab-background-normal: 240, 4%, 5%;
+    --tab-background-active: 240, 4%, 23%;
+    --tab-background-hover: 240, 5%, 17%;
     --tab-border-color: #38383d;
     --searchbox-background: rgb(71, 71, 73);
     --primary-border-color: rgba(12, 12, 13, 0.3);
