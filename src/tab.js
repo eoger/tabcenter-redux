@@ -126,6 +126,9 @@ SideTab.prototype = {
   },
   setLoading(isLoading) {
     toggleClass(this.view, "loading", isLoading);
+    if (isLoading) {
+      SideTab._syncThrobberAnimations();
+    }
   },
   updatePinned(pinned) {
     this.pinned = pinned;
@@ -196,7 +199,42 @@ Object.assign(SideTab, {
   },
   getAllTabsViews() {
     return document.getElementsByClassName("tab");
-  }
+  },
+  _syncThrobberAnimations() {
+    // Home-made BrowserUtils.promiseLayoutFlushed
+    requestAnimationFrame(() => {
+      setTimeout(() => {
+        const animations = [...document.querySelectorAll(".tab.loading .tab-icon")]
+          .map(tabIcon => tabIcon.getAnimations({ subtree: true }))
+          .reduce((a, b) => a.concat(b))
+          .filter(anim =>
+            anim instanceof CSSAnimation &&
+            anim.animationName === "tab-throbber-animation" &&
+            (anim.playState === "running" || anim.playState === "pending"));
+
+        // Synchronize with the oldest running animation, if any.
+        const firstStartTime = Math.min(
+          ...animations.map(anim => anim.startTime === null ? Infinity : anim.startTime)
+        );
+        if (firstStartTime === Infinity) {
+          return;
+        }
+        requestAnimationFrame(() => {
+          for (let animation of animations) {
+            // If |animation| has been cancelled since this rAF callback
+            // was scheduled we don't want to set its startTime since
+            // that would restart it. We check for a cancelled animation
+            // by looking for a null currentTime rather than checking
+            // the playState, since reading the playState of
+            // a CSSAnimation object will flush style.
+            if (animation.currentTime !== null) {
+              animation.startTime = firstStartTime;
+            }
+          }
+        });
+      }, 0);
+    });
+  },
 });
 
 function toggleClass(node, className, boolean) {
