@@ -7,10 +7,16 @@
   <body>
     <h1 id="optionsTitle"></h1>
     <div class="options">
-        <div><label for="compactMode" id="optionsCompactMode"></label></div>
-        <div><input id="compactMode" type="checkbox" /></div>
         <div><label for="darkTheme" id="optionsDarkTheme"></label></div>
         <div><input id="darkTheme" type="checkbox" /></div>
+        <div><label for="compactModeMode" id="optionsCompactMode"></label></div>
+        <div>
+            <select name="compactModeMode" id="compactMode">
+              <option value="0" id="optionsCompactModeOff"/>
+              <option value="1" id="optionsCompactModeDynamic"/>
+              <option value="2" id="optionsCompactModeStrict"/>
+            </select>
+        </div>
     </div>
     <h1 id="optionsAdvancedTitle"></h1>
     <div class="options">

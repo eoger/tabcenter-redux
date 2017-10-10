@@ -1,10 +1,14 @@
 const SideTab = require("./tab.js");
 const ContextMenu = require("./contextmenu.js");
 
+const COMPACT_MODE_OFF = 0;
+const COMPACT_MODE_DYNAMIC = 1;
+const COMPACT_MODE_STRICT = 2;
+
 function SideTabList() {
   this.tabs = new Map();
   this.active = null;
-  this.compactMode = false;
+  this.compactModeMode = COMPACT_MODE_OFF;
   this._tabsShrinked = false;
   this.windowId = null;
   this._filterActive = false;
@@ -18,13 +22,8 @@ function SideTabList() {
 
 SideTabList.prototype = {
   async init() {
-    this.compactMode = (await browser.storage.local.get({
-      compactMode: false
-    })).compactMode;
-    if (this.compactMode) {
-      this.maybeShrinkTabs();
-    }
     this.setupListeners();
+    await this.readPrefs();
   },
   setupListeners() {
     this._spacerView = document.getElementById("spacer");
@@ -81,11 +80,19 @@ SideTabList.prototype = {
 
     // Pref changes
     browser.storage.onChanged.addListener(changes => {
-      if (changes.compactMode) {
-        this.compactMode = changes.compactMode.newValue;
+      if (changes.compactModeMode) {
+        this.compactModeMode = changes.compactModeMode.newValue;
         this.maybeShrinkTabs();
       }
     });
+  },
+  async readPrefs() {
+    this.compactModeMode = (await browser.storage.local.get({
+      compactModeMode: COMPACT_MODE_DYNAMIC
+    })).compactModeMode;
+    if (this.compactModeMode != COMPACT_MODE_OFF) {
+      this.maybeShrinkTabs();
+    }
   },
   onBrowserTabActivated(tabId) {
     this.setActive(tabId);
@@ -477,8 +484,9 @@ SideTabList.prototype = {
     }
   },
   maybeShrinkTabs() {
-    if (this.compactMode) {
-      this.tabsShrinked = true;
+    if (this.compactModeMode == COMPACT_MODE_STRICT ||
+        this.compactModeMode == COMPACT_MODE_OFF) {
+      this.tabsShrinked = this.compactModeMode == COMPACT_MODE_STRICT;
       return;
     }
 
@@ -669,7 +677,7 @@ SideTabList.prototype = {
     });
   },
   async updateTabThumbnail(tabId) {
-    if (this.compactMode) {
+    if (this.compactModeMode == COMPACT_MODE_OFF) {
       return;
     }
     // TODO: sadly we can only capture a thumbnail of the current tab. bug 1246693

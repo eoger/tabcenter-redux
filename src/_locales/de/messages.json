@@ -64,6 +64,15 @@
   "optionsCompactMode":{
     "message":"Kompakte Darstellung"
   },
+  "optionsCompactModeOff":{
+    "message":"Aus"
+  },
+  "optionsCompactModeDynamic":{
+    "message":"Dynamisch"
+  },
+  "optionsCompactModeStrict":{
+    "message":"Immer"
+  },
   "optionsDarkTheme":{
     "message":"Dunkle Darstellung"
   }

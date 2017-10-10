@@ -91,6 +91,18 @@
     "message": "Compact Mode"
   },
 
+  "optionsCompactModeOff":{
+    "message": "Disabled"
+  },
+
+  "optionsCompactModeDynamic":{
+    "message": "Dynamic"
+  },
+
+  "optionsCompactModeStrict":{
+    "message": "Always"
+  },
+
   "optionsDarkTheme": {
     "message": "Dark Theme"
   },
