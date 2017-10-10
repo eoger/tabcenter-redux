@@ -1,10 +1,14 @@
 const SideTab = require("./tab.js");
 const ContextMenu = require("./contextmenu.js");
 
+const compactModeOff = 0;
+const compactModeDynamic = 1;
+const compactModeStrict = 2;
+
 function SideTabList() {
   this.tabs = new Map();
   this.active = null;
-  this.compactMode = false;
+  this.compactModeCounter = compactModeOff;
   this._tabsShrinked = false;
   this.windowId = null;
   this._filterActive = false;
@@ -18,10 +22,10 @@ function SideTabList() {
 
 SideTabList.prototype = {
   async init() {
-    this.compactMode = (await browser.storage.local.get({
-      compactMode: false
-    })).compactMode;
-    if (this.compactMode) {
+    this.compactModeCounter = (await browser.storage.local.get({
+      compactModeCounter: compactModeOff
+    })).compactModeCounter;
+    if (this.compactModeCounter != compactModeOff) {
       this.maybeShrinkTabs();
     }
     this.setupListeners();
@@ -81,8 +85,8 @@ SideTabList.prototype = {
 
     // Pref changes
     browser.storage.onChanged.addListener(changes => {
-      if (changes.compactMode) {
-        this.compactMode = changes.compactMode.newValue;
+      if (changes.compactModeCounter) {
+        this.compactModeCounter = changes.compactModeCounter.newValue;
         this.maybeShrinkTabs();
       }
     });
@@ -477,13 +481,15 @@ SideTabList.prototype = {
     }
   },
   maybeShrinkTabs() {
-    if (this.compactMode) {
+    if (this.compactModeCounter == compactModeStrict) {
       this.tabsShrinked = true;
       return;
     }
 
     const spaceLeft = this._spacerView.offsetHeight;
-    if (!this.tabsShrinked && spaceLeft == 0) {
+    if (!this.tabsShrinked && spaceLeft == 0 &&
+        !(this.compactModeCounter == compactModeOff)
+        ) {
       this.tabsShrinked = true;
       return;
     }
@@ -669,7 +675,7 @@ SideTabList.prototype = {
     });
   },
   async updateTabThumbnail(tabId) {
-    if (this.compactMode) {
+    if (this.compactModeCounter == compactModeOff) {
       return;
     }
     // TODO: sadly we can only capture a thumbnail of the current tab. bug 1246693
