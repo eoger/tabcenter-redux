@@ -2,7 +2,7 @@ const SideTab = require("./tab.js");
 const ContextMenu = require("./contextmenu.js");
 
 const compactModeOff = 0;
-const compactModeDynamic = 1;
+// const compactModeDynamic = 1;
 const compactModeStrict = 2;
 
 function SideTabList() {

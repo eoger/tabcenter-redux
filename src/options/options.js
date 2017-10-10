@@ -37,7 +37,7 @@ TabCenterOptions.prototype = {
     browser.storage.local.get({
       [optionName]: false
     }).then(prefs => {
-      checkbox.checked = prefs[optionName]
+      checkbox.checked = prefs[optionName];
     });
 
     checkbox.addEventListener("change", e => {
