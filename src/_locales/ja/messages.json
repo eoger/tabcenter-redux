@@ -43,6 +43,9 @@
   "contextMenuCloseTab":{
     "message":"タブを閉じる"
   },
+  "contextMenuUndoCloseTab":{
+    "message":"閉じたタブを元に戻す"
+  },
   "contextMenuMoveTabToNewWindow":{
     "message":"新しいウィンドウへ移動"
   },
@@ -63,5 +66,11 @@
   },
   "optionsDarkTheme":{
     "message":"暗いテーマ"
+  },
+  "optionsAdvancedTitle":{
+    "message":"上級者設定"
+  },
+  "optionsSaveCustomCSS":{
+    "message":"CSSを保存"
   }
 }
