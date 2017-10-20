@@ -50,7 +50,7 @@
     "message":"Tab wiederherstellen"
   },
   "contextMenuDuplicateTab":{
-    "message":"Tab duplizieren"
+    "message":"Tab klonen"
   },
   "contextMenuMoveTabToNewWindow":{
     "message":"In neues Fenster verschieben"
@@ -73,6 +73,9 @@
   "optionsCompactMode":{
     "message":"Kompakte Darstellung"
   },
+  "optionsCompactModeTooltip":{
+    "message":"Die kompakte Darstellung reduziert die Höhe der Tabs und zeigt so mehr von ihnen an. Bei der Einstellung \"Dynamisch\", wird die Höhe reduziert, sobald nicht mehr genügend Platz zur Verfügung steht."
+  },
   "optionsCompactModeOff":{
     "message":"Deaktiviert"
   },
@@ -90,6 +93,9 @@
   },
   "optionsCustomCSS":{
     "message":"Benutzerdefinierte Stylesheet"
+  },
+  "optionsCustomCSSWikiLink":{
+    "message":"Wiki-Artikel über CSS Anpassungen"
   },
   "optionsSaveCustomCSS":{
     "message":"Stylesheet speichern"
