@@ -13,6 +13,9 @@
   "newTabBtnTooltip":{
     "message":"Ouvrir un nouvel onglet"
   },
+  "searchPlaceholder":{
+    "message":"Rechercher dans les onglets"
+  },
   "closeTabButtonTooltip":{
     "message":"Fermer l'onglet"
   },
@@ -70,6 +73,18 @@
   "optionsCompactMode":{
     "message":"Mode compact"
   },
+  "optionsCompactModeTooltip":{
+    "message":"Le Mode compact réduit la hauteur des onglets afin d'en afficher davantage. En réglage Dynamique, il s'activera automatiquement quand il n'y a plus d'espace disponible."
+  },
+  "optionsCompactModeOff":{
+    "message":"Désactivé"
+  },
+  "optionsCompactModeDynamic":{
+    "message":"Dynamique"
+  },
+  "optionsCompactModeStrict":{
+    "message":"Toujours"
+  },
   "optionsDarkTheme":{
     "message":"Thème sombre"
   },
@@ -78,6 +93,9 @@
   },
   "optionsCustomCSS":{
     "message":"Feuille de style personnalisée"
+  },
+  "optionsCustomCSSWikiLink":{
+    "message":"Article Wiki CSS Tweaks (en Anglais)"
   },
   "optionsSaveCustomCSS":{
     "message":"Enregistrer la CSS"
