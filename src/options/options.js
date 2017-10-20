@@ -12,6 +12,10 @@ TabCenterOptions.prototype = {
     for (let opt of options) {
       this._setupTextContentLabel(opt);
     }
+    let helpImg = document.createElement("div");
+    helpImg.id = "help";
+    helpImg.title = browser.i18n.getMessage("optionsCompactModeTooltip");
+    document.getElementById("optionsCompactMode").appendChild(helpImg);
   },
   _setupTextContentLabel(opt) {
     document.getElementById(opt).textContent = browser.i18n.getMessage(opt);

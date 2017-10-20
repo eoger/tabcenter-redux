@@ -38,3 +38,12 @@ input[type="checkbox"] {
 #compactMode {
   margin-left: 10px;
 }
+
+#help {
+  margin-left: 5px;
+  vertical-align: middle;
+  display: inline-block;
+  width: 16px;
+  height: 16px;
+  background-image: url("../img/help.svg");
+}

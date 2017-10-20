@@ -91,6 +91,10 @@
     "message": "Compact Mode"
   },
 
+  "optionsCompactModeTooltip": {
+    "message": "The Compact Mode reduces the height of tabs to show more of them. In the Dynamic setting, it will engage once we have no space left."
+  },
+
   "optionsCompactModeOff":{
     "message": "Disabled"
   },
