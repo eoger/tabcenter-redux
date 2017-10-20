@@ -43,6 +43,12 @@
   "contextMenuCloseTab":{
     "message":"Zavřít panel"
   },
+  "contextMenuUndoCloseTab":{
+    "message":"Vrátit zavření panelu"
+  },
+  "contextMenuDuplicateTab":{
+    "message":"Duplikovat kartu"
+  },
   "contextMenuMoveTabToNewWindow":{
     "message":"Přesunout do nového okna"
   },
@@ -66,5 +72,14 @@
   },
   "optionsDarkTheme":{
     "message":"Tmavý vzhled"
+  },
+  "optionsAdvancedTitle":{
+    "message":"Pokročilé"
+  },
+  "optionsCustomCSS":{
+    "message":"Vlastní šablona stylů"
+  },
+  "optionsSaveCustomCSS":{
+    "message":"Uložit CSS"
   }
 }

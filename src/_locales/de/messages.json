@@ -11,52 +11,58 @@
     "description":"Label of the New Tab button in the top menu."
   },
   "newTabBtnTooltip":{
-    "message":"Öffne einen neuen Tab"
+    "message":"Einen neuen Tab öffnen"
   },
   "closeTabButtonTooltip":{
-    "message":"Schließe den Tab"
+    "message":"Tab schließen"
   },
   "allTabsLabel":{
-    "message":"Zeige alle Tabs…",
+    "message":"Alle Tabs anzeigen…",
     "description":"Shown at the bottom of the list of tabs if some tabs are filtered by the current search query."
   },
   "contextMenuReloadTab":{
-    "message":"Lade Tab neu",
+    "message":"Tab neu laden",
     "description":"Reload Tab context menu item label."
   },
   "contextMenuPinTab":{
-    "message":"Hefte Tab an",
+    "message":"Tab anheften",
     "description":"Pin Tab context menu item label."
   },
   "contextMenuUnpinTab":{
-    "message":"Löse Tab ab",
+    "message":"Tab ablösen",
     "description":"Unpin Tab context menu item label."
   },
   "contextMenuMuteTab":{
-    "message":"Schalte Tab stumm",
+    "message":"Tab stummschalten",
     "description":"Mute Tab context menu item label."
   },
   "contextMenuUnmuteTab":{
-    "message":"Hebe Stummschaltung auf",
+    "message":"Stummschaltung für Tab aufheben",
     "description":"Unmute Tab context menu item label."
   },
   "contextMenuCloseTab":{
-    "message":"Schließe Tab"
+    "message":"Tab schließen"
+  },
+  "contextMenuUndoCloseTab":{
+    "message":"Tab wiederherstellen"
+  },
+  "contextMenuDuplicateTab":{
+    "message":"Tab duplizieren"
   },
   "contextMenuMoveTabToNewWindow":{
-    "message":"Verschiebe in neues Fenster"
+    "message":"In neues Fenster verschieben"
   },
   "contextMenuReloadAllTabs":{
-    "message":"Lade alle Tabs neu"
+    "message":"Alle Tabs neu laden"
   },
   "contextMenuCloseTabsUnderneath":{
     "message":"Schließe alle Tabs unter diesem"
   },
   "contextMenuCloseOtherTabs":{
-    "message":"Schließe alle anderen Tabs"
+    "message":"Andere Tabs schließen"
   },
   "settingsBtnTooltip":{
-    "message":"Öffne Einstellungen"
+    "message":"Einstellungen öffnen"
   },
   "optionsTitle":{
     "message":"Einstellungen"
@@ -75,5 +81,14 @@
   },
   "optionsDarkTheme":{
     "message":"Dunkle Darstellung"
+  },
+  "optionsAdvancedTitle":{
+    "message":"Weitere Einstellungen"
+  },
+  "optionsCustomCSS":{
+    "message":"Benutzerdefinierte Stylesheet"
+  },
+  "optionsSaveCustomCSS":{
+    "message":"Stylesheet speichern"
   }
 }
