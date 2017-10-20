@@ -13,6 +13,9 @@
   "newTabBtnTooltip":{
     "message":"Einen neuen Tab öffnen"
   },
+  "searchPlaceholder":{
+    "message":"Tabs durchsuchen"
+  },
   "closeTabButtonTooltip":{
     "message":"Tab schließen"
   },
@@ -69,6 +72,15 @@
   },
   "optionsCompactMode":{
     "message":"Kompakte Darstellung"
+  },
+  "optionsCompactModeOff":{
+    "message":"Deaktiviert"
+  },
+  "optionsCompactModeDynamic":{
+    "message":"Dynamisch"
+  },
+  "optionsCompactModeStrict":{
+    "message":"Immer"
   },
   "optionsDarkTheme":{
     "message":"Dunkle Darstellung"
