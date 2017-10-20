@@ -13,6 +13,9 @@
   "newTabBtnTooltip":{
     "message":"新しいタブを開きます"
   },
+  "searchPlaceholder":{
+    "message":"タブを探索"
+  },
   "closeTabButtonTooltip":{
     "message":"タブを閉じます"
   },
