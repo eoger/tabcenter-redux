@@ -76,6 +76,9 @@
   "optionsAdvancedTitle":{
     "message":"上級者設定"
   },
+  "optionsCustomCSS":{
+    "message":"CSSを保存"
+  },
   "optionsSaveCustomCSS":{
     "message":"CSSを保存"
   }
