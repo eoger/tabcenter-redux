@@ -76,6 +76,9 @@
   "optionsAdvancedTitle":{
     "message":"Geavanceerd"
   },
+  "optionsCustomCSS":{
+    "message":"Aangepaste CSS-stijlen"
+  },
   "optionsSaveCustomCSS":{
     "message":"CSS opslaan"
   }
