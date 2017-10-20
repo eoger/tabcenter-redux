@@ -76,9 +76,6 @@
   "optionsAdvancedTitle":{
     "message":"Weitere Einstellungen"
   },
-  "optionsCustomCSS":{
-    "message":"Benutzerdefinierte Stylesheet"
-  },
   "optionsSaveCustomCSS":{
     "message":"Stylesheet speichern"
   }
