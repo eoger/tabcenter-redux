@@ -8,7 +8,8 @@ TabCenterOptions.prototype = {
     const options = ["optionsTitle", "optionsCompactMode",
       "optionsCompactModeStrict", "optionsCompactModeDynamic",
       "optionsCompactModeOff", "optionsDarkTheme",
-      "optionsAdvancedTitle", "optionsCustomCSS", "optionsSaveCustomCSS"];
+      "optionsAdvancedTitle", "optionsCustomCSS", "optionsCustomCSSWikiLink",
+      "optionsSaveCustomCSS"];
     for (let opt of options) {
       this._setupTextContentLabel(opt);
     }

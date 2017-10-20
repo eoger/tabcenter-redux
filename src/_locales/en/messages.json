@@ -116,7 +116,11 @@
   },
 
   "optionsCustomCSS": {
-    "message": "Custom stylesheet"
+    "message": "Custom Stylesheet"
+  },
+
+  "optionsCustomCSSWikiLink": {
+    "message": "CSS Tweaks Wiki Article"
   },
 
   "optionsSaveCustomCSS": {

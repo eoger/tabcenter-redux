@@ -16,12 +16,19 @@ h1 {
   border-bottom: 1px solid hsla(0, 0%, 0%, 0.2);
 }
 
+a, a:visited {
+  color: rgb(10, 141, 255);
+}
+
 .options {
   display: grid;
   align-items: center;
   grid-template-columns: 260px auto;
-  grid-auto-rows: 1fr;
   margin-bottom : 10px;
+}
+
+#primaryOptions {
+  grid-auto-rows: 1fr;
 }
 
 input[type="checkbox"] {
