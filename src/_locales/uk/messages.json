@@ -70,9 +70,6 @@
   "optionsAdvancedTitle":{
     "message":"Додаткові"
   },
-  "optionsCustomCSS":{
-    "message":"Власна таблиця стилів"
-  },
   "optionsSaveCustomCSS":{
     "message":"Зберегти CSS"
   }
