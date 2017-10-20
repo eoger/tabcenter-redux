@@ -17,6 +17,10 @@
     "message": "Open a new tab"
   },
 
+  "searchPlaceholder": {
+    "message": "Search tabs"
+  },
+
   "closeTabButtonTooltip": {
     "message": "Close tab"
   },
