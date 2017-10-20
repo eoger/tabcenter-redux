@@ -76,9 +76,6 @@
   "optionsAdvancedTitle":{
     "message":"Pokročilé"
   },
-  "optionsCustomCSS":{
-    "message":"Vlastní šablona stylů"
-  },
   "optionsSaveCustomCSS":{
     "message":"Uložit CSS"
   }
