@@ -74,7 +74,7 @@
     "message":"Mode compact"
   },
   "optionsCompactModeTooltip":{
-    "message":"Le Mode compact réduit la hauteur des onglets afin d'en afficher davantage. En réglage Dynamique, il s'activera automatiquement quand il n'y a plus d'espace disponible."
+    "message":"Le Mode compact réduit la hauteur des onglets afin d'en afficher davantage. En réglage Dynamique, il s'active automatiquement lorsqu'il n'y a plus d'espace disponible."
   },
   "optionsCompactModeOff":{
     "message":"Désactivé"
