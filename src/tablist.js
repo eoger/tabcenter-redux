@@ -249,17 +249,13 @@ SideTabList.prototype = {
     items.push({
       label: browser.i18n.getMessage("contextMenuUndoCloseTab"),
       isEnabled: async () => {
-        const sessions = await browser.sessions.getRecentlyClosed({
-          maxResults: 1
-        });
-        return sessions.length;
+        const undoTabs = await this._getRecentlyClosedTabs();
+        return undoTabs.length;
       },
       onCommandFn: async () => {
-        const sessions = await browser.sessions.getRecentlyClosed({
-          maxResults: 1
-        });
-        if (sessions.length && sessions[0].tab) {
-          browser.sessions.restore(sessions[0].tab.sessionId);
+        const undoTabs = await this._getRecentlyClosedTabs();
+        if (undoTabs.length) {
+          browser.sessions.restore(undoTabs.sessionId);
         }
       }
     });
@@ -270,6 +266,12 @@ SideTabList.prototype = {
       }
     });
     return items;
+  },
+  async _getRecentlyClosedTabs() {
+    const sessions = await browser.sessions.getRecentlyClosed({
+      maxResults: 1
+    });
+    return sessions.filter(s => s.tab && this.checkWindow(s.tab));
   },
   onClick(e) {
     if (SideTab.isCloseButtonEvent(e)) {
