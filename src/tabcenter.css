@@ -62,6 +62,7 @@ img, .tab *:not(.clickable) {
 }
 
 #newtab-label {
+    margin-left: 2px;
     white-space: nowrap;
     overflow: hidden;
     text-overflow: ellipsis;
@@ -245,7 +246,6 @@ body[platform="mac"] #newtab-menu {
 #newtab-icon {
     min-width: 16px;
     min-height: 16px;
-    margin-right: 2px;
     background-size: 16px 16px;
     background-repeat: no-repeat;
     background-position: center;
