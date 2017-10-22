@@ -215,12 +215,14 @@ SideTabList.prototype = {
         browser.tabs.duplicate(tabId);
       }
     });
-    items.push({
-      label: browser.i18n.getMessage("contextMenuMoveTabToNewWindow"),
-      onCommandFn: () => {
-        browser.windows.create({ tabId });
-      }
-    });
+    if (this.tabs.size > 1) {
+      items.push({
+        label: browser.i18n.getMessage("contextMenuMoveTabToNewWindow"),
+        onCommandFn: () => {
+          browser.windows.create({ tabId });
+        }
+      });
+    }
     items.push({
       label: "separator"
     });
