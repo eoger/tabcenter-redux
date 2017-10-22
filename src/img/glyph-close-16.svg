@@ -8,10 +8,10 @@
       display: none;
     }
     #standard {
-      fill: #4c4c4c;
+      fill: hsla(240, 4%, 5%, 0.8);
     }
     #inverted {
-      fill: #E6E6E6;
+      fill: hsla(240, 9%, 98%, 0.8);
     }
   </style>
   <defs>
