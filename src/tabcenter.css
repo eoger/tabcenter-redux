@@ -723,7 +723,7 @@ body[platform="win"] #searchbox-input:placeholder-shown {
     left: auto;
     top: auto;
     bottom: -12px;
-    right: -13px;
+    right: -11px;
 }
 
 #pinnedtablist.compact .tab.pinned > .tab-meta-image {
