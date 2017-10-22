@@ -13,6 +13,9 @@
   "newTabBtnTooltip":{
     "message":"新しいタブを開きます"
   },
+  "searchPlaceholder":{
+    "message":"タブを探索"
+  },
   "closeTabButtonTooltip":{
     "message":"タブを閉じます"
   },
@@ -43,6 +46,12 @@
   "contextMenuCloseTab":{
     "message":"タブを閉じる"
   },
+  "contextMenuUndoCloseTab":{
+    "message":"閉じたタブを元に戻す"
+  },
+  "contextMenuDuplicateTab":{
+    "message":"タブを複製"
+  },
   "contextMenuMoveTabToNewWindow":{
     "message":"新しいウィンドウへ移動"
   },
@@ -61,7 +70,19 @@
   "optionsTitle":{
     "message":"設定"
   },
+  "optionsCompactMode":{
+    "message":"コンパクトモード"
+  },
   "optionsDarkTheme":{
     "message":"暗いテーマ"
+  },
+  "optionsAdvancedTitle":{
+    "message":"上級者設定"
+  },
+  "optionsCustomCSS":{
+    "message":"CSSを保存"
+  },
+  "optionsSaveCustomCSS":{
+    "message":"CSSを保存"
   }
 }
