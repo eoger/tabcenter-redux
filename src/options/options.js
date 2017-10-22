@@ -7,7 +7,7 @@ TabCenterOptions.prototype = {
   setupLabels() {
     const options = ["optionsTitle", "optionsCompactMode",
       "optionsCompactModeStrict", "optionsCompactModeDynamic",
-      "optionsCompactModeOff", "optionsDarkTheme",
+      "optionsCompactModeOff", "optionsCompactPins", "optionsDarkTheme",
       "optionsAdvancedTitle", "optionsCustomCSS", "optionsCustomCSSWikiLink",
       "optionsSaveCustomCSS"];
     for (let opt of options) {
@@ -24,6 +24,7 @@ TabCenterOptions.prototype = {
   setupStateAndListeners() {
     this._setupCheckboxOption("darkTheme", "darkTheme");
     this._setupDropdownOption("compactMode", "compactModeMode");
+    this._setupCheckboxOption("compactPins", "compactPins", true);
 
     // Custom CSS
     browser.storage.local.get({
@@ -33,14 +34,14 @@ TabCenterOptions.prototype = {
     });
     document.getElementById("optionsSaveCustomCSS").addEventListener("click", () => {
       browser.storage.local.set({
-        ["customCSS"]: document.getElementById("customCSS").value
+        "customCSS": document.getElementById("customCSS").value
       });
     });
   },
-  _setupCheckboxOption(checkboxId, optionName) {
+  _setupCheckboxOption(checkboxId, optionName, defaultValue = false) {
     const checkbox = document.getElementById(checkboxId);
     browser.storage.local.get({
-      [optionName]: false
+      [optionName]: defaultValue
     }).then(prefs => {
       checkbox.checked = prefs[optionName];
     });

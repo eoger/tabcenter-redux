@@ -111,6 +111,10 @@
     "message": "Always"
   },
 
+  "optionsCompactPins": {
+    "message": "Compact Pinned Tabs"
+  },
+
   "optionsDarkTheme": {
     "message": "Dark Theme"
   },

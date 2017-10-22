@@ -331,21 +331,18 @@ body[platform="win"] #searchbox-input:placeholder-shown {
     overflow-y: auto;
 }
 
-#tablist {
+#tablist,
+#pinnedtablist:not(.compact) {
     overflow-x: hidden;
 }
 
+#pinnedtablist:not(.compact) .tab,
 .tab:not(.pinned) {
     display: flex;
     align-items: center;
     height: 56px;
     border-bottom: 1px solid var(--tab-border-color);
     position: relative;
-}
-
-.tab.pinned {
-    position: relative;
-    padding: 4px;
 }
 
 .tab.active {
@@ -386,13 +383,8 @@ body[platform="win"] #searchbox-input:placeholder-shown {
     margin-top: 10px;
 }
 
-#tablist.shrinked .tab-loading-burst::before {
+#tablist-wrapper.shrinked .tab-loading-burst::before {
     margin-left: 10px;
-    margin-top: 0px;
-}
-
-.tab.pinned .tab-loading-burst::before {
-    margin-left: 12px;
     margin-top: 0px;
 }
 
@@ -474,7 +466,7 @@ body[platform="win"] #searchbox-input:placeholder-shown {
     box-shadow: 0 1px 0 hsla(0, 0%, 0%, 0.5);
 }
 
-#tablist.shrinked .tab-icon-overlay {
+#tablist-wrapper.shrinked .tab-icon-overlay {
     width: 13px;
     height: 13px;
     margin: 0 0 -13px -13px;
@@ -494,7 +486,8 @@ body[platform="win"] #searchbox-input:placeholder-shown {
     background-image: url("img/tab-audio-small.svg#tab-audio-muted");
 }
 
-#tablist:not(.shrinked) .tab-meta-image {
+#tablist-wrapper:not(.shrinked) #tablist .tab-meta-image,
+#tablist-wrapper:not(.shrinked) #pinnedtablist:not(.compact) .tab-meta-image  {
     margin: 6px;
     min-width: 54px;
     height: 40px;
@@ -506,15 +499,23 @@ body[platform="win"] #searchbox-input:placeholder-shown {
     box-shadow: 0 0 2px 2px hsla(0, 0%, 0%, 0.02), 0 2px 0 hsla(0, 0%, 0%, 0.05), 0 0 0 1px hsla(0, 0%, 0%, 0.2);
 }
 
-#tablist.shrinked .tab-meta-image {
+#tablist-wrapper.shrinked #tablist .tab-meta-image,
+#tablist-wrapper.shrinked #pinnedtablist:not(.compact) .tab-meta-image {
     background: none !important; /* Because the JS script sets it manually */
     /* Make it the same size as the favicon it contains */
     height: 20px;
     width: 20px;
 }
 
-#tablist:not(.shrinked) .tab-meta-image.has-thumbnail {
+#tablist-wrapper:not(.shrinked) #tablist .tab-meta-image.has-thumbnail,
+#tablist-wrapper:not(.shrinked) #pinnedtablist:not(.compact) .tab-meta-image.has-thumbnail {
     border: 2px solid white;
+}
+
+#tablist-wrapper:not(.shrinked) #tablist .tab-meta-image.has-thumbnail > .tab-icon-wrapper,
+#tablist-wrapper:not(.shrinked) #pinnedtablist:not(.compact) .tab-meta-image.has-thumbnail > .tab-icon-wrapper {
+    margin-left: -2px;
+    margin-top: 18px;
 }
 
 .tab-icon {
@@ -527,17 +528,13 @@ body[platform="win"] #searchbox-input:placeholder-shown {
     padding: 2px;
 }
 
-#tablist:not(.shrinked) .tab-icon-wrapper {
+#tablist-wrapper:not(.shrinked) #tablist .tab-icon-wrapper,
+#tablist-wrapper:not(.shrinked) #pinnedtablist:not(.compact) .tab-icon-wrapper {
     margin-left: 0px;
     margin-top: 20px;
     border-radius: var(--border-radius);
     background-color: white;
     box-shadow: 0 0 2px hsla(0, 0%, 0%, 0.08), 0 0 0 1px hsla(0, 0%, 0%, 0.08);
-}
-
-#tablist:not(.shrinked) .tab-meta-image.has-thumbnail > .tab-icon-wrapper {
-    margin-left: -2px;
-    margin-top: 18px;
 }
 
 .tab-icon {
@@ -592,7 +589,7 @@ body[platform="win"] #searchbox-input:placeholder-shown {
     flex-direction: column;
 }
 
-#tablist.shrinked .tab-title-wrapper {
+#tablist-wrapper.shrinked .tab-title-wrapper {
     margin-left: 6px;
 }
 
@@ -609,7 +606,7 @@ body[platform="win"] #searchbox-input:placeholder-shown {
     color: var(--secondary-text-color);
 }
 
-#tablist.shrinked .tab-host {
+#tablist-wrapper.shrinked .tab-host {
     display: none;
 }
 
@@ -635,6 +632,26 @@ body[platform="win"] #searchbox-input:placeholder-shown {
 
 .tab:hover > .tab-title-wrapper::after {
     transform: translateX(0);
+}
+
+#pinnedtablist:not(.compact) .tab.pinned > .tab-title-wrapper::after {
+    transform: translateX(8px);
+}
+
+.tab-pin {
+    display: none;
+}
+
+#pinnedtablist:not(.compact) .tab.pinned .tab-pin {
+    min-width: 16px;
+    height: 16px;
+    margin-right: 12px;
+    display: block;
+    background-image: url("img/glyph-pin-pinned-12.svg#standard");
+    background-position: center center;
+    background-repeat: no-repeat;
+    background-size: 12px;
+    z-index: 0;
 }
 
 .tab-close {
@@ -666,11 +683,17 @@ body[platform="win"] #searchbox-input:placeholder-shown {
     background-color: var(--close-button-active) !important;
 }
 
-#tablist.shrinked .tab {
+#tablist-wrapper.shrinked #tablist .tab,
+#tablist-wrapper.shrinked #pinnedtablist:not(.compact) .tab {
     height: 35px;
 }
 
-#pinnedtablist {
+.tab.pinned .tab-loading-burst::before {
+    margin-left: 12px;
+    margin-top: 0px;
+}
+
+#tablist-wrapper #pinnedtablist.compact {
     display: flex;
     flex-wrap: wrap;
     background-color: hsla(0, 0%, 0%, 0.02);
@@ -680,7 +703,12 @@ body[platform="win"] #searchbox-input:placeholder-shown {
     display: none;
 }
 
-.tab.pinned > .tab-icon-overlay {
+#pinnedtablist.compact .tab.pinned {
+    position: relative;
+    padding: 4px;
+}
+
+#pinnedtablist.compact .tab.pinned > .tab-icon-overlay {
     width: 13px;
     height: 13px;
     margin: 0 0 -13px 0;
@@ -690,28 +718,29 @@ body[platform="win"] #searchbox-input:placeholder-shown {
     right: -13px;
 }
 
-.tab.pinned > .tab-meta-image {
+#pinnedtablist.compact .tab.pinned > .tab-meta-image {
+    background-image: none !important; /* Because the JS script sets it manually */
     display: flex;
     justify-content: center;
     align-items: center;
 }
 
-.tab.pinned .tab-icon-wrapper {
+#pinnedtablist.compact .tab.pinned .tab-icon-wrapper {
     height: 24px;
     width: 24px;
 }
 
-.tab.pinned .tab-icon {
+#pinnedtablist.compact .tab.pinned .tab-icon {
     margin: 2px;
 }
 
-.tab.pinned:not(.loading) .tab-icon {
+#pinnedtablist.compact .tab.pinned:not(.loading) .tab-icon {
     width: 16px;
     height: 16px;
 }
 
-.tab.pinned > .tab-context,
-.tab.pinned > .tab-title-wrapper,
+#pinnedtablist.compact .tab.pinned > .tab-context,
+#pinnedtablist.compact .tab.pinned > .tab-title-wrapper,
 .tab.pinned > .tab-close {
     display: none;
 }
@@ -776,11 +805,15 @@ body.dark-theme #settings {
     background-image: url("img/settings.svg#inverted");
 }
 
+body.dark-theme #pinnedtablist .tab.pinned .tab-pin {
+    background-image: url("img/glyph-pin-pinned-12.svg#inverted");
+}
+
 body.dark-theme .tab-close {
     background-image: url("img/glyph-close-16.svg#inverted");
 }
 
-body.dark-theme #tablist.shrinked .tab.loading .tab-icon::before {
+body.dark-theme #tablist-wrapper.shrinked .tab.loading .tab-icon::before {
     background-image: url("img/loading-spinner.svg#inverted");
 }
 

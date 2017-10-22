@@ -9,6 +9,7 @@ function SideTabList() {
   this.tabs = new Map();
   this.active = null;
   this.compactModeMode = COMPACT_MODE_OFF;
+  this._compactPins = true;
   this._tabsShrinked = false;
   this.windowId = null;
   this._filterActive = false;
@@ -85,15 +86,22 @@ SideTabList.prototype = {
         this.compactModeMode = changes.compactModeMode.newValue;
         this.maybeShrinkTabs();
       }
+      if (changes.compactPins) {
+        this.compactPins = changes.compactPins.newValue;
+        this.maybeShrinkTabs();
+      }
     });
   },
   async readPrefs() {
-    this.compactModeMode = (await browser.storage.local.get({
-      compactModeMode: COMPACT_MODE_DYNAMIC
-    })).compactModeMode;
+    const prefs = (await browser.storage.local.get({
+      compactModeMode: COMPACT_MODE_DYNAMIC,
+      compactPins: true
+    }));
+    this.compactModeMode = prefs.compactModeMode;
     if (this.compactModeMode != COMPACT_MODE_OFF) {
       this.maybeShrinkTabs();
     }
+    this.compactPins = prefs.compactPins;
   },
   onBrowserTabActivated(tabId) {
     this.setActive(tabId);
@@ -465,15 +473,26 @@ SideTabList.prototype = {
   getTabById(tabId) {
     return this.tabs.get(tabId, null);
   },
+  get compactPins() {
+    return this._compactPins;
+  },
+  set compactPins(compact) {
+    this._compactPins = compact;
+    if (compact) {
+      this.pinnedview.classList.add("compact");
+    } else {
+      this.pinnedview.classList.remove("compact");
+    }
+  },
   get tabsShrinked() {
     return this._tabsShrinked;
   },
   set tabsShrinked(shrinked) {
     this._tabsShrinked = shrinked;
     if (shrinked) {
-      this.view.classList.add("shrinked");
+      this._wrapperView.classList.add("shrinked");
     } else {
-      this.view.classList.remove("shrinked");
+      this._wrapperView.classList.remove("shrinked");
     }
   },
   maybeShrinkTabs() {
@@ -498,8 +517,12 @@ SideTabList.prototype = {
       let allTabs = [...this.tabs.values()].filter(tab => tab.visible);
       let visibleTabs = allTabs.filter(tab => !tab.pinned);
       let pinnedTabs = allTabs.filter(tab => tab.pinned);
-      let estimatedHeight = visibleTabs.length * estimatedTabHeight +
-                            (pinnedTabs.length ? this.pinnedview.offsetHeight : 0);
+      let estimatedHeight = visibleTabs.length * estimatedTabHeight;
+      if (this._compactPins) {
+        estimatedHeight += pinnedTabs.length ? this.pinnedview.offsetHeight : 0;
+      } else {
+        estimatedHeight += pinnedTabs.length * estimatedTabHeight;
+      }
       if (estimatedHeight <= wrapperHeight) {
         this.tabsShrinked = false;
       }
@@ -637,6 +660,9 @@ SideTabList.prototype = {
       return;
     }
     sidetab.updatePinned(tab.pinned);
+    if (tab.pinned && this._compactPins) {
+      sidetab.resetThumbnail();
+    }
     let newView = tab.pinned ? this.pinnedview : this.view;
     newView.appendChild(sidetab.view);
     this.setPos(tab.id, tab.index);
@@ -670,7 +696,7 @@ SideTabList.prototype = {
     });
   },
   async updateTabThumbnail(tabId) {
-    if (this.compactModeMode == COMPACT_MODE_OFF) {
+    if (this.compactModeMode == COMPACT_MODE_STRICT) {
       return;
     }
     // TODO: sadly we can only capture a thumbnail of the current tab. bug 1246693
@@ -678,7 +704,7 @@ SideTabList.prototype = {
       return;
     }
     let sidetab = this.getTabById(tabId);
-    if (!sidetab || sidetab.pinned) {
+    if (!sidetab || (sidetab.pinned && this._compactPins)) {
       return;
     }
     const thumbnailBase64 = await browser.tabs.captureVisibleTab(this.windowId, {

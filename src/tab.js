@@ -74,6 +74,9 @@ SideTab.prototype = {
     titleWrapper.appendChild(host);
     this._hostView = host;
 
+    const pin = document.createElement("div");
+    pin.className = "tab-pin";
+
     const close = document.createElement("div");
     close.className = "tab-close clickable";
     // This makes the close button an event target for dragstart, which
@@ -86,6 +89,7 @@ SideTab.prototype = {
     tab.appendChild(iconOverlay);
     tab.appendChild(metaImage);
     tab.appendChild(titleWrapper);
+    tab.appendChild(pin);
     tab.appendChild(close);
   },
   updateTitle(title) {
@@ -149,9 +153,6 @@ SideTab.prototype = {
   updatePinned(pinned) {
     this.pinned = pinned;
     toggleClass(this.view, "pinned", pinned);
-    if (pinned) {
-      this.resetThumbnail();
-    }
   },
   updateDiscarded(discarded) {
     toggleClass(this.view, "discarded", discarded);
