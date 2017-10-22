@@ -37,6 +37,10 @@ SideTab.prototype = {
     tab.draggable = true;
     this.view = tab;
 
+    const burst = document.createElement("div");
+    burst.className = "tab-loading-burst";
+    this._burstView = burst;
+
     const context = document.createElement("div");
     context.className = "tab-context";
     this._contextView = context;
@@ -77,6 +81,7 @@ SideTab.prototype = {
     close.draggable = true;
     close.title = browser.i18n.getMessage("closeTabButtonTooltip");
 
+    tab.appendChild(burst);
     tab.appendChild(context);
     tab.appendChild(iconOverlay);
     tab.appendChild(metaImage);
@@ -95,6 +100,9 @@ SideTab.prototype = {
   },
   updateActive(active) {
     toggleClass(this.view, "active", active);
+    if (active) {
+      this._notselectedsinceload = false;
+    }
   },
   scrollIntoView() {
     const {top: parentTop, height} = this.view.parentNode.parentNode.getBoundingClientRect();
@@ -128,6 +136,14 @@ SideTab.prototype = {
     toggleClass(this.view, "loading", isLoading);
     if (isLoading) {
       SideTab._syncThrobberAnimations();
+      this._notselectedsinceload = !this.view.classList.contains("active");
+    } else {
+      if (this._notselectedsinceload) {
+        this.view.setAttribute("notselectedsinceload", "true");
+      } else {
+        this.view.removeAttribute("notselectedsinceload");
+      }
+      this._burstView.classList.add("bursting");
     }
   },
   updatePinned(pinned) {
@@ -154,6 +170,11 @@ SideTab.prototype = {
   resetThumbnail() {
     this._metaImageView.style.backgroundImage = "";
     this._metaImageView.classList.remove("has-thumbnail");
+  },
+  onAnimationEnd(e) {
+    if (e.target.classList.contains("tab-loading-burst")) {
+      this._burstView.classList.remove("bursting");
+    }
   }
 };
 

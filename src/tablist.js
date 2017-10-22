@@ -50,10 +50,12 @@ SideTabList.prototype = {
     this.view.addEventListener("auxclick", e => this.onAuxClick(e));
     this.view.addEventListener("mousedown", e => this.onMouseDown(e));
     this.view.addEventListener("contextmenu", e => this.onContextMenu(e));
+    this.view.addEventListener("animationend", e => this.onAnimationEnd(e));
     this.pinnedview.addEventListener("click", e => this.onClick(e));
     this.pinnedview.addEventListener("auxclick", e => this.onAuxClick(e));
     this.pinnedview.addEventListener("mousedown", e => this.onMouseDown(e));
     this.pinnedview.addEventListener("contextmenu", e => this.onContextMenu(e));
+    this.pinnedview.addEventListener("animationend", e => this.onAnimationEnd(e));
     window.addEventListener("keyup", (e) => {
       if (e.keyCode === 27) { // Context menu closed on ESC key pressed
         this.hideContextMenu();
@@ -383,6 +385,11 @@ SideTabList.prototype = {
     if (e.which == 2) {
       browser.tabs.create({});
     }
+  },
+  onAnimationEnd(e) {
+    const tabId = SideTab.tabIdForEvent(e);
+    const tab = this.getTabById(tabId);
+    tab.onAnimationEnd(e);
   },
   async moveTabToBottom(tab) {
     let sameCategoryTabs = await browser.tabs.query({
