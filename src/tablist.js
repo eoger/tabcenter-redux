@@ -265,7 +265,7 @@ SideTabList.prototype = {
       onCommandFn: async () => {
         const undoTabs = await this._getRecentlyClosedTabs();
         if (undoTabs.length) {
-          browser.sessions.restore(undoTabs.sessionId);
+          browser.sessions.restore(undoTabs[0].sessionId);
         }
       }
     });
@@ -278,10 +278,9 @@ SideTabList.prototype = {
     return items;
   },
   async _getRecentlyClosedTabs() {
-    const sessions = await browser.sessions.getRecentlyClosed({
-      maxResults: 1
-    });
-    return sessions.filter(s => s.tab && this.checkWindow(s.tab));
+    const sessions = await browser.sessions.getRecentlyClosed();
+    return sessions.map(s => s.tab)
+                   .filter(s => s && this.checkWindow(s));
   },
   onClick(e) {
     if (SideTab.isCloseButtonEvent(e)) {
