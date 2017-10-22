@@ -4,6 +4,17 @@
     --tab-background-normal: 0, 0%, 99%;
     --tab-background-active: 0, 0%, 87%;
     --tab-background-hover: 0, 0%, 91%;
+    --tab-border-color: hsla(0, 0%, 0%, 0.06);
+    --searchbox-background: #fff;
+    --primary-text-color: #18191a;
+    --secondary-text-color: #737373;
+    --close-button-color: hsla(0, 0%, 0%, 0.1);
+    --close-button-hover: hsla(0, 0%, 0%, 0.16);
+    --close-button-active: hsla(0, 0%, 0%, 0.2);
+    --menu-button-text-shadow: 0 1px rgba(255, 255, 255, .4);
+    --menu-button-hover: hsla(240, 5%, 5%, .1);
+    --menu-button-active: hsla(240, 5%, 5%, .15);
+    --border-radius: 4px;
 }
 
 html, body {
@@ -13,7 +24,7 @@ html, body {
 body {
     background-color: hsl(var(--tab-background-normal));
     font: message-box;
-    color: #000;
+    color: var(--primary-text-color);
     display: flex;
     flex-direction: column;
 }
@@ -25,6 +36,7 @@ body {
 #topmenu {
     display: flex;
     padding: 6px 4px;
+    height: 38px;
     border-bottom: 1px solid hsla(0, 0%, 0%, 0.2);
 }
 
@@ -36,7 +48,7 @@ body {
     min-width: 26px;
     align-items: center;
     padding: 2px 4px;
-    text-shadow: 0 1px rgba(255, 255, 255, .4);
+    text-shadow: var(--menu-button-text-shadow);
 }
 
 /* This is important for event bubbling: when we click a tab, e.target
@@ -59,7 +71,7 @@ img, .tab *:not(.clickable) {
 
 #newtab-menu {
     display: flex;
-    z-index: 1;
+    z-index: 2;
     position: absolute;
     top: 31px;
     left: 8px;
@@ -86,91 +98,91 @@ img, .tab *:not(.clickable) {
 }
 
 [data-identity-color="blue"] {
-  --identity-tab-color: #0996f8;
-  --identity-icon-color: #00a7e0;
+    --identity-tab-color: #0996f8;
+    --identity-icon-color: #00a7e0;
 }
 
 [data-identity-color="turquoise"] {
-  --identity-tab-color: #01bdad;
-  --identity-icon-color: #01bdad;
+    --identity-tab-color: #01bdad;
+    --identity-icon-color: #01bdad;
 }
 
 [data-identity-color="green"] {
-  --identity-tab-color: #57bd35;
-  --identity-icon-color:  #7dc14c;
+    --identity-tab-color: #57bd35;
+    --identity-icon-color:  #7dc14c;
 }
 
 [data-identity-color="yellow"] {
-  --identity-tab-color: #ffcb00;
-  --identity-icon-color: #ffcb00;
+    --identity-tab-color: #ffcb00;
+    --identity-icon-color: #ffcb00;
 }
 
 [data-identity-color="orange"] {
-  --identity-tab-color: #ff9216;
-  --identity-icon-color: #ff9216;
+    --identity-tab-color: #ff9216;
+    --identity-icon-color: #ff9216;
 }
 
 [data-identity-color="red"] {
-  --identity-tab-color: #d92215;
-  --identity-icon-color: #d92215;
+    --identity-tab-color: #d92215;
+    --identity-icon-color: #d92215;
 }
 
 [data-identity-color="pink"] {
-  --identity-tab-color: #ea385e;
-  --identity-icon-color: #ee5195;
+    --identity-tab-color: #ea385e;
+    --identity-icon-color: #ee5195;
 }
 
 [data-identity-color="purple"] {
-  --identity-tab-color: #7a2f7a;
-  --identity-icon-color: #7a2f7a;
+    --identity-tab-color: #7a2f7a;
+    --identity-icon-color: #7a2f7a;
 }
 
 [data-identity-icon="fingerprint"] {
-  --identity-icon: url("img/usercontext.svg#fingerprint");
+    --identity-icon: url("img/usercontext.svg#fingerprint");
 }
 
 [data-identity-icon="briefcase"] {
-  --identity-icon: url("img/usercontext.svg#briefcase");
+    --identity-icon: url("img/usercontext.svg#briefcase");
 }
 
 [data-identity-icon="dollar"] {
-  --identity-icon: url("img/usercontext.svg#dollar");
+    --identity-icon: url("img/usercontext.svg#dollar");
 }
 
 [data-identity-icon="cart"] {
-  --identity-icon: url("img/usercontext.svg#cart");
+    --identity-icon: url("img/usercontext.svg#cart");
 }
 
 [data-identity-icon="circle"] {
-  --identity-icon: url("img/usercontext.svg#circle");
+    --identity-icon: url("img/usercontext.svg#circle");
 }
 
 [data-identity-icon="gift"] {
-  --identity-icon: url("img/usercontext.svg#gift");
+    --identity-icon: url("img/usercontext.svg#gift");
 }
 
 [data-identity-icon="vacation"] {
-  --identity-icon: url("img/usercontext.svg#vacation");
+    --identity-icon: url("img/usercontext.svg#vacation");
 }
 
 [data-identity-icon="food"] {
-  --identity-icon: url("img/usercontext.svg#food");
+    --identity-icon: url("img/usercontext.svg#food");
 }
 
 [data-identity-icon="fruit"] {
-  --identity-icon: url("img/usercontext.svg#fruit");
+    --identity-icon: url("img/usercontext.svg#fruit");
 }
 
 [data-identity-icon="pet"] {
-  --identity-icon: url("img/usercontext.svg#pet");
+    --identity-icon: url("img/usercontext.svg#pet");
 }
 
 [data-identity-icon="tree"] {
-  --identity-icon: url("img/usercontext.svg#tree");
+    --identity-icon: url("img/usercontext.svg#tree");
 }
 
 [data-identity-icon="chill"] {
-  --identity-icon: url("img/usercontext.svg#chill");
+    --identity-icon: url("img/usercontext.svg#chill");
 }
 
 .newtab-menu-identity-icon {
@@ -188,45 +200,71 @@ img, .tab *:not(.clickable) {
 
 .topmenu-button {
     border: 1px solid transparent; /* When we show a border on hover it won't move */
-    border-radius: 2.5px;
+    border-radius: var(--border-radius);
 }
 
 #newtab.menuopened,
 .topmenu-button:hover {
-    border: 1px solid hsla(0, 0%, 0%, 0.16);
-    background-color: hsla(0, 0%, 0%, 0.1);
+    background-color: var(--menu-button-hover);
 }
 
 .topmenu-button:active {
-    background-color: hsla(0, 0%, 0%, 0.16);
+    background-color: var(--menu-button-active);
 }
 
 #newtab-icon {
     min-width: 16px;
+    min-height: 16px;
     margin-right: 2px;
+    background-size: 16px 16px;
+    background-repeat: no-repeat;
+    background-position: center;
+    background-image: url("img/glyph-new-16.svg#standard");
 }
 
 #searchbox {
     display: flex;
     margin: 0 4px;
+    padding: 1px;
     flex: 20 0 auto;
     min-width: 45px;
-    border: 1px solid rgba(0, 0, 0, 0.16);
-    border-radius: 2.5px;
+    border-radius: var(--border-radius);
+    border: 1px solid hsla(240,5%,5%,.25);
+    box-shadow: 0 1px 4px rgba(0,0,0,.05);
     transition: border-color 0.1s, box-shadow 0.1s;
+    cursor: text;
+}
+
+#searchbox:hover {
+    border-color: hsla(240,5%,5%,.35);
+    box-shadow: 0 1px 6px rgba(0,0,0,.1);
 }
 
 #searchbox.focused {
-    border: 1px solid hsla(210, 100%, 60%, 0.6);
-    box-shadow: 0 0 0 2px hsla(210, 100%, 60%, 0.45);
+    border: 1px solid -moz-mac-focusring;
+    box-shadow: 0 0 0 1px -moz-mac-focusring inset, 0 0 0 1px -moz-mac-focusring;
+}
+
+#searchbox-icon {
+    min-width: 20px;
+    background-size: 20px 20px;
+    background-repeat: no-repeat;
+    background-position: center;
+    background-image: url("img/find.svg#standard");
+    border-radius: var(--border-radius) 0 0 var(--border-radius);
 }
 
 #searchbox-input {
     flex: 1;
-    margin-left: 1;
     padding: 0;
     box-shadow: none;
     border: 0;
+    border-radius: 0 var(--border-radius) var(--border-radius) 0;
+}
+
+#searchbox-input,
+#searchbox-icon {
+    background-color: var(--searchbox-background);
 }
 
 #settings {
@@ -254,7 +292,7 @@ img, .tab *:not(.clickable) {
     display: flex;
     align-items: center;
     height: 56px;
-    border-bottom: 1px solid hsla(0, 0%, 0%, 0.06);
+    border-bottom: 1px solid var(--tab-border-color);
     position: relative;
 }
 
@@ -271,71 +309,71 @@ img, .tab *:not(.clickable) {
 }
 
 .tab-loading-burst {
-  position: absolute;
-  overflow: hidden;
-  height: 100%;
-  width: 100%;
+    position: absolute;
+    overflow: hidden;
+    height: 100%;
+    width: 100%;
 }
 
 .tab-loading-burst::before {
-  position: absolute;
-  content: "";
-  /* We set the width to be a percentage of the tab's width so that we can use
-     the `scale` transform to scale it up to the full size of the tab when the
-     burst occurs. We also need to set margin-top/margin-left so that the
-     center of the burst matches the center of the favicon. */
-  width: 5%;
-  height: 100%;
-  margin-left: 17px;
-  margin-top: 10px;
+    position: absolute;
+    content: "";
+    /* We set the width to be a percentage of the tab's width so that we can use
+       the `scale` transform to scale it up to the full size of the tab when the
+       burst occurs. We also need to set margin-top/margin-left so that the
+       center of the burst matches the center of the favicon. */
+    width: 5%;
+    height: 100%;
+    margin-left: 17px;
+    margin-top: 10px;
 }
 
 #tablist.shrinked .tab-loading-burst::before {
-  margin-left: 10px;
-  margin-top: 0px;
+    margin-left: 10px;
+    margin-top: 0px;
 }
 
 .tab.pinned .tab-loading-burst::before {
-  margin-left: 12px;
-  margin-top: 0px;
+    margin-left: 12px;
+    margin-top: 0px;
 }
 
 .tab-loading-burst.bursting::before {
-  background-image: url("img/loading-burst.svg#standard");
-  background-position: center center;
-  background-size: 100% auto;
-  background-repeat: no-repeat;
-  animation: tab-burst-animation 375ms cubic-bezier(0,0,.58,1);
+    background-image: url("img/loading-burst.svg#standard");
+    background-position: center center;
+    background-size: 100% auto;
+    background-repeat: no-repeat;
+    animation: tab-burst-animation 375ms cubic-bezier(0,0,.58,1);
 }
 
 .tab-loading-burst.bursting[notselectedsinceload]::before {
-  animation-name: tab-burst-animation-light;
+    animation-name: tab-burst-animation-light;
 }
 
 .tab:not(.active) .tab-loading-burst.bursting::before {
-  background-image: url("img/loading-burst.svg#light");
+    background-image: url("img/loading-burst.svg#light");
 }
 
 @keyframes tab-burst-animation {
-  0% {
-    opacity: 0.4;
-    transform: scale(1);
-  }
-  100% {
-    opacity: 0;
-    transform: scale(40);
-  }
+    0% {
+        opacity: 0.4;
+        transform: scale(1);
+    }
+    100% {
+        opacity: 0;
+        transform: scale(40);
+    }
 }
 
 @keyframes tab-burst-animation-light {
-  0% {
-    opacity: 0.2;
-    transform: scale(1);
-  }
-  100% {
-    opacity: 0;
-    transform: scale(40);
-  }
+    0% {
+        opacity: 0.2;
+        transform: scale(1);
+    }
+    100% {
+        opacity: 0;
+        transform: scale(40);
+    }
 }
 
 .tab-context:not(.hasContext) {
@@ -434,7 +472,7 @@ img, .tab *:not(.clickable) {
 #tablist:not(.shrinked) .tab-icon-wrapper {
     margin-left: 0px;
     margin-top: 20px;
-    border-radius :2px;
+    border-radius: var(--border-radius);
     background-color: white;
     box-shadow: 0 0 2px hsla(0, 0%, 0%, 0.08), 0 0 0 1px hsla(0, 0%, 0%, 0.08);
 }
@@ -482,11 +520,11 @@ img, .tab *:not(.clickable) {
 }
 
 @keyframes tab-throbber-animation {
-  100% { transform: translateX(-100%); }
+    100% { transform: translateX(-100%); }
 }
 
 @keyframes tab-throbber-animation-rtl {
-  100% { transform: translateX(100%); }
+    100% { transform: translateX(100%); }
 }
 
 .tab-title-wrapper {
@@ -501,7 +539,7 @@ img, .tab *:not(.clickable) {
 }
 
 .tab.discarded .tab-title {
-    color: grey;
+    color: var(--secondary-text-color);
 }
 
 .tab-title, .tab-host {
@@ -510,7 +548,7 @@ img, .tab *:not(.clickable) {
 }
 
 .tab-host {
-    color: rgb(127, 127, 127);
+    color: var(--secondary-text-color);
 }
 
 #tablist.shrinked .tab-host {
@@ -550,12 +588,12 @@ img, .tab *:not(.clickable) {
     bottom: 0;
     right: 12px;
     margin: auto;
-    background-color: hsla(0, 0%, 0%, 0.1);
+    background-color: var(--close-button-color);
     background-image: url("img/glyph-close-16.svg#standard");
     background-position: center;
     background-repeat: no-repeat;
     background-size: 16px;
-    border-radius: 2.5px;
+    border-radius: var(--border-radius);
     opacity: 0;
 }
 
@@ -564,10 +602,10 @@ img, .tab *:not(.clickable) {
 }
 
 .tab-close:hover {
-    background-color: hsla(0, 0%, 0%, 0.16) !important;
+    background-color: var(--close-button-hover) !important;
 }
 .tab-close:active {
-    background-color: hsla(0, 0%, 0%, 0.2) !important;
+    background-color: var(--close-button-active) !important;
 }
 
 #tablist.shrinked .tab {
@@ -587,7 +625,7 @@ img, .tab *:not(.clickable) {
 .tab.pinned > .tab-icon-overlay {
     width: 13px;
     height: 13px;
-    margin: 0 0 -13px 0px;
+    margin: 0 0 -13px 0;
     left: auto;
     top: auto;
     bottom: -12px;
@@ -644,58 +682,28 @@ body.dark-theme {
     --tab-background-normal: 223, 15.2%, 18%;
     --tab-background-active: 221, 41.4%, 33.1%;
     --tab-background-hover: 222, 28.3%, 25.55%;
-    color: #c0c0c0;
-}
-
-body.dark-theme .tab {
-  color: #808080;
-}
-
-body.dark-theme #newtab {
-    text-shadow: 0 1px rgba(0, 0, 0, .4);
-}
-
-body.dark-theme #newtab.menuopened,
-body.dark-theme .topmenu-button:hover {
-    background-color: rgba(255, 255, 255, 0.1);
-}
-
-body.dark-theme .topmenu-button:active {
-    background-color: rgba(255, 255, 255, 0.2);
+    --tab-border-color: #38383d;
+    --searchbox-background: rgb(71, 71, 73);
+    --primary-text-color: rgb(249, 249, 250);
+    --secondary-text-color: #A5A5A7;
+    --close-button-color:  rgba(238, 238, 241, .05);
+    --close-button-hover: rgba(238, 238, 241, .1);
+    --close-button-active: rgba(238, 238, 241, .2);
+    --menu-button-text-shadow: 0 1px rgba(0, 0, 0, .4);
+    --menu-button-hover: hsla(0, 0%, 100%, .2);
+    --menu-button-active: hsla(0, 0%, 100%, .3);
 }
 
 body.dark-theme #newtab-menu {
-    background-color: #3D414A;
+    color: black;
 }
 
-body.dark-theme .newtab-menu-identity:hover {
-    background-color: rgb(86, 117, 185);
+body.dark-theme #searchbox-icon {
+    background-image: url("img/find.svg#inverted");
 }
 
-body.dark-theme #searchbox {
-    border: 1px solid rgb(29, 35, 40);
-}
-
-body.dark-theme #searchbox-icon,
 body.dark-theme #searchbox-input {
-    background-color: rgb(23, 27, 31);
-    color: #111;
-}
-
-body.dark-theme .tab.discarded .tab-title {
-    color: #626262;
-}
-
-body.dark-theme .tab-host {
-    color: #606060;
-}
-
-body.dark-theme .tab:hover .tab-host {
-    color: #808080;
-}
-
-body.dark-theme .tab.active .tab-host {
-    color: #c0c0c0;
+    color: var(--primary-text-color);
 }
 
 body.dark-theme .tab-icon-overlay {
@@ -703,7 +711,7 @@ body.dark-theme .tab-icon-overlay {
 }
 
 body.dark-theme #newtab-icon {
-  filter: brightness(200%);
+    background-image: url("img/glyph-new-16.svg#inverted");
 }
 
 body.dark-theme #settings {
@@ -718,19 +726,11 @@ body.dark-theme #tablist.shrinked .tab.loading .tab-icon::before {
     background-image: url("img/loading-spinner.svg#inverted");
 }
 
-body.dark-theme .tab:hover {
-    color: #e6e6e6;
-}
-
-body.dark-theme .tab.active {
-    color: #fff;
-}
-
 body.dark-theme #topmenu {
-  background-color: #393f4c;
+    background-color: #393f4c;
 }
 
 body.dark-theme #pinnedtablist {
-  background-color: #2c323f;
+    background-color: #2c323f;
 }
 
