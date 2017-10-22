@@ -73,22 +73,51 @@ img, .tab *:not(.clickable) {
     display: flex;
     z-index: 2;
     position: absolute;
-    top: 31px;
-    left: 8px;
+    top: 36px;
+    left: 3px;
+    padding-bottom: 5px;
     flex-direction: column;
-    background-color: #F2F2F2;
-    border: 1px solid #C9C9C9;
-    box-shadow: 1px 1px 1px #888888;
+    border-radius: 3.5px;
+    background: linear-gradient(hsla(0,0%,99%,1), hsla(0,0%,99%,.975) 10%, hsla(0,0%,98%,.975));
+    box-shadow: 0 3px 5px hsla(210,4%,10%,.1),
+                0 0 7px hsla(210,4%,10%,.1);
+    border: 1px solid ThreeDShadow;
+}
+
+#newtab-menu::before {
+    content: "";
+    background-image: url("img/panelarrow-vertical.png");
+    width: 18px;
+    height: 10px;
+    background-size: contain;
+    position: relative;
+    top: -10px;
+    left: 9px;
+}
+
+@media (min-resolution: 1.1dppx) {
+    #newtab-menu::before {
+      background-image: url("img/panelarrow-vertical@2x.png");
+    }
 }
 
 .newtab-menu-identity:hover {
-    background-color: #D5D5D5;
+    background-color: hsla(210,4%,10%,.07);
+}
+
+.newtab-menu-identity:active {
+    background-color: hsla(210,4%,10%,.12);
+    box-shadow: 0 1px 0 hsla(210,4%,10%,.03) inset;
+}
+
+.newtab-menu-identity:first-child {
+    margin-top: -5px;
 }
 
 .newtab-menu-identity {
     display: flex;
     align-items: center;
-    padding: 7px 0 7px 22px;
+    padding: 7px 0 7px 18px;
 }
 
 .newtab-menu-identity-label {
