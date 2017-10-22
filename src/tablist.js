@@ -247,13 +247,6 @@ SideTabList.prototype = {
       label: "separator"
     });
     items.push({
-      label: browser.i18n.getMessage("contextMenuCloseTab"),
-      onCommandFn: () => {
-        browser.tabs.remove(tabId);
-      }
-    });
-
-    items.push({
       label: browser.i18n.getMessage("contextMenuUndoCloseTab"),
       isEnabled: async () => {
         const sessions = await browser.sessions.getRecentlyClosed({
@@ -268,6 +261,12 @@ SideTabList.prototype = {
         if (sessions.length && sessions[0].tab) {
           browser.sessions.restore(sessions[0].tab.sessionId);
         }
+      }
+    });
+    items.push({
+      label: browser.i18n.getMessage("contextMenuCloseTab"),
+      onCommandFn: () => {
+        browser.tabs.remove(tabId);
       }
     });
     return items;
