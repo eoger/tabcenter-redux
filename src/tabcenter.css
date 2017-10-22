@@ -17,6 +17,10 @@
     --border-radius: 4px;
 }
 
+body[platform="win"] {
+    --border-radius: 2px;
+}
+
 html, body {
     height: 100%;
 }
@@ -77,28 +81,25 @@ img, .tab *:not(.clickable) {
     left: 3px;
     padding-bottom: 5px;
     flex-direction: column;
-    border-radius: 3.5px;
     background: linear-gradient(hsla(0,0%,99%,1), hsla(0,0%,99%,.975) 10%, hsla(0,0%,98%,.975));
     box-shadow: 0 3px 5px hsla(210,4%,10%,.1),
                 0 0 7px hsla(210,4%,10%,.1);
     border: 1px solid ThreeDShadow;
 }
 
+body[platform="mac"] #newtab-menu {
+    border-radius: 3.5px;
+}
+
 #newtab-menu::before {
     content: "";
-    background-image: url("img/panelarrow-vertical.png");
-    width: 18px;
+    background-image: url("img/panelarrow-vertical-themed.svg");
+    width: 20px;
     height: 10px;
     background-size: contain;
     position: relative;
     top: -10px;
     left: 9px;
-}
-
-@media (min-resolution: 1.1dppx) {
-    #newtab-menu::before {
-      background-image: url("img/panelarrow-vertical@2x.png");
-    }
 }
 
 .newtab-menu-identity:hover {
@@ -270,6 +271,10 @@ img, .tab *:not(.clickable) {
 }
 
 #searchbox.focused {
+    border: 1px solid Highlight;
+}
+
+body[platform="mac"] #searchbox.focused {
     border: 1px solid -moz-mac-focusring;
     box-shadow: 0 0 0 1px -moz-mac-focusring inset, 0 0 0 1px -moz-mac-focusring;
 }
@@ -351,6 +356,8 @@ img, .tab *:not(.clickable) {
     overflow: hidden;
     height: 100%;
     width: 100%;
+    top: 0;
+    left: 0;
 }
 
 .tab-loading-burst::before {

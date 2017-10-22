@@ -27,23 +27,21 @@ a, a:visited {
   margin-bottom : 10px;
 }
 
+.options > div {
+  padding: 5px;
+}
+
 #primaryOptions {
   grid-auto-rows: 1fr;
 }
 
 input[type="checkbox"] {
-  display: block;
-  height: 33px;
-  width: 33px;
+  margin-left: 0;
 }
 
 #customCSS {
   width: 250px;
   height: 100px;
-}
-
-#compactMode {
-  margin-left: 10px;
 }
 
 #help {

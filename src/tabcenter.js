@@ -21,6 +21,9 @@ TabCenter.prototype = {
     const data = await browser.windows.getCurrent();
     await this.sideTabList.populate(data.id);
     this.setupListeners();
+    browser.runtime.getPlatformInfo().then((platform) => {
+      document.body.setAttribute("platform", platform.os);
+    });
   },
   setupListeners() {
     const searchbox = document.getElementById("searchbox");
