@@ -132,13 +132,15 @@ SideTabList.prototype = {
     if (changeInfo.hasOwnProperty("audible")) {
       this.setAudible(tab);
     }
-    if (changeInfo.status === "loading") {
+    if (changeInfo.hasOwnProperty("status") && changeInfo.status === "loading") {
       this.setLoading(tab, true);
     }
-    if (changeInfo.status === "complete") {
+    if (changeInfo.hasOwnProperty("status") && changeInfo.status === "complete") {
       this.setLoading(tab, false);
       this.updateTabThumbnail(tabId);
-      this.setIcon(tab);
+      if (tab.hasOwnProperty("favIconUrl")) {
+        this.setIcon(tab);
+      }
     }
     if (changeInfo.hasOwnProperty("pinned")) {
       this.setPinned(tab);

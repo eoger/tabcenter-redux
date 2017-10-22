@@ -19,7 +19,9 @@ SideTab.prototype = {
     this.updateURL(tabInfo.url);
     this.updateAudible(tabInfo.audible);
     this.updatedMuted(tabInfo.mutedInfo.muted);
-    this.updateIcon(tabInfo.favIconUrl);
+    if (tabInfo.hasOwnProperty("favIconUrl")) {
+      this.updateIcon(tabInfo.favIconUrl);
+    }
     this.updatePinned(tabInfo.pinned);
     this.updateDiscarded(tabInfo.discarded);
     if (tabInfo.cookieStoreId) {
