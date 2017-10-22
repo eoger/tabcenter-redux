@@ -693,7 +693,7 @@ body[platform="win"] #searchbox-input:placeholder-shown {
     margin-top: 0px;
 }
 
-#tablist-wrapper #pinnedtablist.compact {
+#pinnedtablist.compact {
     display: flex;
     flex-wrap: wrap;
     background-color: hsla(0, 0%, 0%, 0.02);
@@ -821,7 +821,7 @@ body.dark-theme #topmenu {
     background-color: #393f4c;
 }
 
-body.dark-theme #pinnedtablist {
+body.dark-theme #pinnedtablist.compact {
     background-color: #2c323f;
 }
 
