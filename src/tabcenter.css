@@ -40,7 +40,7 @@ body {
 #topmenu {
     display: flex;
     padding: 6px 4px;
-    height: 38px;
+    height: 35px;
     border-bottom: 1px solid hsla(0, 0%, 0%, 0.2);
 }
 
@@ -265,6 +265,10 @@ body[platform="mac"] #newtab-menu {
     cursor: text;
 }
 
+body[platform="win"] #searchbox {
+    border-radius: 0;
+}
+
 #searchbox:hover {
     border-color: hsla(240,5%,5%,.35);
     box-shadow: 0 1px 6px rgba(0,0,0,.1);
@@ -290,10 +294,19 @@ body[platform="mac"] #searchbox.focused {
 
 #searchbox-input {
     flex: 1;
+    font: inherit; /* needed for windows */
     padding: 0;
     box-shadow: none;
     border: 0;
     border-radius: 0 var(--border-radius) var(--border-radius) 0;
+}
+
+body[platform="mac"] #searchbox-input {
+    font-size: 12px;
+}
+
+body[platform="win"] #searchbox-input:placeholder-shown {
+    font-style: italic;
 }
 
 #searchbox-input,
