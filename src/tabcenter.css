@@ -327,6 +327,7 @@ img, .tab *:not(.clickable) {
 
 .tab.pinned {
     position: relative;
+    padding: 4px;
 }
 
 .tab.active {
