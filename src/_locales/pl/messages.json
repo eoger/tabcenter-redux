@@ -82,8 +82,17 @@
   "optionsCompactModeStrict":{
     "message":"Zawsze"
   },
+  "optionsCompactPins":{
+    "message":"Kompaktuj przypięte karty"
+  },
   "optionsDarkTheme":{
     "message":"Ciemny motyw"
+  },
+  "optionsAdvancedTitle":{
+    "message":"Zaawansowane"
+  },
+  "optionsCustomCSS":{
+    "message":"Niestandardowy arkusz stylów"
   },
   "optionsSaveCustomCSS":{
     "message":"Zapisz CSS"
