@@ -94,6 +94,9 @@
   "optionsCustomCSS":{
     "message":"Niestandardowy arkusz stylów"
   },
+  "optionsCustomCSSWikiLink":{
+    "message":"Strona Wiki o dostosowaniu CSS"
+  },
   "optionsSaveCustomCSS":{
     "message":"Zapisz CSS"
   }
