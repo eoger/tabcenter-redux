@@ -1,105 +1,79 @@
 {
-  "extensionName": {
-    "message": "Tab Center Redux"
+  "extensionDescription":{
+    "message":"Tab Center це спроба вирішити деякі проблеми, які виникли у зв'язку із тим, як люди використовують вкладки (особливо проблема надто великої кількості вкладок), і надати більш гнучку базу для майбутніх іновацій. Перша версія цього доповнення для Firefox розташовує вкладки вертикально, а не горизонтально. Натхнення та запозичені ідеї взято із чудового доповнення VerticalTabs."
   },
-
-  "extensionDescription": {
-    "message": "Tab Center це спроба вирішити деякі проблеми, які виникли у зв'язку із тим, як люди використовують вкладки (особливо проблема надто великої кількості вкладок), і надати більш гнучку базу для майбутніх іновацій. Перша версія цього доповнення для Firefox розташовує вкладки вертикально, а не горизонтально. Натхнення та запозичені ідеї взято із чудового доповнення VerticalTabs."
+  "sidebarTitle":{
+    "message":"Вкладки",
+    "description":"Label shown in the sidebar selector."
   },
-
-  "sidebarTitle": {
-    "message": "Вкладки",
-    "description": "Label shown in the sidebar selector."
+  "newTabBtnLabel":{
+    "message":"Нова вкладка",
+    "description":"Label of the New Tab button in the top menu."
   },
-
-  "newTabBtnLabel": {
-    "message": "Нова вкладка",
-    "description": "Label of the New Tab button in the top menu."
+  "newTabBtnTooltip":{
+    "message":"Відкрити нову вкладку"
   },
-
-  "newTabBtnTooltip": {
-    "message": "Відкрити нову вкладку"
+  "closeTabButtonTooltip":{
+    "message":"Закрити вкладку"
   },
-
-  "closeTabButtonTooltip": {
-    "message": "Закрити вкладку"
+  "allTabsLabel":{
+    "message":"Показати всі вкладки…",
+    "description":"Shown at the bottom of the list of tabs if some tabs are filtered by the current search query."
   },
-
-  "allTabsLabel": {
-    "message": "Показати всі вкладки…",
-    "description": "Shown at the bottom of the list of tabs if some tabs are filtered by the current search query."
+  "contextMenuReloadTab":{
+    "message":"Оновити вкладку",
+    "description":"Reload Tab context menu item label."
   },
-
-  "contextMenuReloadTab": {
-    "message": "Оновити вкладку",
-    "description": "Reload Tab context menu item label."
+  "contextMenuPinTab":{
+    "message":"Прикріпити вкладку",
+    "description":"Pin Tab context menu item label."
   },
-
-  "contextMenuPinTab": {
-    "message": "Прикріпити вкладку",
-    "description": "Pin Tab context menu item label."
+  "contextMenuUnpinTab":{
+    "message":"Відкріпити вкладку",
+    "description":"Unpin Tab context menu item label."
   },
-
-  "contextMenuUnpinTab": {
-    "message": "Відкріпити вкладку",
-    "description": "Unpin Tab context menu item label."
+  "contextMenuMuteTab":{
+    "message":"Вимкнути звук вкладки",
+    "description":"Mute Tab context menu item label."
   },
-
-  "contextMenuMuteTab": {
-    "message": "Вимкнути звук вкладки",
-    "description": "Mute Tab context menu item label."
+  "contextMenuUnmuteTab":{
+    "message":"Увімкнути звук вкладки",
+    "description":"Unmute Tab context menu item label."
   },
-
-  "contextMenuUnmuteTab": {
-    "message": "Увімкнути звук вкладки",
-    "description": "Unmute Tab context menu item label."
+  "contextMenuCloseTab":{
+    "message":"Закрити вкладку"
   },
-
-  "contextMenuCloseTab": {
-    "message": "Закрити вкладку"
+  "contextMenuMoveTabToNewWindow":{
+    "message":"Перенести в нове вікно"
   },
-
-  "contextMenuMoveTabToNewWindow": {
-    "message": "Перенести в нове вікно"
+  "contextMenuReloadAllTabs":{
+    "message":"Оновити всі вкладки"
   },
-
-  "contextMenuReloadAllTabs": {
-    "message": "Оновити всі вкладки"
+  "contextMenuCloseTabsUnderneath":{
+    "message":"Закрити вкладки знизу"
   },
-
-  "contextMenuCloseTabsUnderneath": {
-    "message": "Закрити вкладки знизу"
+  "contextMenuCloseOtherTabs":{
+    "message":"Закрити інші вкладки"
   },
-
-  "contextMenuCloseOtherTabs": {
-    "message": "Закрити інші вкладки"
+  "settingsBtnTooltip":{
+    "message":"Відкрити налаштування"
   },
-
-  "settingsBtnTooltip": {
-    "message": "Відкрити налаштування"
+  "optionsTitle":{
+    "message":"Налаштування"
   },
-
-  "optionsTitle": {
-    "message": "Налаштування"
+  "optionsCompactMode":{
+    "message":"Компактний режим"
   },
-
-  "optionsCompactMode": {
-    "message": "Компактний режим"
+  "optionsDarkTheme":{
+    "message":"Темна тема"
   },
-
-  "optionsDarkTheme": {
-    "message": "Темна тема"
+  "optionsAdvancedTitle":{
+    "message":"Додаткові"
   },
-
-  "optionsAdvancedTitle": {
-    "message": "Додаткові"
+  "optionsCustomCSS":{
+    "message":"Власна таблиця стилів"
   },
-
-  "optionsCustomCSS": {
-    "message": "Власна таблиця стилів"
-  },
-
-  "optionsSaveCustomCSS": {
-    "message": "Зберегти CSS"
+  "optionsSaveCustomCSS":{
+    "message":"Зберегти CSS"
   }
 }

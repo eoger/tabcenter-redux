@@ -6,15 +6,26 @@
   </head>
   <body>
     <h1 id="optionsTitle"></h1>
-    <div class="options">
-        <div><label for="compactMode" id="optionsCompactMode"></label></div>
-        <div><input id="compactMode" type="checkbox" /></div>
+    <div id="primaryOptions" class="options">
         <div><label for="darkTheme" id="optionsDarkTheme"></label></div>
         <div><input id="darkTheme" type="checkbox" /></div>
+        <div><label for="compactModeMode" id="optionsCompactMode"></label></div>
+        <div>
+            <select name="compactModeMode" id="compactMode">
+              <option value="0" id="optionsCompactModeOff"/>
+              <option value="1" id="optionsCompactModeDynamic"/>
+              <option value="2" id="optionsCompactModeStrict"/>
+            </select>
+        </div>
+        <div><label for="compactPins" id="optionsCompactPins"></label></div>
+        <div><input id="compactPins" type="checkbox" /></div>
     </div>
     <h1 id="optionsAdvancedTitle"></h1>
     <div class="options">
-      <div><label for="customCSS" id="optionsCustomCSS"></label></div>
+      <div>
+        <label for="customCSS" id="optionsCustomCSS"></label>
+        <div><a id="optionsCustomCSSWikiLink" href="https://github.com/eoger/tabcenter-redux/wiki/Custom-CSS-tweaks"></a></div>
+      </div>
       <div><textarea id="customCSS"></textarea></div>
       <div></div>
       <div><button id="optionsSaveCustomCSS" /></div>

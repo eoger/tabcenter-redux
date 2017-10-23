@@ -1,0 +1,21 @@
+<!-- This Source Code Form is subject to the terms of the Mozilla Public
+   - License, v. 2.0. If a copy of the MPL was not distributed with this
+   - file, You can obtain one at http://mozilla.org/MPL/2.0/. -->
+<svg viewBox="0 0 10 10" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+  <style>
+    .icon:not(:target) {
+      display: none;
+    }
+    #standard {
+      fill: #0A84FF;
+    }
+    #light {
+      fill: hsla(0, 0%, 0%, 0.16);
+    }
+  </style>
+  <defs>
+    <circle id="burst" cx="5" cy="5" r="5"/>
+  </defs>
+  <use id="standard" class="icon" xlink:href="#burst" />
+  <use id="light" class="icon" xlink:href="#burst" />
+</svg>

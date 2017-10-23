@@ -5,18 +5,26 @@ function TabCenterOptions() {
 
 TabCenterOptions.prototype = {
   setupLabels() {
-    const options = ["optionsTitle", "optionsCompactMode", "optionsDarkTheme",
-      "optionsAdvancedTitle", "optionsCustomCSS", "optionsSaveCustomCSS"];
+    const options = ["optionsTitle", "optionsCompactMode",
+      "optionsCompactModeStrict", "optionsCompactModeDynamic",
+      "optionsCompactModeOff", "optionsCompactPins", "optionsDarkTheme",
+      "optionsAdvancedTitle", "optionsCustomCSS", "optionsCustomCSSWikiLink",
+      "optionsSaveCustomCSS"];
     for (let opt of options) {
       this._setupTextContentLabel(opt);
     }
+    let helpImg = document.createElement("div");
+    helpImg.id = "help";
+    helpImg.title = browser.i18n.getMessage("optionsCompactModeTooltip");
+    document.getElementById("optionsCompactMode").appendChild(helpImg);
   },
   _setupTextContentLabel(opt) {
     document.getElementById(opt).textContent = browser.i18n.getMessage(opt);
   },
   setupStateAndListeners() {
-    this._setupCheckboxOption("compactMode", "compactMode");
     this._setupCheckboxOption("darkTheme", "darkTheme");
+    this._setupDropdownOption("compactMode", "compactModeMode");
+    this._setupCheckboxOption("compactPins", "compactPins", true);
 
     // Custom CSS
     browser.storage.local.get({
@@ -26,14 +34,14 @@ TabCenterOptions.prototype = {
     });
     document.getElementById("optionsSaveCustomCSS").addEventListener("click", () => {
       browser.storage.local.set({
-        ["customCSS"]: document.getElementById("customCSS").value
+        "customCSS": document.getElementById("customCSS").value
       });
     });
   },
-  _setupCheckboxOption(checkboxId, optionName) {
+  _setupCheckboxOption(checkboxId, optionName, defaultValue = false) {
     const checkbox = document.getElementById(checkboxId);
     browser.storage.local.get({
-      [optionName]: false
+      [optionName]: defaultValue
     }).then(prefs => {
       checkbox.checked = prefs[optionName];
     });
@@ -41,6 +49,20 @@ TabCenterOptions.prototype = {
     checkbox.addEventListener("change", e => {
       browser.storage.local.set({
         [optionName]: e.target.checked
+      });
+    });
+  },
+  _setupDropdownOption(drowdownId, optionName) {
+    const dropdown = document.getElementById(drowdownId);
+    browser.storage.local.get({
+      [optionName]: 1
+    }).then(prefs => {
+      dropdown.value = prefs[optionName];
+    });
+
+    dropdown.addEventListener("change", e => {
+      browser.storage.local.set({
+        [optionName]: e.target.value
       });
     });
   }

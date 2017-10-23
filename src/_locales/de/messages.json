@@ -1,0 +1,103 @@
+{
+  "extensionDescription":{
+    "message":"Tab Center versucht, einige Probleme zu lösen, die häufig bei der Verwendung von Tabs auftreten (insbesondere das \"zu viele Tabs\"-Problem). Außerdem soll es eine flexiblere Basis für zukünftige Innovationen der Benutzeroberfläche bieten. Die erste Version dieses AddOns für Firefox ordnet die offenen Tabs vertikal an anstelle von horizontal. Es wurde stark inspiriert durch das exzellente AddOn VerticalTabs und übernimmt viele Ideen von diesem."
+  },
+  "sidebarTitle":{
+    "message":"Tabs",
+    "description":"Label shown in the sidebar selector."
+  },
+  "newTabBtnLabel":{
+    "message":"Neuer Tab",
+    "description":"Label of the New Tab button in the top menu."
+  },
+  "newTabBtnTooltip":{
+    "message":"Einen neuen Tab öffnen"
+  },
+  "searchPlaceholder":{
+    "message":"Tabs durchsuchen"
+  },
+  "closeTabButtonTooltip":{
+    "message":"Tab schließen"
+  },
+  "allTabsLabel":{
+    "message":"Alle Tabs anzeigen…",
+    "description":"Shown at the bottom of the list of tabs if some tabs are filtered by the current search query."
+  },
+  "contextMenuReloadTab":{
+    "message":"Tab neu laden",
+    "description":"Reload Tab context menu item label."
+  },
+  "contextMenuPinTab":{
+    "message":"Tab anheften",
+    "description":"Pin Tab context menu item label."
+  },
+  "contextMenuUnpinTab":{
+    "message":"Tab ablösen",
+    "description":"Unpin Tab context menu item label."
+  },
+  "contextMenuMuteTab":{
+    "message":"Tab stummschalten",
+    "description":"Mute Tab context menu item label."
+  },
+  "contextMenuUnmuteTab":{
+    "message":"Stummschaltung für Tab aufheben",
+    "description":"Unmute Tab context menu item label."
+  },
+  "contextMenuCloseTab":{
+    "message":"Tab schließen"
+  },
+  "contextMenuUndoCloseTab":{
+    "message":"Tab wiederherstellen"
+  },
+  "contextMenuDuplicateTab":{
+    "message":"Tab klonen"
+  },
+  "contextMenuMoveTabToNewWindow":{
+    "message":"In neues Fenster verschieben"
+  },
+  "contextMenuReloadAllTabs":{
+    "message":"Alle Tabs neu laden"
+  },
+  "contextMenuCloseTabsUnderneath":{
+    "message":"Schließe alle Tabs unter diesem"
+  },
+  "contextMenuCloseOtherTabs":{
+    "message":"Andere Tabs schließen"
+  },
+  "settingsBtnTooltip":{
+    "message":"Einstellungen öffnen"
+  },
+  "optionsTitle":{
+    "message":"Einstellungen"
+  },
+  "optionsCompactMode":{
+    "message":"Kompakte Darstellung"
+  },
+  "optionsCompactModeTooltip":{
+    "message":"Die kompakte Darstellung reduziert die Höhe der Tabs und zeigt so mehr von ihnen an. Bei der Einstellung \"Dynamisch\", wird die Höhe reduziert, sobald nicht mehr genügend Platz zur Verfügung steht."
+  },
+  "optionsCompactModeOff":{
+    "message":"Deaktiviert"
+  },
+  "optionsCompactModeDynamic":{
+    "message":"Dynamisch"
+  },
+  "optionsCompactModeStrict":{
+    "message":"Immer"
+  },
+  "optionsDarkTheme":{
+    "message":"Dunkle Darstellung"
+  },
+  "optionsAdvancedTitle":{
+    "message":"Weitere Einstellungen"
+  },
+  "optionsCustomCSS":{
+    "message":"Benutzerdefinierte Stylesheet"
+  },
+  "optionsCustomCSSWikiLink":{
+    "message":"Wiki-Artikel über CSS Anpassungen"
+  },
+  "optionsSaveCustomCSS":{
+    "message":"Stylesheet speichern"
+  }
+}
