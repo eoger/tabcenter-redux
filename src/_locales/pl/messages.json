@@ -13,6 +13,9 @@
   "newTabBtnTooltip":{
     "message":"Otwórz nową kartę"
   },
+  "searchPlaceholder":{
+    "message":"Szukaj karty"
+  },
   "closeTabButtonTooltip":{
     "message":"Zamknij kartę"
   },
@@ -43,6 +46,12 @@
   "contextMenuCloseTab":{
     "message":"Zamknij kartę"
   },
+  "contextMenuUndoCloseTab":{
+    "message":"Cofnij zamknięcie karty"
+  },
+  "contextMenuDuplicateTab":{
+    "message":"Duplikuj kartę"
+  },
   "contextMenuMoveTabToNewWindow":{
     "message":"Przenieś do nowego okna"
   },
@@ -60,6 +69,9 @@
   },
   "optionsTitle":{
     "message":"Ustawienia"
+  },
+  "optionsCompactMode":{
+    "message":"Tryb kompaktowy"
   },
   "optionsDarkTheme":{
     "message":"Ciemny motyw"
