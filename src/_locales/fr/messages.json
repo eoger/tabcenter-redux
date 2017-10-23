@@ -85,6 +85,9 @@
   "optionsCompactModeStrict":{
     "message":"Toujours"
   },
+  "optionsCompactPins":{
+    "message":"Onglets épinglés compacts"
+  },
   "optionsDarkTheme":{
     "message":"Thème sombre"
   },
