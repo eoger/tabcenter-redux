@@ -13,6 +13,9 @@
   "newTabBtnTooltip":{
     "message":"Otwórz nową kartę"
   },
+  "searchPlaceholder":{
+    "message":"Szukaj karty"
+  },
   "closeTabButtonTooltip":{
     "message":"Zamknij kartę"
   },
@@ -37,11 +40,17 @@
     "description":"Mute Tab context menu item label."
   },
   "contextMenuUnmuteTab":{
-    "message":"Wyłącz wyciszenie karty",
+    "message":"Włącz dźwięk",
     "description":"Unmute Tab context menu item label."
   },
   "contextMenuCloseTab":{
     "message":"Zamknij kartę"
+  },
+  "contextMenuUndoCloseTab":{
+    "message":"Przywróć zamkniętą kartę"
+  },
+  "contextMenuDuplicateTab":{
+    "message":"Duplikuj kartę"
   },
   "contextMenuMoveTabToNewWindow":{
     "message":"Przenieś do nowego okna"
@@ -61,7 +70,37 @@
   "optionsTitle":{
     "message":"Ustawienia"
   },
+  "optionsCompactMode":{
+    "message":"Tryb kompaktowy"
+  },
+  "optionsCompactModeTooltip":{
+    "message":"Tryb kompaktowy zmniejsza wysokość kart, aby pokazać ich więcej. W ustawieniu dynamicznym uaktywni się, kiedy zabraknie miejsca."
+  },
+  "optionsCompactModeOff":{
+    "message":"Wyłączony"
+  },
+  "optionsCompactModeDynamic":{
+    "message":"Dynamiczny"
+  },
+  "optionsCompactModeStrict":{
+    "message":"Zawsze"
+  },
+  "optionsCompactPins":{
+    "message":"Kompaktuj przypięte karty"
+  },
   "optionsDarkTheme":{
     "message":"Ciemny motyw"
+  },
+  "optionsAdvancedTitle":{
+    "message":"Zaawansowane"
+  },
+  "optionsCustomCSS":{
+    "message":"Niestandardowy arkusz stylów"
+  },
+  "optionsCustomCSSWikiLink":{
+    "message":"Strona Wiki o dostosowaniu CSS"
+  },
+  "optionsSaveCustomCSS":{
+    "message":"Zapisz CSS"
   }
 }

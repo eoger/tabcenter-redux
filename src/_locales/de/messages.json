@@ -85,6 +85,9 @@
   "optionsCompactModeStrict":{
     "message":"Immer"
   },
+  "optionsCompactPins":{
+    "message":"Kompakte angeheftete Tabs"
+  },
   "optionsDarkTheme":{
     "message":"Dunkle Darstellung"
   },

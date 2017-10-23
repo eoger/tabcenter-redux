@@ -13,6 +13,9 @@
   "newTabBtnTooltip":{
     "message":"開啟新分頁"
   },
+  "searchPlaceholder":{
+    "message":"搜尋分頁"
+  },
   "closeTabButtonTooltip":{
     "message":"關閉分頁"
   },
@@ -43,6 +46,12 @@
   "contextMenuCloseTab":{
     "message":"關閉分頁"
   },
+  "contextMenuUndoCloseTab":{
+    "message":"復原已關閉分頁"
+  },
+  "contextMenuDuplicateTab":{
+    "message":"複製分頁"
+  },
   "contextMenuMoveTabToNewWindow":{
     "message":"移動到新視窗"
   },
@@ -64,14 +73,32 @@
   "optionsCompactMode":{
     "message":"精簡模式"
   },
+  "optionsCompactModeTooltip":{
+    "message":"精簡模式降低分頁的高度以顯示更多的分頁。在「動態」設定中，一旦發現沒有足夠的空間就會自動啟用。"
+  },
+  "optionsCompactModeOff":{
+    "message":"停用"
+  },
+  "optionsCompactModeDynamic":{
+    "message":"動態"
+  },
+  "optionsCompactModeStrict":{
+    "message":"總是"
+  },
+  "optionsCompactPins":{
+    "message":"精簡已釘選分頁"
+  },
   "optionsDarkTheme":{
-    "message":"暗色主題"
+    "message":"暗色佈景主題"
   },
   "optionsAdvancedTitle":{
     "message":"進階"
   },
   "optionsCustomCSS":{
     "message":"自訂樣式表"
+  },
+  "optionsCustomCSSWikiLink":{
+    "message":"CSS 調整 Wiki 文章"
   },
   "optionsSaveCustomCSS":{
     "message":"儲存 CSS"
