@@ -73,7 +73,19 @@
   "optionsCompactMode":{
     "message":"Tryb kompaktowy"
   },
+  "optionsCompactModeOff":{
+    "message":"Wyłączony"
+  },
+  "optionsCompactModeDynamic":{
+    "message":"Dynamiczny"
+  },
+  "optionsCompactModeStrict":{
+    "message":"Zawsze"
+  },
   "optionsDarkTheme":{
     "message":"Ciemny motyw"
+  },
+  "optionsSaveCustomCSS":{
+    "message":"Zapisz CSS"
   }
 }
