@@ -73,6 +73,9 @@
   "optionsCompactMode":{
     "message":"Tryb kompaktowy"
   },
+  "optionsCompactModeTooltip":{
+    "message":"Tryb kompaktowy zmniejsza wysokość kart, aby pokazać ich więcej. W ustawieniu dynamicznym uaktywni się, kiedy zabraknie miejsca."
+  },
   "optionsCompactModeOff":{
     "message":"Wyłączony"
   },
