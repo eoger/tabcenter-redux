@@ -700,6 +700,7 @@ body[platform="win"] #searchbox-input:placeholder-shown {
 
 #tablist-wrapper #pinnedtablist {
     background-color: hsl(var(--tab-background-pinned));
+    flex-shrink: 0;
 }
 
 #tablist-wrapper #pinnedtablist.compact {
