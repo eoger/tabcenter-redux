@@ -43,6 +43,12 @@
   "contextMenuCloseTab":{
     "message":"Закрити вкладку"
   },
+  "contextMenuUndoCloseTab":{
+    "message":"Відновити закриту вкладку"
+  },
+  "contextMenuDuplicateTab":{
+    "message":"Дублювати вкладку"
+  },
   "contextMenuMoveTabToNewWindow":{
     "message":"Перенести в нове вікно"
   },
