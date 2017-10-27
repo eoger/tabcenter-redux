@@ -12,6 +12,7 @@
     --close-button-color: hsla(0, 0%, 0%, 0.1);
     --close-button-hover: hsla(0, 0%, 0%, 0.16);
     --close-button-active: hsla(0, 0%, 0%, 0.2);
+    --menu-background: hsl(0, 0%, 99%);
     --menu-button-text-shadow: 0 1px rgba(255, 255, 255, .4);
     --menu-button-hover: hsla(240, 5%, 5%, .1);
     --menu-button-active: hsla(240, 5%, 5%, .15);
@@ -43,6 +44,7 @@ body {
     padding: 6px 4px;
     height: 35px;
     border-bottom: 1px solid hsla(0, 0%, 0%, 0.2);
+    background-color: var(--menu-background);
 }
 
 #newtab {
@@ -598,6 +600,10 @@ body[platform="win"] #searchbox-input:placeholder-shown {
     color: var(--secondary-text-color);
 }
 
+.tab.discarded .tab-meta-image {
+  opacity: 0.45;
+}
+
 .tab-title, .tab-host {
     white-space: nowrap;
     overflow: hidden;
@@ -700,6 +706,7 @@ body[platform="win"] #searchbox-input:placeholder-shown {
 
 #tablist-wrapper #pinnedtablist {
     background-color: hsl(var(--tab-background-pinned));
+    flex-shrink: 0;
 }
 
 #tablist-wrapper #pinnedtablist.compact {
@@ -785,6 +792,7 @@ body.dark-theme {
     --close-button-color:  rgba(238, 238, 241, .05);
     --close-button-hover: rgba(238, 238, 241, .1);
     --close-button-active: rgba(238, 238, 241, .2);
+    --menu-background: #393f4c;
     --menu-button-text-shadow: 0 1px rgba(0, 0, 0, .4);
     --menu-button-hover: hsla(0, 0%, 100%, .2);
     --menu-button-active: hsla(0, 0%, 100%, .3);
@@ -824,8 +832,4 @@ body.dark-theme .tab-close {
 
 body.dark-theme #tablist-wrapper.shrinked .tab.loading .tab-icon::before {
     background-image: url("img/loading-spinner.svg#inverted");
-}
-
-body.dark-theme #topmenu {
-    background-color: #393f4c;
 }

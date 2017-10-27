@@ -720,7 +720,7 @@ SideTabList.prototype = {
 
 // Remove case and accents/diacritics.
 function normalizeStr(str) {
-  return str.toLowerCase().normalize("NFD").replace(/[\u0300-\u036f]/g, "");
+  return str ? str.toLowerCase().normalize("NFD").replace(/[\u0300-\u036f]/g, "") : "";
 }
 
 module.exports = SideTabList;

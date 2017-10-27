@@ -232,6 +232,9 @@ Object.assign(SideTab, {
   _syncThrobberAnimations() {
     // Home-made BrowserUtils.promiseLayoutFlushed
     requestAnimationFrame(() => {
+      if (!document.body.getAnimations) { // this API is available only in Nightly so far
+        return;
+      }
       setTimeout(() => {
         const animations = [...document.querySelectorAll(".tab.loading .tab-icon")]
           .map(tabIcon => tabIcon.getAnimations({ subtree: true }))
