@@ -76,8 +76,14 @@
   "optionsCompactModeOff": {
     "message": "Вимкнено"
   },
+  "optionsCompactModeDynamic": {
+    "message": "Динамічно"
+  },
   "optionsCompactModeStrict": {
     "message": "Завжди"
+  },
+  "optionsCompactPins": {
+    "message": "Компактні прикріплені вкладки"
   },
   "optionsDarkTheme": {
     "message": "Темна тема"
@@ -87,6 +93,9 @@
   },
   "optionsCustomCSS": {
     "message": "Власна таблиця стилів"
+  },
+  "optionsCustomCSSWikiLink": {
+    "message": "CSS Довідка"
   },
   "optionsSaveCustomCSS": {
     "message": "Зберегти CSS"
