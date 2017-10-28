@@ -73,6 +73,12 @@
   "optionsCompactMode": {
     "message": "Компактний режим"
   },
+  "optionsCompactModeOff": {
+    "message": "Вимкнено"
+  },
+  "optionsCompactModeStrict": {
+    "message": "Завжди"
+  },
   "optionsDarkTheme": {
     "message": "Темна тема"
   },
