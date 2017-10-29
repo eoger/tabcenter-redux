@@ -56,5 +56,35 @@
   },
   "contextMenuCloseOtherTabs": {
     "message": "Fechar Outras Abas"
+  },
+  "settingsBtnTooltip": {
+    "message": "Abrir configurações"
+  },
+  "optionsTitle": {
+    "message": "Configurações"
+  },
+  "optionsCompactMode": {
+    "message": "Modo Compacto"
+  },
+  "optionsCompactModeOff": {
+    "message": "Desativado"
+  },
+  "optionsCompactModeDynamic": {
+    "message": "Dinâmico"
+  },
+  "optionsCompactModeStrict": {
+    "message": "Sempre"
+  },
+  "optionsCompactPins": {
+    "message": "Compactar Abas Fixadas"
+  },
+  "optionsDarkTheme": {
+    "message": "Tema Escuro"
+  },
+  "optionsAdvancedTitle": {
+    "message": "Avançado"
+  },
+  "optionsSaveCustomCSS": {
+    "message": "Salvar CSS"
   }
 }
