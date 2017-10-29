@@ -54,5 +54,50 @@
   },
   "contextMenuMoveTabToNewWindow": {
     "message": "Sposta in una nuova finestra"
+  },
+  "contextMenuReloadAllTabs": {
+    "message": "Ricarica tutte le schede"
+  },
+  "contextMenuCloseTabsUnderneath": {
+    "message": "Chiudi le schede al di sotto"
+  },
+  "contextMenuCloseOtherTabs": {
+    "message": "Chiudi le altre schede"
+  },
+  "settingsBtnTooltip": {
+    "message": "Apri le impostazioni"
+  },
+  "optionsTitle": {
+    "message": "Impostazioni"
+  },
+  "optionsCompactMode": {
+    "message": "Modalità compatta"
+  },
+  "optionsCompactModeTooltip": {
+    "message": "La modalità compatta riduce l'altezza delle schede per mostrarne di più. Nella modalità dinamica, si attiverà in mancanza di spazio."
+  },
+  "optionsCompactModeOff": {
+    "message": "Disabilitato"
+  },
+  "optionsCompactModeDynamic": {
+    "message": "Dinamico"
+  },
+  "optionsCompactModeStrict": {
+    "message": "Sempre"
+  },
+  "optionsDarkTheme": {
+    "message": "Tema Notturno"
+  },
+  "optionsAdvancedTitle": {
+    "message": "Avanzate"
+  },
+  "optionsCustomCSS": {
+    "message": "Foglio di Stile Personalizzato"
+  },
+  "optionsCustomCSSWikiLink": {
+    "message": "Modifica CSS articolo wiki"
+  },
+  "optionsSaveCustomCSS": {
+    "message": "Salvare il CSS"
   }
 }
