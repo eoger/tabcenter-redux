@@ -58,6 +58,9 @@
   "contextMenuReloadAllTabs": {
     "message": "Cargar Todas las Pestañas"
   },
+  "contextMenuCloseTabsUnderneath": {
+    "message": "Cerrar pestañas por debajo de ésta"
+  },
   "contextMenuCloseOtherTabs": {
     "message": "Cerrar las Otras Pestañas"
   },
