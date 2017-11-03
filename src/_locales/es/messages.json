@@ -1,0 +1,106 @@
+{
+  "extensionDescription": {
+    "message": "Tab Center pretende solucionar alguno de los problemas que han surgido a raíz del uso de las pestañas por parte de los usuarios (principalmente el de tener \"demasiadas pestañas abiertas\") y proporcionar una base más versátil para futuras innovaciones de la interfaz.\nLa primera versión de este add-on de Firefox organiza las pestañas de una manera vertical en lugar de horizontal. Está profundamente inspirado en y toma prestads ideas del excelente add-on VerticalTabs."
+  },
+  "sidebarTitle": {
+    "message": "Pestañas",
+    "description": "Label shown in the sidebar selector."
+  },
+  "newTabBtnLabel": {
+    "message": "Nueva Pestaña",
+    "description": "Label of the New Tab button in the top menu."
+  },
+  "newTabBtnTooltip": {
+    "message": "Abrir una nueva pestaña"
+  },
+  "searchPlaceholder": {
+    "message": "Buscar pestañas"
+  },
+  "closeTabButtonTooltip": {
+    "message": "Cerrar Pestaña"
+  },
+  "allTabsLabel": {
+    "message": "Mostrar todo",
+    "description": "Shown at the bottom of the list of tabs if some tabs are filtered by the current search query."
+  },
+  "contextMenuReloadTab": {
+    "message": "Cargar Pestaña",
+    "description": "Reload Tab context menu item label."
+  },
+  "contextMenuPinTab": {
+    "message": "Fijar Pestaña",
+    "description": "Pin Tab context menu item label."
+  },
+  "contextMenuUnpinTab": {
+    "message": "Deshacer Fijar Pestaña",
+    "description": "Unpin Tab context menu item label."
+  },
+  "contextMenuMuteTab": {
+    "message": "Silenciar Pestaña",
+    "description": "Mute Tab context menu item label."
+  },
+  "contextMenuUnmuteTab": {
+    "message": "Activar sonido Pestaña",
+    "description": "Unmute Tab context menu item label."
+  },
+  "contextMenuCloseTab": {
+    "message": "Cerrar pestaña"
+  },
+  "contextMenuUndoCloseTab": {
+    "message": "Deshacer Cerrar pestaña"
+  },
+  "contextMenuDuplicateTab": {
+    "message": "Duplicar Pestaña"
+  },
+  "contextMenuMoveTabToNewWindow": {
+    "message": "Mover a Nueva Ventana"
+  },
+  "contextMenuReloadAllTabs": {
+    "message": "Cargar Todas las Pestañas"
+  },
+  "contextMenuCloseTabsUnderneath": {
+    "message": "Cerrar pestañas por debajo de ésta"
+  },
+  "contextMenuCloseOtherTabs": {
+    "message": "Cerrar las Otras Pestañas"
+  },
+  "settingsBtnTooltip": {
+    "message": "Abrir ajustes"
+  },
+  "optionsTitle": {
+    "message": "Ajustes"
+  },
+  "optionsCompactMode": {
+    "message": "Modo Compacto"
+  },
+  "optionsCompactModeTooltip": {
+    "message": "El Modo Compacto reduce la altura de las pestañas para mostrar más de ellas. En Ajustes Dinámicos, se activará automáticamente una vez no quede más espacio."
+  },
+  "optionsCompactModeOff": {
+    "message": "Desactivado"
+  },
+  "optionsCompactModeDynamic": {
+    "message": "Dinámico"
+  },
+  "optionsCompactModeStrict": {
+    "message": "Siempre"
+  },
+  "optionsCompactPins": {
+    "message": "Compactar Pestañas Fijas"
+  },
+  "optionsDarkTheme": {
+    "message": "Tema Oscuro"
+  },
+  "optionsAdvancedTitle": {
+    "message": "Avanzado"
+  },
+  "optionsCustomCSS": {
+    "message": "Hoja de estilo personalizada"
+  },
+  "optionsCustomCSSWikiLink": {
+    "message": "Artículo Wiki Trucos CSS"
+  },
+  "optionsSaveCustomCSS": {
+    "message": "Guardar CSS"
+  }
+}

@@ -1,85 +1,106 @@
 {
-  "extensionDescription":{
-    "message":"Tab Center is een poging om sommige problemen op te lossen die ontstaan zijn uit de manier waarop mensen tabbladen gebruiken (vooral het “teveel tabbladen“ probleem) en een veelzijdigere gebruikersinterface te bieden voor toekomstige innovatie. De eerste versie van deze Firefox-add-on schikt tabbladen verticaal in plaats van horizontaal. Het is hevig geïnspireerd op en leent ideeën van de uitstekende VerticalTabs-add-on."
+  "extensionDescription": {
+    "message": "Tab Center is een poging om sommige problemen op te lossen die ontstaan zijn uit de manier waarop mensen tabbladen gebruiken (vooral het “teveel tabbladen“ probleem) en een veelzijdigere gebruikersinterface te bieden voor toekomstige innovatie. De eerste versie van deze Firefox-add-on schikt tabbladen verticaal in plaats van horizontaal. Het is hevig geïnspireerd op en leent ideeën van de uitstekende VerticalTabs-add-on."
   },
-  "sidebarTitle":{
-    "message":"Tabbladen",
-    "description":"Label shown in the sidebar selector."
+  "sidebarTitle": {
+    "message": "Tabbladen",
+    "description": "Label shown in the sidebar selector."
   },
-  "newTabBtnLabel":{
-    "message":"Nieuw tabblad",
-    "description":"Label of the New Tab button in the top menu."
+  "newTabBtnLabel": {
+    "message": "Nieuw tabblad",
+    "description": "Label of the New Tab button in the top menu."
   },
-  "newTabBtnTooltip":{
-    "message":"Open een nieuw tabblad"
+  "newTabBtnTooltip": {
+    "message": "Open een nieuw tabblad"
   },
-  "closeTabButtonTooltip":{
-    "message":"Tabblad sluiten"
+  "searchPlaceholder": {
+    "message": "Zoek tabbladen"
   },
-  "allTabsLabel":{
-    "message":"Alle tabbladen tonen…",
-    "description":"Shown at the bottom of the list of tabs if some tabs are filtered by the current search query."
+  "closeTabButtonTooltip": {
+    "message": "Tabblad sluiten"
   },
-  "contextMenuReloadTab":{
-    "message":"Tabblad vernieuwen",
-    "description":"Reload Tab context menu item label."
+  "allTabsLabel": {
+    "message": "Alle tabbladen tonen…",
+    "description": "Shown at the bottom of the list of tabs if some tabs are filtered by the current search query."
   },
-  "contextMenuPinTab":{
-    "message":"Tabblad vastmaken",
-    "description":"Pin Tab context menu item label."
+  "contextMenuReloadTab": {
+    "message": "Tabblad vernieuwen",
+    "description": "Reload Tab context menu item label."
   },
-  "contextMenuUnpinTab":{
-    "message":"Tabblad losmaken",
-    "description":"Unpin Tab context menu item label."
+  "contextMenuPinTab": {
+    "message": "Tabblad vastmaken",
+    "description": "Pin Tab context menu item label."
   },
-  "contextMenuMuteTab":{
-    "message":"Tabblad dempen",
-    "description":"Mute Tab context menu item label."
+  "contextMenuUnpinTab": {
+    "message": "Tabblad losmaken",
+    "description": "Unpin Tab context menu item label."
   },
-  "contextMenuUnmuteTab":{
-    "message":"Tabblad dempen opheffen",
-    "description":"Unmute Tab context menu item label."
+  "contextMenuMuteTab": {
+    "message": "Tabblad dempen",
+    "description": "Mute Tab context menu item label."
   },
-  "contextMenuCloseTab":{
-    "message":"Tabblad sluiten"
+  "contextMenuUnmuteTab": {
+    "message": "Tabblad dempen opheffen",
+    "description": "Unmute Tab context menu item label."
   },
-  "contextMenuUndoCloseTab":{
-    "message":"Tabblad sluiten ongedaan maken"
+  "contextMenuCloseTab": {
+    "message": "Tabblad sluiten"
   },
-  "contextMenuDuplicateTab":{
-    "message":"Tabblad dupliceren"
+  "contextMenuUndoCloseTab": {
+    "message": "Tabblad sluiten ongedaan maken"
   },
-  "contextMenuMoveTabToNewWindow":{
-    "message":"Verplaatsen naar nieuw venster"
+  "contextMenuDuplicateTab": {
+    "message": "Tabblad dupliceren"
   },
-  "contextMenuReloadAllTabs":{
-    "message":"Alle tabbladen vernieuwen"
+  "contextMenuMoveTabToNewWindow": {
+    "message": "Verplaatsen naar nieuw venster"
   },
-  "contextMenuCloseTabsUnderneath":{
-    "message":"Onderliggende tabbladen sluiten"
+  "contextMenuReloadAllTabs": {
+    "message": "Alle tabbladen vernieuwen"
   },
-  "contextMenuCloseOtherTabs":{
-    "message":"Overige tabbladen sluiten"
+  "contextMenuCloseTabsUnderneath": {
+    "message": "Onderliggende tabbladen sluiten"
   },
-  "settingsBtnTooltip":{
-    "message":"Instellingen openen"
+  "contextMenuCloseOtherTabs": {
+    "message": "Overige tabbladen sluiten"
   },
-  "optionsTitle":{
-    "message":"Instellingen"
+  "settingsBtnTooltip": {
+    "message": "Instellingen openen"
   },
-  "optionsCompactMode":{
-    "message":"Compacte modus"
+  "optionsTitle": {
+    "message": "Instellingen"
   },
-  "optionsDarkTheme":{
-    "message":"Donker thema"
+  "optionsCompactMode": {
+    "message": "Compacte modus"
   },
-  "optionsAdvancedTitle":{
-    "message":"Geavanceerd"
+  "optionsCompactModeTooltip": {
+    "message": "De compacte modus vermindert de hoogte van de tabbladen zodat er meer getoond kunnen worden. In de dynamische modus zal dit ingeschakeld worden wanneer er geen ruimte meer over is."
   },
-  "optionsCustomCSS":{
-    "message":"Aangepaste CSS-stijlen"
+  "optionsCompactModeOff": {
+    "message": "Uitgeschakeld"
   },
-  "optionsSaveCustomCSS":{
-    "message":"CSS opslaan"
+  "optionsCompactModeDynamic": {
+    "message": "Dynamisch"
+  },
+  "optionsCompactModeStrict": {
+    "message": "Altijd"
+  },
+  "optionsCompactPins": {
+    "message": "Compacte vastgemaakte tabbladen"
+  },
+  "optionsDarkTheme": {
+    "message": "Donker thema"
+  },
+  "optionsAdvancedTitle": {
+    "message": "Geavanceerd"
+  },
+  "optionsCustomCSS": {
+    "message": "Aangepaste CSS-stijlen"
+  },
+  "optionsCustomCSSWikiLink": {
+    "message": "CSS-aanpassingen wikipagina"
+  },
+  "optionsSaveCustomCSS": {
+    "message": "CSS opslaan"
   }
 }
