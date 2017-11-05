@@ -17,7 +17,7 @@
     "message": "Buscar pestañas"
   },
   "closeTabButtonTooltip": {
-    "message": "Cerrar Pestaña"
+    "message": "Cerrar pestaña"
   },
   "allTabsLabel": {
     "message": "Mostrar todas las pestañas…",
@@ -28,7 +28,7 @@
     "description": "Reload Tab context menu item label."
   },
   "contextMenuPinTab": {
-    "message": "Fijar Pestaña",
+    "message": "Fijar pestaña",
     "description": "Pin Tab context menu item label."
   },
   "contextMenuUnpinTab": {
