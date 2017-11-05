@@ -1,88 +1,94 @@
 {
-  "extensionDescription":{
-    "message":"Tab Center は、ユーザーのタブの使い方から生じるいくつかの問題 (特に「タブを開きすぎてしまう」状況) を解決し、将来の革新に向けてより自在な UI の基礎を提供しようとする試みです。この Firefox アドオンの初回版では、タブを水平ではなく垂直に配置してみました。これは素晴らしい VerticalTabs アドオンに強く触発され、そのアイデアを借用したものです。"
+  "extensionDescription": {
+    "message": "Tab Center は、ユーザーのタブの使い方から生じるいくつかの問題 (特に「タブを開きすぎてしまう」状況) を解決し、将来の革新に向けてより自在な UI の基礎を提供しようとする試みです。この Firefox アドオンの初回版では、タブを水平ではなく垂直に配置してみました。これは素晴らしい VerticalTabs アドオンに強く触発され、そのアイデアを借用したものです。"
   },
-  "sidebarTitle":{
-    "message":"タブ",
-    "description":"Label shown in the sidebar selector."
+  "sidebarTitle": {
+    "message": "タブ",
+    "description": "Label shown in the sidebar selector."
   },
-  "newTabBtnLabel":{
-    "message":"新しいタブ",
-    "description":"Label of the New Tab button in the top menu."
+  "newTabBtnLabel": {
+    "message": "新しいタブ",
+    "description": "Label of the New Tab button in the top menu."
   },
-  "newTabBtnTooltip":{
-    "message":"新しいタブを開きます"
+  "newTabBtnTooltip": {
+    "message": "新しいタブを開きます"
   },
-  "searchPlaceholder":{
-    "message":"タブを探索"
+  "searchPlaceholder": {
+    "message": "タブを探索"
   },
-  "closeTabButtonTooltip":{
-    "message":"タブを閉じます"
+  "closeTabButtonTooltip": {
+    "message": "タブを閉じます"
   },
-  "allTabsLabel":{
-    "message":"すべてのタブを表示...",
-    "description":"Shown at the bottom of the list of tabs if some tabs are filtered by the current search query."
+  "allTabsLabel": {
+    "message": "すべてのタブを表示...",
+    "description": "Shown at the bottom of the list of tabs if some tabs are filtered by the current search query."
   },
-  "contextMenuReloadTab":{
-    "message":"タブを再読み込み",
-    "description":"Reload Tab context menu item label."
+  "contextMenuReloadTab": {
+    "message": "タブを再読み込み",
+    "description": "Reload Tab context menu item label."
   },
-  "contextMenuPinTab":{
-    "message":"タブをピン留め",
-    "description":"Pin Tab context menu item label."
+  "contextMenuPinTab": {
+    "message": "タブをピン留め",
+    "description": "Pin Tab context menu item label."
   },
-  "contextMenuUnpinTab":{
-    "message":"タブのピン留めを外す",
-    "description":"Unpin Tab context menu item label."
+  "contextMenuUnpinTab": {
+    "message": "タブのピン留めを外す",
+    "description": "Unpin Tab context menu item label."
   },
-  "contextMenuMuteTab":{
-    "message":"タブをミュート",
-    "description":"Mute Tab context menu item label."
+  "contextMenuMuteTab": {
+    "message": "タブをミュート",
+    "description": "Mute Tab context menu item label."
   },
-  "contextMenuUnmuteTab":{
-    "message":"タブのミュートを解除",
-    "description":"Unmute Tab context menu item label."
+  "contextMenuUnmuteTab": {
+    "message": "タブのミュートを解除",
+    "description": "Unmute Tab context menu item label."
   },
-  "contextMenuCloseTab":{
-    "message":"タブを閉じる"
+  "contextMenuCloseTab": {
+    "message": "タブを閉じる"
   },
-  "contextMenuUndoCloseTab":{
-    "message":"閉じたタブを元に戻す"
+  "contextMenuUndoCloseTab": {
+    "message": "閉じたタブを元に戻す"
   },
-  "contextMenuDuplicateTab":{
-    "message":"タブを複製"
+  "contextMenuDuplicateTab": {
+    "message": "タブを複製"
   },
-  "contextMenuMoveTabToNewWindow":{
-    "message":"新しいウィンドウへ移動"
+  "contextMenuMoveTabToNewWindow": {
+    "message": "新しいウィンドウへ移動"
   },
-  "contextMenuReloadAllTabs":{
-    "message":"すべてのタブを再読み込み"
+  "contextMenuReloadAllTabs": {
+    "message": "すべてのタブを再読み込み"
   },
-  "contextMenuCloseTabsUnderneath":{
-    "message":"下のタブをすべて閉じる"
+  "contextMenuCloseTabsUnderneath": {
+    "message": "下のタブをすべて閉じる"
   },
-  "contextMenuCloseOtherTabs":{
-    "message":"他のタブをすべて閉じる"
+  "contextMenuCloseOtherTabs": {
+    "message": "他のタブをすべて閉じる"
   },
-  "settingsBtnTooltip":{
-    "message":"設定を変更します"
+  "settingsBtnTooltip": {
+    "message": "設定を変更します"
   },
-  "optionsTitle":{
-    "message":"設定"
+  "optionsTitle": {
+    "message": "設定"
   },
-  "optionsCompactMode":{
-    "message":"コンパクトモード"
+  "optionsCompactMode": {
+    "message": "コンパクトモード"
   },
-  "optionsDarkTheme":{
-    "message":"暗いテーマ"
+  "optionsCompactModeOff": {
+    "message": "無効"
   },
-  "optionsAdvancedTitle":{
-    "message":"上級者設定"
+  "optionsCompactModeStrict": {
+    "message": "常時"
   },
-  "optionsCustomCSS":{
-    "message":"CSSを保存"
+  "optionsDarkTheme": {
+    "message": "暗いテーマ"
   },
-  "optionsSaveCustomCSS":{
-    "message":"CSSを保存"
+  "optionsAdvancedTitle": {
+    "message": "上級者設定"
+  },
+  "optionsCustomCSS": {
+    "message": "CSSを保存"
+  },
+  "optionsSaveCustomCSS": {
+    "message": "CSSを保存"
   }
 }
