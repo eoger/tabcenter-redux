@@ -13,6 +13,9 @@
   "newTabBtnTooltip": {
     "message": "Открыть новую вкладку"
   },
+  "searchPlaceholder": {
+    "message": "Найти вкладку"
+  },
   "closeTabButtonTooltip": {
     "message": "Закрыть вкладку"
   },
@@ -43,6 +46,12 @@
   "contextMenuCloseTab": {
     "message": "Закрыть вкладку"
   },
+  "contextMenuUndoCloseTab": {
+    "message": "Вернуть закрытую вкладку"
+  },
+  "contextMenuDuplicateTab": {
+    "message": "Дублировать вкладку"
+  },
   "contextMenuMoveTabToNewWindow": {
     "message": "Переместить в новое окно"
   },
@@ -61,8 +70,17 @@
   "optionsTitle": {
     "message": "Настройки"
   },
+  "optionsCompactMode": {
+    "message": "Компактный режим"
+  },
+  "optionsCompactModeTooltip": {
+    "message": "Компактный режим уменьшает высоту вкладок, позволяя отобразить их большее количество. Опция \"Динамический\" активирует компактный режим автоматически, когда заканчивается свободное место."
+  },
+  "optionsCompactModeOff": {
+    "message": "Отключен"
+  },
   "optionsCompactModeDynamic": {
-    "message": "Динамическая"
+    "message": "Динамический"
   },
   "optionsCompactModeStrict": {
     "message": "Всегда"
