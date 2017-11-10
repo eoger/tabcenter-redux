@@ -73,6 +73,9 @@
   "optionsCompactMode": {
     "message": "Modo Compacto"
   },
+  "optionsCompactModeTooltip": {
+    "message": "O modo compacto reduz a altura das abas para mostrar mais delas. Na configuração Dinâmica, esse modo será\nacionado uma vez que não haver espaço disponível."
+  },
   "optionsCompactModeOff": {
     "message": "Desativado"
   },
