@@ -1,67 +1,106 @@
 {
-  "extensionDescription":{
-    "message":"Tab Center это попытка решить некоторые проблемы, возникшие из-за того, как люди используют вкладки (в первую очередь проблема “слишком много вкладок”) и предоставить более универсальный UI для будущих инноваций. Первая версия этого дополнения для Firefox упорядочивает вкладки вертикально, а не горизонтально. Вдохновение и идеи были заимствованы из отличного расширения VerticalTabs."
+  "extensionDescription": {
+    "message": "Tab Center — это попытка решить некоторые проблемы, возникшие из-за того, как люди используют вкладки (в первую очередь проблема “слишком много вкладок”) и предоставить более универсальный UI для будущих инноваций. Первая версия этого дополнения для Firefox упорядочивает вкладки вертикально, а не горизонтально. Вдохновение и идеи были заимствованы из отличного расширения VerticalTabs."
   },
-  "sidebarTitle":{
-    "message":"Вкладки",
-    "description":"Label shown in the sidebar selector."
+  "sidebarTitle": {
+    "message": "Вкладки",
+    "description": "Label shown in the sidebar selector."
   },
-  "newTabBtnLabel":{
-    "message":"Новая вкладка",
-    "description":"Label of the New Tab button in the top menu."
+  "newTabBtnLabel": {
+    "message": "Новая вкладка",
+    "description": "Label of the New Tab button in the top menu."
   },
-  "newTabBtnTooltip":{
-    "message":"Открыть новую вкладку"
+  "newTabBtnTooltip": {
+    "message": "Открыть новую вкладку"
   },
-  "closeTabButtonTooltip":{
-    "message":"Закрыть вкладку"
+  "searchPlaceholder": {
+    "message": "Найти вкладку"
   },
-  "allTabsLabel":{
-    "message":"Показать все вкладки…",
-    "description":"Shown at the bottom of the list of tabs if some tabs are filtered by the current search query."
+  "closeTabButtonTooltip": {
+    "message": "Закрыть вкладку"
   },
-  "contextMenuReloadTab":{
-    "message":"Перезагрузить вкладку",
-    "description":"Reload Tab context menu item label."
+  "allTabsLabel": {
+    "message": "Показать все вкладки…",
+    "description": "Shown at the bottom of the list of tabs if some tabs are filtered by the current search query."
   },
-  "contextMenuPinTab":{
-    "message":"Закрепить вкладку",
-    "description":"Pin Tab context menu item label."
+  "contextMenuReloadTab": {
+    "message": "Перезагрузить вкладку",
+    "description": "Reload Tab context menu item label."
   },
-  "contextMenuUnpinTab":{
-    "message":"Открепить вкладку",
-    "description":"Unpin Tab context menu item label."
+  "contextMenuPinTab": {
+    "message": "Закрепить вкладку",
+    "description": "Pin Tab context menu item label."
   },
-  "contextMenuMuteTab":{
-    "message":"Убрать звук во вкладке",
-    "description":"Mute Tab context menu item label."
+  "contextMenuUnpinTab": {
+    "message": "Открепить вкладку",
+    "description": "Unpin Tab context menu item label."
   },
-  "contextMenuUnmuteTab":{
-    "message":"Восстановить звук во вкладке",
-    "description":"Unmute Tab context menu item label."
+  "contextMenuMuteTab": {
+    "message": "Убрать звук во вкладке",
+    "description": "Mute Tab context menu item label."
   },
-  "contextMenuCloseTab":{
-    "message":"Закрыть вкладку"
+  "contextMenuUnmuteTab": {
+    "message": "Восстановить звук во вкладке",
+    "description": "Unmute Tab context menu item label."
   },
-  "contextMenuMoveTabToNewWindow":{
-    "message":"Переместить в новое окно"
+  "contextMenuCloseTab": {
+    "message": "Закрыть вкладку"
   },
-  "contextMenuReloadAllTabs":{
-    "message":"Перезагрузить все вкладки"
+  "contextMenuUndoCloseTab": {
+    "message": "Вернуть закрытую вкладку"
   },
-  "contextMenuCloseTabsUnderneath":{
-    "message":"Закрыть вкладки ниже"
+  "contextMenuDuplicateTab": {
+    "message": "Дублировать вкладку"
   },
-  "contextMenuCloseOtherTabs":{
-    "message":"Закрыть другие вкладки"
+  "contextMenuMoveTabToNewWindow": {
+    "message": "Переместить в новое окно"
   },
-  "settingsBtnTooltip":{
-    "message":"Открыть настройки"
+  "contextMenuReloadAllTabs": {
+    "message": "Перезагрузить все вкладки"
   },
-  "optionsTitle":{
-    "message":"Настройки"
+  "contextMenuCloseTabsUnderneath": {
+    "message": "Закрыть вкладки ниже"
   },
-  "optionsDarkTheme":{
-    "message":"Темная тема"
+  "contextMenuCloseOtherTabs": {
+    "message": "Закрыть другие вкладки"
+  },
+  "settingsBtnTooltip": {
+    "message": "Открыть настройки"
+  },
+  "optionsTitle": {
+    "message": "Настройки"
+  },
+  "optionsCompactMode": {
+    "message": "Компактный режим"
+  },
+  "optionsCompactModeTooltip": {
+    "message": "Компактный режим уменьшает высоту вкладок, позволяя отобразить их большее количество. Опция \"Динамический\" активирует компактный режим автоматически, когда заканчивается свободное место."
+  },
+  "optionsCompactModeOff": {
+    "message": "Отключен"
+  },
+  "optionsCompactModeDynamic": {
+    "message": "Динамический"
+  },
+  "optionsCompactModeStrict": {
+    "message": "Всегда"
+  },
+  "optionsCompactPins": {
+    "message": "Компактные закрепленные вкладки"
+  },
+  "optionsDarkTheme": {
+    "message": "Темная тема"
+  },
+  "optionsAdvancedTitle": {
+    "message": "Расширенные настройки"
+  },
+  "optionsCustomCSS": {
+    "message": "Пользовательские стили"
+  },
+  "optionsCustomCSSWikiLink": {
+    "message": "Вики-статья CSS Tweaks"
+  },
+  "optionsSaveCustomCSS": {
+    "message": "Сохранить CSS"
   }
 }
