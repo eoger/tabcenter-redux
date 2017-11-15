@@ -648,7 +648,11 @@ SideTabList.prototype = {
   setIcon(tab) {
     let sidetab = this.getTab(tab);
     if (sidetab) {
-      sidetab.updateIcon(tab.favIconUrl);
+      if (tab.favIconUrl) {
+        sidetab.updateIcon(tab.favIconUrl);
+      } else {
+        sidetab.resetIcon();
+      }
     }
   },
   setLoading(tab, isLoading) {

@@ -143,6 +143,9 @@ SideTab.prototype = {
       this._iconView.style.backgroundImage = "";
     };
   },
+  resetIcon() {
+    this._iconView.style.backgroundImage = "";
+  },
   setLoading(isLoading) {
     toggleClass(this.view, "loading", isLoading);
     if (isLoading) {
