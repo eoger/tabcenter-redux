@@ -141,8 +141,11 @@ SideTab.prototype = {
     const imgTest = document.createElement("img");
     imgTest.src = favIconUrl;
     imgTest.onerror = () => {
-      this._iconView.style.backgroundImage = "";
+      this.resetIcon();
     };
+  },
+  resetIcon() {
+    this._iconView.style.backgroundImage = "";
   },
   setLoading(isLoading) {
     toggleClass(this.view, "loading", isLoading);
