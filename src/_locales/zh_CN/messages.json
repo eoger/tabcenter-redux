@@ -66,5 +66,14 @@
   },
   "optionsDarkTheme": {
     "message": "黑夜主题"
+  },
+  "optionsCustomCSS": {
+    "message": "自定义CSS"
+  },
+  "optionsCustomCSSWikiLink": {
+    "message": "点击查看CSS调整的说明（英文）"
+  },
+  "optionsSaveCustomCSS": {
+    "message": "保存CSS"
   }
 }

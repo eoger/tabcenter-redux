@@ -1,106 +1,110 @@
 {
-  "extensionDescription":{
-    "message":"Tab Center jest próbą rozwiązania problemów, które pojawiły się w wyniku tego jak ludzie używają kart (szczególnie zbyt wielu kart) i wprowadza wszechstronny interfejs użytkownika dla przyszłych innowacji. Pierwsza wersja tej wtyczki układa karty pionowo, a nie poziomo. Ta wtyczka jest mocno zainspirowana wspaniałą wtyczką VerticalTabs."
+  "extensionDescription": {
+    "message": "Tab Center jest próbą rozwiązania problemów, które pojawiły się w wyniku tego jak ludzie używają kart (szczególnie zbyt wielu kart) i wprowadza wszechstronny interfejs użytkownika dla przyszłych innowacji. Pierwsza wersja tej wtyczki układa karty pionowo, a nie poziomo. Ta wtyczka jest mocno zainspirowana wspaniałą wtyczką VerticalTabs."
   },
-  "sidebarTitle":{
-    "message":"Karty",
-    "description":"Label shown in the sidebar selector."
+  "browserActionTitle": {
+    "message": "Przełącz Tab Center Redux",
+    "description": "Tooltip shown when hovering the toolbar button."
   },
-  "newTabBtnLabel":{
-    "message":"Nowa karta",
-    "description":"Label of the New Tab button in the top menu."
+  "sidebarTitle": {
+    "message": "Karty",
+    "description": "Label shown in the sidebar selector."
   },
-  "newTabBtnTooltip":{
-    "message":"Otwórz nową kartę"
+  "newTabBtnLabel": {
+    "message": "Nowa karta",
+    "description": "Label of the New Tab button in the top menu."
   },
-  "searchPlaceholder":{
-    "message":"Szukaj karty"
+  "newTabBtnTooltip": {
+    "message": "Otwórz nową kartę"
   },
-  "closeTabButtonTooltip":{
-    "message":"Zamknij kartę"
+  "searchPlaceholder": {
+    "message": "Szukaj karty"
   },
-  "allTabsLabel":{
-    "message":"Pokaż wszystkie karty…",
-    "description":"Shown at the bottom of the list of tabs if some tabs are filtered by the current search query."
+  "closeTabButtonTooltip": {
+    "message": "Zamknij kartę"
   },
-  "contextMenuReloadTab":{
-    "message":"Przeładuj kartę",
-    "description":"Reload Tab context menu item label."
+  "allTabsLabel": {
+    "message": "Pokaż wszystkie karty…",
+    "description": "Shown at the bottom of the list of tabs if some tabs are filtered by the current search query."
   },
-  "contextMenuPinTab":{
-    "message":"Przypnij kartę",
-    "description":"Pin Tab context menu item label."
+  "contextMenuReloadTab": {
+    "message": "Przeładuj kartę",
+    "description": "Reload Tab context menu item label."
   },
-  "contextMenuUnpinTab":{
-    "message":"Odepnij kartę",
-    "description":"Unpin Tab context menu item label."
+  "contextMenuPinTab": {
+    "message": "Przypnij kartę",
+    "description": "Pin Tab context menu item label."
   },
-  "contextMenuMuteTab":{
-    "message":"Wycisz kartę",
-    "description":"Mute Tab context menu item label."
+  "contextMenuUnpinTab": {
+    "message": "Odepnij kartę",
+    "description": "Unpin Tab context menu item label."
   },
-  "contextMenuUnmuteTab":{
-    "message":"Włącz dźwięk",
-    "description":"Unmute Tab context menu item label."
+  "contextMenuMuteTab": {
+    "message": "Wycisz kartę",
+    "description": "Mute Tab context menu item label."
   },
-  "contextMenuCloseTab":{
-    "message":"Zamknij kartę"
+  "contextMenuUnmuteTab": {
+    "message": "Włącz dźwięk",
+    "description": "Unmute Tab context menu item label."
   },
-  "contextMenuUndoCloseTab":{
-    "message":"Przywróć zamkniętą kartę"
+  "contextMenuCloseTab": {
+    "message": "Zamknij kartę"
   },
-  "contextMenuDuplicateTab":{
-    "message":"Duplikuj kartę"
+  "contextMenuUndoCloseTab": {
+    "message": "Przywróć zamkniętą kartę"
   },
-  "contextMenuMoveTabToNewWindow":{
-    "message":"Przenieś do nowego okna"
+  "contextMenuDuplicateTab": {
+    "message": "Duplikuj kartę"
   },
-  "contextMenuReloadAllTabs":{
-    "message":"Przeładuj wszystkie karty"
+  "contextMenuMoveTabToNewWindow": {
+    "message": "Przenieś do nowego okna"
   },
-  "contextMenuCloseTabsUnderneath":{
-    "message":"Zamknij karty poniżej"
+  "contextMenuReloadAllTabs": {
+    "message": "Przeładuj wszystkie karty"
   },
-  "contextMenuCloseOtherTabs":{
-    "message":"Zamknij inne karty"
+  "contextMenuCloseTabsUnderneath": {
+    "message": "Zamknij karty poniżej"
   },
-  "settingsBtnTooltip":{
-    "message":"Otwórz ustawienia"
+  "contextMenuCloseOtherTabs": {
+    "message": "Zamknij inne karty"
   },
-  "optionsTitle":{
-    "message":"Ustawienia"
+  "settingsBtnTooltip": {
+    "message": "Otwórz ustawienia"
   },
-  "optionsCompactMode":{
-    "message":"Tryb kompaktowy"
+  "optionsTitle": {
+    "message": "Ustawienia"
   },
-  "optionsCompactModeTooltip":{
-    "message":"Tryb kompaktowy zmniejsza wysokość kart, aby pokazać ich więcej. W ustawieniu dynamicznym uaktywni się, kiedy zabraknie miejsca."
+  "optionsCompactMode": {
+    "message": "Tryb kompaktowy"
   },
-  "optionsCompactModeOff":{
-    "message":"Wyłączony"
+  "optionsCompactModeTooltip": {
+    "message": "Tryb kompaktowy zmniejsza wysokość kart, aby pokazać ich więcej. W ustawieniu dynamicznym uaktywni się, kiedy zabraknie miejsca."
   },
-  "optionsCompactModeDynamic":{
-    "message":"Dynamiczny"
+  "optionsCompactModeOff": {
+    "message": "Wyłączony"
   },
-  "optionsCompactModeStrict":{
-    "message":"Zawsze"
+  "optionsCompactModeDynamic": {
+    "message": "Dynamiczny"
   },
-  "optionsCompactPins":{
-    "message":"Kompaktuj przypięte karty"
+  "optionsCompactModeStrict": {
+    "message": "Zawsze"
   },
-  "optionsDarkTheme":{
-    "message":"Ciemny motyw"
+  "optionsCompactPins": {
+    "message": "Kompaktuj przypięte karty"
   },
-  "optionsAdvancedTitle":{
-    "message":"Zaawansowane"
+  "optionsDarkTheme": {
+    "message": "Ciemny motyw"
   },
-  "optionsCustomCSS":{
-    "message":"Niestandardowy arkusz stylów"
+  "optionsAdvancedTitle": {
+    "message": "Zaawansowane"
   },
-  "optionsCustomCSSWikiLink":{
-    "message":"Strona Wiki o dostosowaniu CSS"
+  "optionsCustomCSS": {
+    "message": "Niestandardowy arkusz stylów"
   },
-  "optionsSaveCustomCSS":{
-    "message":"Zapisz CSS"
+  "optionsCustomCSSWikiLink": {
+    "message": "Strona Wiki o dostosowaniu CSS"
+  },
+  "optionsSaveCustomCSS": {
+    "message": "Zapisz CSS"
   }
 }

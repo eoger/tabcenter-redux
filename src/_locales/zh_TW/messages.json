@@ -1,106 +1,110 @@
 {
-  "extensionDescription":{
-    "message":"分頁中心試圖解決人們使用分頁（尤其是太多分頁）時遇到的一些問題，並為未來的創新功能提供更多的基礎。此 Firefox 附加組件以垂直方式而非水平方式排列分頁。它的靈感極大來源於附加組件 VerticalTabs 的想法。"
+  "extensionDescription": {
+    "message": "分頁中心試圖解決人們使用分頁（尤其是太多分頁）時遇到的一些問題，並為未來的創新功能提供更多的基礎。此 Firefox 附加組件以垂直方式而非水平方式排列分頁。它的靈感極大來源於附加組件 VerticalTabs 的想法。"
   },
-  "sidebarTitle":{
-    "message":"分頁",
-    "description":"Label shown in the sidebar selector."
+  "browserActionTitle": {
+    "message": "切換到 Tab Center Redux",
+    "description": "Tooltip shown when hovering the toolbar button."
   },
-  "newTabBtnLabel":{
-    "message":"新分頁",
-    "description":"Label of the New Tab button in the top menu."
+  "sidebarTitle": {
+    "message": "分頁",
+    "description": "Label shown in the sidebar selector."
   },
-  "newTabBtnTooltip":{
-    "message":"開啟新分頁"
+  "newTabBtnLabel": {
+    "message": "新分頁",
+    "description": "Label of the New Tab button in the top menu."
   },
-  "searchPlaceholder":{
-    "message":"搜尋分頁"
+  "newTabBtnTooltip": {
+    "message": "開啟新分頁"
   },
-  "closeTabButtonTooltip":{
-    "message":"關閉分頁"
+  "searchPlaceholder": {
+    "message": "搜尋分頁"
   },
-  "allTabsLabel":{
-    "message":"顯示所有分頁…",
-    "description":"Shown at the bottom of the list of tabs if some tabs are filtered by the current search query."
+  "closeTabButtonTooltip": {
+    "message": "關閉分頁"
   },
-  "contextMenuReloadTab":{
-    "message":"重新載入分頁",
-    "description":"Reload Tab context menu item label."
+  "allTabsLabel": {
+    "message": "顯示所有分頁…",
+    "description": "Shown at the bottom of the list of tabs if some tabs are filtered by the current search query."
   },
-  "contextMenuPinTab":{
-    "message":"固定分頁",
-    "description":"Pin Tab context menu item label."
+  "contextMenuReloadTab": {
+    "message": "重新載入分頁",
+    "description": "Reload Tab context menu item label."
   },
-  "contextMenuUnpinTab":{
-    "message":"取消固定分頁",
-    "description":"Unpin Tab context menu item label."
+  "contextMenuPinTab": {
+    "message": "固定分頁",
+    "description": "Pin Tab context menu item label."
   },
-  "contextMenuMuteTab":{
-    "message":"分頁靜音",
-    "description":"Mute Tab context menu item label."
+  "contextMenuUnpinTab": {
+    "message": "取消固定分頁",
+    "description": "Unpin Tab context menu item label."
   },
-  "contextMenuUnmuteTab":{
-    "message":"取消分頁靜音",
-    "description":"Unmute Tab context menu item label."
+  "contextMenuMuteTab": {
+    "message": "分頁靜音",
+    "description": "Mute Tab context menu item label."
   },
-  "contextMenuCloseTab":{
-    "message":"關閉分頁"
+  "contextMenuUnmuteTab": {
+    "message": "取消分頁靜音",
+    "description": "Unmute Tab context menu item label."
   },
-  "contextMenuUndoCloseTab":{
-    "message":"復原已關閉分頁"
+  "contextMenuCloseTab": {
+    "message": "關閉分頁"
   },
-  "contextMenuDuplicateTab":{
-    "message":"複製分頁"
+  "contextMenuUndoCloseTab": {
+    "message": "復原已關閉分頁"
   },
-  "contextMenuMoveTabToNewWindow":{
-    "message":"移動到新視窗"
+  "contextMenuDuplicateTab": {
+    "message": "複製分頁"
   },
-  "contextMenuReloadAllTabs":{
-    "message":"重新載入全部分頁"
+  "contextMenuMoveTabToNewWindow": {
+    "message": "移動到新視窗"
   },
-  "contextMenuCloseTabsUnderneath":{
-    "message":"關閉下方分頁"
+  "contextMenuReloadAllTabs": {
+    "message": "重新載入全部分頁"
   },
-  "contextMenuCloseOtherTabs":{
-    "message":"關閉其他分頁"
+  "contextMenuCloseTabsUnderneath": {
+    "message": "關閉下方分頁"
   },
-  "settingsBtnTooltip":{
-    "message":"開啟設定"
+  "contextMenuCloseOtherTabs": {
+    "message": "關閉其他分頁"
   },
-  "optionsTitle":{
-    "message":"設定"
+  "settingsBtnTooltip": {
+    "message": "開啟設定"
   },
-  "optionsCompactMode":{
-    "message":"精簡模式"
+  "optionsTitle": {
+    "message": "設定"
   },
-  "optionsCompactModeTooltip":{
-    "message":"精簡模式降低分頁的高度以顯示更多的分頁。在「動態」設定中，一旦發現沒有足夠的空間就會自動啟用。"
+  "optionsCompactMode": {
+    "message": "精簡模式"
   },
-  "optionsCompactModeOff":{
-    "message":"停用"
+  "optionsCompactModeTooltip": {
+    "message": "精簡模式降低分頁的高度以顯示更多的分頁。在「動態」設定中，一旦發現沒有足夠的空間就會自動啟用。"
   },
-  "optionsCompactModeDynamic":{
-    "message":"動態"
+  "optionsCompactModeOff": {
+    "message": "停用"
   },
-  "optionsCompactModeStrict":{
-    "message":"總是"
+  "optionsCompactModeDynamic": {
+    "message": "動態"
   },
-  "optionsCompactPins":{
-    "message":"精簡已釘選分頁"
+  "optionsCompactModeStrict": {
+    "message": "總是"
   },
-  "optionsDarkTheme":{
-    "message":"暗色佈景主題"
+  "optionsCompactPins": {
+    "message": "精簡已釘選分頁"
   },
-  "optionsAdvancedTitle":{
-    "message":"進階"
+  "optionsDarkTheme": {
+    "message": "深色主題"
   },
-  "optionsCustomCSS":{
-    "message":"自訂樣式表"
+  "optionsAdvancedTitle": {
+    "message": "進階"
   },
-  "optionsCustomCSSWikiLink":{
-    "message":"CSS 調整 Wiki 文章"
+  "optionsCustomCSS": {
+    "message": "自訂樣式表"
   },
-  "optionsSaveCustomCSS":{
-    "message":"儲存 CSS"
+  "optionsCustomCSSWikiLink": {
+    "message": "CSS 調整 Wiki 文章"
+  },
+  "optionsSaveCustomCSS": {
+    "message": "儲存 CSS"
   }
 }
