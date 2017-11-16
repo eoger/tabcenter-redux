@@ -108,6 +108,7 @@ SideTab.prototype = {
     toggleClass(this.view, "active", active);
     if (active) {
       this._notselectedsinceload = false;
+      this.view.removeAttribute("notselectedsinceload");
     }
   },
   scrollIntoView() {
