@@ -63,7 +63,7 @@ SideTabList.prototype = {
       }
     });
     window.addEventListener("click", e => {
-      if (e.which == 1) {
+      if (e.which === 1) {
         this.hideContextMenu();
       }
     });
@@ -98,7 +98,7 @@ SideTabList.prototype = {
       compactPins: true
     }));
     this.compactModeMode = prefs.compactModeMode;
-    if (this.compactModeMode != COMPACT_MODE_OFF) {
+    if (this.compactModeMode !== COMPACT_MODE_OFF) {
       this.maybeShrinkTabs();
     }
     this.compactPins = prefs.compactPins;
@@ -151,18 +151,18 @@ SideTabList.prototype = {
   },
   onMouseDown(e) {
     // Don't put preventDefault here or drag-and-drop won't work
-    if (e.which == 1 && SideTab.isTabEvent(e)) {
+    if (e.which === 1 && SideTab.isTabEvent(e)) {
       browser.tabs.update(SideTab.tabIdForEvent(e), {active: true});
       return;
     }
     // Prevent autoscrolling on middle click
-    if (e.which == 2) {
+    if (e.which === 2) {
       e.preventDefault();
       return;
     }
   },
   onAuxClick(e) {
-    if (e.which == 2 && SideTab.isTabEvent(e, false)) {
+    if (e.which === 2 && SideTab.isTabEvent(e, false)) {
       browser.tabs.remove(SideTab.tabIdForEvent(e));
       e.preventDefault();
       return;
@@ -249,7 +249,7 @@ SideTabList.prototype = {
         label: browser.i18n.getMessage("contextMenuCloseOtherTabs"),
         onCommandFn: () => {
           const toClose = [...this.tabs.values()]
-                          .filter(tab => tab.id != tabId && !tab.pinned)
+                          .filter(tab => tab.id !== tabId && !tab.pinned)
                           .map(tab => tab.id);
           browser.tabs.remove(toClose);
         }
@@ -327,8 +327,8 @@ SideTabList.prototype = {
   },
   onDrop(e) {
     if (!SideTab.isTabEvent(e, false) &&
-        e.target != this._spacerView &&
-        e.target != this._moreTabsView) {
+        e.target !== this._spacerView &&
+        e.target !== this._moreTabsView) {
       return;
     }
     e.preventDefault();
@@ -352,27 +352,27 @@ SideTabList.prototype = {
   handleDroppedTabCenterTab(e, tab) {
     let { tabId, origWindowId } = tab;
     let currentWindowId = this.windowId;
-    if (currentWindowId != origWindowId) {
+    if (currentWindowId !== origWindowId) {
       browser.tabs.move(tabId, { windowId: currentWindowId, index: -1 });
       return;
     }
 
     let curTab = this.getTabById(tabId);
 
-    if (e.target == this._spacerView || e.target == this._moreTabsView) {
+    if (e.target === this._spacerView || e.target === this._moreTabsView) {
       this.moveTabToBottom(curTab);
       return;
     }
 
     let dropTabId = SideTab.tabIdForEvent(e);
 
-    if (tabId == dropTabId) {
+    if (tabId === dropTabId) {
       return;
     }
 
     let dropTab = this.getTabById(dropTabId);
 
-    if (curTab.pinned != dropTab.pinned) { // They can't mix
+    if (curTab.pinned !== dropTab.pinned) { // They can't mix
       if (curTab.pinned) {
         // We tried to move a pinned tab to the non-pinned area, move it to the last
         // position of the pinned tabs.
@@ -394,7 +394,7 @@ SideTabList.prototype = {
     browser.tabs.create({});
   },
   onSpacerAuxClick(e) {
-    if (e.which == 2) {
+    if (e.which === 2) {
       browser.tabs.create({});
     }
   },
@@ -425,7 +425,7 @@ SideTabList.prototype = {
     this.filter();
   },
   filter(query = "") {
-    this._filterActive = query != "";
+    this._filterActive = query !== "";
     query = normalizeStr(query);
     let notShown = 0;
     for (let tab of this.tabs.values()) {
@@ -465,7 +465,7 @@ SideTabList.prototype = {
     this.scrollToActiveTab();
   },
   checkWindow(tab) {
-    return (tab.windowId == this.windowId);
+    return (tab.windowId === this.windowId);
   },
   getTab(tab) {
     if (this.checkWindow(tab)) {
@@ -499,14 +499,14 @@ SideTabList.prototype = {
     }
   },
   maybeShrinkTabs() {
-    if (this.compactModeMode == COMPACT_MODE_STRICT ||
-        this.compactModeMode == COMPACT_MODE_OFF) {
-      this.tabsShrinked = this.compactModeMode == COMPACT_MODE_STRICT;
+    if (this.compactModeMode === COMPACT_MODE_STRICT ||
+        this.compactModeMode === COMPACT_MODE_OFF) {
+      this.tabsShrinked = this.compactModeMode === COMPACT_MODE_STRICT;
       return;
     }
 
     const spaceLeft = this._spacerView.offsetHeight;
-    if (!this.tabsShrinked && spaceLeft == 0) {
+    if (!this.tabsShrinked && spaceLeft === 0) {
       this.tabsShrinked = true;
       return;
     }
@@ -593,7 +593,7 @@ SideTabList.prototype = {
     }
   },
   remove(tabId) {
-    if (this.active == tabId) {
+    if (this.active === tabId) {
       this.active = null;
     }
     let sidetab = this.getTabById(tabId);
@@ -699,11 +699,11 @@ SideTabList.prototype = {
     });
   },
   async updateTabThumbnail(tabId) {
-    if (this.compactModeMode == COMPACT_MODE_STRICT) {
+    if (this.compactModeMode === COMPACT_MODE_STRICT) {
       return;
     }
     // TODO: sadly we can only capture a thumbnail of the current tab. bug 1246693
-    if (this.active != tabId) {
+    if (this.active !== tabId) {
       return;
     }
     let sidetab = this.getTabById(tabId);
