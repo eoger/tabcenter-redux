@@ -5,7 +5,7 @@ function TabCenterBackground() {
 TabCenterBackground.prototype = {
   openedSidebarWindows: new Set(),
   onMessage({event, windowId}) {
-    if (event == "sidebar-open") {
+    if (event === "sidebar-open") {
       this.openedSidebarWindows.add(windowId);
     } else {
       this.openedSidebarWindows.delete(windowId);

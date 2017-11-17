@@ -222,13 +222,13 @@ Object.assign(SideTab, {
     if (!el) {
       return null;
     }
-    return el.getAttribute("data-tab-id");
+    return parseInt(el.getAttribute("data-tab-id"));
   },
   tabIdForEvent(e) {
     let el = e.target;
     // eslint-disable-next-line curly
     while (!SideTab.tabIdForView(el) && (el = el.parentElement));
-    return parseInt(SideTab.tabIdForView(el));
+    return SideTab.tabIdForView(el);
   },
   getAllTabsViews() {
     return document.getElementsByClassName("tab");
