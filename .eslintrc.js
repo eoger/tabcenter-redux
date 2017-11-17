@@ -17,6 +17,7 @@ module.exports = {
     "curly": [
       "error"
     ],
+    "eqeqeq": ["error"],
     "indent": [
       "error",
       2

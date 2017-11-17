@@ -42,7 +42,7 @@ TabCenter.prototype = {
       this._newTabLabelView.classList.remove("hidden");
     });
     browser.commands.onCommand.addListener((command) => {
-      if (command == "focus-searchbox") {
+      if (command === "focus-searchbox") {
         this._searchBoxInput.focus();
       }
     });
@@ -52,9 +52,9 @@ TabCenter.prototype = {
       }
     });
     this._newTabButtonView.addEventListener("auxclick", e => {
-      if (e.which == 2) {
+      if (e.which === 2) {
         this._createTabAfterCurrent();
-      } else if (e.which == 3) {
+      } else if (e.which === 3) {
         this.showNewTabMenu();
       }
     });
@@ -146,14 +146,14 @@ TabCenter.prototype = {
       const identityItem = document.createElement("div");
       identityItem.className = "newtab-menu-identity";
       identityItem.addEventListener("mouseup", e => {
-        if (e.which != 1) {
+        if (e.which !== 1) {
           return;
         }
         this.hideNewTabMenu();
         browser.tabs.create({ cookieStoreId: identity.cookieStoreId });
       });
       identityItem.addEventListener("auxclick", e => {
-        if (e.which == 2) {
+        if (e.which === 2) {
           this.hideNewTabMenu();
           this._createTabAfterCurrent(identity.cookieStoreId);
         }
