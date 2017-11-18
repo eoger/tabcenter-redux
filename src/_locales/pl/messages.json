@@ -1,106 +1,106 @@
 {
-  "extensionDescription":{
-    "message":"Tab Center jest próbą rozwiązania problemów, które pojawiły się w wyniku tego jak ludzie używają kart (szczególnie zbyt wielu kart) i wprowadza wszechstronny interfejs użytkownika dla przyszłych innowacji. Pierwsza wersja tej wtyczki układa karty pionowo, a nie poziomo. Ta wtyczka jest mocno zainspirowana wspaniałą wtyczką VerticalTabs."
+  "extensionDescription": {
+    "message": "Tab Center jest próbą rozwiązania problemów, które pojawiły się w wyniku tego jak ludzie używają kart (szczególnie zbyt wielu kart) i wprowadza wszechstronny interfejs użytkownika dla przyszłych innowacji. Pierwsza wersja tej wtyczki układa karty pionowo, a nie poziomo. Ta wtyczka jest mocno zainspirowana wspaniałą wtyczką VerticalTabs."
   },
-  "sidebarTitle":{
-    "message":"Karty",
-    "description":"Label shown in the sidebar selector."
+  "sidebarTitle": {
+    "message": "Karty",
+    "description": "Label shown in the sidebar selector."
   },
-  "newTabBtnLabel":{
-    "message":"Nowa karta",
-    "description":"Label of the New Tab button in the top menu."
+  "newTabBtnLabel": {
+    "message": "Nowa karta",
+    "description": "Label of the New Tab button in the top menu."
   },
-  "newTabBtnTooltip":{
-    "message":"Otwórz nową kartę"
+  "newTabBtnTooltip": {
+    "message": "Otwórz nową kartę"
   },
-  "searchPlaceholder":{
-    "message":"Szukaj karty"
+  "searchPlaceholder": {
+    "message": "Szukaj karty"
   },
-  "closeTabButtonTooltip":{
-    "message":"Zamknij kartę"
+  "closeTabButtonTooltip": {
+    "message": "Zamknij kartę"
   },
-  "allTabsLabel":{
-    "message":"Pokaż wszystkie karty…",
-    "description":"Shown at the bottom of the list of tabs if some tabs are filtered by the current search query."
+  "allTabsLabel": {
+    "message": "Pokaż wszystkie karty…",
+    "description": "Shown at the bottom of the list of tabs if some tabs are filtered by the current search query."
   },
-  "contextMenuReloadTab":{
-    "message":"Przeładuj kartę",
-    "description":"Reload Tab context menu item label."
+  "contextMenuReloadTab": {
+    "message": "Przeładuj kartę",
+    "description": "Reload Tab context menu item label."
   },
-  "contextMenuPinTab":{
-    "message":"Przypnij kartę",
-    "description":"Pin Tab context menu item label."
+  "contextMenuPinTab": {
+    "message": "Przypnij kartę",
+    "description": "Pin Tab context menu item label."
   },
-  "contextMenuUnpinTab":{
-    "message":"Odepnij kartę",
-    "description":"Unpin Tab context menu item label."
+  "contextMenuUnpinTab": {
+    "message": "Odepnij kartę",
+    "description": "Unpin Tab context menu item label."
   },
-  "contextMenuMuteTab":{
-    "message":"Wycisz kartę",
-    "description":"Mute Tab context menu item label."
+  "contextMenuMuteTab": {
+    "message": "Wycisz kartę",
+    "description": "Mute Tab context menu item label."
   },
-  "contextMenuUnmuteTab":{
-    "message":"Włącz dźwięk",
-    "description":"Unmute Tab context menu item label."
+  "contextMenuUnmuteTab": {
+    "message": "Włącz dźwięk",
+    "description": "Unmute Tab context menu item label."
   },
-  "contextMenuCloseTab":{
-    "message":"Zamknij kartę"
+  "contextMenuCloseTab": {
+    "message": "Zamknij kartę"
   },
-  "contextMenuUndoCloseTab":{
-    "message":"Przywróć zamkniętą kartę"
+  "contextMenuUndoCloseTab": {
+    "message": "Przywróć zamkniętą kartę"
   },
-  "contextMenuDuplicateTab":{
-    "message":"Duplikuj kartę"
+  "contextMenuDuplicateTab": {
+    "message": "Duplikuj kartę"
   },
-  "contextMenuMoveTabToNewWindow":{
-    "message":"Przenieś do nowego okna"
+  "contextMenuMoveTabToNewWindow": {
+    "message": "Przenieś do nowego okna"
   },
-  "contextMenuReloadAllTabs":{
-    "message":"Przeładuj wszystkie karty"
+  "contextMenuReloadAllTabs": {
+    "message": "Przeładuj wszystkie karty"
   },
-  "contextMenuCloseTabsUnderneath":{
-    "message":"Zamknij karty poniżej"
+  "contextMenuCloseTabsUnderneath": {
+    "message": "Zamknij karty poniżej"
   },
-  "contextMenuCloseOtherTabs":{
-    "message":"Zamknij inne karty"
+  "contextMenuCloseOtherTabs": {
+    "message": "Zamknij inne karty"
   },
-  "settingsBtnTooltip":{
-    "message":"Otwórz ustawienia"
+  "settingsBtnTooltip": {
+    "message": "Otwórz ustawienia"
   },
-  "optionsTitle":{
-    "message":"Ustawienia"
+  "optionsTitle": {
+    "message": "Ustawienia"
   },
-  "optionsCompactMode":{
-    "message":"Tryb kompaktowy"
+  "optionsCompactMode": {
+    "message": "Tryb kompaktowy"
   },
-  "optionsCompactModeTooltip":{
-    "message":"Tryb kompaktowy zmniejsza wysokość kart, aby pokazać ich więcej. W ustawieniu dynamicznym uaktywni się, kiedy zabraknie miejsca."
+  "optionsCompactModeTooltip": {
+    "message": "Tryb kompaktowy zmniejsza wysokość kart, aby pokazać ich więcej. W ustawieniu dynamicznym uaktywni się, kiedy zabraknie miejsca."
   },
-  "optionsCompactModeOff":{
-    "message":"Wyłączony"
+  "optionsCompactModeOff": {
+    "message": "Wyłączony"
   },
-  "optionsCompactModeDynamic":{
-    "message":"Dynamiczny"
+  "optionsCompactModeDynamic": {
+    "message": "Dynamiczny"
   },
-  "optionsCompactModeStrict":{
-    "message":"Zawsze"
+  "optionsCompactModeStrict": {
+    "message": "Zawsze"
   },
-  "optionsCompactPins":{
-    "message":"Kompaktuj przypięte karty"
+  "optionsCompactPins": {
+    "message": "Kompaktuj przypięte karty"
   },
-  "optionsDarkTheme":{
-    "message":"Ciemny motyw"
+  "optionsDarkTheme": {
+    "message": "Ciemny motyw"
   },
-  "optionsAdvancedTitle":{
-    "message":"Zaawansowane"
+  "optionsAdvancedTitle": {
+    "message": "Zaawansowane"
   },
-  "optionsCustomCSS":{
-    "message":"Niestandardowy arkusz stylów"
+  "optionsCustomCSS": {
+    "message": "Niestandardowy arkusz stylów"
   },
-  "optionsCustomCSSWikiLink":{
-    "message":"Strona Wiki o dostosowaniu CSS"
+  "optionsCustomCSSWikiLink": {
+    "message": "Strona Wiki o dostosowaniu CSS"
   },
-  "optionsSaveCustomCSS":{
-    "message":"Zapisz CSS"
+  "optionsSaveCustomCSS": {
+    "message": "Zapisz CSS"
   }
 }
