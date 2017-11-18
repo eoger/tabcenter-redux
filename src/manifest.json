@@ -25,13 +25,8 @@
     "_execute_sidebar_action": {
       "suggested_key": {
           "default": "Ctrl+Shift+O",
-          "mac": "Command+Shift+O"
-      }
-    },
-    "focus-searchbox": {
-      "suggested_key": {
-        "default": "Ctrl+Shift+L",
-        "mac": "Command+Shift+L"
+          "mac": "Command+Shift+O",
+          "linux": "F1"
       }
     }
   },

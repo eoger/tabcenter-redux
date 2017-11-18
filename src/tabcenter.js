@@ -41,11 +41,6 @@ TabCenter.prototype = {
       searchbox.classList.remove("focused");
       this._newTabLabelView.classList.remove("hidden");
     });
-    browser.commands.onCommand.addListener((command) => {
-      if (command == "focus-searchbox") {
-        this._searchBoxInput.focus();
-      }
-    });
     this._newTabButtonView.addEventListener("click", () => {
       if (!this._newTabMenuShown) {
         browser.tabs.create({});
