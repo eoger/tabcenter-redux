@@ -1,106 +1,106 @@
 {
-  "extensionDescription":{
-    "message":"Tab Center essaie de résoudre certains des problèmes suite à l'utilisation des onglets (principalement, le problème « j'ai trop d'onglets ») et propose une base d'interface utilisateur plus souple pour innover. Cette première version propose un arrangement vertical des onglets. Ce module est fortement inspiré et emprunte des idées à l'excellent module VerticalTabs."
+  "extensionDescription": {
+    "message": "Tab Center essaie de résoudre certains des problèmes suite à l'utilisation des onglets (principalement, le problème « j'ai trop d'onglets ») et propose une base d'interface utilisateur plus souple pour innover. Cette première version propose un arrangement vertical des onglets. Ce module est fortement inspiré et emprunte des idées à l'excellent module VerticalTabs."
   },
-  "sidebarTitle":{
-    "message":"Onglets",
-    "description":"Label shown in the sidebar selector."
+  "sidebarTitle": {
+    "message": "Onglets",
+    "description": "Label shown in the sidebar selector."
   },
-  "newTabBtnLabel":{
-    "message":"Nouvel onglet",
-    "description":"Label of the New Tab button in the top menu."
+  "newTabBtnLabel": {
+    "message": "Nouvel onglet",
+    "description": "Label of the New Tab button in the top menu."
   },
-  "newTabBtnTooltip":{
-    "message":"Ouvrir un nouvel onglet"
+  "newTabBtnTooltip": {
+    "message": "Ouvrir un nouvel onglet"
   },
-  "searchPlaceholder":{
-    "message":"Rechercher dans les onglets"
+  "searchPlaceholder": {
+    "message": "Rechercher dans les onglets"
   },
-  "closeTabButtonTooltip":{
-    "message":"Fermer l'onglet"
+  "closeTabButtonTooltip": {
+    "message": "Fermer l'onglet"
   },
-  "allTabsLabel":{
-    "message":"Afficher tous les onglets…",
-    "description":"Shown at the bottom of the list of tabs if some tabs are filtered by the current search query."
+  "allTabsLabel": {
+    "message": "Afficher tous les onglets…",
+    "description": "Shown at the bottom of the list of tabs if some tabs are filtered by the current search query."
   },
-  "contextMenuReloadTab":{
-    "message":"Actualiser l'onglet",
-    "description":"Reload Tab context menu item label."
+  "contextMenuReloadTab": {
+    "message": "Actualiser l'onglet",
+    "description": "Reload Tab context menu item label."
   },
-  "contextMenuPinTab":{
-    "message":"Épingler cet onglet",
-    "description":"Pin Tab context menu item label."
+  "contextMenuPinTab": {
+    "message": "Épingler cet onglet",
+    "description": "Pin Tab context menu item label."
   },
-  "contextMenuUnpinTab":{
-    "message":"Relâcher l'onglet",
-    "description":"Unpin Tab context menu item label."
+  "contextMenuUnpinTab": {
+    "message": "Relâcher l'onglet",
+    "description": "Unpin Tab context menu item label."
   },
-  "contextMenuMuteTab":{
-    "message":"Rendre l'onglet muet",
-    "description":"Mute Tab context menu item label."
+  "contextMenuMuteTab": {
+    "message": "Rendre l'onglet muet",
+    "description": "Mute Tab context menu item label."
   },
-  "contextMenuUnmuteTab":{
-    "message":"Réactiver le son de l'onglet",
-    "description":"Unmute Tab context menu item label."
+  "contextMenuUnmuteTab": {
+    "message": "Réactiver le son de l'onglet",
+    "description": "Unmute Tab context menu item label."
   },
-  "contextMenuCloseTab":{
-    "message":"Fermer l'onglet"
+  "contextMenuCloseTab": {
+    "message": "Fermer l'onglet"
   },
-  "contextMenuUndoCloseTab":{
-    "message":"Annuler la fermeture de l'onglet"
+  "contextMenuUndoCloseTab": {
+    "message": "Annuler la fermeture de l'onglet"
   },
-  "contextMenuDuplicateTab":{
-    "message":"Dupliquer l'onglet"
+  "contextMenuDuplicateTab": {
+    "message": "Dupliquer l'onglet"
   },
-  "contextMenuMoveTabToNewWindow":{
-    "message":"Déplacer vers une nouvelle fenêtre"
+  "contextMenuMoveTabToNewWindow": {
+    "message": "Déplacer vers une nouvelle fenêtre"
   },
-  "contextMenuReloadAllTabs":{
-    "message":"Actualiser tous les onglets"
+  "contextMenuReloadAllTabs": {
+    "message": "Actualiser tous les onglets"
   },
-  "contextMenuCloseTabsUnderneath":{
-    "message":"Fermer les onglets en dessous"
+  "contextMenuCloseTabsUnderneath": {
+    "message": "Fermer les onglets en dessous"
   },
-  "contextMenuCloseOtherTabs":{
-    "message":"Fermer les autres onglets"
+  "contextMenuCloseOtherTabs": {
+    "message": "Fermer les autres onglets"
   },
-  "settingsBtnTooltip":{
-    "message":"Ouvrir les paramètres"
+  "settingsBtnTooltip": {
+    "message": "Ouvrir les paramètres"
   },
-  "optionsTitle":{
-    "message":"Paramètres"
+  "optionsTitle": {
+    "message": "Paramètres"
   },
-  "optionsCompactMode":{
-    "message":"Mode compact"
+  "optionsCompactMode": {
+    "message": "Mode compact"
   },
-  "optionsCompactModeTooltip":{
-    "message":"Le Mode compact réduit la hauteur des onglets afin d'en afficher davantage. En réglage Dynamique, il s'active automatiquement lorsqu'il n'y a plus d'espace disponible."
+  "optionsCompactModeTooltip": {
+    "message": "Le Mode compact réduit la hauteur des onglets afin d'en afficher davantage. En réglage Dynamique, il s'active automatiquement lorsqu'il n'y a plus d'espace disponible."
   },
-  "optionsCompactModeOff":{
-    "message":"Désactivé"
+  "optionsCompactModeOff": {
+    "message": "Désactivé"
   },
-  "optionsCompactModeDynamic":{
-    "message":"Dynamique"
+  "optionsCompactModeDynamic": {
+    "message": "Dynamique"
   },
-  "optionsCompactModeStrict":{
-    "message":"Toujours"
+  "optionsCompactModeStrict": {
+    "message": "Toujours"
   },
-  "optionsCompactPins":{
-    "message":"Onglets épinglés compacts"
+  "optionsCompactPins": {
+    "message": "Onglets épinglés compacts"
   },
-  "optionsDarkTheme":{
-    "message":"Thème sombre"
+  "optionsDarkTheme": {
+    "message": "Thème sombre"
   },
-  "optionsAdvancedTitle":{
-    "message":"Avancé"
+  "optionsAdvancedTitle": {
+    "message": "Avancé"
   },
-  "optionsCustomCSS":{
-    "message":"Feuille de style personnalisée"
+  "optionsCustomCSS": {
+    "message": "Feuille de style personnalisée"
   },
-  "optionsCustomCSSWikiLink":{
-    "message":"Article Wiki CSS Tweaks (en Anglais)"
+  "optionsCustomCSSWikiLink": {
+    "message": "Article Wiki CSS Tweaks (en Anglais)"
   },
-  "optionsSaveCustomCSS":{
-    "message":"Enregistrer la CSS"
+  "optionsSaveCustomCSS": {
+    "message": "Enregistrer la CSS"
   }
 }
