@@ -85,6 +85,9 @@
   "optionsCompactModeStrict": {
     "message": "Sempre"
   },
+  "optionsCompactPins": {
+    "message": "Compatta schede fissate"
+  },
   "optionsDarkTheme": {
     "message": "Tema Notturno"
   },
