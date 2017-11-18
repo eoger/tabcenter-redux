@@ -2,6 +2,10 @@
   "extensionDescription": {
     "message": "Tab Center versucht, einige Probleme zu lösen, die häufig bei der Verwendung von Tabs auftreten (insbesondere das \"zu viele Tabs\"-Problem). Außerdem soll es eine flexiblere Basis für zukünftige Innovationen der Benutzeroberfläche bieten. Die erste Version dieses AddOns für Firefox ordnet die offenen Tabs vertikal an anstelle von horizontal. Es wurde stark inspiriert durch das exzellente AddOn VerticalTabs und übernimmt viele Ideen von diesem."
   },
+  "browserActionTitle": {
+    "message": "Auf Tab Center Redux umschalten",
+    "description": "Tooltip shown when hovering the toolbar button."
+  },
   "sidebarTitle": {
     "message": "Tabs",
     "description": "Label shown in the sidebar selector."
