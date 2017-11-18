@@ -405,14 +405,16 @@ SideTabList.prototype = {
   },
   async moveTabToBottom(tab) {
     let sameCategoryTabs = await browser.tabs.query({
-      pinned: tab.pinned
+      pinned: tab.pinned,
+      windowId: this.windowId
     });
     let lastIndex = sameCategoryTabs[sameCategoryTabs.length - 1].index;
     await browser.tabs.move(tab.id, { index: lastIndex + 1 });
   },
   async moveTabToTop(tab) {
     let sameCategoryTabs = await browser.tabs.query({
-      pinned: tab.pinned
+      pinned: tab.pinned,
+      windowId: this.windowId
     });
     let lastIndex = sameCategoryTabs[0].index;
     await browser.tabs.move(tab.id, { index: lastIndex });
