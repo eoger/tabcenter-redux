@@ -21,6 +21,13 @@
     "storage",
     "tabs"
   ],
+  "browser_action": {
+    "default_icon": "icons/tabcenter.svg",
+    "default_title": "__MSG_browserActionTitle__"
+  },
+  "background": {
+    "scripts": ["background.js"]
+  },
   "commands": {
     "_execute_sidebar_action": {
       "suggested_key": {

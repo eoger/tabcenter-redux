@@ -18,8 +18,13 @@ TabCenter.prototype = {
     this._searchBoxInput = document.getElementById("searchbox-input");
     this.setupLabels();
     await this.sideTabList.init();
-    const data = await browser.windows.getCurrent();
-    await this.sideTabList.populate(data.id);
+    const {id: windowId} = await browser.windows.getCurrent();
+    this.windowId = windowId;
+    browser.runtime.sendMessage({
+      event: "sidebar-open",
+      windowId
+    });
+    await this.sideTabList.populate(windowId);
     this.setupListeners();
     browser.runtime.getPlatformInfo().then((platform) => {
       document.body.setAttribute("platform", platform.os);
@@ -73,6 +78,12 @@ TabCenter.prototype = {
     });
     window.addEventListener("blur", () => {
       this.hideNewTabMenu();
+    });
+    window.addEventListener("beforeunload", () => {
+      browser.runtime.sendMessage({
+        event: "sidebar-closed",
+        windowId: this.windowId
+      });
     });
     browser.storage.onChanged.addListener(changes => {
       if (changes.darkTheme) {

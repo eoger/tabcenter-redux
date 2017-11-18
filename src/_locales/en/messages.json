@@ -3,6 +3,11 @@
     "message": "Tab Center is an attempt to solve some of the issues that have emerged from the way people use tabs (most notably the “too many tabs” problem) and provide a more versatile UI basis for future innovation. The first version of this Firefox add-on arranges tabs in a vertical rather than horizontal fashion. It is heavily inspired by and borrows ideas from the excellent VerticalTabs add-on."
   },
 
+  "browserActionTitle": {
+    "message": "Toggle Tab Center Redux",
+    "description": "Tooltip shown when hovering the toolbar button."
+  },
+
   "sidebarTitle": {
     "message": "Tabs",
     "description": "Label shown in the sidebar selector."
