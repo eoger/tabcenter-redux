@@ -2,6 +2,10 @@
   "extensionDescription": {
     "message": "Tab Center jest próbą rozwiązania problemów, które pojawiły się w wyniku tego jak ludzie używają kart (szczególnie zbyt wielu kart) i wprowadza wszechstronny interfejs użytkownika dla przyszłych innowacji. Pierwsza wersja tej wtyczki układa karty pionowo, a nie poziomo. Ta wtyczka jest mocno zainspirowana wspaniałą wtyczką VerticalTabs."
   },
+  "browserActionTitle": {
+    "message": "Przełącz Tab Center Redux",
+    "description": "Tooltip shown when hovering the toolbar button."
+  },
   "sidebarTitle": {
     "message": "Karty",
     "description": "Label shown in the sidebar selector."
