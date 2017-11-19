@@ -2,6 +2,10 @@
   "extensionDescription": {
     "message": "Tab Center це спроба вирішити деякі проблеми, які виникли у зв'язку із тим, як люди використовують вкладки (особливо проблема надто великої кількості вкладок), і надати більш гнучку базу для майбутніх іновацій. Перша версія цього доповнення для Firefox розташовує вкладки вертикально, а не горизонтально. Натхнення та запозичені ідеї взято із чудового доповнення VerticalTabs."
   },
+  "browserActionTitle": {
+    "message": "Показати\/Сховати Tab Center Redux",
+    "description": "Tooltip shown when hovering the toolbar button."
+  },
   "sidebarTitle": {
     "message": "Вкладки",
     "description": "Label shown in the sidebar selector."
