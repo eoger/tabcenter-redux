@@ -2,6 +2,10 @@
   "extensionDescription": {
     "message": "分頁中心試圖解決人們使用分頁（尤其是太多分頁）時遇到的一些問題，並為未來的創新功能提供更多的基礎。此 Firefox 附加組件以垂直方式而非水平方式排列分頁。它的靈感極大來源於附加組件 VerticalTabs 的想法。"
   },
+  "browserActionTitle": {
+    "message": "切換到 Tab Center Redux",
+    "description": "Tooltip shown when hovering the toolbar button."
+  },
   "sidebarTitle": {
     "message": "分頁",
     "description": "Label shown in the sidebar selector."
@@ -89,7 +93,7 @@
     "message": "精簡已釘選分頁"
   },
   "optionsDarkTheme": {
-    "message": "暗色佈景主題"
+    "message": "深色主題"
   },
   "optionsAdvancedTitle": {
     "message": "進階"
