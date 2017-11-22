@@ -13,6 +13,9 @@
   "newTabBtnTooltip": {
     "message": "Otevře nový panel"
   },
+  "searchPlaceholder": {
+    "message": "Vyhledávat v záložkách"
+  },
   "closeTabButtonTooltip": {
     "message": "Zavře panel"
   },
@@ -69,6 +72,15 @@
   },
   "optionsCompactMode": {
     "message": "Kompaktní režim"
+  },
+  "optionsCompactModeOff": {
+    "message": "Deaktivováno"
+  },
+  "optionsCompactModeStrict": {
+    "message": "Pokaždé"
+  },
+  "optionsCompactPins": {
+    "message": "Kompaktní připnuté karty"
   },
   "optionsDarkTheme": {
     "message": "Tmavý vzhled"
