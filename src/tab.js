@@ -8,7 +8,7 @@ function SideTab() {
 }
 
 SideTab.prototype = {
-  create(tabInfo) {
+  init(tabInfo) {
     this.id = tabInfo.id;
     this.buildViewStructure();
 
@@ -19,8 +19,11 @@ SideTab.prototype = {
     this.updateURL(tabInfo.url);
     this.updateAudible(tabInfo.audible);
     this.updatedMuted(tabInfo.mutedInfo.muted);
-    this.updateIcon(tabInfo.favIconUrl);
+    if (tabInfo.hasOwnProperty("favIconUrl")) {
+      this.updateIcon(tabInfo.favIconUrl);
+    }
     this.updatePinned(tabInfo.pinned);
+    this.updateDiscarded(tabInfo.discarded);
     if (tabInfo.cookieStoreId) {
       // This work is done in the background on purpose: making create() async
       // creates all sorts of bugs, because it is called in observers (which
@@ -36,6 +39,10 @@ SideTab.prototype = {
     tab.draggable = true;
     this.view = tab;
 
+    const burst = document.createElement("div");
+    burst.className = "tab-loading-burst";
+    this._burstView = burst;
+
     const context = document.createElement("div");
     context.className = "tab-context";
     this._contextView = context;
@@ -48,10 +55,12 @@ SideTab.prototype = {
     metaImage.className = "tab-meta-image";
     this._metaImageView = metaImage;
 
-    const icon = document.createElement("img");
+    const iconWrapper = document.createElement("div");
+    iconWrapper.className = "tab-icon-wrapper";
+    const icon = document.createElement("div");
     icon.className = "tab-icon";
-    icon.addEventListener("error", () => this._resetIcon());
-    metaImage.appendChild(icon);
+    iconWrapper.appendChild(icon);
+    metaImage.appendChild(iconWrapper);
     this._iconView = icon;
 
     const titleWrapper = document.createElement("div");
@@ -72,8 +81,12 @@ SideTab.prototype = {
 
     const close = document.createElement("div");
     close.className = "tab-close clickable";
+    // This makes the close button an event target for dragstart, which
+    // allows us to cancel the drag if the user initiated the drag from here!
+    close.draggable = true;
     close.title = browser.i18n.getMessage("closeTabButtonTooltip");
 
+    tab.appendChild(burst);
     tab.appendChild(context);
     tab.appendChild(iconOverlay);
     tab.appendChild(metaImage);
@@ -93,6 +106,10 @@ SideTab.prototype = {
   },
   updateActive(active) {
     toggleClass(this.view, "active", active);
+    if (active) {
+      this._notselectedsinceload = false;
+      this.view.removeAttribute("notselectedsinceload");
+    }
   },
   scrollIntoView() {
     const {top: parentTop, height} = this.view.parentNode.parentNode.getBoundingClientRect();
@@ -117,24 +134,39 @@ SideTab.prototype = {
     toggleClass(this._iconOverlayView, "muted", muted);
   },
   updateIcon(favIconUrl) {
-    if (favIconUrl) {
-      this._setIcon(favIconUrl);
-    } else {
-      this._resetIcon();
+    if (!favIconUrl) {
+      return;
     }
+    this._iconView.style.backgroundImage = `url("${favIconUrl}")`;
+    const imgTest = document.createElement("img");
+    imgTest.src = favIconUrl;
+    imgTest.onerror = () => {
+      this.resetIcon();
+    };
   },
-  _setIcon(url) {
-    this._iconView.src = url;
+  resetIcon() {
+    this._iconView.style.backgroundImage = "";
   },
-  _resetIcon() {
-    this._setIcon("img/defaultFavicon.svg");
-  },
-  setSpinner() {
-    this._setIcon("img/loading-spinner.svg");
+  setLoading(isLoading) {
+    toggleClass(this.view, "loading", isLoading);
+    if (isLoading) {
+      SideTab._syncThrobberAnimations();
+      this._notselectedsinceload = !this.view.classList.contains("active");
+    } else {
+      if (this._notselectedsinceload) {
+        this.view.setAttribute("notselectedsinceload", "true");
+      } else {
+        this.view.removeAttribute("notselectedsinceload");
+      }
+      this._burstView.classList.add("bursting");
+    }
   },
   updatePinned(pinned) {
     this.pinned = pinned;
     toggleClass(this.view, "pinned", pinned);
+  },
+  updateDiscarded(discarded) {
+    toggleClass(this.view, "discarded", discarded);
   },
   updateContext(context) {
     if (!context) {
@@ -146,6 +178,15 @@ SideTab.prototype = {
   updateThumbnail(thumbnail) {
     this._metaImageView.style.backgroundImage = `url(${thumbnail})`;
     this._metaImageView.classList.add("has-thumbnail");
+  },
+  resetThumbnail() {
+    this._metaImageView.style.backgroundImage = "";
+    this._metaImageView.classList.remove("has-thumbnail");
+  },
+  onAnimationEnd(e) {
+    if (e.target.classList.contains("tab-loading-burst")) {
+      this._burstView.classList.remove("bursting");
+    }
   }
 };
 
@@ -191,7 +232,45 @@ Object.assign(SideTab, {
   },
   getAllTabsViews() {
     return document.getElementsByClassName("tab");
-  }
+  },
+  _syncThrobberAnimations() {
+    // Home-made BrowserUtils.promiseLayoutFlushed
+    requestAnimationFrame(() => {
+      if (!document.body.getAnimations) { // this API is available only in Nightly so far
+        return;
+      }
+      setTimeout(() => {
+        const animations = [...document.querySelectorAll(".tab.loading .tab-icon")]
+          .map(tabIcon => tabIcon.getAnimations({ subtree: true }))
+          .reduce((a, b) => a.concat(b))
+          .filter(anim =>
+            anim instanceof CSSAnimation &&
+            anim.animationName === "tab-throbber-animation" &&
+            (anim.playState === "running" || anim.playState === "pending"));
+
+        // Synchronize with the oldest running animation, if any.
+        const firstStartTime = Math.min(
+          ...animations.map(anim => anim.startTime === null ? Infinity : anim.startTime)
+        );
+        if (firstStartTime === Infinity) {
+          return;
+        }
+        requestAnimationFrame(() => {
+          for (let animation of animations) {
+            // If |animation| has been cancelled since this rAF callback
+            // was scheduled we don't want to set its startTime since
+            // that would restart it. We check for a cancelled animation
+            // by looking for a null currentTime rather than checking
+            // the playState, since reading the playState of
+            // a CSSAnimation object will flush style.
+            if (animation.currentTime !== null) {
+              animation.startTime = firstStartTime;
+            }
+          }
+        });
+      }, 0);
+    });
+  },
 });
 
 function toggleClass(node, className, boolean) {

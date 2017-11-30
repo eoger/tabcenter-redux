@@ -1,104 +1,109 @@
 {
-  "extensionName": {
-    "message": "Tab Center Redux"
-  },
-
   "extensionDescription": {
     "message": "Tab Center це спроба вирішити деякі проблеми, які виникли у зв'язку із тим, як люди використовують вкладки (особливо проблема надто великої кількості вкладок), і надати більш гнучку базу для майбутніх іновацій. Перша версія цього доповнення для Firefox розташовує вкладки вертикально, а не горизонтально. Натхнення та запозичені ідеї взято із чудового доповнення VerticalTabs."
   },
-
+  "browserActionTitle": {
+    "message": "Показати\/Сховати Tab Center Redux",
+    "description": "Tooltip shown when hovering the toolbar button."
+  },
   "sidebarTitle": {
     "message": "Вкладки",
     "description": "Label shown in the sidebar selector."
   },
-
   "newTabBtnLabel": {
     "message": "Нова вкладка",
     "description": "Label of the New Tab button in the top menu."
   },
-
   "newTabBtnTooltip": {
     "message": "Відкрити нову вкладку"
   },
-
+  "searchPlaceholder": {
+    "message": "Пошук"
+  },
   "closeTabButtonTooltip": {
     "message": "Закрити вкладку"
   },
-
   "allTabsLabel": {
     "message": "Показати всі вкладки…",
     "description": "Shown at the bottom of the list of tabs if some tabs are filtered by the current search query."
   },
-
   "contextMenuReloadTab": {
     "message": "Оновити вкладку",
     "description": "Reload Tab context menu item label."
   },
-
   "contextMenuPinTab": {
     "message": "Прикріпити вкладку",
     "description": "Pin Tab context menu item label."
   },
-
   "contextMenuUnpinTab": {
     "message": "Відкріпити вкладку",
     "description": "Unpin Tab context menu item label."
   },
-
   "contextMenuMuteTab": {
     "message": "Вимкнути звук вкладки",
     "description": "Mute Tab context menu item label."
   },
-
   "contextMenuUnmuteTab": {
     "message": "Увімкнути звук вкладки",
     "description": "Unmute Tab context menu item label."
   },
-
   "contextMenuCloseTab": {
     "message": "Закрити вкладку"
   },
-
+  "contextMenuUndoCloseTab": {
+    "message": "Відновити закриту вкладку"
+  },
+  "contextMenuDuplicateTab": {
+    "message": "Дублювати вкладку"
+  },
   "contextMenuMoveTabToNewWindow": {
     "message": "Перенести в нове вікно"
   },
-
   "contextMenuReloadAllTabs": {
     "message": "Оновити всі вкладки"
   },
-
   "contextMenuCloseTabsUnderneath": {
     "message": "Закрити вкладки знизу"
   },
-
   "contextMenuCloseOtherTabs": {
     "message": "Закрити інші вкладки"
   },
-
   "settingsBtnTooltip": {
     "message": "Відкрити налаштування"
   },
-
   "optionsTitle": {
     "message": "Налаштування"
   },
-
   "optionsCompactMode": {
     "message": "Компактний режим"
   },
-
+  "optionsCompactModeTooltip": {
+    "message": "У компактному режимі вкладки займають менше місця. Якщо ввімкнено динамічне переключення то компактний режим буде активовано у випадку відсутності вільного простору."
+  },
+  "optionsCompactModeOff": {
+    "message": "Вимкнено"
+  },
+  "optionsCompactModeDynamic": {
+    "message": "Динамічно"
+  },
+  "optionsCompactModeStrict": {
+    "message": "Завжди"
+  },
+  "optionsCompactPins": {
+    "message": "Компактні прикріплені вкладки"
+  },
   "optionsDarkTheme": {
     "message": "Темна тема"
   },
-
   "optionsAdvancedTitle": {
     "message": "Додаткові"
   },
-
   "optionsCustomCSS": {
     "message": "Власна таблиця стилів"
   },
-
+  "optionsCustomCSSWikiLink": {
+    "message": "CSS Довідка"
+  },
   "optionsSaveCustomCSS": {
     "message": "Зберегти CSS"
   }

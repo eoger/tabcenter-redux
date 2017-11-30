@@ -1,110 +1,110 @@
 {
   "extensionDescription": {
-    "message": "Tab Center jest próbą rozwiązania problemów, które pojawiły się w wyniku tego jak ludzie używają kart (szczególnie zbyt wielu kart) i wprowadza wszechstronny interfejs użytkownika dla przyszłych innowacji. Pierwsza wersja tej wtyczki układa karty pionowo, a nie poziomo. Ta wtyczka jest mocno zainspirowana wspaniałą wtyczką VerticalTabs."
+    "message": "分頁中心試圖解決人們使用分頁（尤其是太多分頁）時遇到的一些問題，並為未來的創新功能提供更多的基礎。此 Firefox 附加組件以垂直方式而非水平方式排列分頁。它的靈感極大來源於附加組件 VerticalTabs 的想法。"
   },
   "browserActionTitle": {
-    "message": "Przełącz Tab Center Redux",
+    "message": "切換到 Tab Center Redux",
     "description": "Tooltip shown when hovering the toolbar button."
   },
   "sidebarTitle": {
-    "message": "Karty",
+    "message": "分頁",
     "description": "Label shown in the sidebar selector."
   },
   "newTabBtnLabel": {
-    "message": "Nowa karta",
+    "message": "新分頁",
     "description": "Label of the New Tab button in the top menu."
   },
   "newTabBtnTooltip": {
-    "message": "Otwórz nową kartę"
+    "message": "開啟新分頁"
   },
   "searchPlaceholder": {
-    "message": "Szukaj karty"
+    "message": "搜尋分頁"
   },
   "closeTabButtonTooltip": {
-    "message": "Zamknij kartę"
+    "message": "關閉分頁"
   },
   "allTabsLabel": {
-    "message": "Pokaż wszystkie karty…",
+    "message": "顯示所有分頁…",
     "description": "Shown at the bottom of the list of tabs if some tabs are filtered by the current search query."
   },
   "contextMenuReloadTab": {
-    "message": "Przeładuj kartę",
+    "message": "重新載入分頁",
     "description": "Reload Tab context menu item label."
   },
   "contextMenuPinTab": {
-    "message": "Przypnij kartę",
+    "message": "固定分頁",
     "description": "Pin Tab context menu item label."
   },
   "contextMenuUnpinTab": {
-    "message": "Odepnij kartę",
+    "message": "取消固定分頁",
     "description": "Unpin Tab context menu item label."
   },
   "contextMenuMuteTab": {
-    "message": "Wycisz kartę",
+    "message": "分頁靜音",
     "description": "Mute Tab context menu item label."
   },
   "contextMenuUnmuteTab": {
-    "message": "Włącz dźwięk",
+    "message": "取消分頁靜音",
     "description": "Unmute Tab context menu item label."
   },
   "contextMenuCloseTab": {
-    "message": "Zamknij kartę"
+    "message": "關閉分頁"
   },
   "contextMenuUndoCloseTab": {
-    "message": "Przywróć zamkniętą kartę"
+    "message": "復原已關閉分頁"
   },
   "contextMenuDuplicateTab": {
-    "message": "Duplikuj kartę"
+    "message": "複製分頁"
   },
   "contextMenuMoveTabToNewWindow": {
-    "message": "Przenieś do nowego okna"
+    "message": "移動到新視窗"
   },
   "contextMenuReloadAllTabs": {
-    "message": "Przeładuj wszystkie karty"
+    "message": "重新載入全部分頁"
   },
   "contextMenuCloseTabsUnderneath": {
-    "message": "Zamknij karty poniżej"
+    "message": "關閉下方分頁"
   },
   "contextMenuCloseOtherTabs": {
-    "message": "Zamknij inne karty"
+    "message": "關閉其他分頁"
   },
   "settingsBtnTooltip": {
-    "message": "Otwórz ustawienia"
+    "message": "開啟設定"
   },
   "optionsTitle": {
-    "message": "Ustawienia"
+    "message": "設定"
   },
   "optionsCompactMode": {
-    "message": "Tryb kompaktowy"
+    "message": "精簡模式"
   },
   "optionsCompactModeTooltip": {
-    "message": "Tryb kompaktowy zmniejsza wysokość kart, aby pokazać ich więcej. W ustawieniu dynamicznym uaktywni się, kiedy zabraknie miejsca."
+    "message": "精簡模式降低分頁的高度以顯示更多的分頁。在「動態」設定中，一旦發現沒有足夠的空間就會自動啟用。"
   },
   "optionsCompactModeOff": {
-    "message": "Wyłączony"
+    "message": "停用"
   },
   "optionsCompactModeDynamic": {
-    "message": "Dynamiczny"
+    "message": "動態"
   },
   "optionsCompactModeStrict": {
-    "message": "Zawsze"
+    "message": "總是"
   },
   "optionsCompactPins": {
-    "message": "Kompaktuj przypięte karty"
+    "message": "精簡已釘選分頁"
   },
   "optionsDarkTheme": {
-    "message": "Ciemny motyw"
+    "message": "深色主題"
   },
   "optionsAdvancedTitle": {
-    "message": "Zaawansowane"
+    "message": "進階"
   },
   "optionsCustomCSS": {
-    "message": "Niestandardowy arkusz stylów"
+    "message": "自訂樣式表"
   },
   "optionsCustomCSSWikiLink": {
-    "message": "Strona Wiki o dostosowaniu CSS"
+    "message": "CSS 調整 Wiki 文章"
   },
   "optionsSaveCustomCSS": {
-    "message": "Zapisz CSS"
+    "message": "儲存 CSS"
   }
 }

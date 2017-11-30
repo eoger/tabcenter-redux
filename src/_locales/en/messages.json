@@ -1,10 +1,11 @@
 {
-  "extensionName": {
-    "message": "Tab Center Redux"
-  },
-
   "extensionDescription": {
     "message": "Tab Center is an attempt to solve some of the issues that have emerged from the way people use tabs (most notably the “too many tabs” problem) and provide a more versatile UI basis for future innovation. The first version of this Firefox add-on arranges tabs in a vertical rather than horizontal fashion. It is heavily inspired by and borrows ideas from the excellent VerticalTabs add-on."
+  },
+
+  "browserActionTitle": {
+    "message": "Toggle Tab Center Redux",
+    "description": "Tooltip shown when hovering the toolbar button."
   },
 
   "sidebarTitle": {
@@ -19,6 +20,10 @@
 
   "newTabBtnTooltip": {
     "message": "Open a new tab"
+  },
+
+  "searchPlaceholder": {
+    "message": "Search tabs"
   },
 
   "closeTabButtonTooltip": {
@@ -63,6 +68,10 @@
     "message": "Undo Close Tab"
   },
 
+  "contextMenuDuplicateTab": {
+    "message": "Duplicate Tab"
+  },
+
   "contextMenuMoveTabToNewWindow": {
     "message": "Move to New Window"
   },
@@ -91,6 +100,26 @@
     "message": "Compact Mode"
   },
 
+  "optionsCompactModeTooltip": {
+    "message": "The Compact Mode reduces the height of tabs to show more of them. In the Dynamic setting, it will engage once we have no space left."
+  },
+
+  "optionsCompactModeOff":{
+    "message": "Disabled"
+  },
+
+  "optionsCompactModeDynamic":{
+    "message": "Dynamic"
+  },
+
+  "optionsCompactModeStrict":{
+    "message": "Always"
+  },
+
+  "optionsCompactPins": {
+    "message": "Compact Pinned Tabs"
+  },
+
   "optionsDarkTheme": {
     "message": "Dark Theme"
   },
@@ -100,7 +129,11 @@
   },
 
   "optionsCustomCSS": {
-    "message": "Custom stylesheet"
+    "message": "Custom Stylesheet"
+  },
+
+  "optionsCustomCSSWikiLink": {
+    "message": "CSS Tweaks Wiki Article"
   },
 
   "optionsSaveCustomCSS": {

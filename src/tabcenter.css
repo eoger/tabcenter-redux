@@ -2,8 +2,25 @@
 
 :root {
     --tab-background-normal: 0, 0%, 99%;
+    --tab-background-pinned: 0, 0%, 97%;
     --tab-background-active: 0, 0%, 87%;
     --tab-background-hover: 0, 0%, 91%;
+    --tab-border-color: hsla(0, 0%, 0%, 0.06);
+    --searchbox-background: #fff;
+    --primary-text-color: #18191a;
+    --secondary-text-color: #737373;
+    --close-button-color: hsla(0, 0%, 0%, 0.1);
+    --close-button-hover: hsla(0, 0%, 0%, 0.16);
+    --close-button-active: hsla(0, 0%, 0%, 0.2);
+    --menu-background: hsl(0, 0%, 99%);
+    --menu-button-text-shadow: 0 1px rgba(255, 255, 255, .4);
+    --menu-button-hover: hsla(240, 5%, 5%, .1);
+    --menu-button-active: hsla(240, 5%, 5%, .15);
+    --border-radius: 4px;
+}
+
+body[platform="win"] {
+    --border-radius: 2px;
 }
 
 html, body {
@@ -13,7 +30,7 @@ html, body {
 body {
     background-color: hsl(var(--tab-background-normal));
     font: message-box;
-    color: #000;
+    color: var(--primary-text-color);
     display: flex;
     flex-direction: column;
 }
@@ -25,7 +42,9 @@ body {
 #topmenu {
     display: flex;
     padding: 6px 4px;
+    height: 35px;
     border-bottom: 1px solid hsla(0, 0%, 0%, 0.2);
+    background-color: var(--menu-background);
 }
 
 #newtab {
@@ -36,7 +55,7 @@ body {
     min-width: 26px;
     align-items: center;
     padding: 2px 4px;
-    text-shadow: 0 1px rgba(255, 255, 255, .4);
+    text-shadow: var(--menu-button-text-shadow);
 }
 
 /* This is important for event bubbling: when we click a tab, e.target
@@ -46,6 +65,7 @@ img, .tab *:not(.clickable) {
 }
 
 #newtab-label {
+    margin-left: 2px;
     white-space: nowrap;
     overflow: hidden;
     text-overflow: ellipsis;
@@ -59,24 +79,50 @@ img, .tab *:not(.clickable) {
 
 #newtab-menu {
     display: flex;
-    z-index: 1;
+    z-index: 2;
     position: absolute;
-    top: 31px;
-    left: 8px;
+    top: 36px;
+    left: 3px;
+    padding-bottom: 5px;
     flex-direction: column;
-    background-color: #F2F2F2;
-    border: 1px solid #C9C9C9;
-    box-shadow: 1px 1px 1px #888888;
+    background: linear-gradient(hsla(0,0%,99%,1), hsla(0,0%,99%,.975) 10%, hsla(0,0%,98%,.975));
+    box-shadow: 0 3px 5px hsla(210,4%,10%,.1),
+                0 0 7px hsla(210,4%,10%,.1);
+    border: 1px solid ThreeDShadow;
+}
+
+body[platform="mac"] #newtab-menu {
+    border-radius: 3.5px;
+}
+
+#newtab-menu::before {
+    content: "";
+    background-image: url("img/panelarrow-vertical-themed.svg");
+    width: 20px;
+    height: 10px;
+    background-size: contain;
+    position: relative;
+    top: -10px;
+    left: 9px;
 }
 
 .newtab-menu-identity:hover {
-    background-color: #D5D5D5;
+    background-color: hsla(210,4%,10%,.07);
+}
+
+.newtab-menu-identity:active {
+    background-color: hsla(210,4%,10%,.12);
+    box-shadow: 0 1px 0 hsla(210,4%,10%,.03) inset;
+}
+
+.newtab-menu-identity:first-child {
+    margin-top: -5px;
 }
 
 .newtab-menu-identity {
     display: flex;
     align-items: center;
-    padding: 7px 0 7px 22px;
+    padding: 7px 0 7px 18px;
 }
 
 .newtab-menu-identity-label {
@@ -86,91 +132,91 @@ img, .tab *:not(.clickable) {
 }
 
 [data-identity-color="blue"] {
-  --identity-tab-color: #0996f8;
-  --identity-icon-color: #00a7e0;
+    --identity-tab-color: #0996f8;
+    --identity-icon-color: #00a7e0;
 }
 
 [data-identity-color="turquoise"] {
-  --identity-tab-color: #01bdad;
-  --identity-icon-color: #01bdad;
+    --identity-tab-color: #01bdad;
+    --identity-icon-color: #01bdad;
 }
 
 [data-identity-color="green"] {
-  --identity-tab-color: #57bd35;
-  --identity-icon-color:  #7dc14c;
+    --identity-tab-color: #57bd35;
+    --identity-icon-color:  #7dc14c;
 }
 
 [data-identity-color="yellow"] {
-  --identity-tab-color: #ffcb00;
-  --identity-icon-color: #ffcb00;
+    --identity-tab-color: #ffcb00;
+    --identity-icon-color: #ffcb00;
 }
 
 [data-identity-color="orange"] {
-  --identity-tab-color: #ff9216;
-  --identity-icon-color: #ff9216;
+    --identity-tab-color: #ff9216;
+    --identity-icon-color: #ff9216;
 }
 
 [data-identity-color="red"] {
-  --identity-tab-color: #d92215;
-  --identity-icon-color: #d92215;
+    --identity-tab-color: #d92215;
+    --identity-icon-color: #d92215;
 }
 
 [data-identity-color="pink"] {
-  --identity-tab-color: #ea385e;
-  --identity-icon-color: #ee5195;
+    --identity-tab-color: #ea385e;
+    --identity-icon-color: #ee5195;
 }
 
 [data-identity-color="purple"] {
-  --identity-tab-color: #7a2f7a;
-  --identity-icon-color: #7a2f7a;
+    --identity-tab-color: #7a2f7a;
+    --identity-icon-color: #7a2f7a;
 }
 
 [data-identity-icon="fingerprint"] {
-  --identity-icon: url("img/usercontext.svg#fingerprint");
+    --identity-icon: url("img/usercontext.svg#fingerprint");
 }
 
 [data-identity-icon="briefcase"] {
-  --identity-icon: url("img/usercontext.svg#briefcase");
+    --identity-icon: url("img/usercontext.svg#briefcase");
 }
 
 [data-identity-icon="dollar"] {
-  --identity-icon: url("img/usercontext.svg#dollar");
+    --identity-icon: url("img/usercontext.svg#dollar");
 }
 
 [data-identity-icon="cart"] {
-  --identity-icon: url("img/usercontext.svg#cart");
+    --identity-icon: url("img/usercontext.svg#cart");
 }
 
 [data-identity-icon="circle"] {
-  --identity-icon: url("img/usercontext.svg#circle");
+    --identity-icon: url("img/usercontext.svg#circle");
 }
 
 [data-identity-icon="gift"] {
-  --identity-icon: url("img/usercontext.svg#gift");
+    --identity-icon: url("img/usercontext.svg#gift");
 }
 
 [data-identity-icon="vacation"] {
-  --identity-icon: url("img/usercontext.svg#vacation");
+    --identity-icon: url("img/usercontext.svg#vacation");
 }
 
 [data-identity-icon="food"] {
-  --identity-icon: url("img/usercontext.svg#food");
+    --identity-icon: url("img/usercontext.svg#food");
 }
 
 [data-identity-icon="fruit"] {
-  --identity-icon: url("img/usercontext.svg#fruit");
+    --identity-icon: url("img/usercontext.svg#fruit");
 }
 
 [data-identity-icon="pet"] {
-  --identity-icon: url("img/usercontext.svg#pet");
+    --identity-icon: url("img/usercontext.svg#pet");
 }
 
 [data-identity-icon="tree"] {
-  --identity-icon: url("img/usercontext.svg#tree");
+    --identity-icon: url("img/usercontext.svg#tree");
 }
 
 [data-identity-icon="chill"] {
-  --identity-icon: url("img/usercontext.svg#chill");
+    --identity-icon: url("img/usercontext.svg#chill");
 }
 
 .newtab-menu-identity-icon {
@@ -188,45 +234,87 @@ img, .tab *:not(.clickable) {
 
 .topmenu-button {
     border: 1px solid transparent; /* When we show a border on hover it won't move */
-    border-radius: 2.5px;
+    border-radius: var(--border-radius);
 }
 
 #newtab.menuopened,
 .topmenu-button:hover {
-    border: 1px solid hsla(0, 0%, 0%, 0.16);
-    background-color: hsla(0, 0%, 0%, 0.1);
+    background-color: var(--menu-button-hover);
 }
 
 .topmenu-button:active {
-    background-color: hsla(0, 0%, 0%, 0.16);
+    background-color: var(--menu-button-active);
 }
 
 #newtab-icon {
     min-width: 16px;
-    margin-right: 2px;
+    min-height: 16px;
+    background-size: 16px 16px;
+    background-repeat: no-repeat;
+    background-position: center;
+    background-image: url("img/glyph-new-16.svg#standard");
 }
 
 #searchbox {
     display: flex;
     margin: 0 4px;
+    padding: 1px;
     flex: 20 0 auto;
     min-width: 45px;
-    border: 1px solid rgba(0, 0, 0, 0.16);
-    border-radius: 2.5px;
+    border-radius: var(--border-radius);
+    border: 1px solid hsla(240,5%,5%,.25);
+    box-shadow: 0 1px 4px rgba(0,0,0,.05);
     transition: border-color 0.1s, box-shadow 0.1s;
+    cursor: text;
+}
+
+body[platform="win"] #searchbox {
+    border-radius: 0;
+}
+
+#searchbox:hover {
+    border-color: hsla(240,5%,5%,.35);
+    box-shadow: 0 1px 6px rgba(0,0,0,.1);
 }
 
 #searchbox.focused {
-    border: 1px solid hsla(210, 100%, 60%, 0.6);
-    box-shadow: 0 0 0 2px hsla(210, 100%, 60%, 0.45);
+    border: 1px solid Highlight;
+}
+
+body[platform="mac"] #searchbox.focused {
+    border: 1px solid -moz-mac-focusring;
+    box-shadow: 0 0 0 1px -moz-mac-focusring inset, 0 0 0 1px -moz-mac-focusring;
+}
+
+#searchbox-icon {
+    min-width: 20px;
+    background-size: 20px 20px;
+    background-repeat: no-repeat;
+    background-position: center;
+    background-image: url("img/find.svg#standard");
+    border-radius: var(--border-radius) 0 0 var(--border-radius);
 }
 
 #searchbox-input {
     flex: 1;
-    margin-left: 1;
+    font: inherit; /* needed for windows */
     padding: 0;
     box-shadow: none;
     border: 0;
+    border-radius: 0 var(--border-radius) var(--border-radius) 0;
+}
+
+body[platform="mac"] #searchbox-input {
+    font-size: 12px;
+}
+
+body[platform="win"] #searchbox-input:placeholder-shown {
+    font-style: italic;
+}
+
+#searchbox-input,
+#searchbox-icon {
+    background-color: var(--searchbox-background);
 }
 
 #settings {
@@ -246,15 +334,17 @@ img, .tab *:not(.clickable) {
     overflow-y: auto;
 }
 
-#tablist {
+#tablist,
+#pinnedtablist:not(.compact) {
     overflow-x: hidden;
 }
 
-.tab {
+#pinnedtablist:not(.compact) .tab,
+.tab:not(.pinned) {
     display: flex;
     align-items: center;
     height: 56px;
-    border-bottom: 1px solid hsla(0, 0%, 0%, 0.06);
+    border-bottom: 1px solid var(--tab-border-color);
     position: relative;
 }
 
@@ -264,6 +354,79 @@ img, .tab *:not(.clickable) {
 
 .tab:not(.active):hover {
     background-color: hsl(var(--tab-background-hover));
+}
+
+/* Tab loading burst is disabled because it triggers on non top-level pages
+   (try it on GitHub).
+   If you don't mind that, you can re-enable the feature by disabling the
+   following rule using the custom CSS feature */
+.tab-loading-burst {
+    display: none;
+}
+
+.tab-loading-burst {
+    position: absolute;
+    overflow: hidden;
+    height: 100%;
+    width: 100%;
+    top: 0;
+    left: 0;
+}
+
+.tab-loading-burst::before {
+    position: absolute;
+    content: "";
+    /* We set the width to be a percentage of the tab's width so that we can use
+       the `scale` transform to scale it up to the full size of the tab when the
+       burst occurs. We also need to set margin-top/margin-left so that the
+       center of the burst matches the center of the favicon. */
+    width: 5%;
+    height: 100%;
+    margin-left: 17px;
+    margin-top: 10px;
+}
+
+#tablist-wrapper.shrinked .tab-loading-burst::before {
+    margin-left: 10px;
+    margin-top: 0px;
+}
+
+.tab-loading-burst.bursting::before {
+    background-image: url("img/loading-burst.svg#standard");
+    background-position: center center;
+    background-size: 100% auto;
+    background-repeat: no-repeat;
+    animation: tab-burst-animation 375ms cubic-bezier(0,0,.58,1);
+}
+
+.tab-loading-burst.bursting[notselectedsinceload]::before {
+    animation-name: tab-burst-animation-light;
+}
+
+.tab:not(.active) .tab-loading-burst.bursting::before {
+    background-image: url("img/loading-burst.svg#light");
+}
+
+@keyframes tab-burst-animation {
+    0% {
+        opacity: 0.4;
+        transform: scale(1);
+    }
+    100% {
+        opacity: 0;
+        transform: scale(40);
+    }
+}
+
+@keyframes tab-burst-animation-light {
+    0% {
+        opacity: 0.2;
+        transform: scale(1);
+    }
+    100% {
+        opacity: 0;
+        transform: scale(40);
+    }
 }
 
 .tab-context:not(.hasContext) {
@@ -291,13 +454,14 @@ img, .tab *:not(.clickable) {
 
 .tab-icon-overlay {
     display: none;
+    z-index: 1;
     position: relative;
     width: 16px;
     height: 16px;
-    border-radius: 10px;
     margin-left: -16px;
     left: 16px;
     top: -19px;
+    border-radius: 50%;
     background-color: white;
     background-size: contain;
     background-clip: padding-box;
@@ -305,9 +469,14 @@ img, .tab *:not(.clickable) {
     box-shadow: 0 1px 0 hsla(0, 0%, 0%, 0.5);
 }
 
-#tablist.shrinked .tab-icon-overlay {
-    left: 13px;
-    top: -7px;
+#tablist-wrapper.shrinked .tab-icon-overlay {
+    width: 13px;
+    height: 13px;
+    margin: 0 0 -13px -13px;
+    left: auto;
+    top: auto;
+    bottom: 0px;
+    right: -22px;
 }
 
 .tab-icon-overlay.sound {
@@ -320,7 +489,8 @@ img, .tab *:not(.clickable) {
     background-image: url("img/tab-audio-small.svg#tab-audio-muted");
 }
 
-#tablist:not(.shrinked) .tab-meta-image {
+#tablist-wrapper:not(.shrinked) #tablist .tab-meta-image,
+#tablist-wrapper:not(.shrinked) #pinnedtablist:not(.compact) .tab-meta-image  {
     margin: 6px;
     min-width: 54px;
     height: 40px;
@@ -332,34 +502,87 @@ img, .tab *:not(.clickable) {
     box-shadow: 0 0 2px 2px hsla(0, 0%, 0%, 0.02), 0 2px 0 hsla(0, 0%, 0%, 0.05), 0 0 0 1px hsla(0, 0%, 0%, 0.2);
 }
 
-#tablist.shrinked .tab-meta-image {
+#tablist-wrapper.shrinked #tablist .tab-meta-image,
+#tablist-wrapper.shrinked #pinnedtablist:not(.compact) .tab-meta-image {
     background: none !important; /* Because the JS script sets it manually */
     /* Make it the same size as the favicon it contains */
     height: 20px;
     width: 20px;
 }
 
-.tab-icon {
-    width: 20px;
-    height: 20px;
-    padding: 2px;
-    image-rendering: -moz-crisp-edges;
+#tablist-wrapper:not(.shrinked) #tablist .tab-meta-image.has-thumbnail,
+#tablist-wrapper:not(.shrinked) #pinnedtablist:not(.compact) .tab-meta-image.has-thumbnail {
+    border: 2px solid white;
 }
 
-#tablist:not(.shrinked) .tab-icon {
+#tablist-wrapper:not(.shrinked) #tablist .tab-meta-image.has-thumbnail > .tab-icon-wrapper,
+#tablist-wrapper:not(.shrinked) #pinnedtablist:not(.compact) .tab-meta-image.has-thumbnail > .tab-icon-wrapper {
+    margin-left: -2px;
+    margin-top: 18px;
+}
+
+.tab-icon {
+    background-image: url("img/defaultFavicon.svg");
+}
+
+.tab-icon-wrapper {
+    height: 20px;
+    width: 20px;
+    padding: 2px;
+}
+
+#tablist-wrapper:not(.shrinked) #tablist .tab-icon-wrapper,
+#tablist-wrapper:not(.shrinked) #pinnedtablist:not(.compact) .tab-icon-wrapper {
     margin-left: 0px;
     margin-top: 20px;
-    border-radius :2px;
+    border-radius: var(--border-radius);
     background-color: white;
     box-shadow: 0 0 2px hsla(0, 0%, 0%, 0.08), 0 0 0 1px hsla(0, 0%, 0%, 0.08);
 }
 
-#tablist:not(.shrinked) .tab-meta-image.has-thumbnail {
-    border: 2px solid white;
+.tab-icon {
+    width: 16px;
+    height: 16px;
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: contain;
+    background-origin: content-box;
+    image-rendering: pixelated;
 }
-#tablist:not(.shrinked) .tab-meta-image.has-thumbnail > .tab-icon {
-    margin-left: -2px;
-    margin-top: 18px;
+
+.tab.loading .tab-icon {
+    position: relative;
+    overflow: hidden;
+    background-image: none !important;
+}
+
+.tab.loading .tab-icon::before {
+    content: "";
+    position: absolute;
+    background-image: url("img/loading-spinner.svg#standard");
+    background-position: left center;
+    background-repeat: no-repeat;
+    width: 960px;
+    height: 100%;
+    animation: tab-throbber-animation 1.05s steps(60) infinite;
+    -moz-context-properties: fill;
+
+    /* XXX: It would be nice to transition between the "connecting" color and the
+     "loading" color (see the `.tab-throbber[progress]::before` rule below);
+     however, that currently forces main thread painting. When this is fixed
+     (after WebRender lands), we can do something like
+     `transition: fill 0.333s, opacity 0.333s;` */
+
+    fill: currentColor;
+    opacity: 0.7;
+}
+
+@keyframes tab-throbber-animation {
+    100% { transform: translateX(-100%); }
+}
+
+@keyframes tab-throbber-animation-rtl {
+    100% { transform: translateX(100%); }
 }
 
 .tab-title-wrapper {
@@ -369,8 +592,16 @@ img, .tab *:not(.clickable) {
     flex-direction: column;
 }
 
-#tablist.shrinked .tab-title-wrapper {
+#tablist-wrapper.shrinked .tab-title-wrapper {
     margin-left: 6px;
+}
+
+.tab.discarded .tab-title {
+    color: var(--secondary-text-color);
+}
+
+.tab.discarded .tab-meta-image {
+  opacity: 0.45;
 }
 
 .tab-title, .tab-host {
@@ -379,10 +610,10 @@ img, .tab *:not(.clickable) {
 }
 
 .tab-host {
-    color: rgb(127, 127, 127);
+    color: var(--secondary-text-color);
 }
 
-#tablist.shrinked .tab-host {
+#tablist-wrapper.shrinked .tab-host {
     display: none;
 }
 
@@ -398,6 +629,10 @@ img, .tab *:not(.clickable) {
     transform: translateX(36px);
 }
 
+.tab.pinned > .tab-title-wrapper::after {
+    --tab-background: var(--tab-background-pinned);
+}
+
 .tab.active > .tab-title-wrapper::after {
     --tab-background: var(--tab-background-active);
 }
@@ -406,11 +641,11 @@ img, .tab *:not(.clickable) {
     --tab-background: var(--tab-background-hover);
 }
 
-.tab:not(.pinned):hover > .tab-title-wrapper::after {
+.tab:hover > .tab-title-wrapper::after {
     transform: translateX(0);
 }
 
-.tab.pinned .tab-title-wrapper::after {
+#pinnedtablist:not(.compact) .tab.pinned > .tab-title-wrapper::after {
     transform: translateX(8px);
 }
 
@@ -418,7 +653,7 @@ img, .tab *:not(.clickable) {
     display: none;
 }
 
-.tab.pinned .tab-pin {
+#pinnedtablist:not(.compact) .tab.pinned .tab-pin {
     min-width: 16px;
     height: 16px;
     margin-right: 12px;
@@ -431,10 +666,6 @@ img, .tab *:not(.clickable) {
 }
 
 .tab-close {
-    display: none;
-}
-
-.tab:not(.pinned) > .tab-close {
     position: absolute;
     display: block;
     width: 24px;
@@ -443,28 +674,90 @@ img, .tab *:not(.clickable) {
     bottom: 0;
     right: 12px;
     margin: auto;
-    background-color: hsla(0, 0%, 0%, 0.1);
+    background-color: var(--close-button-color);
     background-image: url("img/glyph-close-16.svg#standard");
     background-position: center;
     background-repeat: no-repeat;
     background-size: 16px;
-    border-radius: 2.5px;
+    border-radius: var(--border-radius);
     opacity: 0;
 }
 
-.tab:not(.pinned):hover > .tab-close {
+.tab:hover > .tab-close {
     opacity: 1;
 }
 
 .tab-close:hover {
-    background-color: hsla(0, 0%, 0%, 0.16) !important;
+    background-color: var(--close-button-hover) !important;
 }
 .tab-close:active {
-    background-color: hsla(0, 0%, 0%, 0.2) !important;
+    background-color: var(--close-button-active) !important;
 }
 
-#tablist.shrinked .tab {
+#tablist-wrapper.shrinked #tablist .tab,
+#tablist-wrapper.shrinked #pinnedtablist:not(.compact) .tab {
     height: 35px;
+}
+
+.tab.pinned .tab-loading-burst::before {
+    margin-left: 12px;
+    margin-top: 0px;
+}
+
+#tablist-wrapper #pinnedtablist {
+    background-color: hsl(var(--tab-background-pinned));
+    flex-shrink: 0;
+}
+
+#tablist-wrapper #pinnedtablist.compact {
+    display: flex;
+    flex-wrap: wrap;
+}
+
+#pinnedtablist:empty {
+    display: none;
+}
+
+#pinnedtablist.compact .tab.pinned {
+    position: relative;
+    padding: 4px;
+}
+
+#pinnedtablist.compact .tab.pinned > .tab-icon-overlay {
+    width: 13px;
+    height: 13px;
+    margin: 0 0 -13px 0;
+    left: auto;
+    top: auto;
+    bottom: -12px;
+    right: -11px;
+}
+
+#pinnedtablist.compact .tab.pinned > .tab-meta-image {
+    background-image: none !important; /* Because the JS script sets it manually */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+#pinnedtablist.compact .tab.pinned .tab-icon-wrapper {
+    height: 24px;
+    width: 24px;
+}
+
+#pinnedtablist.compact .tab.pinned .tab-icon {
+    margin: 2px;
+}
+
+#pinnedtablist.compact .tab.pinned:not(.loading) .tab-icon {
+    width: 16px;
+    height: 16px;
+}
+
+#pinnedtablist.compact .tab.pinned > .tab-context,
+#pinnedtablist.compact .tab.pinned > .tab-title-wrapper,
+.tab.pinned > .tab-close {
+    display: none;
 }
 
 #moretabs:not([hasMoreTabs]) {
@@ -489,97 +782,54 @@ img, .tab *:not(.clickable) {
 /* DARK THEME CUSTOMIZATIONS */
 body.dark-theme {
     --tab-background-normal: 223, 15.2%, 18%;
+    --tab-background-pinned: 221, 17.75%, 21%;
     --tab-background-active: 221, 41.4%, 33.1%;
     --tab-background-hover: 222, 28.3%, 25.55%;
-    color: #c0c0c0;
-}
-
-body.dark-theme .tab {
-  color: #808080;
-}
-
-body.dark-theme #newtab {
-    text-shadow: 0 1px rgba(0, 0, 0, .4);
-}
-
-body.dark-theme #newtab.menuopened,
-body.dark-theme .topmenu-button:hover {
-    background-color: rgba(255, 255, 255, 0.1);
-}
-
-body.dark-theme .topmenu-button:active {
-    background-color: rgba(255, 255, 255, 0.2);
+    --tab-border-color: #38383d;
+    --searchbox-background: rgb(71, 71, 73);
+    --primary-text-color: rgb(249, 249, 250);
+    --secondary-text-color: #A5A5A7;
+    --close-button-color:  rgba(238, 238, 241, .05);
+    --close-button-hover: rgba(238, 238, 241, .1);
+    --close-button-active: rgba(238, 238, 241, .2);
+    --menu-background: #393f4c;
+    --menu-button-text-shadow: 0 1px rgba(0, 0, 0, .4);
+    --menu-button-hover: hsla(0, 0%, 100%, .2);
+    --menu-button-active: hsla(0, 0%, 100%, .3);
 }
 
 body.dark-theme #newtab-menu {
-    background-color: #3D414A;
+    color: black;
 }
 
-body.dark-theme .newtab-menu-identity:hover {
-    background-color: rgb(86, 117, 185);
+body.dark-theme #searchbox-icon {
+    background-image: url("img/find.svg#inverted");
 }
 
-body.dark-theme #searchbox {
-    border: 1px solid rgb(29, 35, 40);
-}
-
-body.dark-theme #searchbox-icon,
 body.dark-theme #searchbox-input {
-    background-color: rgb(23, 27, 31);
-    color: #111;
-}
-
-body.dark-theme .tab-host {
-    color: #606060;
-}
-
-body.dark-theme .tab:hover .tab-host {
-    color: #808080;
-}
-
-body.dark-theme .tab.active .tab-host {
-    color: #c0c0c0;
+    color: var(--primary-text-color);
 }
 
 body.dark-theme .tab-icon-overlay {
     background-color: #333;
 }
 
-body.dark-theme #newtab-icon{
-  filter: brightness(200%);
+body.dark-theme #newtab-icon {
+    background-image: url("img/glyph-new-16.svg#inverted");
 }
 
 body.dark-theme #settings {
     background-image: url("img/settings.svg#inverted");
 }
 
-body.dark-theme .tab.pinned .tab-pin {
+body.dark-theme #pinnedtablist .tab.pinned .tab-pin {
     background-image: url("img/glyph-pin-pinned-12.svg#inverted");
 }
 
-body.dark-theme .tab:not(.pinned) > .tab-close {
+body.dark-theme .tab-close {
     background-image: url("img/glyph-close-16.svg#inverted");
 }
 
-body.dark-theme #tablist.shrinked .tab:hover .tab-icon{
-    background-color: #e6e6e6;
-    filter: brightness(75%);
+body.dark-theme #tablist-wrapper.shrinked .tab.loading .tab-icon::before {
+    background-image: url("img/loading-spinner.svg#inverted");
 }
-
-body.dark-theme .tab:hover{
-    color: #e6e6e6;
-}
-
-body.dark-theme .tab.active{
-    color: #fff;
-}
-
-body.dark-theme #tablist.shrinked .tab.active .tab-icon{
-    background-color: #fff;
-    filter: brightness(100%);
-}
-
-body.dark-theme #topmenu {
-  background-color: #393f4c;
-}
-

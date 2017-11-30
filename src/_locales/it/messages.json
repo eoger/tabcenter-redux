@@ -1,0 +1,106 @@
+{
+  "extensionDescription": {
+    "message": "Tab Center è un tentativo di risolvere alcuni dei problemi che sono emersi dal modo in cui le persone usano le schede (paricolarmente il problema delle troppe schede contemporaneamente) e di provvedere una base di interfaccia utente più versatile per future innovazioni. La prima versione di questo Add-On dispone le schede in un ordine verticale piuttosto che orizzontale. L'Add-On è pesantemente ispirato e ha preso in prestito idee dall'eccellente estensione VerticalTabs."
+  },
+  "sidebarTitle": {
+    "message": "Schede",
+    "description": "Label shown in the sidebar selector."
+  },
+  "newTabBtnLabel": {
+    "message": "Nuova Scheda",
+    "description": "Label of the New Tab button in the top menu."
+  },
+  "newTabBtnTooltip": {
+    "message": "Apri una nuova scheda"
+  },
+  "searchPlaceholder": {
+    "message": "Cerca nelle schede"
+  },
+  "closeTabButtonTooltip": {
+    "message": "Chiudi la scheda"
+  },
+  "allTabsLabel": {
+    "message": "Mostra tutte le schede…",
+    "description": "Shown at the bottom of the list of tabs if some tabs are filtered by the current search query."
+  },
+  "contextMenuReloadTab": {
+    "message": "Ricarica la scheda",
+    "description": "Reload Tab context menu item label."
+  },
+  "contextMenuPinTab": {
+    "message": "Fissa la scheda in alto",
+    "description": "Pin Tab context menu item label."
+  },
+  "contextMenuUnpinTab": {
+    "message": "Rimuovi dall'alto",
+    "description": "Unpin Tab context menu item label."
+  },
+  "contextMenuMuteTab": {
+    "message": "Muta la scheda",
+    "description": "Mute Tab context menu item label."
+  },
+  "contextMenuUnmuteTab": {
+    "message": "Riattiva volume",
+    "description": "Unmute Tab context menu item label."
+  },
+  "contextMenuCloseTab": {
+    "message": "Chiudi la scheda"
+  },
+  "contextMenuUndoCloseTab": {
+    "message": "Annulla la chiusura"
+  },
+  "contextMenuDuplicateTab": {
+    "message": "Duplica la scheda"
+  },
+  "contextMenuMoveTabToNewWindow": {
+    "message": "Sposta in una nuova finestra"
+  },
+  "contextMenuReloadAllTabs": {
+    "message": "Ricarica tutte le schede"
+  },
+  "contextMenuCloseTabsUnderneath": {
+    "message": "Chiudi le schede al di sotto"
+  },
+  "contextMenuCloseOtherTabs": {
+    "message": "Chiudi le altre schede"
+  },
+  "settingsBtnTooltip": {
+    "message": "Apri le impostazioni"
+  },
+  "optionsTitle": {
+    "message": "Impostazioni"
+  },
+  "optionsCompactMode": {
+    "message": "Modalità compatta"
+  },
+  "optionsCompactModeTooltip": {
+    "message": "La modalità compatta riduce l'altezza delle schede per mostrarne di più. Nella modalità dinamica, si attiverà in mancanza di spazio."
+  },
+  "optionsCompactModeOff": {
+    "message": "Disabilitato"
+  },
+  "optionsCompactModeDynamic": {
+    "message": "Dinamico"
+  },
+  "optionsCompactModeStrict": {
+    "message": "Sempre"
+  },
+  "optionsCompactPins": {
+    "message": "Compatta schede fissate"
+  },
+  "optionsDarkTheme": {
+    "message": "Tema Notturno"
+  },
+  "optionsAdvancedTitle": {
+    "message": "Avanzate"
+  },
+  "optionsCustomCSS": {
+    "message": "Foglio di Stile Personalizzato"
+  },
+  "optionsCustomCSSWikiLink": {
+    "message": "Modifica CSS articolo wiki"
+  },
+  "optionsSaveCustomCSS": {
+    "message": "Salvare il CSS"
+  }
+}

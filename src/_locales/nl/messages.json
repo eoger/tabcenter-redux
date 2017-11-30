@@ -1,104 +1,105 @@
 {
-  "extensionName": {
-    "message": "Tab Center Redux"
-  },
-
   "extensionDescription": {
     "message": "Tab Center is een poging om sommige problemen op te lossen die ontstaan zijn uit de manier waarop mensen tabbladen gebruiken (vooral het “teveel tabbladen“ probleem) en een veelzijdigere gebruikersinterface te bieden voor toekomstige innovatie. De eerste versie van deze Firefox-add-on schikt tabbladen verticaal in plaats van horizontaal. Het is hevig geïnspireerd op en leent ideeën van de uitstekende VerticalTabs-add-on."
   },
-
   "sidebarTitle": {
     "message": "Tabbladen",
-    "description": "Label dat getoond wordt in de zijbalk."
+    "description": "Label shown in the sidebar selector."
   },
-
   "newTabBtnLabel": {
     "message": "Nieuw tabblad",
-    "description": "Label van de knop Nieuw tabblad in het bovenste menu."
+    "description": "Label of the New Tab button in the top menu."
   },
-
   "newTabBtnTooltip": {
     "message": "Open een nieuw tabblad"
   },
-
+  "searchPlaceholder": {
+    "message": "Zoek tabbladen"
+  },
   "closeTabButtonTooltip": {
     "message": "Tabblad sluiten"
   },
-
   "allTabsLabel": {
     "message": "Alle tabbladen tonen…",
-    "description": "Wordt getoond aan de onderkant van de tabbladenlijst wanneer sommige tabbladen gefilterd zijn door de huidige zoekopdracht."
+    "description": "Shown at the bottom of the list of tabs if some tabs are filtered by the current search query."
   },
-
   "contextMenuReloadTab": {
     "message": "Tabblad vernieuwen",
-    "description": "Label voor contextmenuitem Tabblad vernieuwen."
+    "description": "Reload Tab context menu item label."
   },
-
   "contextMenuPinTab": {
     "message": "Tabblad vastmaken",
-    "description": "Label voor contextmenuitem Tabblad vastmaken."
+    "description": "Pin Tab context menu item label."
   },
-
   "contextMenuUnpinTab": {
     "message": "Tabblad losmaken",
-    "description": "Label voor contextmenuitem voor Tabblad losmaken."
+    "description": "Unpin Tab context menu item label."
   },
-
   "contextMenuMuteTab": {
     "message": "Tabblad dempen",
-    "description": "Label voor contextmenuitem Tabblad dempen."
+    "description": "Mute Tab context menu item label."
   },
-
   "contextMenuUnmuteTab": {
     "message": "Tabblad dempen opheffen",
-    "description": "Label voor contextmenuitem Tabblad dempen opheffen."
+    "description": "Unmute Tab context menu item label."
   },
-
   "contextMenuCloseTab": {
     "message": "Tabblad sluiten"
   },
-
+  "contextMenuUndoCloseTab": {
+    "message": "Tabblad sluiten ongedaan maken"
+  },
+  "contextMenuDuplicateTab": {
+    "message": "Tabblad dupliceren"
+  },
   "contextMenuMoveTabToNewWindow": {
     "message": "Verplaatsen naar nieuw venster"
   },
-
   "contextMenuReloadAllTabs": {
     "message": "Alle tabbladen vernieuwen"
   },
-
   "contextMenuCloseTabsUnderneath": {
     "message": "Onderliggende tabbladen sluiten"
   },
-
   "contextMenuCloseOtherTabs": {
     "message": "Overige tabbladen sluiten"
   },
-
   "settingsBtnTooltip": {
     "message": "Instellingen openen"
   },
-
   "optionsTitle": {
     "message": "Instellingen"
   },
-
   "optionsCompactMode": {
     "message": "Compacte modus"
   },
-
+  "optionsCompactModeTooltip": {
+    "message": "De compacte modus vermindert de hoogte van de tabbladen zodat er meer getoond kunnen worden. In de dynamische modus zal dit ingeschakeld worden wanneer er geen ruimte meer over is."
+  },
+  "optionsCompactModeOff": {
+    "message": "Uitgeschakeld"
+  },
+  "optionsCompactModeDynamic": {
+    "message": "Dynamisch"
+  },
+  "optionsCompactModeStrict": {
+    "message": "Altijd"
+  },
+  "optionsCompactPins": {
+    "message": "Compacte vastgemaakte tabbladen"
+  },
   "optionsDarkTheme": {
     "message": "Donker thema"
   },
-  
   "optionsAdvancedTitle": {
     "message": "Geavanceerd"
   },
-
   "optionsCustomCSS": {
     "message": "Aangepaste CSS-stijlen"
   },
-
+  "optionsCustomCSSWikiLink": {
+    "message": "CSS-aanpassingen wikipagina"
+  },
   "optionsSaveCustomCSS": {
     "message": "CSS opslaan"
   }

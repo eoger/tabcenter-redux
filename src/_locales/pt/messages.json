@@ -1,0 +1,100 @@
+{
+  "extensionDescription": {
+    "message": "Tab Center é uma tentativa de resolver alguns dos problemas que surgiram a partir do jeito como as pessoas usam abas (notavelmente o problema de \"abas demais\") e fornecer uma interface base mais versátil para o usuário para inovação futura. A primeira versão deste complemento para o Firefox organiza abas verticalmente, em vez de horizontalmente. Ele é fortemente inspirado e toma emprestado ideias do excelente complemento VerticalTabs."
+  },
+  "sidebarTitle": {
+    "message": "Abas",
+    "description": "Label shown in the sidebar selector."
+  },
+  "newTabBtnLabel": {
+    "message": "Nova Aba",
+    "description": "Label of the New Tab button in the top menu."
+  },
+  "newTabBtnTooltip": {
+    "message": "Abrir uma nova aba"
+  },
+  "searchPlaceholder": {
+    "message": "Buscar aba"
+  },
+  "closeTabButtonTooltip": {
+    "message": "Fechar aba"
+  },
+  "allTabsLabel": {
+    "message": "Mostrar todas as abas…",
+    "description": "Shown at the bottom of the list of tabs if some tabs are filtered by the current search query."
+  },
+  "contextMenuReloadTab": {
+    "message": "Recarregar Aba",
+    "description": "Reload Tab context menu item label."
+  },
+  "contextMenuPinTab": {
+    "message": "Fixar Aba",
+    "description": "Pin Tab context menu item label."
+  },
+  "contextMenuUnpinTab": {
+    "message": "Desafixar Aba",
+    "description": "Unpin Tab context menu item label."
+  },
+  "contextMenuMuteTab": {
+    "message": "Silenciar Aba",
+    "description": "Mute Tab context menu item label."
+  },
+  "contextMenuUnmuteTab": {
+    "message": "Não silenciar aba",
+    "description": "Unmute Tab context menu item label."
+  },
+  "contextMenuCloseTab": {
+    "message": "Fechar Aba"
+  },
+  "contextMenuUndoCloseTab": {
+    "message": "Reabrir Aba"
+  },
+  "contextMenuDuplicateTab": {
+    "message": "Duplicar Aba"
+  },
+  "contextMenuMoveTabToNewWindow": {
+    "message": "Mover para Nova Janela"
+  },
+  "contextMenuReloadAllTabs": {
+    "message": "Recarregar Todas as Abas"
+  },
+  "contextMenuCloseTabsUnderneath": {
+    "message": "Fechar Abas Abaixo"
+  },
+  "contextMenuCloseOtherTabs": {
+    "message": "Fechar Outras Abas"
+  },
+  "settingsBtnTooltip": {
+    "message": "Abrir configurações"
+  },
+  "optionsTitle": {
+    "message": "Configurações"
+  },
+  "optionsCompactMode": {
+    "message": "Modo Compacto"
+  },
+  "optionsCompactModeTooltip": {
+    "message": "O modo compacto reduz a altura das abas para mostrar mais delas. Na configuração Dinâmica, esse modo será\nacionado uma vez que não haver espaço disponível."
+  },
+  "optionsCompactModeOff": {
+    "message": "Desativado"
+  },
+  "optionsCompactModeDynamic": {
+    "message": "Dinâmico"
+  },
+  "optionsCompactModeStrict": {
+    "message": "Sempre"
+  },
+  "optionsCompactPins": {
+    "message": "Compactar Abas Fixadas"
+  },
+  "optionsDarkTheme": {
+    "message": "Tema Escuro"
+  },
+  "optionsAdvancedTitle": {
+    "message": "Avançado"
+  },
+  "optionsSaveCustomCSS": {
+    "message": "Salvar CSS"
+  }
+}
