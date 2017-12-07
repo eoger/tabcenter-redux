@@ -106,7 +106,7 @@ SideTabList.prototype = {
   onBrowserTabActivated(tabId) {
     this.setActive(tabId);
     this.updateTabThumbnail(tabId);
-    this.scrollToActiveTab();
+    this.scrollToTab(tabId);
   },
   onBrowserTabMoved(tabId, moveInfo) {
     this.setPos(tabId, moveInfo.fromIndex < moveInfo.toIndex ?
@@ -464,7 +464,7 @@ SideTabList.prototype = {
     this.view.appendChild(unpinnedFragment);
     this.maybeShrinkTabs();
     this.updateTabThumbnail(this.active);
-    this.scrollToActiveTab();
+    this.scrollToTab(this.active);
   },
   checkWindow(tab) {
     return (tab.windowId == this.windowId);
@@ -552,9 +552,7 @@ SideTabList.prototype = {
     this.setPos(tabInfo.id, tabInfo.index);
 
     this.maybeShrinkTabs();
-    if (tabInfo.active) {
-      this.scrollToActiveTab();
-    }
+    this.scrollToTab(tabInfo.id);
   },
   setActive(tabId) {
     let sidetab = this.getTabById(tabId);
@@ -573,11 +571,8 @@ SideTabList.prototype = {
       sidetab.updateThumbnail(thumbnail);
     }
   },
-  scrollToActiveTab() {
-    if (!this.active) {
-      return;
-    }
-    const sidetab = this.getTabById(this.active);
+  scrollToTab(tabId) {
+    const sidetab = this.getTabById(tabId);
     if (sidetab) {
       sidetab.scrollIntoView();
     }
