@@ -11,6 +11,7 @@ function SideTabList() {
   this.compactModeMode = COMPACT_MODE_OFF;
   this._compactPins = true;
   this._tabsShrinked = false;
+  this.focusPrevTabAfterClose = false;
   this.windowId = null;
   this._filterActive = false;
   this.view = document.getElementById("tablist");
@@ -97,13 +98,15 @@ SideTabList.prototype = {
   async readPrefs() {
     const prefs = (await browser.storage.local.get({
       compactModeMode: COMPACT_MODE_DYNAMIC,
-      compactPins: true
+      compactPins: true,
+      focusPrevTabAfterClose: false
     }));
     this.compactModeMode = prefs.compactModeMode;
     if (this.compactModeMode != COMPACT_MODE_OFF) {
       this.maybeShrinkTabs();
     }
     this.compactPins = prefs.compactPins;
+    this.focusPrevTabAfterClose = prefs.focusPrevTabAfterClose;
   },
   onBrowserTabActivated(tabId) {
     this.setActive(tabId);
@@ -292,9 +295,14 @@ SideTabList.prototype = {
     return sessions.map(s => s.tab)
                    .filter(s => s && this.checkWindow(s));
   },
-  onClick(e) {
+  async onClick(e) {
     if (SideTab.isCloseButtonEvent(e)) {
       const tabId = SideTab.tabIdForEvent(e);
+      if (this.focusPrevTabAfterClose === true &&
+          tabId === this.active &&
+          this.tabs.size > 1) {
+        browser.tabs.update(await getPrevTabId(), {active: true});
+      }
       browser.tabs.remove(tabId);
     } else if (SideTab.isIconOverlayEvent(e)) {
       const tabId = SideTab.tabIdForEvent(e);
@@ -603,9 +611,6 @@ SideTabList.prototype = {
     }
   },
   remove(tabId) {
-    if (this.active == tabId) {
-      this.active = null;
-    }
     let sidetab = this.getTabById(tabId);
     if (!sidetab) {
       return;

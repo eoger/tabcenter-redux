@@ -124,6 +124,10 @@
     "message": "Dark Theme"
   },
 
+  "optionsFocusPrevTabAfterClose": {
+      "message": "Focus Last Active Tab When Closing Current"
+  },
+
   "optionsAdvancedTitle": {
     "message": "Advanced"
   },
