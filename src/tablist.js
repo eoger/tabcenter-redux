@@ -163,14 +163,14 @@ SideTabList.prototype = {
     }
   },
   async onMouseUp(e) {
-      if (e.which == 1 && SideTab.isTabEvent(e)) {
-        if (this.active === SideTab.tabIdForEvent(e)) {
-          browser.tabs.update(await getPrevTabId(), {active: true});
-        } else {
-          browser.tabs.update(SideTab.tabIdForEvent(e), {active: true});
-        }
-        return;
+    if (e.which == 1 && SideTab.isTabEvent(e)) {
+      if (this.active === SideTab.tabIdForEvent(e)) {
+        browser.tabs.update(await getPrevTabId(), {active: true});
+      } else {
+        browser.tabs.update(SideTab.tabIdForEvent(e), {active: true});
       }
+      return;
+    }
   },
   onAuxClick(e) {
     if (e.which == 2 && SideTab.isTabEvent(e, false)) {
@@ -738,8 +738,8 @@ SideTabList.prototype = {
 };
 
 async function getPrevTabId() {
-    return (await browser.tabs.query({ currentWindow: true }))
-      .sort((tab1, tab2) => tab2.lastAccessed - tab1.lastAccessed)[1].id;
+  return (await browser.tabs.query({ currentWindow: true }))
+  .sort((tab1, tab2) => tab2.lastAccessed - tab1.lastAccessed)[1].id;
 }
 
 // Remove case and accents/diacritics.
