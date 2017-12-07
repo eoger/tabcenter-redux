@@ -7,9 +7,8 @@ TabCenterOptions.prototype = {
   setupLabels() {
     const options = ["optionsTitle", "optionsCompactMode",
       "optionsCompactModeStrict", "optionsCompactModeDynamic",
-      "optionsCompactModeOff", "optionsCompactPins", "optionsDarkTheme",
-      "optionsAdvancedTitle", "optionsCustomCSS", "optionsCustomCSSWikiLink",
-      "optionsSaveCustomCSS"];
+      "optionsCompactModeOff", "optionsCompactPins", "optionsFocusPrevTabAfterClose", "optionsDarkTheme", "optionsAdvancedTitle", "optionsCustomCSS",
+      "optionsCustomCSSWikiLink", "optionsSaveCustomCSS"];
     for (let opt of options) {
       this._setupTextContentLabel(opt);
     }
@@ -25,6 +24,7 @@ TabCenterOptions.prototype = {
     this._setupCheckboxOption("darkTheme", "darkTheme");
     this._setupDropdownOption("compactMode", "compactModeMode");
     this._setupCheckboxOption("compactPins", "compactPins", true);
+    this._setupCheckboxOption("focusPrevTabAfterClose", "focusPrevTabAfterClose");
 
     // Custom CSS
     browser.storage.local.get({

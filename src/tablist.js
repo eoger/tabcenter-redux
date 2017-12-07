@@ -11,6 +11,7 @@ function SideTabList() {
   this.compactModeMode = COMPACT_MODE_OFF;
   this._compactPins = true;
   this._tabsShrinked = false;
+  this.focusPrevTabAfterClose = false;
   this.windowId = null;
   this._filterActive = false;
   this.view = document.getElementById("tablist");
@@ -50,11 +51,13 @@ SideTabList.prototype = {
     this.view.addEventListener("click", e => this.onClick(e));
     this.view.addEventListener("auxclick", e => this.onAuxClick(e));
     this.view.addEventListener("mousedown", e => this.onMouseDown(e));
+    this.view.addEventListener("mouseup", e => this.onMouseUp(e));
     this.view.addEventListener("contextmenu", e => this.onContextMenu(e));
     this.view.addEventListener("animationend", e => this.onAnimationEnd(e));
     this.pinnedview.addEventListener("click", e => this.onClick(e));
     this.pinnedview.addEventListener("auxclick", e => this.onAuxClick(e));
     this.pinnedview.addEventListener("mousedown", e => this.onMouseDown(e));
+    this.pinnedview.addEventListener("mouseup", e => this.onMouseUp(e));
     this.pinnedview.addEventListener("contextmenu", e => this.onContextMenu(e));
     this.pinnedview.addEventListener("animationend", e => this.onAnimationEnd(e));
     window.addEventListener("keyup", (e) => {
@@ -95,13 +98,15 @@ SideTabList.prototype = {
   async readPrefs() {
     const prefs = (await browser.storage.local.get({
       compactModeMode: COMPACT_MODE_DYNAMIC,
-      compactPins: true
+      compactPins: true,
+      focusPrevTabAfterClose: false
     }));
     this.compactModeMode = prefs.compactModeMode;
     if (this.compactModeMode != COMPACT_MODE_OFF) {
       this.maybeShrinkTabs();
     }
     this.compactPins = prefs.compactPins;
+    this.focusPrevTabAfterClose = prefs.focusPrevTabAfterClose;
   },
   onBrowserTabActivated(tabId) {
     this.setActive(tabId);
@@ -151,13 +156,19 @@ SideTabList.prototype = {
   },
   onMouseDown(e) {
     // Don't put preventDefault here or drag-and-drop won't work
-    if (e.which == 1 && SideTab.isTabEvent(e)) {
-      browser.tabs.update(SideTab.tabIdForEvent(e), {active: true});
-      return;
-    }
     // Prevent autoscrolling on middle click
     if (e.which == 2) {
       e.preventDefault();
+      return;
+    }
+  },
+  async onMouseUp(e) {
+    if (e.which == 1 && SideTab.isTabEvent(e)) {
+      if (this.active === SideTab.tabIdForEvent(e)) {
+        browser.tabs.update(await getPrevTabId(), {active: true});
+      } else {
+        browser.tabs.update(SideTab.tabIdForEvent(e), {active: true});
+      }
       return;
     }
   },
@@ -284,9 +295,14 @@ SideTabList.prototype = {
     return sessions.map(s => s.tab)
                    .filter(s => s && this.checkWindow(s));
   },
-  onClick(e) {
+  async onClick(e) {
     if (SideTab.isCloseButtonEvent(e)) {
       const tabId = SideTab.tabIdForEvent(e);
+      if (this.focusPrevTabAfterClose === true &&
+          tabId === this.active &&
+          this.tabs.size > 1) {
+        browser.tabs.update(await getPrevTabId(), {active: true});
+      }
       browser.tabs.remove(tabId);
     } else if (SideTab.isIconOverlayEvent(e)) {
       const tabId = SideTab.tabIdForEvent(e);
@@ -595,9 +611,6 @@ SideTabList.prototype = {
     }
   },
   remove(tabId) {
-    if (this.active == tabId) {
-      this.active = null;
-    }
     let sidetab = this.getTabById(tabId);
     if (!sidetab) {
       return;
@@ -723,6 +736,11 @@ SideTabList.prototype = {
     this.updateThumbnail(tabId, resizedBase64);
   }
 };
+
+async function getPrevTabId() {
+  return (await browser.tabs.query({ currentWindow: true }))
+  .sort((tab1, tab2) => tab2.lastAccessed - tab1.lastAccessed)[1].id;
+}
 
 // Remove case and accents/diacritics.
 function normalizeStr(str) {
