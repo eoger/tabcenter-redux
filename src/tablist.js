@@ -112,6 +112,7 @@ SideTabList.prototype = {
     this.setPos(tabId, moveInfo.fromIndex < moveInfo.toIndex ?
                        moveInfo.toIndex + 1: moveInfo.toIndex
     );
+    this.scrollToTab(tabId);
   },
   onBrowserTabUpdated(tabId, changeInfo, tab) {
     if (!this.checkWindow(tab)) {
