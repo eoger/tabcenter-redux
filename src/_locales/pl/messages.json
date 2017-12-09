@@ -28,7 +28,7 @@
     "description": "Shown at the bottom of the list of tabs if some tabs are filtered by the current search query."
   },
   "contextMenuReloadTab": {
-    "message": "Przeładuj kartę",
+    "message": "Odśwież kartę",
     "description": "Reload Tab context menu item label."
   },
   "contextMenuPinTab": {
@@ -60,7 +60,7 @@
     "message": "Przenieś do nowego okna"
   },
   "contextMenuReloadAllTabs": {
-    "message": "Przeładuj wszystkie karty"
+    "message": "Odśwież wszystkie karty"
   },
   "contextMenuCloseTabsUnderneath": {
     "message": "Zamknij karty poniżej"
