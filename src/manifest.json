@@ -11,7 +11,8 @@
     "default_icon": "icons/tabcenter.svg"
   },
   "icons": {
-    "48": "icons/tabcenter.svg"
+    "48": "icons/tabcenter.svg",
+    "96": "icons/tabcenter.svg"
   },
   "permissions": [
     "<all_urls>",
@@ -22,8 +23,21 @@
     "tabs"
   ],
   "browser_action": {
-    "default_icon": "icons/tabcenter.svg",
-    "default_title": "__MSG_browserActionTitle__"
+    "browser_style": true,
+    "default_icon": {
+      "16": "icons/tabcenter.svg",
+      "32": "icons/tabcenter.svg"
+    },
+    "default_title": "__MSG_browserActionTitle__",
+    "theme_icons": [{
+      "dark":  "icons/tabcenter.svg#dark",
+      "light": "icons/tabcenter.svg#light",
+      "size": 16
+    }, {
+      "dark":  "icons/tabcenter.svg#dark",
+      "light": "icons/tabcenter.svg#light",
+      "size": 32
+    }]
   },
   "background": {
     "scripts": ["background.js"]
