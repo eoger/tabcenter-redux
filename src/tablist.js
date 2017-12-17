@@ -498,6 +498,12 @@ SideTabList.prototype = {
     }
   },
   maybeShrinkTabs() {
+    // Avoid an expensive sync reflow (offsetHeight).
+    requestAnimationFrame(() => {
+      this._maybeShrinkTabs();
+    });
+  },
+  _maybeShrinkTabs() {
     if (this.compactModeMode === COMPACT_MODE_STRICT ||
         this.compactModeMode === COMPACT_MODE_OFF) {
       this.tabsShrinked = this.compactModeMode === COMPACT_MODE_STRICT;
@@ -509,25 +515,26 @@ SideTabList.prototype = {
       this.tabsShrinked = true;
       return;
     }
-    if (this.tabsShrinked) {
-      // Could we fit everything if we switched back to the "normal" mode?
-      const wrapperHeight = this._wrapperView.offsetHeight;
-      const estimatedTabHeight = 56; // Not very scientific, but it "mostly" works.
+    if (!this.tabsShrinked) {
+      return;
+    }
+    // Could we fit everything if we switched back to the "normal" mode?
+    const wrapperHeight = this._wrapperView.offsetHeight;
+    const estimatedTabHeight = 56; // Not very scientific, but it "mostly" works.
 
-      // TODO: We are not accounting for the "More Tabs" element displayed when
-      // filtering tabs.
-      let allTabs = [...this.tabs.values()].filter(tab => tab.visible);
-      let visibleTabs = allTabs.filter(tab => !tab.pinned);
-      let pinnedTabs = allTabs.filter(tab => tab.pinned);
-      let estimatedHeight = visibleTabs.length * estimatedTabHeight;
-      if (this._compactPins) {
-        estimatedHeight += pinnedTabs.length ? this.pinnedview.offsetHeight : 0;
-      } else {
-        estimatedHeight += pinnedTabs.length * estimatedTabHeight;
-      }
-      if (estimatedHeight <= wrapperHeight) {
-        this.tabsShrinked = false;
-      }
+    // TODO: We are not accounting for the "More Tabs" element displayed when
+    // filtering tabs.
+    let allTabs = [...this.tabs.values()].filter(tab => tab.visible);
+    let visibleTabs = allTabs.filter(tab => !tab.pinned);
+    let pinnedTabs = allTabs.filter(tab => tab.pinned);
+    let estimatedHeight = visibleTabs.length * estimatedTabHeight;
+    if (this._compactPins) {
+      estimatedHeight += pinnedTabs.length ? this.pinnedview.offsetHeight : 0;
+    } else {
+      estimatedHeight += pinnedTabs.length * estimatedTabHeight;
+    }
+    if (estimatedHeight <= wrapperHeight) {
+      this.tabsShrinked = false;
     }
   },
   _create(tabInfo) {

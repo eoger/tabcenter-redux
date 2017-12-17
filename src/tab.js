@@ -112,6 +112,12 @@ SideTab.prototype = {
     }
   },
   scrollIntoView() {
+    // Avoid an expensive sync reflow (scrolling).
+    requestAnimationFrame(() => {
+      this._scrollIntoView();
+    });
+  },
+  _scrollIntoView() {
     const {top: parentTop, height} = this.view.parentNode.parentNode.getBoundingClientRect();
     let {top, bottom} = this.view.getBoundingClientRect();
     top -= parentTop;
@@ -234,7 +240,6 @@ Object.assign(SideTab, {
     return document.getElementsByClassName("tab");
   },
   _syncThrobberAnimations() {
-    // Home-made BrowserUtils.promiseLayoutFlushed
     requestAnimationFrame(() => {
       if (!document.body.getAnimations) { // this API is available only in Nightly so far
         return;
