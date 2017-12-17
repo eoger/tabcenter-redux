@@ -97,9 +97,6 @@ SideTabList.prototype = {
       compactPins: true
     }));
     this.compactModeMode = parseInt(prefs.compactModeMode);
-    if (this.compactModeMode !== COMPACT_MODE_OFF) {
-      this.maybeShrinkTabs();
-    }
     this.compactPins = prefs.compactPins;
   },
   onBrowserTabActivated(tabId) {
