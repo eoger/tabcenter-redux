@@ -3,6 +3,7 @@
   <head>
     <meta charset="utf-8">
     <link rel="stylesheet" href="tabcenter.css"/>
+    <style id="customCSS"></style>
   </head>
   <body>
     <div id="topmenu">
@@ -25,4 +26,25 @@
     </div>
     <script src="index.js"></script>
   </body>
+  <template id="tab-template">
+    <div class="tab" draggable="true">
+      <div class="tab-loading-burst"></div>
+      <div class="tab-context"></div>
+      <div class="tab-icon-overlay clickable"></div>
+      <div class="tab-meta-image">
+        <div class="tab-icon-wrapper">
+          <div class="tab-icon"></div>
+        </div>
+      </div>
+      <div class="tab-title-wrapper">
+        <div class="tab-title"></div>
+        <div class="tab-host"></div>
+      </div>
+      <div class="tab-pin"></div>
+      <!-- .clickable makes the close button an event target for dragstart, which
+      allows us to cancel the drag if the user initiated the drag from here! -->
+      <div class="tab-close clickable" draggable="true"></div>
+      <canvas mozOpaque></canvas>
+    </div>
+  </template>
 </html>

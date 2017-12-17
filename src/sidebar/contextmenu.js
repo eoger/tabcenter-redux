@@ -13,7 +13,7 @@ ContextMenu.prototype = {
     this.rootNode = document.createElement("ul");
     this.rootNode.classList = "contextmenu";
     const fragment = document.createDocumentFragment();
-    for (let { label, isEnabled, onCommandFn } of this.items) {
+    for (let {label, isEnabled, onCommandFn} of this.items) {
       let item;
       if (label === "separator") {
         item = document.createElement("hr");

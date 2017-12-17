@@ -7,7 +7,7 @@
   "default_locale": "en",
   "sidebar_action": {
     "default_title": "__MSG_sidebarTitle__",
-    "default_panel": "tabcenter.html",
+    "default_panel": "sidebar/tabcenter.html",
     "default_icon": "icons/tabcenter.svg"
   },
   "icons": {
@@ -40,7 +40,7 @@
     }]
   },
   "background": {
-    "scripts": ["background.js"]
+    "scripts": ["background/background.js"]
   },
   "commands": {
     "_execute_sidebar_action": {

@@ -10,91 +10,82 @@ function SideTab() {
 SideTab.prototype = {
   init(tabInfo) {
     this.id = tabInfo.id;
-    this.buildViewStructure();
+    this._buildViewStructure();
 
     this.view.id = `tab-${this.id}`;
     this.view.setAttribute("data-tab-id", this.id);
 
-    this.updateTitle(tabInfo.title);
-    this.updateURL(tabInfo.url);
-    this.updateAudible(tabInfo.audible);
-    this.updatedMuted(tabInfo.mutedInfo.muted);
-    if (tabInfo.hasOwnProperty("favIconUrl")) {
-      this.updateIcon(tabInfo.favIconUrl);
+    this._updateTitle(tabInfo.title);
+    this._updateURL(tabInfo.url);
+    this._updateAudible(tabInfo.audible);
+    this._updatedMuted(tabInfo.mutedInfo.muted);
+    if (tabInfo.favIconUrl) {
+      this._setIcon(tabInfo.favIconUrl);
     }
-    this.updatePinned(tabInfo.pinned);
-    this.updateDiscarded(tabInfo.discarded);
+    this._updatePinned(tabInfo.pinned);
+    this._updateDiscarded(tabInfo.discarded);
     if (tabInfo.cookieStoreId) {
       // This work is done in the background on purpose: making create() async
       // creates all sorts of bugs, because it is called in observers (which
       // cannot be async).
       browser.contextualIdentities.get(tabInfo.cookieStoreId).then(context => {
-        this.updateContext(context);
+        if (!context) {
+          return;
+        }
+        this._contextView.classList.add("hasContext");
+        this._contextView.setAttribute("data-identity-color", context.color);
       });
     }
   },
-  buildViewStructure() {
-    const tab = document.createElement("div");
-    tab.className = "tab";
-    tab.draggable = true;
+  _buildViewStructure() {
+    const template = document.getElementById("tab-template");
+    const tab = template.content.children[0].cloneNode(true);
     this.view = tab;
-
-    const burst = document.createElement("div");
-    burst.className = "tab-loading-burst";
-    this._burstView = burst;
-
-    const context = document.createElement("div");
-    context.className = "tab-context";
-    this._contextView = context;
-
-    const iconOverlay = document.createElement("div");
-    iconOverlay.className = "tab-icon-overlay clickable";
-    this._iconOverlayView = iconOverlay;
-
-    const metaImage = document.createElement("div");
-    metaImage.className = "tab-meta-image";
-    this._metaImageView = metaImage;
-
-    const iconWrapper = document.createElement("div");
-    iconWrapper.className = "tab-icon-wrapper";
-    const icon = document.createElement("div");
-    icon.className = "tab-icon";
-    iconWrapper.appendChild(icon);
-    metaImage.appendChild(iconWrapper);
-    this._iconView = icon;
-
-    const titleWrapper = document.createElement("div");
-    titleWrapper.className = "tab-title-wrapper";
-
-    const title = document.createElement("span");
-    title.className = "tab-title";
-    titleWrapper.appendChild(title);
-    this._titleView = title;
-
-    const host = document.createElement("span");
-    host.className = "tab-host";
-    titleWrapper.appendChild(host);
-    this._hostView = host;
-
-    const pin = document.createElement("div");
-    pin.className = "tab-pin";
-
-    const close = document.createElement("div");
-    close.className = "tab-close clickable";
-    // This makes the close button an event target for dragstart, which
-    // allows us to cancel the drag if the user initiated the drag from here!
-    close.draggable = true;
+    this._burstView = tab.querySelector(".tab-loading-burst");
+    this._contextView = tab.querySelector(".tab-context");
+    this._iconOverlayView = tab.querySelector(".tab-icon-overlay");
+    this._metaImageView = tab.querySelector(".tab-meta-image");
+    this._iconView = tab.querySelector(".tab-icon");
+    this._titleView = tab.querySelector(".tab-title");
+    this._hostView = tab.querySelector(".tab-host");
+    const close = tab.querySelector(".tab-close");
     close.title = browser.i18n.getMessage("closeTabButtonTooltip");
-
-    tab.appendChild(burst);
-    tab.appendChild(context);
-    tab.appendChild(iconOverlay);
-    tab.appendChild(metaImage);
-    tab.appendChild(titleWrapper);
-    tab.appendChild(pin);
-    tab.appendChild(close);
+    this.thumbnailCanvas = tab.querySelector("canvas");
+    this.thumbnailCanvas.id = `thumbnail-canvas-${this.id}`;
+    this.thumbnailCanvasCtx = this.thumbnailCanvas.getContext("2d", {alpha: false});
   },
-  updateTitle(title) {
+  onUpdate(changeInfo) {
+    if (changeInfo.hasOwnProperty("title")) {
+      this._updateTitle(changeInfo.title);
+    }
+    if (changeInfo.hasOwnProperty("favIconUrl")) {
+      this._updateIcon(changeInfo.favIconUrl);
+    }
+    if (changeInfo.hasOwnProperty("url")) {
+      this._updateURL(changeInfo.url);
+    }
+    if (changeInfo.hasOwnProperty("audible")) {
+      this._updateAudible(changeInfo.audible);
+    }
+    if (changeInfo.hasOwnProperty("mutedInfo")) {
+      this._updatedMuted(changeInfo.mutedInfo.muted);
+    }
+    if (changeInfo.hasOwnProperty("discarded")) {
+      this._updateDiscarded(changeInfo.discarded);
+    }
+    if (changeInfo.hasOwnProperty("status")) {
+      if (changeInfo.status === "loading") {
+        this._updateLoading(true);
+      } else if (changeInfo.status === "complete") {
+        this._updateLoading(false);
+        this.updateThumbnail();
+      }
+    }
+    if (changeInfo.hasOwnProperty("pinned")) {
+      this._updatePinned(changeInfo.pinned);
+    }
+  },
+  _updateTitle(title) {
     if (this.title && this.title !== title) {
       if (!this.view.classList.contains("active")) {
         this.view.classList.add("wants-attention");
@@ -104,10 +95,38 @@ SideTab.prototype = {
     this._titleView.innerText = title;
     this.view.title = title;
   },
-  updateURL(url) {
+  _updateIcon(favIconUrl) {
+    if (favIconUrl) {
+      this._setIcon(favIconUrl);
+    } else {
+      this._resetIcon();
+    }
+  },
+  _updateURL(url) {
     const host = new URL(url).host || url;
     this.url = url;
     this._hostView.innerText = host;
+  },
+  _updateAudible(audible) {
+    toggleClass(this._iconOverlayView, "sound", audible);
+  },
+  _updatedMuted(muted) {
+    this.muted = muted;
+    toggleClass(this._iconOverlayView, "muted", muted);
+  },
+  _updateLoading(isLoading) {
+    toggleClass(this.view, "loading", isLoading);
+    if (isLoading) {
+      SideTab._syncThrobberAnimations();
+      this._notselectedsinceload = !this.view.classList.contains("active");
+    } else {
+      if (this._notselectedsinceload) {
+        this.view.setAttribute("notselectedsinceload", "true");
+      } else {
+        this.view.removeAttribute("notselectedsinceload");
+      }
+      this._burstView.classList.add("bursting");
+    }
   },
   updateActive(active) {
     toggleClass(this.view, "active", active);
@@ -138,58 +157,47 @@ SideTab.prototype = {
     this.visible = show;
     toggleClass(this.view, "hidden", !show);
   },
-  updateAudible(audible) {
-    toggleClass(this._iconOverlayView, "sound", audible);
-  },
-  updatedMuted(muted) {
-    this.muted = muted;
-    toggleClass(this._iconOverlayView, "muted", muted);
-  },
-  updateIcon(favIconUrl) {
-    if (!favIconUrl) {
-      return;
-    }
+  _setIcon(favIconUrl) {
     this._iconView.style.backgroundImage = `url("${favIconUrl}")`;
     const imgTest = document.createElement("img");
     imgTest.src = favIconUrl;
     imgTest.onerror = () => {
-      this.resetIcon();
+      this._resetIcon();
     };
   },
-  resetIcon() {
+  _resetIcon() {
     this._iconView.style.backgroundImage = "";
   },
-  setLoading(isLoading) {
-    toggleClass(this.view, "loading", isLoading);
-    if (isLoading) {
-      SideTab._syncThrobberAnimations();
-      this._notselectedsinceload = !this.view.classList.contains("active");
-    } else {
-      if (this._notselectedsinceload) {
-        this.view.setAttribute("notselectedsinceload", "true");
-      } else {
-        this.view.removeAttribute("notselectedsinceload");
-      }
-      this._burstView.classList.add("bursting");
-    }
-  },
-  updatePinned(pinned) {
+  _updatePinned(pinned) {
     this.pinned = pinned;
     toggleClass(this.view, "pinned", pinned);
   },
-  updateDiscarded(discarded) {
+  _updateDiscarded(discarded) {
     toggleClass(this.view, "discarded", discarded);
   },
-  updateContext(context) {
-    if (!context) {
-      return;
-    }
-    this._contextView.classList.add("hasContext");
-    this._contextView.setAttribute("data-identity-color", context.color);
-  },
-  updateThumbnail(thumbnail) {
-    this._metaImageView.style.backgroundImage = `url(${thumbnail})`;
+  async updateThumbnail() {
+    const thumbnailBase64 = await browser.tabs.captureTab(this.id, {
+      format: "png"
+    });
+    await this._updateThumbnailCanvas(thumbnailBase64);
+
+    this._metaImageView.style.backgroundImage = `-moz-element(#${this.thumbnailCanvas.id})`;
     this._metaImageView.classList.add("has-thumbnail");
+  },
+  _updateThumbnailCanvas(base64Str) {
+    const desiredHeight = 192;
+    return new Promise(resolve => {
+      const img = new Image();
+      img.onload = () => {
+        // Resize the image to lower the memory consumption.
+        const width = Math.floor(img.width * desiredHeight / img.height);
+        this.thumbnailCanvas.width = width;
+        this.thumbnailCanvas.height = desiredHeight;
+        this.thumbnailCanvasCtx.drawImage(img, 0, 0, width, desiredHeight);
+        resolve();
+      };
+      img.src = base64Str;
+    });
   },
   resetThumbnail() {
     this._metaImageView.style.backgroundImage = "";
@@ -252,7 +260,7 @@ Object.assign(SideTab, {
       }
       setTimeout(() => {
         const animations = [...document.querySelectorAll(".tab.loading .tab-icon")]
-          .map(tabIcon => tabIcon.getAnimations({ subtree: true }))
+          .map(tabIcon => tabIcon.getAnimations({subtree: true}))
           .reduce((a, b) => a.concat(b))
           .filter(anim =>
             anim instanceof CSSAnimation &&

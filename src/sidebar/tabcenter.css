@@ -58,6 +58,10 @@ body {
     text-shadow: var(--menu-button-text-shadow);
 }
 
+canvas {
+    display: none;
+}
+
 /* This is important for event bubbling: when we click a tab, e.target
    will be the tab, and not one of its child elements */
 img, .tab *:not(.clickable) {

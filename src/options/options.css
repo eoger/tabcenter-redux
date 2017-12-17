@@ -50,5 +50,5 @@ input[type="checkbox"] {
   display: inline-block;
   width: 16px;
   height: 16px;
-  background-image: url("../img/help.svg");
+  background-image: url("img/help.svg");
 }
