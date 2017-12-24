@@ -57,28 +57,28 @@
     "message": "Duplicar aba"
   },
   "contextMenuMoveTabToNewWindow": {
-    "message": "Mover para Nova Janela"
+    "message": "Mover para nova janela"
   },
   "contextMenuReloadAllTabs": {
-    "message": "Recarregar Todas as Abas"
+    "message": "Recarregar todas as abas"
   },
   "contextMenuCloseTabsUnderneath": {
-    "message": "Fechar Abas Abaixo"
+    "message": "Fechar abas abaixo"
   },
   "contextMenuCloseOtherTabs": {
-    "message": "Fechar Outras Abas"
+    "message": "Fechar outras abas"
   },
   "settingsBtnTooltip": {
-    "message": "Abrir configurações"
+    "message": "Abrir opções"
   },
   "optionsTitle": {
-    "message": "Configurações"
+    "message": "Opções"
   },
   "optionsCompactMode": {
-    "message": "Modo Compacto"
+    "message": "Modo compacto"
   },
   "optionsCompactModeTooltip": {
-    "message": "O modo compacto reduz a altura das abas para mostrar mais delas. Na configuração Dinâmica, esse modo será\nacionado uma vez que não haver espaço disponível."
+    "message": "O modo compacto reduz a altura das abas para mostrar mais delas. Na configuração dinâmica, este modo será\nacionado quando não houver espaço disponível."
   },
   "optionsCompactModeOff": {
     "message": "Desativado"
@@ -90,10 +90,10 @@
     "message": "Sempre"
   },
   "optionsCompactPins": {
-    "message": "Compactar Abas Fixadas"
+    "message": "Compactar abas fixadas"
   },
   "optionsDarkTheme": {
-    "message": "Tema Escuro"
+    "message": "Tema escuro"
   },
   "optionsAdvancedTitle": {
     "message": "Avançado"
