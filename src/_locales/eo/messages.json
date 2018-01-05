@@ -1,4 +1,7 @@
 {
+  "extensionDescription": {
+    "message": "Tab Center estas provo solvi kelkajn problemojn kiuj aperigis el kiel homoj uzas langetojn (pli fame, la «tro da langetoj» problemo) kaj provizi pli diversutilan fasadan bazon por estontaj novaĵoj. La unua versio de ĉi tiu Firefox-a aldonaĵo aranĝas la langetojn vertikale anstataŭ horizontale. Ĝi forte inspiriĝis kaj prenis ideon el la bonega aldonaĵo VerticalTabs."
+  },
   "browserActionTitle": {
     "message": "Ŝalti Tab Center Redux",
     "description": "Tooltip shown when hovering the toolbar button."
