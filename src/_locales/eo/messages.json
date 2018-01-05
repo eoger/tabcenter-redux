@@ -1,4 +1,8 @@
 {
+  "browserActionTitle": {
+    "message": "Ŝalti Tab Center Redux",
+    "description": "Tooltip shown when hovering the toolbar button."
+  },
   "sidebarTitle": {
     "message": "Langetoj",
     "description": "Label shown in the sidebar selector."
@@ -9,6 +13,9 @@
   },
   "newTabBtnTooltip": {
     "message": "Malfermas novan langeton"
+  },
+  "searchPlaceholder": {
+    "message": "Serĉi langetojn"
   },
   "closeTabButtonTooltip": {
     "message": "Fermi la langeton"
@@ -77,6 +84,6 @@
     "message": "Propra stilfolio"
   },
   "optionsSaveCustomCSS": {
-    "message": "Konservi CSS-on"
+    "message": "Konservi CSS-n"
   }
 }
