@@ -74,6 +74,9 @@
   "optionsCompactMode": {
     "message": "Kompakta modo"
   },
+  "optionsCompactModeTooltip": {
+    "message": "La kompakta modo malgrandiĝas la alto de la langetojn por montri pli da ili. En dinamika agordo, ĝi validiĝas kiam oni ne plu havas ceteran spacon."
+  },
   "optionsCompactModeOff": {
     "message": "Malvalidigita"
   },
