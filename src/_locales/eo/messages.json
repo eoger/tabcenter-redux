@@ -49,10 +49,34 @@
   "contextMenuReloadAllTabs": {
     "message": "Reŝargi ĉiujn langetojn"
   },
+  "contextMenuCloseTabsUnderneath": {
+    "message": "Fermi la subajn langetojn"
+  },
+  "contextMenuCloseOtherTabs": {
+    "message": "Fermi aliajn langetojn"
+  },
+  "settingsBtnTooltip": {
+    "message": "Malfermi agordojn"
+  },
   "optionsTitle": {
     "message": "Agordoj"
   },
+  "optionsCompactMode": {
+    "message": "Kompakta modo"
+  },
+  "optionsCompactModeDynamic": {
+    "message": "Dinamika"
+  },
   "optionsCompactModeStrict": {
     "message": "Ĉiam"
+  },
+  "optionsCompactPins": {
+    "message": "Kompaktaj fiksitaj langetoj"
+  },
+  "optionsCustomCSS": {
+    "message": "Propra stilfolio"
+  },
+  "optionsSaveCustomCSS": {
+    "message": "Konservi CSS-on"
   }
 }
