@@ -47,6 +47,9 @@
   "contextMenuCloseTab": {
     "message": "Fermi la langeton"
   },
+  "contextMenuUndoCloseTab": {
+    "message": "Malfari fermon de la langeto"
+  },
   "contextMenuDuplicateTab": {
     "message": "Duobligi la langeton"
   },
@@ -83,10 +86,16 @@
   "optionsCompactPins": {
     "message": "Kompaktaj fiksitaj langetoj"
   },
+  "optionsDarkTheme": {
+    "message": "Malhela etoso"
+  },
+  "optionsAdvancedTitle": {
+    "message": "Altnivela"
+  },
   "optionsCustomCSS": {
     "message": "Propra stilfolio"
   },
   "optionsSaveCustomCSS": {
-    "message": "Konservi la CSS-n"
+    "message": "Konservi la stilfolion"
   }
 }
