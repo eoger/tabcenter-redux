@@ -1,20 +1,24 @@
 {
   "extensionDescription": {
-    "message": "Tab Center é uma tentativa de resolver alguns dos problemas que surgiram a partir do jeito como as pessoas usam abas (notavelmente o problema de \"abas demais\") e fornecer uma interface base mais versátil para o usuário para inovação futura. A primeira versão deste complemento para o Firefox organiza abas verticalmente, em vez de horizontalmente. Ele é fortemente inspirado e toma emprestado ideias do excelente complemento VerticalTabs."
+    "message": "Tab Center é uma tentativa de resolver alguns dos problemas que surgiram a partir da forma como as pessoas usam abas (notavelmente o problema de \"abas demais\") e fornecer uma base de interface de usuário mais versátil para inovação futura. A primeira versão desta extensão para o Firefox organiza abas verticalmente, em vez de horizontalmente. Ela é fortemente inspirada e toma emprestado ideias da excelente extensão VerticalTabs."
+  },
+  "browserActionTitle": {
+    "message": "Alternar Tab Center Redux",
+    "description": "Tooltip shown when hovering the toolbar button."
   },
   "sidebarTitle": {
     "message": "Abas",
     "description": "Label shown in the sidebar selector."
   },
   "newTabBtnLabel": {
-    "message": "Nova Aba",
+    "message": "Nova aba",
     "description": "Label of the New Tab button in the top menu."
   },
   "newTabBtnTooltip": {
     "message": "Abrir uma nova aba"
   },
   "searchPlaceholder": {
-    "message": "Buscar aba"
+    "message": "Buscar abas"
   },
   "closeTabButtonTooltip": {
     "message": "Fechar aba"
@@ -24,19 +28,19 @@
     "description": "Shown at the bottom of the list of tabs if some tabs are filtered by the current search query."
   },
   "contextMenuReloadTab": {
-    "message": "Recarregar Aba",
+    "message": "Recarregar aba",
     "description": "Reload Tab context menu item label."
   },
   "contextMenuPinTab": {
-    "message": "Fixar Aba",
+    "message": "Fixar aba",
     "description": "Pin Tab context menu item label."
   },
   "contextMenuUnpinTab": {
-    "message": "Desafixar Aba",
+    "message": "Desafixar aba",
     "description": "Unpin Tab context menu item label."
   },
   "contextMenuMuteTab": {
-    "message": "Silenciar Aba",
+    "message": "Silenciar aba",
     "description": "Mute Tab context menu item label."
   },
   "contextMenuUnmuteTab": {
@@ -44,37 +48,37 @@
     "description": "Unmute Tab context menu item label."
   },
   "contextMenuCloseTab": {
-    "message": "Fechar Aba"
+    "message": "Fechar aba"
   },
   "contextMenuUndoCloseTab": {
-    "message": "Reabrir Aba"
+    "message": "Reabrir aba"
   },
   "contextMenuDuplicateTab": {
-    "message": "Duplicar Aba"
+    "message": "Duplicar aba"
   },
   "contextMenuMoveTabToNewWindow": {
-    "message": "Mover para Nova Janela"
+    "message": "Mover para nova janela"
   },
   "contextMenuReloadAllTabs": {
-    "message": "Recarregar Todas as Abas"
+    "message": "Recarregar todas as abas"
   },
   "contextMenuCloseTabsUnderneath": {
-    "message": "Fechar Abas Abaixo"
+    "message": "Fechar abas abaixo"
   },
   "contextMenuCloseOtherTabs": {
-    "message": "Fechar Outras Abas"
+    "message": "Fechar outras abas"
   },
   "settingsBtnTooltip": {
-    "message": "Abrir configurações"
+    "message": "Abrir opções"
   },
   "optionsTitle": {
-    "message": "Configurações"
+    "message": "Opções"
   },
   "optionsCompactMode": {
-    "message": "Modo Compacto"
+    "message": "Modo compacto"
   },
   "optionsCompactModeTooltip": {
-    "message": "O modo compacto reduz a altura das abas para mostrar mais delas. Na configuração Dinâmica, esse modo será\nacionado uma vez que não haver espaço disponível."
+    "message": "O modo compacto reduz a altura das abas para mostrar mais delas. Na configuração dinâmica, este modo será\nacionado quando não houver espaço disponível."
   },
   "optionsCompactModeOff": {
     "message": "Desativado"
@@ -86,13 +90,19 @@
     "message": "Sempre"
   },
   "optionsCompactPins": {
-    "message": "Compactar Abas Fixadas"
+    "message": "Compactar abas fixadas"
   },
   "optionsDarkTheme": {
-    "message": "Tema Escuro"
+    "message": "Tema escuro"
   },
   "optionsAdvancedTitle": {
     "message": "Avançado"
+  },
+  "optionsCustomCSS": {
+    "message": "Folha de estilos personalizada"
+  },
+  "optionsCustomCSSWikiLink": {
+    "message": "Artigo Wiki sobre ajustes CSS"
   },
   "optionsSaveCustomCSS": {
     "message": "Salvar CSS"

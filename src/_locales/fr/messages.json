@@ -2,6 +2,10 @@
   "extensionDescription": {
     "message": "Tab Center essaie de résoudre certains des problèmes suite à l'utilisation des onglets (principalement, le problème « j'ai trop d'onglets ») et propose une base d'interface utilisateur plus souple pour innover. Cette première version propose un arrangement vertical des onglets. Ce module est fortement inspiré et emprunte des idées à l'excellent module VerticalTabs."
   },
+  "browserActionTitle": {
+    "message": "Activer\/désactiver Tab Center Redux",
+    "description": "Tooltip shown when hovering the toolbar button."
+  },
   "sidebarTitle": {
     "message": "Onglets",
     "description": "Label shown in the sidebar selector."

@@ -1,0 +1,110 @@
+{
+  "extensionDescription": {
+    "message": "Tab Center estas provo solvi kelkajn problemojn kiuj aperigis el kiel homoj uzas langetojn (pli fame, la «tro da langetoj» problemo) kaj provizi pli diversutilan fasadan bazon por estontaj novaĵoj. La unua versio de ĉi tiu Firefox-a aldonaĵo aranĝas la langetojn vertikale anstataŭ horizontale. Ĝi forte inspiriĝis kaj prenis ideon el la bonega aldonaĵo VerticalTabs."
+  },
+  "browserActionTitle": {
+    "message": "Ŝalti Tab Center Redux",
+    "description": "Tooltip shown when hovering the toolbar button."
+  },
+  "sidebarTitle": {
+    "message": "Langetoj",
+    "description": "Label shown in the sidebar selector."
+  },
+  "newTabBtnLabel": {
+    "message": "Nova langeto",
+    "description": "Label of the New Tab button in the top menu."
+  },
+  "newTabBtnTooltip": {
+    "message": "Malfermas novan langeton"
+  },
+  "searchPlaceholder": {
+    "message": "Serĉi langetojn"
+  },
+  "closeTabButtonTooltip": {
+    "message": "Fermi la langeton"
+  },
+  "allTabsLabel": {
+    "message": "Montri ĉiujn langetojn…",
+    "description": "Shown at the bottom of the list of tabs if some tabs are filtered by the current search query."
+  },
+  "contextMenuReloadTab": {
+    "message": "Reŝargi la langeton",
+    "description": "Reload Tab context menu item label."
+  },
+  "contextMenuPinTab": {
+    "message": "Fiksi la langeton",
+    "description": "Pin Tab context menu item label."
+  },
+  "contextMenuUnpinTab": {
+    "message": "Malfiksi la langeton",
+    "description": "Unpin Tab context menu item label."
+  },
+  "contextMenuMuteTab": {
+    "message": "Silentigi la langeton",
+    "description": "Mute Tab context menu item label."
+  },
+  "contextMenuUnmuteTab": {
+    "message": "Malsilentigi la langeton",
+    "description": "Unmute Tab context menu item label."
+  },
+  "contextMenuCloseTab": {
+    "message": "Fermi la langeton"
+  },
+  "contextMenuUndoCloseTab": {
+    "message": "Malfari fermon de la langeto"
+  },
+  "contextMenuDuplicateTab": {
+    "message": "Duobligi la langeton"
+  },
+  "contextMenuMoveTabToNewWindow": {
+    "message": "Movi al nova fenestro"
+  },
+  "contextMenuReloadAllTabs": {
+    "message": "Reŝargi ĉiujn langetojn"
+  },
+  "contextMenuCloseTabsUnderneath": {
+    "message": "Fermi la subajn langetojn"
+  },
+  "contextMenuCloseOtherTabs": {
+    "message": "Fermi aliajn langetojn"
+  },
+  "settingsBtnTooltip": {
+    "message": "Malfermi agordojn"
+  },
+  "optionsTitle": {
+    "message": "Agordoj"
+  },
+  "optionsCompactMode": {
+    "message": "Kompakta modo"
+  },
+  "optionsCompactModeTooltip": {
+    "message": "La kompakta modo malgrandiĝas la alto de la langetojn por montri pli da ili. En dinamika agordo, ĝi validiĝas kiam oni ne plu havas ceteran spacon."
+  },
+  "optionsCompactModeOff": {
+    "message": "Malvalidigita"
+  },
+  "optionsCompactModeDynamic": {
+    "message": "Dinamika"
+  },
+  "optionsCompactModeStrict": {
+    "message": "Ĉiam"
+  },
+  "optionsCompactPins": {
+    "message": "Kompaktaj fiksitaj langetoj"
+  },
+  "optionsDarkTheme": {
+    "message": "Malhela etoso"
+  },
+  "optionsAdvancedTitle": {
+    "message": "Altnivela"
+  },
+  "optionsCustomCSS": {
+    "message": "Propra stilfolio"
+  },
+  "optionsCustomCSSWikiLink": {
+    "message": "Vikia artikolo pri stilfiliaj adaptoj"
+  },
+  "optionsSaveCustomCSS": {
+    "message": "Konservi la stilfolion"
+  }
+}
