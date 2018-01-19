@@ -84,7 +84,7 @@
     "message": "Отключен"
   },
   "optionsCompactModeDynamic": {
-    "message": "Динамический"
+    "message": "Автоматическая подстройка"
   },
   "optionsCompactModeStrict": {
     "message": "Всегда"
