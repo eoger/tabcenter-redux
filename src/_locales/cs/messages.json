@@ -2,6 +2,10 @@
   "extensionDescription": {
     "message": "Tab Center je pokus vyřešit některé problémy, které vznikly kvůli tomu, jak lidé panely používají (především problém s příliš velkým počtem otevřených panelů) a snaží se poskytnout univerzální základ uživatelského rozhraní pro další inovace. První verze tohoto doplňku řadí panely vertikálně a ne horizontálně. Byla inspirována skvělým doplňkem VerticalTabs, odkud přejímá některé nápady."
   },
+  "browserActionTitle": {
+    "message": "Přepnout Tab Center Redux",
+    "description": "Tooltip shown when hovering the toolbar button."
+  },
   "sidebarTitle": {
     "message": "Panely",
     "description": "Label shown in the sidebar selector."
