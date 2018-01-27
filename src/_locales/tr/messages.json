@@ -30,5 +30,75 @@
   "contextMenuReloadTab": {
     "message": "Sekmeyi Yeniden Yükle",
     "description": "Reload Tab context menu item label."
+  },
+  "contextMenuPinTab": {
+    "message": "Sekmeyi İğnele",
+    "description": "Pin Tab context menu item label."
+  },
+  "contextMenuUnpinTab": {
+    "message": "Sekmeden İğneyi Kaldır",
+    "description": "Unpin Tab context menu item label."
+  },
+  "contextMenuMuteTab": {
+    "message": "Sekmenin Sesini Kapat",
+    "description": "Mute Tab context menu item label."
+  },
+  "contextMenuUnmuteTab": {
+    "message": "Sekmenin Sesini Aç",
+    "description": "Unmute Tab context menu item label."
+  },
+  "contextMenuCloseTab": {
+    "message": "Sekmeyi Kapat"
+  },
+  "contextMenuUndoCloseTab": {
+    "message": "Kapatılan Sekmeyi Yeniden Aç"
+  },
+  "contextMenuDuplicateTab": {
+    "message": "Sekmeyi Çoğalt"
+  },
+  "contextMenuMoveTabToNewWindow": {
+    "message": "Yeni Pencereye Geç"
+  },
+  "contextMenuReloadAllTabs": {
+    "message": "Tüm Sekmeleri Yeniden Yükle"
+  },
+  "contextMenuCloseTabsUnderneath": {
+    "message": "Alttaki Sekmeleri Kapat"
+  },
+  "contextMenuCloseOtherTabs": {
+    "message": "Diğer Sekmeleri Kapat"
+  },
+  "settingsBtnTooltip": {
+    "message": "Ayarları aç"
+  },
+  "optionsTitle": {
+    "message": "Ayarlar"
+  },
+  "optionsCompactMode": {
+    "message": "Kısa Mod"
+  },
+  "optionsCompactModeTooltip": {
+    "message": "Kısa Mod daha fazla göstermek için sekmelerin yüksekliğini azaltır. Dinamik ayarda, boş alanımız kalmayınca devreye girecek."
+  },
+  "optionsCompactModeOff": {
+    "message": "Devre dışı"
+  },
+  "optionsCompactModeDynamic": {
+    "message": "Dinamik"
+  },
+  "optionsCompactModeStrict": {
+    "message": "Daima"
+  },
+  "optionsCompactPins": {
+    "message": "Kısa İğnelenmiş Sekmeler"
+  },
+  "optionsDarkTheme": {
+    "message": "Koyu Tema"
+  },
+  "optionsAdvancedTitle": {
+    "message": "Gelişmiş"
+  },
+  "optionsCustomCSS": {
+    "message": "Özel Tarz Sayfası"
   }
 }
