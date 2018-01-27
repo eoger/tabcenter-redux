@@ -100,5 +100,11 @@
   },
   "optionsCustomCSS": {
     "message": "Özel Tarz Sayfası"
+  },
+  "optionsCustomCSSWikiLink": {
+    "message": "Wiki Maddesinden Alıntı CSS"
+  },
+  "optionsSaveCustomCSS": {
+    "message": "CSS Kaydet"
   }
 }
