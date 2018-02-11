@@ -424,14 +424,17 @@ SideTabList.prototype = {
     this.filter();
   },
   filter(query = "") {
-    this._filterActive = query !== "";
-    query = normalizeStr(query);
+    // Remove whitespace and split on spaces.
+    // filter(Boolean) to handle the case where the query is entirely
+    // whitespace.
+    let queryTokens = query.trim().split(/\s+/).filter(Boolean);
+    this._filterActive = queryTokens.length > 0;
     let notShown = 0;
     for (let tab of this.tabs.values()) {
-      const show = normalizeStr(tab.url).includes(query) ||
-                   normalizeStr(tab.title).includes(query);
+      const show = tab.matches(queryTokens);
       notShown += !show ? 1 : 0;
       tab.updateVisibility(show);
+      tab.highlightMatches(queryTokens, show);
     }
     if (notShown > 0) {
       // Sadly browser.i18n doesn't support plurals, which is why we
@@ -722,10 +725,5 @@ SideTabList.prototype = {
     this.updateThumbnail(tabId, resizedBase64);
   }
 };
-
-// Remove case and accents/diacritics.
-function normalizeStr(str) {
-  return str ? str.toLowerCase().normalize("NFD").replace(/[\u0300-\u036f]/g, "") : "";
-}
 
 module.exports = SideTabList;

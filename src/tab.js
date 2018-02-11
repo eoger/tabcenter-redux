@@ -94,13 +94,60 @@ SideTab.prototype = {
     tab.appendChild(pin);
     tab.appendChild(close);
   },
+  matches(tokens) {
+    if (tokens.length === 0) {
+      return true;
+    }
+    let title = normalizeStr(this.title);
+    let url = normalizeStr(this.url);
+    for (let token of tokens) {
+      token = normalizeStr(token);
+      if (title.includes(token)) {
+        return true;
+      }
+      if (url.includes(token)) {
+        return true;
+      }
+    }
+    return false;
+  },
+  _highlightSearchResults(node, text, searchTokens) {
+    let ranges = findHighlightedRanges(text, searchTokens);
+
+    // Clear out the node before we fill it with new stuff.
+    while (node.firstChild) {
+      node.removeChild(node.firstChild);
+    }
+
+    for (let {text, highlight} of ranges) {
+      if (highlight) {
+        let span = document.createElement("span");
+        span.className = "search-highlight";
+        span.textContent = text;
+        node.appendChild(span);
+      } else {
+        node.appendChild(document.createTextNode(text));
+      }
+    }
+  },
+  highlightMatches(tokens) {
+    if (!this.visible) {
+      // Reset these to the 'no matches' state (Not calling
+      // _highlightSearchResult is just an optimization).
+      this.updateTitle(this.title);
+      this.updateURL(this.url);
+    } else {
+      this._highlightSearchResults(this._titleView, this.title, tokens);
+      this._highlightSearchResults(this._hostView, getHost(this.url), tokens);
+    }
+  },
   updateTitle(title) {
     this.title = title;
     this._titleView.innerText = title;
     this.view.title = title;
   },
   updateURL(url) {
-    const host = new URL(url).host || url;
+    const host = getHost(url);
     this.url = url;
     this._hostView.innerText = host;
   },
@@ -280,6 +327,91 @@ Object.assign(SideTab, {
 
 function toggleClass(node, className, boolean) {
   boolean ? node.classList.add(className) : node.classList.remove(className);
+}
+
+// Remove case and accents/diacritics.
+function normalizeStr(str) {
+  return str ? str.toLowerCase().normalize("NFD").replace(/[\u0300-\u036f]/g, "") : "";
+}
+
+function getHost(url) {
+  return new URL(url).host || url;
+}
+
+// This function takes as input a text string and an array of "search tokens"
+// and returns what we should render in an abstract sense. e.g. an array of
+// `{text: string, highlighted: bool}`, such that `result.map(r =>
+// r.text).join('')` should equal what was provided as the first argument, and
+// that the sections with `highlighted: true` correspond to ranges that match
+// the members of searchTokens.
+//
+// (It's complex enough to arguably warrant unit tests, but oh well, it's split
+// out so that I could more easily test it manually).
+function findHighlightedRanges(text, searchTokens) {
+  // Trivial case
+  if (searchTokens.length === 0) {
+    return [{text, highlighted: false}];
+  }
+  // Potentially surprisingly, changing case doesn't preserve length. If we
+  // can't do this without messing up the indices in the given text, we fail.
+  // This function is just for highlighting the matching parts in searches in
+  // the UI, so it's not a big deal if it doesn't highlight something.
+  let canLowercaseText = text.toLowerCase().length === text.length &&
+                         searchTokens.every(t =>
+                           t.toLowerCase().length === t.length);
+  let normalize = s => canLowercaseText ? s.toLowerCase() : s;
+  let normText = normalize(text);
+
+  // Build an array of the start/end indices of each result.
+  let ranges = [];
+  for (let token of searchTokens) {
+    token = normalize(token);
+    if (!token.length) {
+      continue;
+    }
+    for (let index = normText.indexOf(token);
+         index >= 0;
+         index = normText.indexOf(token, index + 1)) {
+      ranges.push({start: index, end: index + token.length});
+    }
+  }
+  if (ranges.length === 0) {
+    return [{text, highlighted: false}];
+  }
+
+  // Order them in the order they appear in the text (as it is they're ordered
+  // first by the order of the tokens in searchTokens, and then by the
+  // position in the text).
+  ranges.sort((a, b) => a.start - b.start);
+
+  let coalesced = [ranges[0]];
+  for (let i = 1; i < ranges.length; ++i) {
+    let prev = coalesced[coalesced.length - 1];
+    let curr = ranges[i];
+    if (curr.start < prev.end) {
+      // Overlap, update prev, but don't add curr.
+      if (curr.end > prev.end) {
+        prev.end = curr.end;
+      }
+    } else {
+      coalesced.push(curr);
+    }
+  }
+
+  let result = [];
+  let pos = 0;
+  for (let range of coalesced) {
+    if (pos < range.start) {
+      result.push({text: text.slice(pos, range.start), highlight: false});
+    }
+    result.push({text: text.slice(range.start, range.end), highlight: true});
+    pos = range.end;
+  }
+  if (pos < text.length) {
+    result.push({text: text.slice(pos), highlight: false});
+  }
+
+  return result;
 }
 
 module.exports = SideTab;
