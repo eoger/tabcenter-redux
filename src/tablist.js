@@ -25,6 +25,14 @@ SideTabList.prototype = {
   async init() {
     this.setupListeners();
     await this.readPrefs();
+    this.checkScroll();
+  },
+  checkScroll() {
+    if (this.view.scrollTop === 0) {
+      this.view.classList.remove("scrolled-to-start");
+    } else {
+      this.view.classList.add("scrolled-to-start");
+    }
   },
   setupListeners() {
     this._spacerView = document.getElementById("spacer");
@@ -52,6 +60,10 @@ SideTabList.prototype = {
     this.view.addEventListener("mousedown", e => this.onMouseDown(e));
     this.view.addEventListener("contextmenu", e => this.onContextMenu(e));
     this.view.addEventListener("animationend", e => this.onAnimationEnd(e));
+    this.view.addEventListener("scroll", e => {
+      console.log("scrollll", e, this.view.scrollTop, this);
+      this.checkScroll();
+    });
     this.pinnedview.addEventListener("click", e => this.onClick(e));
     this.pinnedview.addEventListener("auxclick", e => this.onAuxClick(e));
     this.pinnedview.addEventListener("mousedown", e => this.onMouseDown(e));

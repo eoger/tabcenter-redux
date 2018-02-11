@@ -348,6 +348,14 @@ body[platform="win"] #searchbox-input:placeholder-shown {
     position: relative;
 }
 
+#pinnedtablist.compact:not(:empty) {
+    border-bottom: 1px solid var(--tab-border-color);
+}
+
+#tablist.scrolled-to-start {
+    box-shadow: inset 0px 10px 10px -10px rgba(0, 0, 0, 0.3);
+}
+
 .tab.active {
     background-color: hsl(var(--tab-background-active));
 }
