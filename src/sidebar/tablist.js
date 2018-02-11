@@ -59,6 +59,7 @@ TabList.prototype = {
     this._spacerView.addEventListener("dblclick", () => this._onSpacerDblClick());
     this._spacerView.addEventListener("auxclick", e => this._onSpacerAuxClick(e));
     this._moreTabsView.addEventListener("click", () => this._clearSearch());
+    this._view.addEventListener("scroll", () => this.onScroll());
 
     // Drag-and-drop
     document.addEventListener("dragstart", e => this._onDragStart(e));
@@ -177,6 +178,13 @@ TabList.prototype = {
     const undoTabs = await this._getRecentlyClosedTabs();
     if (undoTabs.length) {
       browser.sessions.restore(undoTabs[0].sessionId);
+    }
+  },
+  onScroll() {
+    if (this._view.scrollTop === 0) {
+      this._wrapperView.classList.remove("scrolled");
+    } else {
+      this._wrapperView.classList.add("scrolled");
     }
   },
   _onClick(e) {
