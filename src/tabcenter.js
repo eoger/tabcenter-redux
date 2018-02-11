@@ -38,10 +38,15 @@ TabCenter.prototype = {
     this._searchBoxInput.addEventListener("input", (e) => {
       this.sideTabList.filter(e.target.value);
     });
-    this._searchBoxInput.addEventListener("focus", () => {
+    const onSearchboxFocus = () => {
       searchbox.classList.add("focused");
       this._newTabLabelView.classList.add("hidden");
-    });
+    };
+    this._searchBoxInput.addEventListener("focus", onSearchboxFocus);
+    // We won't get this message reliably since the item has autofocus.
+    if (document.activeElement === this._searchBoxInput) {
+      onSearchboxFocus();
+    }
     this._searchBoxInput.addEventListener("blur", () => {
       searchbox.classList.remove("focused");
       this._newTabLabelView.classList.remove("hidden");
