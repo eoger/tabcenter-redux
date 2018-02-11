@@ -13,6 +13,7 @@ function SideTabList() {
   this._tabsShrinked = false;
   this.windowId = null;
   this._filterActive = false;
+  this._selected = null;
   this.view = document.getElementById("tablist");
   this.pinnedview = document.getElementById("pinnedtablist");
   this._wrapperView = document.getElementById("tablist-wrapper");
@@ -114,6 +115,7 @@ SideTabList.prototype = {
     if (!this.checkWindow(tab)) {
       return;
     }
+    this.clearSelection();
     if (changeInfo.hasOwnProperty("title")) {
       this.setTitle(tab);
     }
@@ -417,6 +419,7 @@ SideTabList.prototype = {
     await browser.tabs.move(tab.id, { index: lastIndex });
   },
   clearSearch() {
+    this.clearSelection();
     if (!this._filterActive) {
       return;
     }
@@ -442,6 +445,111 @@ SideTabList.prototype = {
       this._moreTabsView.removeAttribute("hasMoreTabs");
     }
     this.maybeShrinkTabs();
+    if (!this._filterActive) {
+      this.clearSelection();
+    } else {
+      // If there's a currently selected tab, try and use it if possible.
+      let index = this._getInitialSelectionIndex(this._selected);
+      this.setSelectionIndex(index);
+    }
+  },
+  clearSelection() {
+    let selected = document.querySelector(".selected");
+    if (selected) {
+      selected.classList.remove("selected");
+    }
+    this._selected = null;
+  },
+  setSelectionIndex(num) {
+    this.clearSelection();
+    if (num < 0) {
+      return;
+    }
+    // This is a little awkward, but it could be worse.
+    let visible = SideTab.getVisibleTabViews();
+    if (num > visible.length) {
+      // Should this be an error? moveSelection is expected to clamp.
+      return;
+    }
+    visible[num].classList.add("selected");
+    this._selected = SideTab.tabIdForView(visible[num]);
+    this.scrollToTab(this._selected);
+  },
+  _getInitialSelectionIndex(goalTabId = null) {
+    // only visible tabs considered.
+    let numPinned = 0;
+    let numUnpinned = 0;
+    let goalIndex = -1;
+
+    let curIndex = 0; // Index ignoring invisible tabs.
+    for (let tab of this.tabs.values()) {
+      if (!tab.visible) {
+        continue;
+      }
+      if (tab.pinned) {
+        numPinned++;
+      } else {
+        numUnpinned++;
+      }
+      if (tab.id === goalTabId) {
+        goalIndex = curIndex;
+      }
+      ++curIndex;
+    }
+    if (numUnpinned === 0 && numPinned === 0) {
+      return -1;
+    }
+    // If our goal tab is visible, return it's index.
+    if (goalIndex >= 0) {
+      return goalIndex;
+    }
+    // Otherwise, if there are unpinned tabs, we use the first unpinned tab.
+    if (numUnpinned > 0) {
+      return numPinned;
+    }
+    // If there are no unpinned tabs but there are pinned tabs, return the
+    // the first pinned tab (which is always 0)
+    if (numPinned > 0) {
+      return 0;
+    }
+    // Otherwise there are no visible tabs at all, so we return -1 to indicate
+    // that no selection should be used.
+    return -1;
+  },
+  moveSelection(delta) {
+    // This is awkward because we don't have a datastructure that can answer
+    // positional information about tabs cheaply.
+    let tabs = Array.from(SideTab.getAllTabsViews(), el => {
+      return this.tabs.get(SideTab.tabIdForView(el));
+    });
+    let visibleTabs = tabs.filter(tab => tab.visible);
+    // Note: this._selected can be null (if they start using the arrows when
+    // ther's nothing in the searchbox), and this will do the right thing here
+    // so long as tab.id is never null.
+    let curSelectedIndex = visibleTabs.findIndex(t => t.id === this._selected);
+    if (curSelectedIndex < 0) {
+      curSelectedIndex = this._getInitialSelectionIndex();
+      if (curSelectedIndex < 0) {
+        // No visible tabs, or hypothetically some other reason we shouldn't
+        // be selecting anything.
+        this.clearSelection();
+        return;
+      }
+    }
+    let nextIndex = curSelectedIndex + delta;
+    // Clamp to [0, visibleTabs.length), so that navigating up or down
+    // off the end sticks in place.
+    nextIndex = Math.max(0, Math.min(visibleTabs.length - 1, nextIndex));
+    this.setSelectionIndex(nextIndex);
+  },
+  commitSelection(clearSearch) {
+    if (this._selected === null) {
+      return;
+    }
+    browser.tabs.update(this._selected, {active: true});
+    if (clearSearch) {
+      this.clearSearch();
+    }
   },
   async populate(windowId) {
     if (windowId && this.windowId === null) {
@@ -619,6 +727,8 @@ SideTabList.prototype = {
     if (!sidetab) {
       return;
     }
+    // Clear our selection whenever the tab list changes. (Is this too eager?)
+    this.clearSelection();
     let element = sidetab.view;
     let parent = sidetab.pinned ? this.pinnedview : this.view;
     let elements = SideTab.getAllTabsViews();
