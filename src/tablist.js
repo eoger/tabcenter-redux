@@ -239,7 +239,8 @@ SideTabList.prototype = {
         onCommandFn: () => {
           const tabPos = this.getPos(tabId);
           const orderedIds = [...SideTab.getAllTabsViews()].map(el => SideTab.tabIdForView(el));
-          browser.tabs.remove(orderedIds.slice(tabPos + 1));
+          const toClose = orderedIds.slice(tabPos + 1).filter(id => this.tabs.get(id).visible);
+          browser.tabs.remove(toClose);
         }
       });
       items.push({
