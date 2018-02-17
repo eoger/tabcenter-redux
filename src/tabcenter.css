@@ -452,6 +452,23 @@ body[platform="win"] #searchbox-input:placeholder-shown {
     background-position: -6px 0;
 }
 
+#pinnedtablist.compact .tab.pinned > .tab-context.hasContext {
+    /* Specify all these at once also overrides the gradient background,
+     * Which looks wrong since these are vertical (we could define a
+     * vertical background, but they're 2px high so it doesn't matter).
+     * Note that this also (intentionally) overrides background-position
+     * set by `.tab:not(.active)` with `0 0`.
+     */
+    background: var(--identity-tab-color) no-repeat 0 0;
+    height: 2px;
+    width: 20px;
+    position: absolute;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    margin: auto;
+}
+
 .tab-icon-overlay {
     display: none;
     z-index: 1;
@@ -756,7 +773,7 @@ body[platform="win"] #searchbox-input:placeholder-shown {
     height: 16px;
 }
 
-#pinnedtablist.compact .tab.pinned > .tab-context,
+#pinnedtablist.compact .tab.pinned > .tab-context:not(.hasContext),
 #pinnedtablist.compact .tab.pinned > .tab-title-wrapper,
 .tab.pinned > .tab-close {
     display: none;
