@@ -245,6 +245,9 @@ Object.assign(SideTab, {
   getAllTabsViews() {
     return document.getElementsByClassName("tab");
   },
+  getVisibleTabViews() {
+    return document.querySelectorAll(".tab:not(.hidden)");
+  },
   _syncThrobberAnimations() {
     requestAnimationFrame(() => {
       if (!document.body.getAnimations) { // this API is available only in Nightly so far

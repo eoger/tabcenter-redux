@@ -28,6 +28,7 @@ TabCenter.prototype = {
     this.setupListeners();
     browser.runtime.getPlatformInfo().then((platform) => {
       document.body.setAttribute("platform", platform.os);
+      this.platform = platform.os;
     });
   },
   setupListeners() {
@@ -38,13 +39,19 @@ TabCenter.prototype = {
     this._searchBoxInput.addEventListener("input", (e) => {
       this.sideTabList.filter(e.target.value);
     });
-    this._searchBoxInput.addEventListener("focus", () => {
+    const onSearchboxFocus = () => {
       searchbox.classList.add("focused");
       this._newTabLabelView.classList.add("hidden");
-    });
+    };
+    this._searchBoxInput.addEventListener("focus", onSearchboxFocus);
+    // We won't get this message reliably since the item has autofocus.
+    if (document.activeElement === this._searchBoxInput) {
+      onSearchboxFocus();
+    }
     this._searchBoxInput.addEventListener("blur", () => {
       searchbox.classList.remove("focused");
       this._newTabLabelView.classList.remove("hidden");
+      this.sideTabList.clearSelection();
     });
     this._newTabButtonView.addEventListener("click", () => {
       if (!this._newTabMenuShown) {
@@ -84,6 +91,41 @@ TabCenter.prototype = {
         event: "sidebar-closed",
         windowId: this.windowId
       });
+    });
+    this._searchBoxInput.addEventListener("keypress", e => {
+      let delta = 0;
+      switch (e.key) {
+      case "Enter":
+        // Select whatever is already selected. Clear the current search and
+        // selection by default, but allow users to keep them using shift+enter.
+        this.sideTabList.commitSelection(!e.shiftKey);
+        e.preventDefault();
+        break;
+      case "ArrowDown":
+        delta = 1;
+        break;
+      case "ArrowUp":
+        delta = -1;
+        break;
+        // Apple supports emacs-style movement keys (ctrl+{n,p,f,b,a,e}) in
+        // most text boxes/dropdowns/etc. Most users are completely unaware
+        // of it, but I think the relevant items are worth supporting here.
+        // (Think "next line" for Ctrl+N, and "previous line" for Ctrl+P)
+      case "n": case "N":
+        if (e.ctrlKey && this.platform === "mac") {
+          delta = 1;
+        }
+        break;
+      case "p": case "P":
+        if (e.ctrlKey && this.platform === "mac") {
+          delta = -1;
+        }
+        break;
+      }
+      if (delta !== 0) {
+        this.sideTabList.moveSelection(delta);
+        e.preventDefault();
+      }
     });
     browser.storage.onChanged.addListener(changes => {
       if (changes.darkTheme) {
