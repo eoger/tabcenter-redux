@@ -779,6 +779,19 @@ body[platform="win"] #searchbox-input:placeholder-shown {
     display: none;
 }
 
+#pinnedtablist .tab.pinned.wants-attention {
+    background-image: url("img/tab-attention.svg");
+    background-repeat: no-repeat;
+}
+
+#pinnedtablist.compact .tab.pinned.wants-attention {
+    background-position: center bottom;
+}
+
+#pinnedtablist:not(.compact) .tab.pinned.wants-attention {
+    background-position: left center;
+}
+
 #moretabs:not([hasMoreTabs]) {
     display: none;
 }

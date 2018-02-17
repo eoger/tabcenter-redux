@@ -95,6 +95,11 @@ SideTab.prototype = {
     tab.appendChild(close);
   },
   updateTitle(title) {
+    if (this.title && this.title !== title) {
+      if (!this.view.classList.contains("active")) {
+        this.view.classList.add("wants-attention");
+      }
+    }
     this.title = title;
     this._titleView.innerText = title;
     this.view.title = title;
@@ -109,6 +114,7 @@ SideTab.prototype = {
     if (active) {
       this._notselectedsinceload = false;
       this.view.removeAttribute("notselectedsinceload");
+      this.view.classList.remove("wants-attention");
     }
   },
   scrollIntoView() {
