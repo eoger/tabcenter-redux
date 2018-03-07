@@ -73,11 +73,20 @@
   "optionsCompactMode": {
     "message": "コンパクトモード"
   },
+  "optionsCompactModeTooltip": {
+    "message": "コンパクトモードではタブの高さを減らし、より多くのタブを表示します。ダイナミック設定では一定のスペースが残っていないと動作しません。"
+  },
   "optionsCompactModeOff": {
     "message": "無効"
   },
+  "optionsCompactModeDynamic": {
+    "message": "動的"
+  },
   "optionsCompactModeStrict": {
     "message": "常時"
+  },
+  "optionsCompactPins": {
+    "message": "ピン留めタブをアイコン表示"
   },
   "optionsDarkTheme": {
     "message": "暗いテーマ"
