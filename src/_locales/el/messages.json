@@ -1,3 +1,107 @@
-[
-
-]
+{
+  "browserActionTitle": {
+    "message": "Ενεργοποίηση\\\/Απενεργοποίηση Tab Center Redux",
+    "description": "Tooltip shown when hovering the toolbar button."
+  },
+  "sidebarTitle": {
+    "message": "Καρτέλες",
+    "description": "Label shown in the sidebar selector."
+  },
+  "newTabBtnLabel": {
+    "message": "Νέα Καρτέλα",
+    "description": "Label of the New Tab button in the top menu."
+  },
+  "newTabBtnTooltip": {
+    "message": "Άνοιγμα Νέας Καρτέλας"
+  },
+  "searchPlaceholder": {
+    "message": "Αναζήτηση Καρτελών"
+  },
+  "closeTabButtonTooltip": {
+    "message": "Κλείσιμο Καρτέλας"
+  },
+  "allTabsLabel": {
+    "message": "Εμφάνιση όλων των καρτελών…",
+    "description": "Shown at the bottom of the list of tabs if some tabs are filtered by the current search query."
+  },
+  "contextMenuReloadTab": {
+    "message": "Ανανέωση Καρτέλας",
+    "description": "Reload Tab context menu item label."
+  },
+  "contextMenuPinTab": {
+    "message": "Καρφίτσωμα Καρτέλας",
+    "description": "Pin Tab context menu item label."
+  },
+  "contextMenuUnpinTab": {
+    "message": "Ξεκαρφίτσωμα Καρτέλας",
+    "description": "Unpin Tab context menu item label."
+  },
+  "contextMenuMuteTab": {
+    "message": "Σίγαση Καρτέλας",
+    "description": "Mute Tab context menu item label."
+  },
+  "contextMenuUnmuteTab": {
+    "message": "Αναίρεση Σίγασης Καρτέλας",
+    "description": "Unmute Tab context menu item label."
+  },
+  "contextMenuCloseTab": {
+    "message": "Κλείσιμο Καρτέλας"
+  },
+  "contextMenuUndoCloseTab": {
+    "message": "Αναίρεση Κλεισίματος Καρτέλας"
+  },
+  "contextMenuDuplicateTab": {
+    "message": "Κλωνοποίηση Καρτέλας"
+  },
+  "contextMenuMoveTabToNewWindow": {
+    "message": "Μετακίνηση σε νέο παράθυρο"
+  },
+  "contextMenuReloadAllTabs": {
+    "message": "Ανανέωση όλων των καρτελών"
+  },
+  "contextMenuCloseTabsUnderneath": {
+    "message": "Κλείσιμο των κάτωθι καρτελών"
+  },
+  "contextMenuCloseOtherTabs": {
+    "message": "Κλείσιμο των άλλων καρτελών"
+  },
+  "settingsBtnTooltip": {
+    "message": "Άνοιγμα Ρυθμίσεων"
+  },
+  "optionsTitle": {
+    "message": "Ρυθμίσεις"
+  },
+  "optionsCompactMode": {
+    "message": "Συμπαγής Λειτουργία"
+  },
+  "optionsCompactModeTooltip": {
+    "message": "Η Συμπαγής Λειτουργία μειώνει το ύψος των καρτελών για την εμφάνιση περισσοτέρων αυτών. Στη Δυναμική Ρύθμιση ενεργοποιείτε όταν δεν υπάρχει άλλος χώρος."
+  },
+  "optionsCompactModeOff": {
+    "message": "Απενεργοποιημένη"
+  },
+  "optionsCompactModeDynamic": {
+    "message": "Δυναμική"
+  },
+  "optionsCompactModeStrict": {
+    "message": "Πάντα"
+  },
+  "optionsCompactPins": {
+    "message": "Συμπαγής καρφιτσωμένες καρτέλες"
+  },
+  "optionsDarkTheme": {
+    "message": "Σκούρο θέμα"
+  },
+  "optionsAdvancedTitle": {
+    "message": "Για προχωρημένους"
+  },
+  "optionsCustomCSS": {
+    "message": "Προσαρμογή Stylesheet"
+  },
+  "optionsCustomCSSWikiLink": {
+    "message": "Αρθρογραφία Wiki - Βελτιώσεις CSS"
+  },
+  "optionsSaveCustomCSS": {
+    "message": "Αποθήκευση CSS"
+  }
+}
