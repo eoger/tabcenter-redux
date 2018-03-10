@@ -53,7 +53,7 @@ TabList.prototype = {
       view.addEventListener("animationend", e => this._onAnimationEnd(e));
     }
     window.addEventListener("keyup", (e) => {
-      if (e.keyCode === 27) { // Context menu closed on ESC key pressed
+      if (e.key === "Escape") {
         this._hideContextMenu();
       }
     });

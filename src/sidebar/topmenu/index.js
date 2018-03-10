@@ -58,7 +58,7 @@ TopMenu.prototype = {
     });
 
     window.addEventListener("keyup", (e) => {
-      if (e.keyCode === 27) { // Clear search on ESC key pressed
+      if (e.key === "Escape") {
         this._search("");
       }
     });
