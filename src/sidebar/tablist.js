@@ -5,7 +5,7 @@ const COMPACT_MODE_OFF = 0;
 /*const COMPACT_MODE_DYNAMIC = 1;*/
 const COMPACT_MODE_STRICT = 2;
 
-function TabList({compactModeMode, compactPins}) {
+function TabList({onSearchChange, prefs: {compactModeMode, compactPins}}) {
   this._tabs = new Map();
   this._active = null;
   this.__compactPins = true;
@@ -21,6 +21,8 @@ function TabList({compactModeMode, compactPins}) {
   this._compactModeMode = parseInt(compactModeMode);
   this._compactPins = compactPins;
   this._setupListeners();
+
+  this._onSearchChange = onSearchChange;
 }
 
 TabList.prototype = {
@@ -378,14 +380,17 @@ TabList.prototype = {
     await browser.tabs.move(tab.id, {index: lastIndex});
   },
   _clearSearch() {
+    // _clearSearch() is called every time we open a new tab (see _create()),
+    // which subsequently calls the expensive filter() method.
+    // _filterActive provides a fast-path for the common-case where there is
+    // no search going on.
     if (!this._filterActive) {
       return;
     }
-    document.getElementById("searchbox-input").value = "";
-    this._filter();
+    this._onSearchChange("");
   },
-  _filter(query = "") {
-    this._filterActive = query !== "";
+  filter(query) {
+    this._filterActive = query.length > 0;
     query = normalizeStr(query);
     let notShown = 0;
     for (let tab of this._tabs.values()) {
