@@ -1,4 +1,4 @@
-const SideTabList = require("./tablist.js");
+const TabList = require("./tablist.js");
 
 const LONG_PRESS_DELAY = 500;
 
@@ -20,11 +20,11 @@ TabCenter.prototype = {
 
     const prefs = await prefsPromise;
     this._applyPrefs(prefs);
-    this._sideTabList = new SideTabList(prefs);
+    this._tabList = new TabList(prefs);
     const {id: windowId} = await windowPromise;
     this._windowId = windowId;
     // There's no real need to await on populate().
-    this._sideTabList.populate(windowId);
+    this._tabList.populate(windowId);
 
     browser.runtime.sendMessage({
       event: "sidebar-open",
@@ -42,7 +42,7 @@ TabCenter.prototype = {
 
     const searchbox = document.getElementById("searchbox");
     this._searchBoxInput.addEventListener("input", (e) => {
-      this._sideTabList._filter(e.target.value);
+      this._tabList._filter(e.target.value);
     });
     this._searchBoxInput.addEventListener("focus", () => {
       searchbox.classList.add("focused");
@@ -76,7 +76,7 @@ TabCenter.prototype = {
 
     window.addEventListener("keyup", (e) => {
       if (e.keyCode === 27) { // Clear search on ESC key pressed
-        this._sideTabList.clearSearch();
+        this._tabList.clearSearch();
       }
     });
     window.addEventListener("mousedown", (e) => {

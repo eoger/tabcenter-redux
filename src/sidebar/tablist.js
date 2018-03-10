@@ -5,7 +5,7 @@ const COMPACT_MODE_OFF = 0;
 /*const COMPACT_MODE_DYNAMIC = 1;*/
 const COMPACT_MODE_STRICT = 2;
 
-function SideTabList({compactModeMode, compactPins}) {
+function TabList({compactModeMode, compactPins}) {
   this._tabs = new Map();
   this._active = null;
   this.__compactPins = true;
@@ -23,7 +23,7 @@ function SideTabList({compactModeMode, compactPins}) {
   this._setupListeners();
 }
 
-SideTabList.prototype = {
+TabList.prototype = {
   _setupListeners() {
     // Tab events
     browser.tabs.onActivated.addListener(({tabId}) => this._onBrowserTabActivated(tabId));
@@ -603,4 +603,4 @@ function normalizeStr(str) {
   return str ? str.toLowerCase().normalize("NFD").replace(/[\u0300-\u036f]/g, "") : "";
 }
 
-module.exports = SideTabList;
+module.exports = TabList;
