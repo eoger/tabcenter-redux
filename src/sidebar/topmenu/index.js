@@ -42,9 +42,9 @@ TopMenu.prototype = {
       }
     });
     this._newTabButtonView.addEventListener("auxclick", e => {
-      if (e.which === 2) {
+      if (e.button === 1) {
         this._openTab({afterCurrent: true});
-      } else if (e.which === 3) {
+      } else if (e.button === 2) {
         this._showNewTabPopup();
       }
     });

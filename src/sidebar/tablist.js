@@ -58,7 +58,7 @@ TabList.prototype = {
       }
     });
     window.addEventListener("click", e => {
-      if (e.which === 1) {
+      if (e.button === 0) {
         this._hideContextMenu();
       }
     });
@@ -111,18 +111,18 @@ TabList.prototype = {
   },
   _onMouseDown(e) {
     // Don't put preventDefault here or drag-and-drop won't work
-    if (e.which === 1 && SideTab.isTabEvent(e)) {
+    if (e.button === 0 && SideTab.isTabEvent(e)) {
       browser.tabs.update(SideTab.tabIdForEvent(e), {active: true});
       return;
     }
     // Prevent autoscrolling on middle click
-    if (e.which === 2) {
+    if (e.button === 1) {
       e.preventDefault();
       return;
     }
   },
   _onAuxClick(e) {
-    if (e.which === 2 && SideTab.isTabEvent(e, false)) {
+    if (e.button === 1 && SideTab.isTabEvent(e, false)) {
       browser.tabs.remove(SideTab.tabIdForEvent(e));
       e.preventDefault();
       return;
@@ -355,7 +355,7 @@ TabList.prototype = {
     this._openTab();
   },
   _onSpacerAuxClick(e) {
-    if (e.which === 2) {
+    if (e.button === 1) {
       this._openTab();
     }
   },

@@ -33,8 +33,8 @@ NewTabPopup.prototype = {
         this.hide();
       }
     };
-    this._onMouseUp = this._handleClick.bind(this, 1, false);
-    this._onAuxClick = this._handleClick.bind(this, 2, true);
+    this._onMouseUp = this._handleClick.bind(this, 0, false);
+    this._onAuxClick = this._handleClick.bind(this, 1, true);
     window.addEventListener("blur", this._onBlur);
     window.addEventListener("mousedown", this._onMouseDown);
     this._newTabMenu.addEventListener("mouseup", this._onMouseUp);
@@ -47,7 +47,7 @@ NewTabPopup.prototype = {
     this._newTabMenu.removeEventListener("auxclick", this._onAuxClick);
   },
   _handleClick(btn, openTabAfterCurrent, e) {
-    if (e.which !== btn) {
+    if (e.button !== btn) {
       return;
     }
     const cookieStoreId = e.target.getAttribute("cookieStoreId");
