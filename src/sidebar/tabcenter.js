@@ -1,5 +1,5 @@
-const TabList = require("./tablist");
-const TopMenu = require("./topmenu");
+import TabList from "./tablist.js";
+import TopMenu from "./topmenu/topmenu.js";
 
 function TabCenter() {
 }

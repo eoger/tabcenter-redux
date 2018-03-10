@@ -1,5 +1,5 @@
-const SideTab = require("./tab");
-const ContextMenu = require("./contextmenu");
+import SideTab from "./tab.js";
+import ContextMenu from "./contextmenu/contextmenu.js";
 
 const COMPACT_MODE_OFF = 0;
 /*const COMPACT_MODE_DYNAMIC = 1;*/
@@ -609,4 +609,4 @@ function normalizeStr(str) {
   return str ? str.toLowerCase().normalize("NFD").replace(/[\u0300-\u036f]/g, "") : "";
 }
 
-module.exports = TabList;
+export default TabList;

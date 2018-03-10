@@ -62,4 +62,4 @@ ContextMenu.prototype = {
   }
 };
 
-module.exports = ContextMenu;
+export default ContextMenu;

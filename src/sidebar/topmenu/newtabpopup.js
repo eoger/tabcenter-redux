@@ -66,4 +66,4 @@ NewTabPopup.prototype = {
   }
 };
 
-module.exports = NewTabPopup;
+export default NewTabPopup;

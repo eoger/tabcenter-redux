@@ -1,4 +1,4 @@
-@import url("contextmenu.css");
+@import url("contextmenu/contextmenu.css");
 
 :root {
     --tab-background-normal: 0, 0%, 99%;

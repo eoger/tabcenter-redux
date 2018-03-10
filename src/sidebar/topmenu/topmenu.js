@@ -1,6 +1,6 @@
 const LONG_PRESS_DELAY = 500;
 
-const NewTabPopup = require("./newtabpopup");
+import NewTabPopup from "./newtabpopup.js";
 
 function TopMenu({openTab, search}) {
   this._newTabButtonView = document.getElementById("newtab");
@@ -89,4 +89,4 @@ TopMenu.prototype = {
   }
 };
 
-module.exports = TopMenu;
+export default TopMenu;

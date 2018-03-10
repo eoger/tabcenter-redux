@@ -1,13 +1,13 @@
 module.exports = {
   "env": {
-    "browser": true,
     "es6": true,
-    "commonjs": true,
+    "browser": true,
     "webextensions": true
   },
   "extends": "eslint:recommended",
   "parserOptions": {
-    "ecmaVersion": 8
+    "ecmaVersion": 8,
+    "sourceType": "module"
   },
   "rules": {
     "brace-style": ["error", "1tbs"],

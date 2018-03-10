@@ -1,9 +1,10 @@
 /* global __dirname:true */
+/* global module:true */
 
 module.exports = {
   entry: "./src/sidebar/tabcenter.js",
   output: {
-    filename: "index.js",
+    filename: "bundle.js",
     path: `${__dirname}/src/sidebar/dist`
   }
 };

@@ -296,4 +296,4 @@ function toggleClass(node, className, boolean) {
   boolean ? node.classList.add(className) : node.classList.remove(className);
 }
 
-module.exports = SideTab;
+export default SideTab;
