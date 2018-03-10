@@ -1,12 +1,13 @@
-const TabList = require("./tablist.js");
-const TopMenu = require("./topmenu.js");
+const TabList = require("./tablist");
+const TopMenu = require("./topmenu");
 
 function TabCenter() {
 }
 TabCenter.prototype = {
   async init() {
-    const onSearchChange = this._onSearchChange.bind(this);
-    this._topMenu = new TopMenu({onSearchChange});
+    const search = this._search.bind(this);
+    const openTab = this._openTab.bind(this);
+    this._topMenu = new TopMenu({openTab, search});
     // Do other work while the promises are pending.
     const prefsPromise = this._readPrefs();
     const windowPromise = browser.windows.getCurrent();
@@ -15,7 +16,7 @@ TabCenter.prototype = {
 
     const prefs = await prefsPromise;
     this._applyPrefs(prefs);
-    this._tabList = new TabList({onSearchChange, prefs});
+    this._tabList = new TabList({openTab, search, prefs});
     const {id: windowId} = await windowPromise;
     this._windowId = windowId;
     // There's no real need to await on populate().
@@ -30,7 +31,15 @@ TabCenter.prototype = {
       document.body.setAttribute("platform", platform.os);
     });
   },
-  _onSearchChange(val) {
+  async _openTab(props = {}) {
+    if (props.afterCurrent) {
+      let currentIndex = (await browser.tabs.query({active: true}))[0].index;
+      props.index = currentIndex + 1;
+    }
+    delete props.afterCurrent;
+    browser.tabs.create(props);
+  },
+  _search(val) {
     this._tabList.filter(val);
     this._topMenu.updateSearch(val);
   },

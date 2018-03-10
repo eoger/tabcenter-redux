@@ -1,11 +1,11 @@
-const SideTab = require("./tab.js");
-const ContextMenu = require("./contextmenu.js");
+const SideTab = require("./tab");
+const ContextMenu = require("./contextmenu");
 
 const COMPACT_MODE_OFF = 0;
 /*const COMPACT_MODE_DYNAMIC = 1;*/
 const COMPACT_MODE_STRICT = 2;
 
-function TabList({onSearchChange, prefs: {compactModeMode, compactPins}}) {
+function TabList({openTab, search, prefs: {compactModeMode, compactPins}}) {
   this._tabs = new Map();
   this._active = null;
   this.__compactPins = true;
@@ -22,7 +22,8 @@ function TabList({onSearchChange, prefs: {compactModeMode, compactPins}}) {
   this._compactPins = compactPins;
   this._setupListeners();
 
-  this._onSearchChange = onSearchChange;
+  this._openTab = openTab;
+  this._search = search;
 }
 
 TabList.prototype = {
@@ -303,7 +304,7 @@ TabList.prototype = {
       console.warn("Unknown drag-and-drop operation. Aborting.");
       return;
     }
-    browser.tabs.create({
+    this._openTab({
       url: mozURL,
       windowId: this._windowId
     });
@@ -351,11 +352,11 @@ TabList.prototype = {
     browser.tabs.move(tabId, {index: newPos});
   },
   _onSpacerDblClick() {
-    browser.tabs.create({});
+    this._openTab();
   },
   _onSpacerAuxClick(e) {
     if (e.which === 2) {
-      browser.tabs.create({});
+      this._openTab();
     }
   },
   _onAnimationEnd(e) {
@@ -387,7 +388,7 @@ TabList.prototype = {
     if (!this._filterActive) {
       return;
     }
-    this._onSearchChange("");
+    this._search("");
   },
   filter(query) {
     this._filterActive = query.length > 0;
