@@ -4,6 +4,6 @@ module.exports = {
   entry: "./src/sidebar/tabcenter.js",
   output: {
     filename: "index.js",
-    path: `${__dirname}/src/sidebar`
+    path: `${__dirname}/src/sidebar/dist`
   }
 };

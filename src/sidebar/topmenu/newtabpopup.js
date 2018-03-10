@@ -64,6 +64,6 @@ NewTabPopup.prototype = {
     }
     this._onHide();
   }
-}
+};
 
 module.exports = NewTabPopup;

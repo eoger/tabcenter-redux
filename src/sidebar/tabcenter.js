@@ -53,7 +53,7 @@ TabCenter.prototype = {
     window.addEventListener("contextmenu", (e) => {
       const target = e.target;
       // Let the searchbox input have a context menu.
-      if (!(target && target.tagName == "INPUT" && target.type == "text")) {
+      if (!(target && target.tagName === "INPUT" && target.type === "text")) {
         e.preventDefault();
       }
     }, false);
