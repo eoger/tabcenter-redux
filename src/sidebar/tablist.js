@@ -1,11 +1,17 @@
 import SideTab from "./tab.js";
-import ContextMenu from "./contextmenu/contextmenu.js";
+import TabContextMenu from "./tabcontextmenu.js";
 
 const COMPACT_MODE_OFF = 0;
 /*const COMPACT_MODE_DYNAMIC = 1;*/
 const COMPACT_MODE_STRICT = 2;
 
-function TabList({openTab, search, prefs: {compactModeMode, compactPins}}) {
+/* @arg {props}
+ * openTab
+ * search
+ * prefs
+ */
+function TabList(props) {
+  this._props = props;
   this._tabs = new Map();
   this._active = null;
   this.__compactPins = true;
@@ -18,12 +24,9 @@ function TabList({openTab, search, prefs: {compactModeMode, compactPins}}) {
   this._spacerView = document.getElementById("spacer");
   this._moreTabsView = document.getElementById("moretabs");
 
-  this._compactModeMode = parseInt(compactModeMode);
-  this._compactPins = compactPins;
+  this._compactModeMode = parseInt(this._props.prefs.compactModeMode);
+  this._compactPins = this._props.prefs.compactPins;
   this._setupListeners();
-
-  this._openTab = openTab;
-  this._search = search;
 }
 
 TabList.prototype = {
@@ -52,19 +55,6 @@ TabList.prototype = {
       view.addEventListener("contextmenu", e => this._onContextMenu(e));
       view.addEventListener("animationend", e => this._onAnimationEnd(e));
     }
-    window.addEventListener("keyup", (e) => {
-      if (e.key === "Escape") {
-        this._hideContextMenu();
-      }
-    });
-    window.addEventListener("click", e => {
-      if (e.button === 0) {
-        this._hideContextMenu();
-      }
-    });
-    window.addEventListener("blur", () => {
-      this._hideContextMenu();
-    });
 
     this._spacerView.addEventListener("dblclick", () => this._onSpacerDblClick());
     this._spacerView.addEventListener("auxclick", e => this._onSpacerAuxClick(e));
@@ -128,122 +118,66 @@ TabList.prototype = {
       return;
     }
   },
-  _hideContextMenu() {
+  _closeContextMenu() {
     if (this._contextMenu) {
       this._contextMenu.hide();
-      this._contextMenu = null;
     }
   },
+  _onContextMenuHidden() {
+    this._contextMenu = null;
+  },
   _onContextMenu(e) {
-    this._hideContextMenu();
+    this._closeContextMenu();
     e.preventDefault();
     if (!SideTab.isTabEvent(e, false)) {
       return;
     }
     const tabId = SideTab.tabIdForEvent(e);
-    const items = this._createContextMenuItems(tabId);
-    this._contextMenu = new ContextMenu(e.clientX, e.clientY, items);
+    const tab = this._getTabById(tabId);
+    this._contextMenu = new TabContextMenu({
+      tab,
+      posX: e.clientX, posY: e.clientY,
+      onClose: this._onContextMenuHidden.bind(this),
+      canMoveToNewWindow: this._tabs.size > 1,
+      reloadAllTabs: this._reloadAllTabs.bind(this),
+      closeTabsUnderneath: this._closeTabsUnderneath.bind(this, tabId),
+      closeOtherTabs: this._closeAllTabsExcept.bind(this, tabId),
+      canUndoCloseTab: this._hasRecentlyClosedTabs.bind(this),
+      undoCloseTab: this._undoCloseTab.bind(this)
+    });
     this._contextMenu.show();
   },
-  _createContextMenuItems(tabId) {
-    const tab = this._getTabById(tabId);
-    const items = [];
-    items.push({
-      label: browser.i18n.getMessage("contextMenuReloadTab"),
-      onCommandFn: () => {
-        browser.tabs.reload(tabId);
-      }
-    });
-    items.push({
-      label: browser.i18n.getMessage(tab.muted ? "contextMenuUnmuteTab" :
-                                                 "contextMenuMuteTab"),
-      onCommandFn: () => {
-        browser.tabs.update(tabId, {"muted": !tab.muted});
-      }
-    });
-    items.push({
-      label: "separator"
-    });
-    items.push({
-      label: browser.i18n.getMessage(tab.pinned ? "contextMenuUnpinTab" :
-                                                  "contextMenuPinTab"),
-      onCommandFn: () => {
-        browser.tabs.update(tabId, {"pinned": !tab.pinned});
-      }
-    });
-    items.push({
-      label: browser.i18n.getMessage("contextMenuDuplicateTab"),
-      onCommandFn: () => {
-        browser.tabs.duplicate(tabId);
-      }
-    });
-    if (this._tabs.size > 1) {
-      items.push({
-        label: browser.i18n.getMessage("contextMenuMoveTabToNewWindow"),
-        onCommandFn: () => {
-          browser.windows.create({tabId});
-        }
-      });
+  _closeTabsUnderneath(tabId) {
+    const tabPos = this._getPos(tabId);
+    const orderedIds = [...SideTab.getAllTabsViews()].map(el => SideTab.tabIdForView(el));
+    const toClose = orderedIds.slice(tabPos + 1).filter(id => this._tabs.get(id).visible);
+    browser.tabs.remove(toClose);
+  },
+  _closeAllTabsExcept(tabId) {
+    const toClose = [...this._tabs.values()]
+                    .filter(tab => tab.id !== tabId && !tab.pinned)
+                    .map(tab => tab.id);
+    browser.tabs.remove(toClose);
+  },
+  _reloadAllTabs() {
+    for (let tab of this._tabs.values()) {
+      browser.tabs.reload(tab.id);
     }
-    items.push({
-      label: "separator"
-    });
-    items.push({
-      label: browser.i18n.getMessage("contextMenuReloadAllTabs"),
-      onCommandFn: () => {
-        for (let tab of this._tabs.values()) {
-          browser.tabs.reload(tab.id);
-        }
-      }
-    });
-    if (!tab.pinned) {
-      items.push({
-        label: browser.i18n.getMessage("contextMenuCloseTabsUnderneath"),
-        onCommandFn: () => {
-          const tabPos = this._getPos(tabId);
-          const orderedIds = [...SideTab.getAllTabsViews()].map(el => SideTab.tabIdForView(el));
-          const toClose = orderedIds.slice(tabPos + 1).filter(id => this._tabs.get(id).visible);
-          browser.tabs.remove(toClose);
-        }
-      });
-      items.push({
-        label: browser.i18n.getMessage("contextMenuCloseOtherTabs"),
-        onCommandFn: () => {
-          const toClose = [...this._tabs.values()]
-                          .filter(tab => tab.id !== tabId && !tab.pinned)
-                          .map(tab => tab.id);
-          browser.tabs.remove(toClose);
-        }
-      });
-    }
-    items.push({
-      label: "separator"
-    });
-    items.push({
-      label: browser.i18n.getMessage("contextMenuUndoCloseTab"),
-      isEnabled: async () => {
-        const undoTabs = await this._getRecentlyClosedTabs();
-        return undoTabs.length;
-      },
-      onCommandFn: async () => {
-        const undoTabs = await this._getRecentlyClosedTabs();
-        if (undoTabs.length) {
-          browser.sessions.restore(undoTabs[0].sessionId);
-        }
-      }
-    });
-    items.push({
-      label: browser.i18n.getMessage("contextMenuCloseTab"),
-      onCommandFn: () => {
-        browser.tabs.remove(tabId);
-      }
-    });
-    return items;
+  },
+  async _hasRecentlyClosedTabs() {
+    const undoTabs = await this._getRecentlyClosedTabs();
+    return !!undoTabs.length;
   },
   async _getRecentlyClosedTabs() {
     const sessions = await browser.sessions.getRecentlyClosed();
     return sessions.map(s => s.tab)
                    .filter(s => s && this._checkWindow(s));
+  },
+  async _undoCloseTab() {
+    const undoTabs = await this._getRecentlyClosedTabs();
+    if (undoTabs.length) {
+      browser.sessions.restore(undoTabs[0].sessionId);
+    }
   },
   _onClick(e) {
     if (SideTab.isCloseButtonEvent(e)) {
@@ -304,7 +238,7 @@ TabList.prototype = {
       console.warn("Unknown drag-and-drop operation. Aborting.");
       return;
     }
-    this._openTab({
+    this._props.openTab({
       url: mozURL,
       windowId: this._windowId
     });
@@ -352,11 +286,11 @@ TabList.prototype = {
     browser.tabs.move(tabId, {index: newPos});
   },
   _onSpacerDblClick() {
-    this._openTab();
+    this._props.openTab();
   },
   _onSpacerAuxClick(e) {
     if (e.button === 1) {
-      this._openTab();
+      this._props.openTab();
     }
   },
   _onAnimationEnd(e) {
@@ -388,7 +322,7 @@ TabList.prototype = {
     if (!this._filterActive) {
       return;
     }
-    this._search("");
+    this._props.search("");
   },
   filter(query) {
     this._filterActive = query.length > 0;

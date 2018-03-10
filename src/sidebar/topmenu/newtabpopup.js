@@ -1,6 +1,9 @@
-function NewTabPopup({openTab, onHide}) {
-  this._openTab = openTab;
-  this._onHide = onHide;
+/* @arg {props}
+ * openTab
+ * onClose
+ */
+function NewTabPopup(props) {
+  this._props = props;
   this._newTabMenu = document.getElementById("newtab-menu");
   this._setupListeners();
 }
@@ -27,10 +30,10 @@ NewTabPopup.prototype = {
     this._newTabMenu.classList.remove("hidden");
   },
   _setupListeners() {
-    this._onBlur = this.hide.bind(this);
+    this._onBlur = this.close.bind(this);
     this._onMouseDown = (e) => {
       if (!e.target.classList.contains("newtab-menu-identity")) {
-        this.hide();
+        this.close();
       }
     };
     this._onMouseUp = this._handleClick.bind(this, 0, false);
@@ -51,10 +54,10 @@ NewTabPopup.prototype = {
       return;
     }
     const cookieStoreId = e.target.getAttribute("cookieStoreId");
-    this.hide();
-    this._openTab({afterCurrent: openTabAfterCurrent, cookieStoreId});
+    this.close();
+    this._props.openTab({afterCurrent: openTabAfterCurrent, cookieStoreId});
   },
-  hide() {
+  close() {
     this._removeListeners();
     this._newTabMenu.classList.add("hidden");
 
@@ -62,7 +65,7 @@ NewTabPopup.prototype = {
     while (this._newTabMenu.firstChild) {
       this._newTabMenu.removeChild(this._newTabMenu.firstChild);
     }
-    this._onHide();
+    this._props.onClose();
   }
 };
 

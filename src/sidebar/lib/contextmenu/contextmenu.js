@@ -1,19 +1,18 @@
 // Make sure the menu doesn't stick to the sides of the sidebar
 const OVERFLOW_MENU_MARGIN = 6;
 
-function ContextMenu(clickPosX, clickPosY, items) {
+function ContextMenu(clickPosX, clickPosY) {
   this.clickPosX = clickPosX;
   this.clickPosY = clickPosY;
-  this.items = items;
   this.rootNode = null;
 }
 
 ContextMenu.prototype = {
-  show() {
+  show(items) {
     this.rootNode = document.createElement("ul");
     this.rootNode.classList = "contextmenu";
     const fragment = document.createDocumentFragment();
-    for (let {label, isEnabled, onCommandFn} of this.items) {
+    for (let {label, isEnabled, onCommandFn} of items) {
       let item;
       if (label === "separator") {
         item = document.createElement("hr");
