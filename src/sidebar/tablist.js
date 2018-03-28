@@ -121,7 +121,7 @@ TabList.prototype = {
   },
   _closeContextMenu() {
     if (this._contextMenu) {
-      this._contextMenu.hide();
+      this._contextMenu.close();
     }
   },
   _onContextMenuHidden() {
