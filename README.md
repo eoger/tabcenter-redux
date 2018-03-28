@@ -23,3 +23,7 @@ You need to have a recent version of node.
 3. Run `npm run dev` and start hacking! [Here is a list of some things](https://github.com/eoger/tabcenter-redux/issues?q=is%3Aopen+is%3Aissue+label%3AA-P2) you could work on.
 
    If you don’t have Firefox Release installed, `WEB_EXT_FIREFOX=nightly npm run dev` or `WEB_EXT_FIREFOX=beta npm run dev` should work much better.
+
+## Tests
+
+Basic functional tests can be run by opening the extension's debug console (in `about:debugging`) and executing `tabCenter.startTests()` (in the sidebar document).

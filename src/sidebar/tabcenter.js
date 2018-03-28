@@ -84,6 +84,11 @@ TabCenter.prototype = {
     if (prefs.hasOwnProperty("darkTheme")) {
       this._darkTheme = prefs.darkTheme;
     }
+  },
+  startTests() {
+    const script = document.createElement("script");
+    script.src = "../test/index.js";
+    document.head.appendChild(script);
   }
 };
 
@@ -95,6 +100,4 @@ function unwrapChanges(changes) {
   return unwrapped;
 }
 
-// Start-it up!
-const tabCenter = new TabCenter();
-tabCenter.init();
+export default TabCenter;
