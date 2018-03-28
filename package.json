@@ -5,7 +5,7 @@
     "lint": "eslint .",
     "build": "webpack",
     "watch": "webpack --watch",
-    "webext": "web-ext run -s src",
+    "webext": "web-ext run --start-url about:debugging -s src",
     "dev": "npm-run-all --parallel watch webext"
   },
   "repository": {
