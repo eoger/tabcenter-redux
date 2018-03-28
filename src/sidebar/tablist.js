@@ -130,6 +130,13 @@ TabList.prototype = {
     if (!sidetab) {
       return;
     }
+    if (changeInfo.hasOwnProperty("hidden")) {
+      if (changeInfo.hidden) {
+        this._removeTabView(sidetab);
+      } else {
+        this._appendTabView(sidetab);
+      }
+    }
 
     sidetab.onUpdate(changeInfo);
     if (changeInfo.hasOwnProperty("pinned")) {
@@ -195,19 +202,21 @@ TabList.prototype = {
   },
   _closeTabsAfter(tabIndex) {
     const toClose = [...this._tabs.values()]
-                    .filter(tab => tab.index > tabIndex)
+                    .filter(tab => tab.index > tabIndex && !tab.hidden)
                     .map(tab => tab.id);
     browser.tabs.remove(toClose);
   },
   _closeAllTabsExcept(tabId) {
     const toClose = [...this._tabs.values()]
-                    .filter(tab => tab.id !== tabId && !tab.pinned)
+                    .filter(tab => tab.id !== tabId && !tab.pinned && !tab.hidden)
                     .map(tab => tab.id);
     browser.tabs.remove(toClose);
   },
   _reloadAllTabs() {
     for (let tab of this._tabs.values()) {
-      browser.tabs.reload(tab.id);
+      if (!tab.hidden) {
+        browser.tabs.reload(tab.id);
+      }
     }
   },
   async _hasRecentlyClosedTabs() {
@@ -357,6 +366,7 @@ TabList.prototype = {
   },
   async _moveTabToBottom(tab) {
     let sameCategoryTabs = await browser.tabs.query({
+      hidden: false,
       pinned: tab.pinned,
       windowId: this._windowId
     });
@@ -365,6 +375,7 @@ TabList.prototype = {
   },
   async _moveTabToTop(tab) {
     let sameCategoryTabs = await browser.tabs.query({
+      hidden: false,
       pinned: tab.pinned,
       windowId: this._windowId
     });
@@ -417,7 +428,9 @@ TabList.prototype = {
         activeTab = sidetab;
       }
       let fragment = tab.pinned ? pinnedFragment : unpinnedFragment;
-      fragment.appendChild(sidetab.view);
+      if (!tab.hidden) {
+        fragment.appendChild(sidetab.view);
+      }
     }
     this._pinnedview.appendChild(pinnedFragment);
     this._view.appendChild(unpinnedFragment);
@@ -512,6 +525,11 @@ TabList.prototype = {
   },
   _create(tabInfo, scrollTo = true) {
     const sidetab = this.__create(tabInfo);
+    // Bail early and don't insert the tab in the DOM: we'll do it later
+    // if the tab becomes visible.
+    if (tabInfo.hidden) {
+      return;
+    }
     this._clearSearch();
     this._appendTabView(sidetab);
     this._maybeShrinkTabs();
@@ -544,7 +562,7 @@ TabList.prototype = {
       return;
     }
     const allTabs = [...this._tabs.values()]
-                    .filter(tab => tab.pinned === sidetab.pinned)
+                    .filter(tab => tab.pinned === sidetab.pinned && !tab.hidden)
                     .sort((a, b) => a.index - b.index);
     const tabAfter = allTabs.find(tab => tab.index > sidetab.index);
     if (!tabAfter) {

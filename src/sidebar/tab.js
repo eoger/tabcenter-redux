@@ -16,6 +16,7 @@ SideTab.prototype = {
     this.view.id = `tab-${this.id}`;
     this.view.setAttribute("data-tab-id", this.id);
 
+    this.hidden = tabInfo.hidden;
     this._updateTitle(tabInfo.title);
     this._updateURL(tabInfo.url);
     this._updateAudible(tabInfo.audible);
@@ -56,6 +57,9 @@ SideTab.prototype = {
     this.thumbnailCanvasCtx = this.thumbnailCanvas.getContext("2d", {alpha: false});
   },
   onUpdate(changeInfo) {
+    if (changeInfo.hasOwnProperty("hidden")) {
+      this.hidden = changeInfo.hidden;
+    }
     if (changeInfo.hasOwnProperty("title")) {
       this._updateTitle(changeInfo.title);
     }

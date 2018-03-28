@@ -5,7 +5,7 @@ suite("tabs positions and indexes", () => {
   const {assert} = chai;
 
   function assertDOMOrderCorrect(ffTabs) {
-    const ffTabsIds = ffTabs.map(t => t.id);
+    const ffTabsIds = ffTabs.filter(t => !t.hidden).map(t => t.id);
     const domTabsIds = [...document.querySelectorAll(".tab")]
       .map(e => parseInt(e.getAttribute("data-tab-id")));
     assert.deepEqual(domTabsIds, ffTabsIds, "Order of tabs in the DOM is correct.");
@@ -104,6 +104,19 @@ suite("tabs positions and indexes", () => {
     const {id: otherWindowId} = await browser.windows.create({tabId: tabID3});
     await assertOrderAndIndexes();
     await browser.tabs.move(tabID1, {windowId: otherWindowId, index: -1});
+    await assertOrderAndIndexes();
+  });
+  test("hidding/un-hidding", async () => {
+    const {id: tabID1} = await browser.tabs.create({});
+    await browser.tabs.hide(tabID1);
+    const {id: tabID2} = await browser.tabs.create({});
+    const {id: tabID3} = await browser.tabs.create({});
+    await assertOrderAndIndexes();
+    await browser.tabs.move(tabID3, {index: 0});
+    await assertOrderAndIndexes();
+    await browser.tabs.hide(tabID2);
+    await assertOrderAndIndexes();
+    await browser.tabs.show(tabID1);
     await assertOrderAndIndexes();
   });
 });
