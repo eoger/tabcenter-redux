@@ -259,7 +259,11 @@ Object.assign(SideTab, {
         return;
       }
       setTimeout(() => {
-        const animations = [...document.querySelectorAll(".tab.loading .tab-icon")]
+        const icons = document.querySelectorAll(".tab.loading .tab-icon");
+        if (!icons.length) {
+          return;
+        }
+        const animations = [...icons]
           .map(tabIcon => tabIcon.getAnimations({subtree: true}))
           .reduce((a, b) => a.concat(b))
           .filter(anim =>
