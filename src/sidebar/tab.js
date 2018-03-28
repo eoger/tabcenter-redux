@@ -24,7 +24,7 @@ SideTab.prototype = {
     }
     this._updatePinned(tabInfo.pinned);
     this._updateDiscarded(tabInfo.discarded);
-    if (tabInfo.cookieStoreId) {
+    if (tabInfo.cookieStoreId && tabInfo.cookieStoreId.startsWith("firefox-container-")) {
       // This work is done in the background on purpose: making create() async
       // creates all sorts of bugs, because it is called in observers (which
       // cannot be async).
