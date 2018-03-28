@@ -33,7 +33,7 @@ TabCenter.prototype = {
   },
   async _openTab(props = {}) {
     if (props.afterCurrent) {
-      let currentIndex = (await browser.tabs.query({active: true}))[0].index;
+      let currentIndex = (await browser.tabs.query({windowId: this._windowId, active: true}))[0].index;
       props.index = currentIndex + 1;
     }
     delete props.afterCurrent;

@@ -10,6 +10,7 @@ function SideTab() {
 SideTab.prototype = {
   init(tabInfo) {
     this.id = tabInfo.id;
+    this.index = tabInfo.index;
     this._buildViewStructure();
 
     this.view.id = `tab-${this.id}`;
@@ -249,9 +250,6 @@ Object.assign(SideTab, {
     // eslint-disable-next-line curly
     while (!SideTab.tabIdForView(el) && (el = el.parentElement));
     return SideTab.tabIdForView(el);
-  },
-  getAllTabsViews() {
-    return document.getElementsByClassName("tab");
   },
   _syncThrobberAnimations() {
     requestAnimationFrame(() => {

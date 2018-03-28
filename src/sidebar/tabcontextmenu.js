@@ -7,7 +7,7 @@ import ContextMenu from "./lib/contextmenu/contextmenu.js";
  * onClose
  * canMoveToNewWindow
  * reloadAllTabs
- * closeTabsUnderneath
+ * closeTabsAfter
  * closeOtherTabs
  * canUndoCloseTab
  * undoCloseTab
@@ -94,7 +94,7 @@ TabContextMenu.prototype = {
     if (!tab.pinned) {
       items.push({
         label: browser.i18n.getMessage("contextMenuCloseTabsUnderneath"),
-        onCommandFn: this._props.closeTabsUnderneath
+        onCommandFn: this._props.closeTabsAfter
       });
       items.push({
         label: browser.i18n.getMessage("contextMenuCloseOtherTabs"),
