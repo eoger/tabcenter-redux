@@ -130,8 +130,10 @@ SideTab.prototype = {
       } else {
         this.view.removeAttribute("notselectedsinceload");
       }
-      this._burstView.classList.add("bursting");
     }
+  },
+  burst() {
+    this._burstView.classList.add("bursting");
   },
   updateActive(active) {
     toggleClass(this.view, "active", active);

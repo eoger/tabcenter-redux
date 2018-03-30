@@ -378,14 +378,6 @@ body[platform="win"] #searchbox-input:placeholder-shown {
     background-color: hsl(var(--tab-background-hover));
 }
 
-/* Tab loading burst is disabled because it triggers on non top-level pages
-   (try it on GitHub).
-   If you don't mind that, you can re-enable the feature by disabling the
-   following rule using the custom CSS feature */
-.tab-loading-burst {
-    display: none;
-}
-
 .tab-loading-burst {
     position: absolute;
     overflow: hidden;

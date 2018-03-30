@@ -45,6 +45,7 @@ TabList.prototype = {
     browser.tabs.onMoved.addListener((tabId, moveInfo) => this._onBrowserTabMoved(tabId, moveInfo));
     browser.tabs.onAttached.addListener((tabId, attachInfo) => this._onBrowserTabAttached(tabId, attachInfo));
     browser.tabs.onDetached.addListener(tabId => this._onBrowserTabRemoved(tabId));
+    browser.webNavigation.onCompleted.addListener(details => this._webNavigationOnCompleted(details));
 
     // Global ("event-bubbling") listeners
     // Because defining event listeners for each tab is a terrible idea.
@@ -158,6 +159,16 @@ TabList.prototype = {
         tab.index += offset;
       }
     }
+  },
+  _webNavigationOnCompleted({tabId, frameId}) {
+    if (frameId !== 0) { // We only care about top-level frames.
+      return;
+    }
+    let sidetab = this._getTabById(tabId);
+    if (!sidetab) { // Could be null because different window.
+      return;
+    }
+    sidetab.burst();
   },
   _onMouseDown(e) {
     // Don't put preventDefault here or drag-and-drop won't work

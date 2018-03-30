@@ -22,7 +22,8 @@
     "sessions",
     "storage",
     "tabHide",
-    "tabs"
+    "tabs",
+    "webNavigation"
   ],
   "browser_action": {
     "browser_style": true,
