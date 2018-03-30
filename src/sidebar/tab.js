@@ -21,9 +21,7 @@ SideTab.prototype = {
     this._updateURL(tabInfo.url);
     this._updateAudible(tabInfo.audible);
     this._updatedMuted(tabInfo.mutedInfo.muted);
-    if (tabInfo.favIconUrl) {
-      this._setIcon(tabInfo.favIconUrl);
-    }
+    this._updateIcon(tabInfo.favIconUrl);
     this._updatePinned(tabInfo.pinned);
     this._updateDiscarded(tabInfo.discarded);
     if (tabInfo.cookieStoreId && tabInfo.cookieStoreId.startsWith("firefox-container-")) {
@@ -175,6 +173,11 @@ SideTab.prototype = {
     if (favIconUrl === "chrome://mozapps/skin/extensions/extensionGeneric-16.svg") {
       favIconUrl = "img/extensions.svg";
     }
+    if (favIconUrl.startsWith("chrome://") && favIconUrl.endsWith(".svg")) {
+      this._iconView.classList.add("chrome-icon");
+    } else {
+      this._iconView.classList.remove("chrome-icon");
+    }
     this._iconView.style.backgroundImage = `url("${favIconUrl}")`;
     const imgTest = document.createElement("img");
     imgTest.src = favIconUrl;
@@ -184,6 +187,7 @@ SideTab.prototype = {
   },
   _resetIcon() {
     this._iconView.style.backgroundImage = "";
+    this._iconView.classList.add("chrome-icon");
   },
   _updatePinned(pinned) {
     this.pinned = pinned;
