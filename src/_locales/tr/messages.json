@@ -1,1 +1,110 @@
-{}
+{
+  "extensionDescription": {
+    "message": "Tab Center insanların sekmeleri kullanma şeklinden kaynaklanan bazı sorunları (en dikkat çekeni \"çok fazla sekme\" sorunu) çözme ve gelecek yeniliklerin temeli için daha kullanışlı bir arayüz sağlama girişimidir. Firefox eklentisinin ilk sürümü, sekmeleri moda olduğu şekliyle yatay değil dikey olarak düzenler. Bu, muhteşem VerticalTabs eklentisinden ödünç alınmış bir fikir ve ondan yoğun bir şekilde ilham alır."
+  },
+  "browserActionTitle": {
+    "message": "Tab Center Redux'a Geç",
+    "description": "Tooltip shown when hovering the toolbar button."
+  },
+  "sidebarTitle": {
+    "message": "Sekmeler",
+    "description": "Label shown in the sidebar selector."
+  },
+  "newTabBtnLabel": {
+    "message": "Yeni Sekme",
+    "description": "Label of the New Tab button in the top menu."
+  },
+  "newTabBtnTooltip": {
+    "message": "Yeni bir sekme aç"
+  },
+  "searchPlaceholder": {
+    "message": "Sekmeleri ara"
+  },
+  "closeTabButtonTooltip": {
+    "message": "Sekmeyi kapat"
+  },
+  "allTabsLabel": {
+    "message": "Tüm sekmeleri göster…",
+    "description": "Shown at the bottom of the list of tabs if some tabs are filtered by the current search query."
+  },
+  "contextMenuReloadTab": {
+    "message": "Sekmeyi Yeniden Yükle",
+    "description": "Reload Tab context menu item label."
+  },
+  "contextMenuPinTab": {
+    "message": "Sekmeyi İğnele",
+    "description": "Pin Tab context menu item label."
+  },
+  "contextMenuUnpinTab": {
+    "message": "Sekmeden İğneyi Kaldır",
+    "description": "Unpin Tab context menu item label."
+  },
+  "contextMenuMuteTab": {
+    "message": "Sekmenin Sesini Kapat",
+    "description": "Mute Tab context menu item label."
+  },
+  "contextMenuUnmuteTab": {
+    "message": "Sekmenin Sesini Aç",
+    "description": "Unmute Tab context menu item label."
+  },
+  "contextMenuCloseTab": {
+    "message": "Sekmeyi Kapat"
+  },
+  "contextMenuUndoCloseTab": {
+    "message": "Kapatılan Sekmeyi Yeniden Aç"
+  },
+  "contextMenuDuplicateTab": {
+    "message": "Sekmeyi Çoğalt"
+  },
+  "contextMenuMoveTabToNewWindow": {
+    "message": "Yeni Pencereye Geç"
+  },
+  "contextMenuReloadAllTabs": {
+    "message": "Tüm Sekmeleri Yeniden Yükle"
+  },
+  "contextMenuCloseTabsUnderneath": {
+    "message": "Alttaki Sekmeleri Kapat"
+  },
+  "contextMenuCloseOtherTabs": {
+    "message": "Diğer Sekmeleri Kapat"
+  },
+  "settingsBtnTooltip": {
+    "message": "Ayarları aç"
+  },
+  "optionsTitle": {
+    "message": "Ayarlar"
+  },
+  "optionsCompactMode": {
+    "message": "Kısa Mod"
+  },
+  "optionsCompactModeTooltip": {
+    "message": "Kısa Mod daha fazla göstermek için sekmelerin yüksekliğini azaltır. Dinamik ayarda, boş alanımız kalmayınca devreye girecek."
+  },
+  "optionsCompactModeOff": {
+    "message": "Devre dışı"
+  },
+  "optionsCompactModeDynamic": {
+    "message": "Dinamik"
+  },
+  "optionsCompactModeStrict": {
+    "message": "Daima"
+  },
+  "optionsCompactPins": {
+    "message": "Kısa İğnelenmiş Sekmeler"
+  },
+  "optionsDarkTheme": {
+    "message": "Koyu Tema"
+  },
+  "optionsAdvancedTitle": {
+    "message": "Gelişmiş"
+  },
+  "optionsCustomCSS": {
+    "message": "Özel Tarz Sayfası"
+  },
+  "optionsCustomCSSWikiLink": {
+    "message": "Wiki Maddesinden Alıntı CSS"
+  },
+  "optionsSaveCustomCSS": {
+    "message": "CSS Kaydet"
+  }
+}
