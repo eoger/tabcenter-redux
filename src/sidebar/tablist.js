@@ -27,6 +27,12 @@ function TabList(props) {
   this._compactModeMode = parseInt(this._props.prefs.compactModeMode);
   this._compactPins = this._props.prefs.compactPins;
   this._setupListeners();
+
+  if (browser.browserSettings.closeTabsByDoubleClick) { // Introduced in Firefox 61.
+    browser.browserSettings.closeTabsByDoubleClick.get({}).then(({value}) => {
+      this.closeTabsByDoubleClick = value;
+    });
+  }
 }
 
 TabList.prototype = {
@@ -45,6 +51,7 @@ TabList.prototype = {
     // Read more here: https://davidwalsh.name/event-delegate
     for (let view of [this._view, this._pinnedview]) {
       view.addEventListener("click", e => this._onClick(e));
+      view.addEventListener("dblclick", e => this._onDblClick(e));
       view.addEventListener("auxclick", e => this._onAuxClick(e));
       view.addEventListener("mousedown", e => this._onMouseDown(e));
       view.addEventListener("contextmenu", e => this._onContextMenu(e));
@@ -253,6 +260,11 @@ TabList.prototype = {
       const tabId = SideTab.tabIdForEvent(e);
       const tab = this._getTabById(tabId);
       browser.tabs.update(tabId, {"muted": !tab.muted});
+    }
+  },
+  _onDblClick(e) {
+    if (SideTab.isTabEvent(e) && this.closeTabsByDoubleClick) {
+      browser.tabs.remove(SideTab.tabIdForEvent(e));
     }
   },
   _onDragStart(e) {
