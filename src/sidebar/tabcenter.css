@@ -443,7 +443,7 @@ body[platform="win"] #searchbox-input:placeholder-shown {
     }
 }
 
-.tab-context:not(.hasContext) {
+.tab:not(.hasContext) {
     --identity-tab-color: #1aa1ff;
 }
 
@@ -458,15 +458,15 @@ body[platform="win"] #searchbox-input:placeholder-shown {
     transition: background-position 150ms ease-out;
 }
 
-.tab:not(.active) > .tab-context.hasContext {
+.tab.hasContext:not(.active) > .tab-context {
     background-position: -3px 0;
 }
 
-.tab:not(.active) > .tab-context:not(.hasContext) {
+.tab:not(.hasContext):not(.active) > .tab-context {
     background-position: -6px 0;
 }
 
-#pinnedtablist.compact .tab.pinned > .tab-context.hasContext {
+#pinnedtablist.compact .tab.pinned.hasContext > .tab-context {
     /* Specify all these at once also overrides the gradient background,
      * Which looks wrong since these are vertical (we could define a
      * vertical background, but they're 2px high so it doesn't matter).
@@ -787,7 +787,7 @@ body[platform="win"] #searchbox-input:placeholder-shown {
     height: 16px;
 }
 
-#pinnedtablist.compact .tab.pinned > .tab-context:not(.hasContext),
+#pinnedtablist.compact .tab.pinned:not(.hasContext) > .tab-context,
 #pinnedtablist.compact .tab.pinned > .tab-title-wrapper,
 .tab.pinned > .tab-close {
     display: none;
