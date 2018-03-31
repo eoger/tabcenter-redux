@@ -64,10 +64,17 @@ TabList.prototype = {
     this._moreTabsView.addEventListener("click", () => this._clearSearch());
     this._view.addEventListener("scroll", () => this.onScroll());
 
-    // Drag-and-drop
+    // Drag-and-drop.
     document.addEventListener("dragstart", e => this._onDragStart(e));
     document.addEventListener("dragover", e => this._onDragOver(e));
     document.addEventListener("drop", e => this._onDrop(e));
+
+    // Disable zooming.
+    document.addEventListener("wheel", e => {
+      if (e.metaKey || e.ctrlKey) {
+        e.preventDefault();
+      }
+    });
 
     // Pref changes
     browser.storage.onChanged.addListener(changes => this._onPrefsChanged(changes));
