@@ -34,8 +34,8 @@ SideTab.prototype = {
         if (!context) {
           return;
         }
-        this._contextView.classList.add("hasContext");
-        this._contextView.setAttribute("data-identity-color", context.color);
+        this.view.classList.add("hasContext");
+        this.view.setAttribute("data-identity-color", context.color);
       });
     }
   },
