@@ -23,6 +23,7 @@
     "storage",
     "tabHide",
     "tabs",
+    "theme",
     "webNavigation"
   ],
   "browser_action": {

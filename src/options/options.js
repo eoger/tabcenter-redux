@@ -8,8 +8,8 @@ TabCenterOptions.prototype = {
     const options = ["optionsTitle", "optionsCompactMode",
       "optionsCompactModeStrict", "optionsCompactModeDynamic",
       "optionsCompactModeOff", "optionsCompactPins", "optionsDarkTheme",
-      "optionsAdvancedTitle", "optionsCustomCSS", "optionsCustomCSSWikiLink",
-      "optionsSaveCustomCSS"];
+      "optionsThemeIntegration", "optionsAdvancedTitle", "optionsCustomCSS",
+      "optionsCustomCSSWikiLink", "optionsSaveCustomCSS"];
     for (let opt of options) {
       this._setupTextContentLabel(opt);
     }
@@ -23,6 +23,7 @@ TabCenterOptions.prototype = {
   },
   setupStateAndListeners() {
     this._setupCheckboxOption("darkTheme", "darkTheme");
+    this._setupCheckboxOption("themeIntegration", "themeIntegration");
     this._setupDropdownOption("compactMode", "compactModeMode");
     this._setupCheckboxOption("compactPins", "compactPins", true);
 
