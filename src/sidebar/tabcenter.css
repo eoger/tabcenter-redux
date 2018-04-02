@@ -827,21 +827,21 @@ body[platform="win"] #searchbox-input:placeholder-shown {
 
 /* DARK THEME CUSTOMIZATIONS */
 body.dark-theme {
-    --tab-background-normal: 223, 15.2%, 18%;
-    --tab-background-pinned: 221, 17.75%, 21%;
-    --tab-background-active: 221, 41.4%, 33.1%;
-    --tab-background-hover: 222, 28.3%, 25.55%;
-    --tab-border-color: #38383d;
+    --tab-background-normal: 240, 4%, 5%;
+    --tab-background-pinned: 240, 4%, 10%;
+    --tab-background-active: 240, 2%, 20%;
+    --tab-background-hover: 240, 5%, 17%;
+    --tab-border-color: #38383D;
     --searchbox-background: rgb(71, 71, 73);
-    --primary-text-color: rgb(249, 249, 250);
-    --secondary-text-color: #A5A5A7;
+    --primary-text-color: rgb(255, 255, 255);
+    --secondary-text-color: #F9F9FA;
     --close-button-color:  rgba(238, 238, 241, .05);
     --close-button-hover: rgba(238, 238, 241, .1);
     --close-button-active: rgba(238, 238, 241, .2);
-    --menu-background: #393f4c;
+    --menu-background: #323234;
     --menu-button-text-shadow: 0 1px rgba(0, 0, 0, .4);
-    --menu-button-hover: hsla(0, 0%, 100%, .2);
-    --menu-button-active: hsla(0, 0%, 100%, .3);
+    --menu-button-hover: hsla(240, 10%, 94%, 0.2);
+    --menu-button-active: hsla(240, 10%, 94%, 0.3);
 }
 
 body.dark-theme #newtab-menu {
