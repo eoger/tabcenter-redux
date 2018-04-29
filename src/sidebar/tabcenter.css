@@ -364,6 +364,7 @@ body[platform="win"] #searchbox-input:placeholder-shown {
     height: 10px;
     margin-bottom: -10px;
     z-index: 1;
+    pointer-events: none;
     transition: box-shadow 0.3s cubic-bezier(.07,.95,0,1);
 }
 
