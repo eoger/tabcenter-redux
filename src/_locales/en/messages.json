@@ -124,6 +124,10 @@
     "message": "Dark Theme"
   },
 
+  "optionsThemeIntegration": {
+    "message": "Integrate with current theme"
+  },
+
   "optionsAdvancedTitle": {
     "message": "Advanced"
   },

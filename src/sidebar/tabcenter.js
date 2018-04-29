@@ -14,11 +14,11 @@ TabCenter.prototype = {
 
     this._setupListeners();
 
+    const {id: windowId} = await windowPromise;
+    this._windowId = windowId;
     const prefs = await prefsPromise;
     this._applyPrefs(prefs);
     this._tabList = new TabList({openTab, search, prefs});
-    const {id: windowId} = await windowPromise;
-    this._windowId = windowId;
     // There's no real need to await on populate().
     this._tabList.populate(windowId);
 
@@ -58,6 +58,11 @@ TabCenter.prototype = {
       }
     }, false);
     browser.storage.onChanged.addListener(changes => this._applyPrefs(unwrapChanges(changes)));
+    this._themeListener = ({theme, windowId}) => {
+      if (!windowId || windowId === this._windowId) {
+        this._applyTheme(theme);
+      }
+    };
   },
   set _customCSS(cssText) {
     document.getElementById("customCSS").innerHTML = cssText;
@@ -69,12 +74,24 @@ TabCenter.prototype = {
       document.body.classList.remove("dark-theme");
     }
   },
+  set _themeIntegration(enabled) {
+    if (!enabled) {
+      this._resetTheme();
+      if (browser.theme.onUpdated.hasListener(this._themeListener)) {
+        browser.theme.onUpdated.removeListener(this._themeListener);
+      }
+    } else {
+      browser.theme.onUpdated.addListener(this._themeListener);
+      browser.theme.getCurrent(this._windowId).then(this._applyTheme);
+    }
+  },
   _readPrefs() {
     return browser.storage.local.get({
       customCSS: "",
       darkTheme: false,
       compactModeMode: 1/* COMPACT_MODE_DYNAMIC */,
-      compactPins: true
+      compactPins: true,
+      themeIntegration: false,
     });
   },
   _applyPrefs(prefs) {
@@ -84,6 +101,32 @@ TabCenter.prototype = {
     if (prefs.hasOwnProperty("darkTheme")) {
       this._darkTheme = prefs.darkTheme;
     }
+    if (prefs.hasOwnProperty("themeIntegration")) {
+      this._themeIntegration = prefs.themeIntegration;
+    }
+  },
+  _applyTheme(theme) {
+    const setVariable = (cssVar, themeProps) => {
+      for (const prop of themeProps) {
+        if (theme.colors && theme.colors[prop]) {
+          document.body.style.setProperty(cssVar, theme.colors[prop]);
+          return;
+        }
+      }
+      document.body.style.removeProperty(cssVar);
+    };
+    setVariable("--tab-background-normal", ["accentcolor"]);
+    setVariable("--menu-background", ["accentcolor"]);
+    setVariable("--primary-text-color", ["textcolor"]);
+    setVariable("--tab-background-active", ["tab_selected", "toolbar"]);
+    setVariable("--tab-text-color-active", ["tab_text", "toolbar_text"]);
+    setVariable("--default-tab-line-color", ["tab_line", "accentcolor"]);
+    setVariable("--searchbox-background", ["toolbar_field"]);
+    setVariable("--searchbox-text-color", ["toolbar_field_text"]);
+    setVariable("--tab-border-color", ["toolbar_top_separator"]);
+  },
+  _resetTheme() {
+    this._applyTheme({});
   },
   startTests() {
     const script = document.createElement("script");

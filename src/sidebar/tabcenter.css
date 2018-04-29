@@ -1,14 +1,14 @@
 @import url("lib/contextmenu/contextmenu.css");
 
 :root {
-    --tab-background-normal: 0, 0%, 99%;
-    --tab-background-pinned: 0, 0%, 97%;
-    --tab-background-active: 0, 0%, 87%;
-    --tab-background-hover: 0, 0%, 91%;
+    --tab-background-normal: hsl(0, 0%, 99%);
+    --tab-background-pinned: hsla(0, 0%, 80%, .15);
+    --tab-background-active: hsl(0, 0%, 87%);
+    --tab-background-hover: hsla(0, 0%, 80%, .25);
     --tab-border-color: hsla(0, 0%, 0%, 0.06);
+    --default-tab-line-color: #1aa1ff;
     --searchbox-background: #fff;
     --primary-text-color: #18191a;
-    --secondary-text-color: #737373;
     --close-button-color: hsla(0, 0%, 0%, 0.1);
     --close-button-hover: hsla(0, 0%, 0%, 0.16);
     --close-button-active: hsla(0, 0%, 0%, 0.2);
@@ -28,7 +28,7 @@ html, body {
 }
 
 body {
-    background-color: hsl(var(--tab-background-normal));
+    background-color: var(--tab-background-normal);
     font: message-box;
     color: var(--primary-text-color);
     display: flex;
@@ -319,6 +319,7 @@ body[platform="win"] #searchbox-input:placeholder-shown {
 #searchbox-input,
 #searchbox-icon {
     background-color: var(--searchbox-background);
+    color: var(--searchbox-text-color);
 }
 
 #settings {
@@ -371,11 +372,12 @@ body[platform="win"] #searchbox-input:placeholder-shown {
 }
 
 .tab.active {
-    background-color: hsl(var(--tab-background-active));
+    background-color: var(--tab-background-active);
+    color: var(--tab-text-color-active, var(--primary-text-color));
 }
 
 .tab:not(.active):hover {
-    background-color: hsl(var(--tab-background-hover));
+    background-color: var(--tab-background-hover);
 }
 
 .tab-loading-burst {
@@ -444,7 +446,7 @@ body[platform="win"] #searchbox-input:placeholder-shown {
 }
 
 .tab:not(.hasContext) {
-    --identity-tab-color: #1aa1ff;
+    --identity-tab-color: var(--default-tab-line-color);
 }
 
 .tab-context {
@@ -630,7 +632,7 @@ body[platform="win"] #searchbox-input:placeholder-shown {
 }
 
 .tab.discarded .tab-title {
-    color: var(--secondary-text-color);
+    opacity: 0.5;
 }
 
 .tab.discarded .tab-meta-image {
@@ -643,43 +645,19 @@ body[platform="win"] #searchbox-input:placeholder-shown {
 }
 
 .tab-host {
-    color: var(--secondary-text-color);
+    opacity: 0.5;
 }
 
 #tablist-wrapper.shrinked .tab-host {
     display: none;
 }
 
-.tab-title-wrapper::after {
-    content: '';
-    position: absolute;
-    width: 60px;
-    top: 0;
-    bottom: 0;
-    right: 0;
-    --tab-background: var(--tab-background-normal);
-    background-image: linear-gradient(to right, hsla(var(--tab-background), 0), hsl(var(--tab-background)) 30%);
-    transform: translateX(36px);
+.tab-title-wrapper {
+    mask-image: linear-gradient(to left, transparent 0, black 2em);
 }
 
-.tab.pinned > .tab-title-wrapper::after {
-    --tab-background: var(--tab-background-pinned);
-}
-
-.tab.active > .tab-title-wrapper::after {
-    --tab-background: var(--tab-background-active);
-}
-
-.tab:not(.active):hover > .tab-title-wrapper::after {
-    --tab-background: var(--tab-background-hover);
-}
-
-.tab:hover > .tab-title-wrapper::after {
-    transform: translateX(0);
-}
-
-#pinnedtablist:not(.compact) .tab.pinned > .tab-title-wrapper::after {
-    transform: translateX(8px);
+.tab:hover > .tab-title-wrapper {
+    mask-image: linear-gradient(to left, transparent 36px, black calc(2em + 36px));
 }
 
 .tab-pin {
@@ -738,7 +716,7 @@ body[platform="win"] #searchbox-input:placeholder-shown {
 }
 
 #tablist-wrapper #pinnedtablist {
-    background-color: hsl(var(--tab-background-pinned));
+    background-color: var(--tab-background-pinned);
     flex-shrink: 0;
 }
 
@@ -827,14 +805,14 @@ body[platform="win"] #searchbox-input:placeholder-shown {
 
 /* DARK THEME CUSTOMIZATIONS */
 body.dark-theme {
-    --tab-background-normal: 240, 4%, 5%;
-    --tab-background-pinned: 240, 4%, 10%;
-    --tab-background-active: 240, 2%, 20%;
-    --tab-background-hover: 240, 5%, 17%;
+    --tab-background-normal: hsl(240, 4%, 5%);
+    --tab-background-pinned: hsla(240, 4%, 20%, 0.15);
+    --tab-background-active: hsl(240, 2%, 20%);
+    --tab-background-hover: hsl(240, 5%, 30%, 0.25);
     --tab-border-color: #38383D;
     --searchbox-background: rgb(71, 71, 73);
     --primary-text-color: rgb(255, 255, 255);
-    --secondary-text-color: #F9F9FA;
+
     --close-button-color:  rgba(238, 238, 241, .05);
     --close-button-hover: rgba(238, 238, 241, .1);
     --close-button-active: rgba(238, 238, 241, .2);
@@ -850,10 +828,6 @@ body.dark-theme #newtab-menu {
 
 body.dark-theme #searchbox-icon {
     background-image: url("img/find.svg#inverted");
-}
-
-body.dark-theme #searchbox-input {
-    color: var(--primary-text-color);
 }
 
 body.dark-theme .tab-icon-overlay {
