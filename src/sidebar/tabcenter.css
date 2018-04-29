@@ -656,7 +656,7 @@ body[platform="win"] #searchbox-input:placeholder-shown {
     mask-image: linear-gradient(to left, transparent 0, black 2em);
 }
 
-.tab:hover > .tab-title-wrapper {
+.tab:hover:not(.pinned) > .tab-title-wrapper {
     mask-image: linear-gradient(to left, transparent 36px, black calc(2em + 36px));
 }
 
