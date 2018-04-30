@@ -95,6 +95,9 @@
   "optionsDarkTheme": {
     "message": "Malhela etoso"
   },
+  "optionsThemeIntegration": {
+    "message": "Integriĝi aktualan temon"
+  },
   "optionsAdvancedTitle": {
     "message": "Altnivela"
   },
