@@ -95,6 +95,9 @@
   "optionsDarkTheme": {
     "message": "Темна тема"
   },
+  "optionsThemeIntegration": {
+    "message": "Інтегрувати з поточною темою"
+  },
   "optionsAdvancedTitle": {
     "message": "Додаткові"
   },
