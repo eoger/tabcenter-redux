@@ -75,6 +75,9 @@ TabCenter.prototype = {
     }
   },
   set _themeIntegration(enabled) {
+    if (!browser.theme.onUpdated) {
+      return;
+    }
     if (!enabled) {
       this._resetTheme();
       if (browser.theme.onUpdated.hasListener(this._themeListener)) {
