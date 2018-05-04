@@ -17,7 +17,7 @@
     --menu-button-text-shadow: 0 1px rgba(255, 255, 255, .4);
     --menu-button-hover: hsla(240, 5%, 5%, .1);
     --menu-button-active: hsla(240, 5%, 5%, .15);
-    --border-radius: 4px;
+    --border-radius: 2px;
 }
 
 body[platform="win"] {
@@ -668,7 +668,7 @@ body[platform="win"] #searchbox-input:placeholder-shown {
 }
 
 .tab:hover:not(.pinned) > .tab-title-wrapper {
-    mask-image: linear-gradient(to left, transparent 36px, black calc(2em + 36px));
+    mask-image: linear-gradient(to left, transparent 28px, black calc(2em + 28px));
 }
 
 .tab-pin {
@@ -693,11 +693,11 @@ body[platform="win"] #searchbox-input:placeholder-shown {
 .tab-close {
     position: absolute;
     display: block;
-    width: 24px;
-    height: 24px;
+    width: 20px;
+    height: 20px;
     top: 0;
     bottom: 0;
-    right: 12px;
+    right: 6px;
     margin: auto;
     background-color: var(--close-button-color);
     background-image: url("img/glyph-close-16.svg#standard");
@@ -706,7 +706,7 @@ body[platform="win"] #searchbox-input:placeholder-shown {
     filter: url("img/filters.svg#fill");
     background-position: center;
     background-repeat: no-repeat;
-    background-size: 16px;
+    background-size: 12px;
     border-radius: var(--border-radius);
     opacity: 0;
 }
