@@ -1,5 +1,6 @@
 import SideTab from "./tab.js";
 import TabContextMenu from "./tabcontextmenu.js";
+import Fuse from "./lib/fuse.min.js";
 
 const COMPACT_MODE_OFF = 0;
 /*const COMPACT_MODE_DYNAMIC = 1;*/
@@ -425,13 +426,52 @@ TabList.prototype = {
   filter(query) {
     this._filterActive = query.length > 0;
     query = normalizeStr(query);
+
+    const tabs = [...this._tabs.values()];
     let notShown = 0;
-    for (let tab of this._tabs.values()) {
-      const show = normalizeStr(tab.url).includes(query) ||
-                   normalizeStr(tab.title).includes(query);
-      notShown += !show ? 1 : 0;
-      tab.updateVisibility(show);
+    if (query.length) { // results is empty if the filter is empty, hence the special case.
+      const options = {
+        id: "id",
+        includeMatches: true,
+        threshold: 0,
+        location: 0,
+        distance: 100,
+        maxPatternLength: 32,
+        minMatchCharLength: 1,
+        getFn: (tab, key) => {
+          if (key === "id") {
+            return [tab.id];
+          } else if (key === "url") {
+            return [normalizeStr(getHost(tab.url))];
+          } else {
+            return [normalizeStr(tab[key])];
+          }
+        },
+        keys: [
+          "url",
+          "title"
+        ]
+      };
+      const fuse = new Fuse(tabs, options);
+      const results = fuse.search(query).reduce((acc, {item, matches}) => {
+        acc[item] = matches;
+        return acc;
+      }, {});
+
+      for (const tab of tabs) {
+        const result = results[tab.id];
+        const show = !!result;
+        tab.updateVisibility(show);
+        if (!show) {
+          notShown += 1;
+        }
+      }
+    } else {
+      for (const tab of tabs) {
+        tab.updateVisibility(true);
+      }
     }
+
     if (notShown > 0) {
       // Sadly browser.i18n doesn't support plurals, which is why we
       // only show a boring "Show all tabs…" message.
@@ -625,6 +665,10 @@ TabList.prototype = {
     sidetab.updateThumbnail();
   }
 };
+
+function getHost(url) {
+  return new URL(url).host || url;
+}
 
 // Remove case and accents/diacritics.
 function normalizeStr(str) {
