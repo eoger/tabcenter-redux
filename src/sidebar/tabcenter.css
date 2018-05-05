@@ -649,6 +649,10 @@ body[platform="win"] #searchbox-input:placeholder-shown {
     opacity: 0.5;
 }
 
+.search-highlight {
+    font-weight: bold;
+}
+
 #tablist-wrapper.shrinked .tab-host {
     display: none;
 }

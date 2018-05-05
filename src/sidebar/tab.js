@@ -108,7 +108,7 @@ SideTab.prototype = {
     }
   },
   _updateURL(url) {
-    const host = new URL(url).host || url;
+    const host = getHost(url);
     this.url = url;
     this._hostView.innerText = host;
   },
@@ -214,7 +214,53 @@ SideTab.prototype = {
     if (e.target.classList.contains("tab-loading-burst")) {
       this._burstView.classList.remove("bursting");
     }
-  }
+  },
+  resetHighlights() {
+    this._updateTitle(this.title);
+    this._updateURL(this.url);
+  },
+  highlightMatches(matches) {
+    this.resetHighlights();
+    for (let {key, indices} of matches) {
+      if (key === "title") {
+        this._highlightSearchResults(this._titleView, this.title, indices);
+      } else if (key === "url") {
+        this._highlightSearchResults(this._hostView, getHost(this.url), indices);
+      }
+    }
+  },
+  _highlightSearchResults(node, text, indices) {
+    // Clear out the node before we fill it with new stuff.
+    while (node.firstChild) {
+      node.removeChild(node.firstChild);
+    }
+
+    let ranges = [];
+    let pos = 0;
+    for (let range of indices) {
+      const start = range[0];
+      const end = range[1] + 1;
+      if (pos < start) {
+        ranges.push({text: text.slice(pos, start), highlight: false});
+      }
+      ranges.push({text: text.slice(start, end), highlight: true});
+      pos = end;
+    }
+    if (pos < text.length) {
+      ranges.push({text: text.slice(pos), highlight: false});
+    }
+
+    for (let {text, highlight} of ranges) {
+      if (highlight) {
+        let span = document.createElement("span");
+        span.className = "search-highlight";
+        span.textContent = text;
+        node.appendChild(span);
+      } else {
+        node.appendChild(document.createTextNode(text));
+      }
+    }
+  },
 };
 
 // Static methods
@@ -302,6 +348,10 @@ Object.assign(SideTab, {
 
 function toggleClass(node, className, boolean) {
   boolean ? node.classList.add(className) : node.classList.remove(className);
+}
+
+function getHost(url) {
+  return new URL(url).host || url;
 }
 
 export default SideTab;

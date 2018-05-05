@@ -462,13 +462,17 @@ TabList.prototype = {
         const result = results[tab.id];
         const show = !!result;
         tab.updateVisibility(show);
-        if (!show) {
+        if (show) {
+          tab.highlightMatches(result);
+        } else {
           notShown += 1;
+          tab.resetHighlights();
         }
       }
     } else {
       for (const tab of tabs) {
         tab.updateVisibility(true);
+        tab.resetHighlights();
       }
     }
 
