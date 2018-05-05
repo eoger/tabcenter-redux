@@ -332,6 +332,15 @@ body[platform="win"] #searchbox-input:placeholder-shown {
     background-image: url("img/settings.svg#standard");
 }
 
+#tablist {
+    display: flex;
+    flex-direction: column;
+}
+
+.tab {
+    flex-shrink: 0;
+}
+
 #tablist-wrapper {
     height: 100%;
     display: flex;

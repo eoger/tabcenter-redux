@@ -1,5 +1,6 @@
 import SideTab from "./tab.js";
 import TabContextMenu from "./tabcontextmenu.js";
+import fuzzysort from "./lib/fuzzysort.js";
 
 const COMPACT_MODE_OFF = 0;
 /*const COMPACT_MODE_DYNAMIC = 1;*/
@@ -424,13 +425,45 @@ TabList.prototype = {
   },
   filter(query) {
     this._filterActive = query.length > 0;
-    query = normalizeStr(query);
+
+    const tabs = [...this._tabs.values()];
     let notShown = 0;
-    for (let tab of this._tabs.values()) {
-      const show = normalizeStr(tab.url).includes(query) ||
-                   normalizeStr(tab.title).includes(query);
-      notShown += !show ? 1 : 0;
-      tab.updateVisibility(show);
+    if (query.length) {
+      let results = fuzzysort.go(query, tabs, {
+        keys: ["title", "host"],
+        allowTypo: false,
+        threshold: -1000,
+      })
+      .sort((r1, r2) => r2.score - r1.score)
+      .reduce((acc, tabResult, index) => {
+        tabResult.order = index;
+        acc[tabResult.obj.id] = tabResult;
+        return acc;
+      }, {});
+      for (const tab of tabs) {
+        const result = results[tab.id];
+        const show = !!result;
+        tab.updateVisibility(show);
+        tab.resetHighlights();
+        tab.resetOrder();
+        if (show) {
+          if (result[0]) { // title
+            tab.highlightTitle(fuzzysort.highlight(result[0], "<b>", "</b>"));
+          }
+          if (result[1]) { // host
+            tab.highlightHost(fuzzysort.highlight(result[1], "<b>", "</b>"));
+          }
+          tab.setOrder(result.order);
+        } else {
+          notShown += 1;
+        }
+      }
+    } else {
+      for (const tab of tabs) {
+        tab.updateVisibility(true);
+        tab.resetHighlights();
+        tab.resetOrder();
+      }
     }
     if (notShown > 0) {
       // Sadly browser.i18n doesn't support plurals, which is why we
@@ -625,10 +658,5 @@ TabList.prototype = {
     sidetab.updateThumbnail();
   }
 };
-
-// Remove case and accents/diacritics.
-function normalizeStr(str) {
-  return str ? str.toLowerCase().normalize("NFD").replace(/[\u0300-\u036f]/g, "") : "";
-}
 
 export default TabList;

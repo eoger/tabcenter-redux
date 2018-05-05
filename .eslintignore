@@ -1,2 +1,3 @@
 src/sidebar/dist
 src/test/vendor
+src/sidebar/lib/fuzzysort.js

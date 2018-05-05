@@ -90,6 +90,9 @@ SideTab.prototype = {
       this._updatePinned(changeInfo.pinned);
     }
   },
+  get host() {
+    return new URL(this.url).host || this.url;
+  },
   _updateTitle(title) {
     if (this.title && this.title !== title) {
       if (!this.view.classList.contains("active")) {
@@ -108,9 +111,8 @@ SideTab.prototype = {
     }
   },
   _updateURL(url) {
-    const host = new URL(url).host || url;
     this.url = url;
-    this._hostView.innerText = host;
+    this._hostView.innerText = this.host;
   },
   _updateAudible(audible) {
     toggleClass(this._iconOverlayView, "sound", audible);
@@ -214,6 +216,22 @@ SideTab.prototype = {
     if (e.target.classList.contains("tab-loading-burst")) {
       this._burstView.classList.remove("bursting");
     }
+  },
+  resetHighlights() {
+    this._titleView.innerText = this.title;
+    this._hostView.innerText = this.host;
+  },
+  highlightTitle(newTitle) {
+    this._titleView.innerHTML = newTitle;
+  },
+  highlightHost(newHost) {
+    this._hostView.innerHTML = newHost;
+  },
+  resetOrder() {
+    this.setOrder(null);
+  },
+  setOrder(idx) {
+    this.view.style.order = idx;
   }
 };
 
