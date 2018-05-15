@@ -10,7 +10,6 @@
     --searchbox-background: #fff;
     --primary-text-color: #18191a;
     --icon-color: #5a5b5c;
-    --close-button-color: hsla(0, 0%, 0%, 0.1);
     --close-button-hover: hsla(0, 0%, 0%, 0.16);
     --close-button-active: hsla(0, 0%, 0%, 0.2);
     --menu-background: hsl(0, 0%, 99%);
@@ -115,7 +114,7 @@ body[platform="mac"] #newtab-menu {
     background-color: hsla(210,4%,10%,.07);
 }
 
-.newtab-menu-identity:active {
+.newtab-menu-identity:hover:active {
     background-color: hsla(210,4%,10%,.12);
     box-shadow: 0 1px 0 hsla(210,4%,10%,.03) inset;
 }
@@ -247,7 +246,7 @@ body[platform="mac"] #newtab-menu {
     background-color: var(--menu-button-hover);
 }
 
-.topmenu-button:active {
+.topmenu-button:hover:active {
     background-color: var(--menu-button-active);
 }
 
@@ -699,7 +698,6 @@ body[platform="win"] #searchbox-input:placeholder-shown {
     bottom: 0;
     right: 6px;
     margin: auto;
-    background-color: var(--close-button-color);
     background-image: url("img/glyph-close-16.svg#standard");
     -moz-context-properties: fill;
     fill: var(--icon-color);
@@ -718,7 +716,7 @@ body[platform="win"] #searchbox-input:placeholder-shown {
 .tab-close:hover {
     background-color: var(--close-button-hover) !important;
 }
-.tab-close:active {
+.tab-close:hover:active {
     background-color: var(--close-button-active) !important;
 }
 
@@ -830,7 +828,6 @@ body.dark-theme {
     --searchbox-background: rgb(71, 71, 73);
     --primary-text-color: rgb(255, 255, 255);
     --icon-color: #bebebe;
-    --close-button-color: rgba(238, 238, 241, .05);
     --close-button-hover: rgba(238, 238, 241, .1);
     --close-button-active: rgba(238, 238, 241, .2);
     --menu-background: #323234;
