@@ -564,10 +564,6 @@ body[platform="win"] #searchbox-input:placeholder-shown {
     margin-top: 18px;
 }
 
-.tab-icon {
-    background-image: url("img/defaultFavicon.svg");
-}
-
 .tab-icon-wrapper {
     height: 20px;
     width: 20px;
@@ -586,6 +582,7 @@ body[platform="win"] #searchbox-input:placeholder-shown {
 .tab-icon {
     width: 16px;
     height: 16px;
+    background-image: url("img/defaultFavicon.svg");
     background-repeat: no-repeat;
     background-position: center;
     background-size: contain;
