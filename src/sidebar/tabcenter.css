@@ -590,6 +590,17 @@ body[platform="win"] #searchbox-input:placeholder-shown {
     image-rendering: pixelated;
 }
 
+.tab-icon.fill-color {
+    -moz-context-properties: fill;
+    fill: var(--icon-color);
+    filter: url("img/filters.svg#fill");
+}
+
+#tablist-wrapper:not(.shrinked) #tablist .tab-icon.chrome-icon,
+#pinnedtablist:not(.compact) .tab-icon.chrome-icon {
+    fill: #5a5b5c;
+}
+
 .tab.loading .tab-icon {
     position: relative;
     overflow: hidden;

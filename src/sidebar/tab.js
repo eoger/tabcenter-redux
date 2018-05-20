@@ -163,6 +163,11 @@ SideTab.prototype = {
     toggleClass(this.view, "hidden", !show);
   },
   _setIcon(favIconUrl) {
+    if (favIconUrl.startsWith("chrome://") && favIconUrl.endsWith(".svg")) {
+      this._iconView.classList.add("fill-color");
+    } else {
+      this._iconView.classList.remove("fill-color");
+    }
     this._iconView.style.backgroundImage = `url("${favIconUrl}")`;
     const imgTest = document.createElement("img");
     imgTest.src = favIconUrl;
@@ -172,6 +177,7 @@ SideTab.prototype = {
   },
   _resetIcon() {
     this._iconView.style.backgroundImage = "";
+    this._iconView.classList.add("fill-color");
   },
   _updatePinned(pinned) {
     this.pinned = pinned;
