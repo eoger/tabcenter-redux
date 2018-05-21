@@ -123,8 +123,8 @@ TabList.prototype = {
     sidetab.scrollIntoView();
   },
   _onBrowserTabMoved(tabId, moveInfo) {
-    const sidetab = this._getTabById(tabId);
-    if (!sidetab) { // Could be null because different window.
+    const tab = this._getTabById(tabId);
+    if (!tab) { // Could be null because different window.
       return;
     }
 
@@ -133,10 +133,14 @@ TabList.prototype = {
     const start = direction > 0 ? toIndex : fromIndex + 1;
     const end = direction > 0 ? fromIndex : toIndex + 1;
     this._shiftTabsIndexes(direction, start, end);
-    sidetab.index = toIndex;
+    tab.index = toIndex;
 
-    this._appendTabView(sidetab);
-    sidetab.scrollIntoView();
+    if (tab.hidden) {
+      return;
+    }
+
+    this._appendTabView(tab);
+    tab.scrollIntoView();
   },
   _onBrowserTabUpdated(tabId, changeInfo, tab) {
     if (!this._checkWindow(tab)) {

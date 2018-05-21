@@ -119,4 +119,16 @@ suite("tabs positions and indexes", () => {
     await browser.tabs.show(tabID1);
     await assertOrderAndIndexes();
   });
+  test("hidden + move (#347)", async () => {
+    const {id: tabID1} = await browser.tabs.create({});
+    const {id: tabID2} = await browser.tabs.create({});
+    const {id: tabID3} = await browser.tabs.create({});
+    await browser.tabs.hide(tabID1);
+    await browser.tabs.hide(tabID2);
+    await browser.tabs.hide(tabID3);
+    await assertOrderAndIndexes();
+    await browser.tabs.move(tabID1, {index: 2});
+    await browser.tabs.move(tabID3, {index: 0});
+    await assertOrderAndIndexes();
+  });
 });
