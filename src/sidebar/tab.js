@@ -146,6 +146,10 @@ SideTab.prototype = {
     }
   },
   scrollIntoView() {
+    // Pinned tabs are always into view!
+    if (this.pinned) {
+      return;
+    }
     // Avoid an expensive sync reflow (scrolling).
     requestAnimationFrame(() => {
       this._scrollIntoView();
