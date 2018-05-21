@@ -254,7 +254,7 @@ TabList.prototype = {
   },
   async _hasRecentlyClosedTabs() {
     const undoTabs = await this._getRecentlyClosedTabs();
-    return !!undoTabs.length;
+    return undoTabs.length > 0;
   },
   async _getRecentlyClosedTabs() {
     const sessions = await browser.sessions.getRecentlyClosed();
