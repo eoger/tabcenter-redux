@@ -9,14 +9,14 @@
     --default-tab-line-color: #1aa1ff;
     --searchbox-background: #fff;
     --primary-text-color: #18191a;
-    --close-button-color: hsla(0, 0%, 0%, 0.1);
+    --icons-fill-color: #5a5b5c;
     --close-button-hover: hsla(0, 0%, 0%, 0.16);
     --close-button-active: hsla(0, 0%, 0%, 0.2);
     --menu-background: hsl(0, 0%, 99%);
     --menu-button-text-shadow: 0 1px rgba(255, 255, 255, .4);
     --menu-button-hover: hsla(240, 5%, 5%, .1);
     --menu-button-active: hsla(240, 5%, 5%, .15);
-    --border-radius: 4px;
+    --border-radius: 2px;
 }
 
 body[platform="win"] {
@@ -114,7 +114,7 @@ body[platform="mac"] #newtab-menu {
     background-color: hsla(210,4%,10%,.07);
 }
 
-.newtab-menu-identity:active {
+.newtab-menu-identity:hover:active {
     background-color: hsla(210,4%,10%,.12);
     box-shadow: 0 1px 0 hsla(210,4%,10%,.03) inset;
 }
@@ -246,7 +246,7 @@ body[platform="mac"] #newtab-menu {
     background-color: var(--menu-button-hover);
 }
 
-.topmenu-button:active {
+.topmenu-button:hover:active {
     background-color: var(--menu-button-active);
 }
 
@@ -257,9 +257,13 @@ body[platform="mac"] #newtab-menu {
     background-repeat: no-repeat;
     background-position: center;
     background-image: url("img/glyph-new-16.svg#standard");
+    -moz-context-properties: fill;
+    fill: var(--icons-fill-color);
+    filter: url("img/filters.svg#fill");
 }
 
 #searchbox {
+    background-color: var(--searchbox-background);
     display: flex;
     margin: 0 4px;
     padding: 1px;
@@ -292,10 +296,14 @@ body[platform="mac"] #searchbox.focused {
 
 #searchbox-icon {
     min-width: 20px;
-    background-size: 20px 20px;
+    background-size: 16px 16px;
     background-repeat: no-repeat;
     background-position: center;
-    background-image: url("img/find.svg#standard");
+    background-image: url("img/Search.svg");
+    transform: scale(-1, 1);
+    -moz-context-properties: fill;
+    fill: var(--icons-fill-color);
+    filter: url("img/filters.svg#fill");
     border-radius: var(--border-radius) 0 0 var(--border-radius);
 }
 
@@ -316,8 +324,7 @@ body[platform="win"] #searchbox-input:placeholder-shown {
     font-style: italic;
 }
 
-#searchbox-input,
-#searchbox-icon {
+#searchbox-input {
     background-color: var(--searchbox-background);
     color: var(--searchbox-text-color);
 }
@@ -330,6 +337,9 @@ body[platform="win"] #searchbox-input:placeholder-shown {
     background-repeat: no-repeat;
     background-position: center;
     background-image: url("img/settings.svg#standard");
+    -moz-context-properties: fill;
+    fill: var(--icons-fill-color);
+    filter: url("img/filters.svg#fill");
 }
 
 #tablist {
@@ -564,10 +574,6 @@ body[platform="win"] #searchbox-input:placeholder-shown {
     margin-top: 18px;
 }
 
-.tab-icon {
-    background-image: url("img/defaultFavicon.svg");
-}
-
 .tab-icon-wrapper {
     height: 20px;
     width: 20px;
@@ -586,11 +592,23 @@ body[platform="win"] #searchbox-input:placeholder-shown {
 .tab-icon {
     width: 16px;
     height: 16px;
+    background-image: url("img/defaultFavicon.svg");
     background-repeat: no-repeat;
     background-position: center;
     background-size: contain;
     background-origin: content-box;
     image-rendering: pixelated;
+}
+
+.tab-icon.chrome-icon {
+    -moz-context-properties: fill;
+    fill: var(--icons-fill-color);
+    filter: url("img/filters.svg#fill");
+}
+
+#tablist-wrapper:not(.shrinked) #tablist .tab-icon.chrome-icon,
+#pinnedtablist:not(.compact) .tab-icon.chrome-icon {
+    fill: #5a5b5c;
 }
 
 .tab.loading .tab-icon {
@@ -667,7 +685,7 @@ body[platform="win"] #searchbox-input:placeholder-shown {
 }
 
 .tab:hover:not(.pinned) > .tab-title-wrapper {
-    mask-image: linear-gradient(to left, transparent 36px, black calc(2em + 36px));
+    mask-image: linear-gradient(to left, transparent 28px, black calc(2em + 28px));
 }
 
 .tab-pin {
@@ -680,6 +698,9 @@ body[platform="win"] #searchbox-input:placeholder-shown {
     margin-right: 12px;
     display: block;
     background-image: url("img/glyph-pin-pinned-12.svg#standard");
+    -moz-context-properties: fill;
+    fill: var(--icons-fill-color);
+    filter: url("img/filters.svg#fill");
     background-position: center center;
     background-repeat: no-repeat;
     background-size: 12px;
@@ -689,17 +710,18 @@ body[platform="win"] #searchbox-input:placeholder-shown {
 .tab-close {
     position: absolute;
     display: block;
-    width: 24px;
-    height: 24px;
+    width: 20px;
+    height: 20px;
     top: 0;
     bottom: 0;
-    right: 12px;
+    right: 6px;
     margin: auto;
-    background-color: var(--close-button-color);
-    background-image: url("img/glyph-close-16.svg#standard");
+    background-image: url("img/Close.svg");
+    -moz-context-properties: fill;
+    fill: var(--icons-fill-color);
+    filter: url("img/filters.svg#fill");
     background-position: center;
     background-repeat: no-repeat;
-    background-size: 16px;
     border-radius: var(--border-radius);
     opacity: 0;
 }
@@ -711,7 +733,7 @@ body[platform="win"] #searchbox-input:placeholder-shown {
 .tab-close:hover {
     background-color: var(--close-button-hover) !important;
 }
-.tab-close:active {
+.tab-close:hover:active {
     background-color: var(--close-button-active) !important;
 }
 
@@ -822,8 +844,7 @@ body.dark-theme {
     --tab-border-color: #38383D;
     --searchbox-background: rgb(71, 71, 73);
     --primary-text-color: rgb(255, 255, 255);
-
-    --close-button-color:  rgba(238, 238, 241, .05);
+    --icons-fill-color: #bebebe;
     --close-button-hover: rgba(238, 238, 241, .1);
     --close-button-active: rgba(238, 238, 241, .2);
     --menu-background: #323234;
@@ -834,32 +855,4 @@ body.dark-theme {
 
 body.dark-theme #newtab-menu {
     color: black;
-}
-
-body.dark-theme #searchbox-icon {
-    background-image: url("img/find.svg#inverted");
-}
-
-body.dark-theme .tab-icon-overlay {
-    background-color: #333;
-}
-
-body.dark-theme #newtab-icon {
-    background-image: url("img/glyph-new-16.svg#inverted");
-}
-
-body.dark-theme #settings {
-    background-image: url("img/settings.svg#inverted");
-}
-
-body.dark-theme #pinnedtablist .tab.pinned .tab-pin {
-    background-image: url("img/glyph-pin-pinned-12.svg#inverted");
-}
-
-body.dark-theme .tab-close {
-    background-image: url("img/glyph-close-16.svg#inverted");
-}
-
-body.dark-theme #tablist-wrapper.shrinked .tab.loading .tab-icon::before {
-    background-image: url("img/loading-spinner.svg#inverted");
 }
