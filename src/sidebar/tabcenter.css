@@ -299,7 +299,8 @@ body[platform="mac"] #searchbox.focused {
     background-size: 16px 16px;
     background-repeat: no-repeat;
     background-position: center;
-    background-image: url("img/find.svg#standard");
+    background-image: url("img/Search.svg");
+    transform: scale(-1, 1);
     -moz-context-properties: fill;
     fill: var(--icons-fill-color);
     filter: url("img/filters.svg#fill");
@@ -706,13 +707,12 @@ body[platform="win"] #searchbox-input:placeholder-shown {
     bottom: 0;
     right: 6px;
     margin: auto;
-    background-image: url("img/glyph-close-16.svg#standard");
+    background-image: url("img/Close.svg");
     -moz-context-properties: fill;
     fill: var(--icons-fill-color);
     filter: url("img/filters.svg#fill");
     background-position: center;
     background-repeat: no-repeat;
-    background-size: 12px;
     border-radius: var(--border-radius);
     opacity: 0;
 }
