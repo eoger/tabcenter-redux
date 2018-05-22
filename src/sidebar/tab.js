@@ -164,9 +164,9 @@ SideTab.prototype = {
   },
   _setIcon(favIconUrl) {
     if (favIconUrl.startsWith("chrome://") && favIconUrl.endsWith(".svg")) {
-      this._iconView.classList.add("fill-color");
+      this._iconView.classList.add("chrome-icon");
     } else {
-      this._iconView.classList.remove("fill-color");
+      this._iconView.classList.remove("chrome-icon");
     }
     this._iconView.style.backgroundImage = `url("${favIconUrl}")`;
     const imgTest = document.createElement("img");
@@ -177,7 +177,7 @@ SideTab.prototype = {
   },
   _resetIcon() {
     this._iconView.style.backgroundImage = "";
-    this._iconView.classList.add("fill-color");
+    this._iconView.classList.add("chrome-icon");
   },
   _updatePinned(pinned) {
     this.pinned = pinned;

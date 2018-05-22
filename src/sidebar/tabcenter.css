@@ -9,7 +9,7 @@
     --default-tab-line-color: #1aa1ff;
     --searchbox-background: #fff;
     --primary-text-color: #18191a;
-    --icon-color: #5a5b5c;
+    --icons-fill-color: #5a5b5c;
     --close-button-hover: hsla(0, 0%, 0%, 0.16);
     --close-button-active: hsla(0, 0%, 0%, 0.2);
     --menu-background: hsl(0, 0%, 99%);
@@ -258,7 +258,7 @@ body[platform="mac"] #newtab-menu {
     background-position: center;
     background-image: url("img/glyph-new-16.svg#standard");
     -moz-context-properties: fill;
-    fill: var(--icon-color);
+    fill: var(--icons-fill-color);
     filter: url("img/filters.svg#fill");
 }
 
@@ -301,7 +301,7 @@ body[platform="mac"] #searchbox.focused {
     background-position: center;
     background-image: url("img/find.svg#standard");
     -moz-context-properties: fill;
-    fill: var(--icon-color);
+    fill: var(--icons-fill-color);
     filter: url("img/filters.svg#fill");
     border-radius: var(--border-radius) 0 0 var(--border-radius);
 }
@@ -337,7 +337,7 @@ body[platform="win"] #searchbox-input:placeholder-shown {
     background-position: center;
     background-image: url("img/settings.svg#standard");
     -moz-context-properties: fill;
-    fill: var(--icon-color);
+    fill: var(--icons-fill-color);
     filter: url("img/filters.svg#fill");
 }
 
@@ -590,9 +590,9 @@ body[platform="win"] #searchbox-input:placeholder-shown {
     image-rendering: pixelated;
 }
 
-.tab-icon.fill-color {
+.tab-icon.chrome-icon {
     -moz-context-properties: fill;
-    fill: var(--icon-color);
+    fill: var(--icons-fill-color);
     filter: url("img/filters.svg#fill");
 }
 
@@ -689,7 +689,7 @@ body[platform="win"] #searchbox-input:placeholder-shown {
     display: block;
     background-image: url("img/glyph-pin-pinned-12.svg#standard");
     -moz-context-properties: fill;
-    fill: var(--icon-color);
+    fill: var(--icons-fill-color);
     filter: url("img/filters.svg#fill");
     background-position: center center;
     background-repeat: no-repeat;
@@ -708,7 +708,7 @@ body[platform="win"] #searchbox-input:placeholder-shown {
     margin: auto;
     background-image: url("img/glyph-close-16.svg#standard");
     -moz-context-properties: fill;
-    fill: var(--icon-color);
+    fill: var(--icons-fill-color);
     filter: url("img/filters.svg#fill");
     background-position: center;
     background-repeat: no-repeat;
@@ -835,7 +835,7 @@ body.dark-theme {
     --tab-border-color: #38383D;
     --searchbox-background: rgb(71, 71, 73);
     --primary-text-color: rgb(255, 255, 255);
-    --icon-color: #bebebe;
+    --icons-fill-color: #bebebe;
     --close-button-hover: rgba(238, 238, 241, .1);
     --close-button-active: rgba(238, 238, 241, .2);
     --menu-background: #323234;
