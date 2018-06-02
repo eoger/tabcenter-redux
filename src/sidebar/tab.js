@@ -36,6 +36,7 @@ SideTab.prototype = {
         this.view.setAttribute("data-identity-color", context.color);
       });
     }
+    this.updateThumbnail = debounce(() => this._updateThumbnail(), 500);
   },
   _buildViewStructure() {
     const template = document.getElementById("tab-template");
@@ -195,14 +196,16 @@ SideTab.prototype = {
   _updateDiscarded(discarded) {
     toggleClass(this.view, "discarded", discarded);
   },
-  async updateThumbnail() {
-    const thumbnailBase64 = await browser.tabs.captureTab(this.id, {
-      format: "png"
-    });
-    await this._updateThumbnailCanvas(thumbnailBase64);
+  _updateThumbnail() {
+    requestIdleCallback(async () => {
+      const thumbnailBase64 = await browser.tabs.captureTab(this.id, {
+        format: "png"
+      });
+      await this._updateThumbnailCanvas(thumbnailBase64);
 
-    this._metaImageView.style.backgroundImage = `-moz-element(#${this.thumbnailCanvas.id})`;
-    this._metaImageView.classList.add("has-thumbnail");
+      this._metaImageView.style.backgroundImage = `-moz-element(#${this.thumbnailCanvas.id})`;
+      this._metaImageView.classList.add("has-thumbnail");
+    });
   },
   _updateThumbnailCanvas(base64Str) {
     const desiredHeight = 192;
@@ -328,6 +331,19 @@ Object.assign(SideTab, {
     });
   },
 });
+
+function debounce(fn, delay) {
+  let timeoutID;
+  return (...args) => {
+    if (timeoutID) {
+      clearTimeout(timeoutID);
+    }
+    timeoutID = setTimeout(() => {
+      timeoutID = null;
+      fn(...args);
+    }, delay);
+  };
+}
 
 function toggleClass(node, className, boolean) {
   boolean ? node.classList.add(className) : node.classList.remove(className);

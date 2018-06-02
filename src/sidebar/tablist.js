@@ -157,7 +157,7 @@ TabList.prototype = {
         this._appendTabView(sidetab);
       }
     }
-    if (changeInfo.status === "complete") {
+    if (changeInfo.hasOwnProperty("status") && changeInfo.status === "complete") {
       this._maybeUpdateTabThumbnail(sidetab);
     }
 
