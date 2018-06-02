@@ -157,6 +157,9 @@ TabList.prototype = {
         this._appendTabView(sidetab);
       }
     }
+    if (changeInfo.status === "complete") {
+      this._maybeUpdateTabThumbnail(sidetab);
+    }
 
     sidetab.onUpdate(changeInfo);
     if (changeInfo.hasOwnProperty("pinned")) {

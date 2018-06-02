@@ -81,7 +81,6 @@ SideTab.prototype = {
         this._updateLoading(true);
       } else if (changeInfo.status === "complete") {
         this._updateLoading(false);
-        this.updateThumbnail();
       }
     }
     if (changeInfo.hasOwnProperty("pinned")) {
