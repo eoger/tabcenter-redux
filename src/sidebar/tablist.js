@@ -71,10 +71,16 @@ TabList.prototype = {
     document.addEventListener("drop", e => this._onDrop(e));
 
     // Disable zooming.
-    document.addEventListener("wheel", e => {
+    document.addEventListener("wheel", async e => {
+      e.preventDefault();
       if (e.metaKey || e.ctrlKey) {
-        e.preventDefault();
+        return;
       }
+      const destTabIndex = (this._getTabById(this._active).index +
+        Math.sign(e.deltaY) + this._tabs.size) % this._tabs.size;
+      const destTabId = Array.from(this._tabs.values())
+        .filter(tab => tab.index === destTabIndex)[0].id;
+      browser.tabs.update(destTabId, {active: true});
     });
 
     // Pref changes
