@@ -119,6 +119,10 @@
   "optionsCompactPins": {
     "message": "Compact Pinned Tabs"
   },
+  
+  "optionsScrollToSwitchTabs": {
+    "message": "Use the mouse wheel to switch between tabs"
+  },
 
   "optionsDarkTheme": {
     "message": "Dark Theme"

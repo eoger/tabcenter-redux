@@ -95,6 +95,7 @@ TabCenter.prototype = {
       compactModeMode: 1/* COMPACT_MODE_DYNAMIC */,
       compactPins: true,
       themeIntegration: false,
+      scrollToSwitchTabs: true,
     });
   },
   _applyPrefs(prefs) {
@@ -106,6 +107,9 @@ TabCenter.prototype = {
     }
     if (prefs.hasOwnProperty("themeIntegration")) {
       this._themeIntegration = prefs.themeIntegration;
+    }
+    if (prefs.hasOwnProperty("scrollToSwitchTabs")) {
+      this._scrollToSwitchTabs = prefs.scrollToSwitchTabs;
     }
   },
   _applyTheme(theme) {

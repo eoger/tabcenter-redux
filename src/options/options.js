@@ -7,7 +7,8 @@ TabCenterOptions.prototype = {
   setupLabels() {
     const options = ["optionsTitle", "optionsCompactMode",
       "optionsCompactModeStrict", "optionsCompactModeDynamic",
-      "optionsCompactModeOff", "optionsCompactPins", "optionsDarkTheme",
+      "optionsCompactModeOff", "optionsCompactPins",
+      "optionsScrollToSwitchTabs", "optionsDarkTheme",
       "optionsThemeIntegration", "optionsAdvancedTitle", "optionsCustomCSS",
       "optionsCustomCSSWikiLink", "optionsSaveCustomCSS"];
     for (let opt of options) {
@@ -26,6 +27,7 @@ TabCenterOptions.prototype = {
     this._setupCheckboxOption("themeIntegration", "themeIntegration");
     this._setupDropdownOption("compactMode", "compactModeMode");
     this._setupCheckboxOption("compactPins", "compactPins", true);
+    this._setupCheckboxOption("scrollToSwitchTabs", "scrollToSwitchTabs", true);
 
     // Custom CSS
     browser.storage.local.get({

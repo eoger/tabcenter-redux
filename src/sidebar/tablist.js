@@ -27,6 +27,7 @@ function TabList(props) {
 
   this._compactModeMode = parseInt(this._props.prefs.compactModeMode);
   this._compactPins = this._props.prefs.compactPins;
+  this._scrollToSwitchTabs = this._props.prefs.scrollToSwitchTabs;
   this._setupListeners();
 
   if (browser.browserSettings.closeTabsByDoubleClick) { // Introduced in Firefox 61.
@@ -72,8 +73,10 @@ TabList.prototype = {
 
     // Disable zooming.
     document.addEventListener("wheel", async e => {
-      e.preventDefault();
-      if (e.metaKey || e.ctrlKey) {
+      if (this._scrollToSwitchTabs || e.metaKey || e.ctrlKey) {
+        e.preventDefault();
+      }
+      if (!this._scrollToSwitchTabs || e.metaKey || e.ctrlKey) {
         return;
       }
       const destTabIndex = (this._getTabById(this._active).index +
@@ -94,6 +97,9 @@ TabList.prototype = {
       this._compactPins = changes.compactPins.newValue;
     }
     this._maybeShrinkTabs();
+    if (changes.scrollToSwitchTabs) {
+      this._scrollToSwitchTabs = changes.scrollToSwitchTabs.newValue;
+    }
   },
   _onBrowserTabCreated(tab) {
     if (!this._checkWindow(tab)) {
