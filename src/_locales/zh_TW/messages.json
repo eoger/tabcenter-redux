@@ -95,6 +95,9 @@
   "optionsDarkTheme": {
     "message": "深色主題"
   },
+  "optionsThemeIntegration": {
+    "message": "與當前主題整合"
+  },
   "optionsAdvancedTitle": {
     "message": "進階"
   },

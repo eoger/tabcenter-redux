@@ -101,6 +101,9 @@
   "optionsCustomCSS": {
     "message": "Vlastní šablona stylů"
   },
+  "optionsCustomCSSWikiLink": {
+    "message": "Wiki článek o CSS vylepšeních"
+  },
   "optionsSaveCustomCSS": {
     "message": "Uložit CSS"
   }
