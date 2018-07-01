@@ -226,6 +226,7 @@ TabList.prototype = {
       onClose: this._onContextMenuHidden.bind(this),
       canMoveToNewWindow: this._tabs.size > 1,
       reloadAllTabs: this._reloadAllTabs.bind(this),
+      canCloseTabsAfter: !this._filterActive,
       closeTabsAfter: this._closeTabsAfter.bind(this, tab.index),
       closeOtherTabs: this._closeAllTabsExcept.bind(this, tabId),
       canUndoCloseTab: this._hasRecentlyClosedTabs.bind(this),
