@@ -189,6 +189,7 @@ TabList.prototype = {
     // Don't put preventDefault here or drag-and-drop won't work
     if (e.button === 0 && SideTab.isTabEvent(e)) {
       browser.tabs.update(SideTab.tabIdForEvent(e), {active: true});
+      this._props.search("");
       return;
     }
     // Prevent autoscrolling on middle click
