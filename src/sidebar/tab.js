@@ -1,3 +1,5 @@
+/* global CSSAnimation */
+
 function SideTab() {
   this.id = null;
   this.url = null;

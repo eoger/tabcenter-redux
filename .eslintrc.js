@@ -13,7 +13,7 @@ module.exports = {
     "brace-style": ["error", "1tbs"],
     "curly": ["error"],
     "eqeqeq": ["error"],
-    "indent": ["error", 2],
+    "indent-legacy": ["error", 2],
     "key-spacing": ["error"],
     "keyword-spacing": ["error", {
         "before": true,
