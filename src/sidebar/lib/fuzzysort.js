@@ -179,7 +179,7 @@ function UMD() { function fuzzysortNew(instanceOptions) {
 
               if(iCurrent%1000/*itemsPerCheck*/ === 0) {
                 if(Date.now() - startMs >= 10/*asyncInterval*/) {
-                  isNode?setImmediate(step):setTimeout(step)
+                  setTimeout(step)
                   return
                 }
               }
@@ -208,7 +208,7 @@ function UMD() { function fuzzysortNew(instanceOptions) {
 
               if(iCurrent%1000/*itemsPerCheck*/ === 0) {
                 if(Date.now() - startMs >= 10/*asyncInterval*/) {
-                  isNode?setImmediate(step):setTimeout(step)
+                  setTimeout(step)
                   return
                 }
               }
@@ -231,7 +231,7 @@ function UMD() { function fuzzysortNew(instanceOptions) {
 
               if(iCurrent%1000/*itemsPerCheck*/ === 0) {
                 if(Date.now() - startMs >= 10/*asyncInterval*/) {
-                  isNode?setImmediate(step):setTimeout(step)
+                  setTimeout(step)
                   return
                 }
               }
@@ -245,7 +245,7 @@ function UMD() { function fuzzysortNew(instanceOptions) {
           resolve(results)
         }
 
-        isNode?setImmediate(step):step()
+        step()
       })
       p.cancel = function() { canceled = true }
       return p
@@ -549,8 +549,6 @@ function UMD() { function fuzzysortNew(instanceOptions) {
   return fuzzysort
 } // fuzzysortNew
 
-// This stuff is outside fuzzysortNew, because it's shared with instances of fuzzysort.new()
-var isNode = typeof require !== 'undefined' && typeof window === 'undefined'
 // var MAX_INT = Number.MAX_SAFE_INTEGER
 // var MIN_INT = Number.MIN_VALUE
 var preparedCache = new Map()
