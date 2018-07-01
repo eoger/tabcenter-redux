@@ -295,7 +295,7 @@ TabList.prototype = {
     }
   },
   _onDragStart(e) {
-    if (!SideTab.isTabEvent(e)) {
+    if (!SideTab.isTabEvent(e) || this._filterActive) {
       return;
     }
     const tabId = SideTab.tabIdForEvent(e);
