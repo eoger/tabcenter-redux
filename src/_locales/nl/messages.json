@@ -95,6 +95,9 @@
   "optionsDarkTheme": {
     "message": "Donker thema"
   },
+  "optionsThemeIntegration": {
+    "message": "Integreren met huidige thema"
+  },
   "optionsAdvancedTitle": {
     "message": "Geavanceerd"
   },
