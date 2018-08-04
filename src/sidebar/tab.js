@@ -115,14 +115,14 @@ SideTab.prototype = {
     this._hostView.innerText = this.host;
   },
   _updateAudible(audible) {
-    toggleClass(this._iconOverlayView, "sound", audible);
+    this._iconOverlayView.classList.toggle("sound", audible);
   },
   _updatedMuted(muted) {
     this.muted = muted;
-    toggleClass(this._iconOverlayView, "muted", muted);
+    this._iconOverlayView.classList.toggle("muted", muted);
   },
   _updateLoading(isLoading) {
-    toggleClass(this.view, "loading", isLoading);
+    this.view.classList.toggle("loading", isLoading);
     if (isLoading) {
       SideTab._syncThrobberAnimations();
       this._notselectedsinceload = !this.view.classList.contains("active");
@@ -138,7 +138,7 @@ SideTab.prototype = {
     this._burstView.classList.add("bursting");
   },
   updateActive(active) {
-    toggleClass(this.view, "active", active);
+    this.view.classList.toggle("active", active);
     if (active) {
       this._notselectedsinceload = false;
       this.view.removeAttribute("notselectedsinceload");
@@ -168,7 +168,7 @@ SideTab.prototype = {
   },
   updateVisibility(show) {
     this.visible = show;
-    toggleClass(this.view, "hidden", !show);
+    this.view.classList.toggle("hidden", !show);
   },
   _setIcon(favIconUrl) {
     // https://bugzilla.mozilla.org/show_bug.cgi?id=1462948
@@ -193,10 +193,10 @@ SideTab.prototype = {
   },
   _updatePinned(pinned) {
     this.pinned = pinned;
-    toggleClass(this.view, "pinned", pinned);
+    this.view.classList.toggle("pinned", pinned);
   },
   _updateDiscarded(discarded) {
-    toggleClass(this.view, "discarded", discarded);
+    this.view.classList.toggle("discarded", discarded);
   },
   _updateThumbnail() {
     requestIdleCallback(async () => {
@@ -345,10 +345,6 @@ function debounce(fn, delay) {
       fn(...args);
     }, delay);
   };
-}
-
-function toggleClass(node, className, boolean) {
-  boolean ? node.classList.add(className) : node.classList.remove(className);
 }
 
 export default SideTab;

@@ -256,7 +256,7 @@ TabList.prototype = {
   },
   async _hasRecentlyClosedTabs() {
     const undoTabs = await this._getRecentlyClosedTabs();
-    return !!undoTabs.length;
+    return undoTabs.length > 0;
   },
   async _getRecentlyClosedTabs() {
     const sessions = await browser.sessions.getRecentlyClosed();
@@ -275,9 +275,14 @@ TabList.prototype = {
   },
   onScroll() {
     if (this._view.scrollTop === 0) {
-      this._wrapperView.classList.remove("scrolled");
+      this._wrapperView.classList.remove("can-scroll-top");
     } else {
-      this._wrapperView.classList.add("scrolled");
+      this._wrapperView.classList.add("can-scroll-top");
+    }
+    if ((this._view.scrollTop + this._view.clientHeight) >= this._view.scrollHeight) {
+      this._wrapperView.classList.remove("can-scroll-bottom");
+    } else {
+      this._wrapperView.classList.add("can-scroll-bottom");
     }
   },
   _onClick(e) {

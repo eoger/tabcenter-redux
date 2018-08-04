@@ -375,19 +375,31 @@ body[platform="win"] #searchbox-input:placeholder-shown {
     border-bottom: 1px solid var(--tab-border-color);
 }
 
-#topshadow {
+#topshadow, #bottomshadow {
     flex-shrink: 0;
-    position: relative;
     width: 100%;
     height: 10px;
-    margin-bottom: -10px;
     z-index: 1;
     pointer-events: none;
-    transition: box-shadow 0.3s cubic-bezier(.07,.95,0,1);
+    opacity: 0;
+    transition: opacity 0.2s ease;
 }
 
-#tablist-wrapper.scrolled #topshadow {
-    box-shadow: inset 0px 10px 10px -10px rgba(0, 0, 0, 0.3);
+#topshadow {
+    position: relative;
+    margin-bottom: -10px;
+    box-shadow: inset 0px 10px 10px -10px rgba(0, 0, 0, 0.8);
+}
+
+#bottomshadow {
+    position: absolute;
+    bottom: 0px;
+    box-shadow: inset 0px -10px 10px -10px rgba(0, 0, 0, 1);
+}
+
+#tablist-wrapper.can-scroll-top #topshadow,
+#tablist-wrapper.can-scroll-bottom #bottomshadow {
+    opacity: 1;
 }
 
 .tab.active {
