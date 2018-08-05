@@ -1,6 +1,6 @@
 {
   "extensionDescription": {
-    "message": "Tab Center essaie de résoudre certains des problèmes suite à l'utilisation des onglets (principalement, le problème « j'ai trop d'onglets ») et propose une base d'interface utilisateur plus souple pour innover. Cette première version propose un arrangement vertical des onglets. Ce module est fortement inspiré et emprunte des idées à l'excellent module VerticalTabs."
+    "message": "Tab Center essaie de résoudre certains des problèmes venant de la façon dont les gens utilisent les onglets (notamment le problème du « j'ai trop d'onglets ») et propose une base d'interface utilisateur polyvalente pour de futures innovation. La première version de ce module propose un arrangement vertical des onglets. Il est fortement inspiré et emprunte des idées à l'excellent module VerticalTabs."
   },
   "browserActionTitle": {
     "message": "Activer\/désactiver Tab Center Redux",
