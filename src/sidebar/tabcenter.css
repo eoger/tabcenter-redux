@@ -1,26 +1,65 @@
 @import url("lib/contextmenu/contextmenu.css");
+@import url("lib/photon-colors.css");
 
 :root {
-    --tab-background-normal: hsl(0, 0%, 99%);
-    --tab-background-pinned: hsla(0, 0%, 80%, .15);
-    --tab-background-active: hsl(0, 0%, 87%);
-    --tab-background-hover: hsla(0, 0%, 80%, .25);
-    --tab-border-color: hsla(0, 0%, 0%, 0.06);
-    --default-tab-line-color: #1aa1ff;
-    --searchbox-background: #fff;
-    --primary-text-color: #18191a;
-    --icons-fill-color: #5a5b5c;
-    --close-button-hover: hsla(0, 0%, 0%, 0.16);
-    --close-button-active: hsla(0, 0%, 0%, 0.2);
-    --menu-background: hsl(0, 0%, 99%);
-    --menu-button-text-shadow: 0 1px rgba(255, 255, 255, .4);
-    --menu-button-hover: hsla(240, 5%, 5%, .1);
-    --menu-button-active: hsla(240, 5%, 5%, .15);
-    --border-radius: 4px;
+    /* Theme-independent */
+    --tab-line-default-color: var(--blue-40);
+    --button-border-radius: 2px;
+
+    /* Light theme */
+    --text-primary-color: var(--grey-90);
+    --text-secondary-color: var(--grey-50);
+    --icon-primary-color: var(--grey-90-a80);
+    --icon-secondary-color: var(--grey-90-a60);
+
+    --topmenu-background-color: var(--white-100);
+    --topmenu-button-text-shadow: 0 1px rgba(255, 255, 255, .4);
+    --searchbox-background: var(--white-100);
+    --searchbox-border-normal: var(--grey-30);
+    --searchbox-border-hover: var(--grey-40);
+
+    --tab-background-normal: var(--white-100);
+    --tab-background-pinned: var(--grey-10);
+    --tab-background-active: var(--grey-30);
+    --tab-background-hover: var(--grey-20);
+    --tab-border-color: var(--grey-30);
+
+    --close-icon-hover: hsla(0, 0%, 0%, 0.16);
+    --close-icon-active: hsla(0, 0%, 0%, 0.22);
+
+    --menu-background-color: var(--white-100);
+    --menu-border-color: var(--grey-30);
 }
 
-body[platform="win"] {
-    --border-radius: 2px;
+body.dark-theme {
+    --text-primary-color: var(--white-100);
+    --text-secondary-color: var(--grey-10);
+    --icon-primary-color: var(--grey-10-a80);
+    --icon-secondary-color: var(--grey-10-a60);
+
+    --topmenu-background-color: var(--grey-70);
+    --topmenu-button-text-shadow: 0 1px rgba(0, 0, 0, .4);
+    --searchbox-background: var(--grey-60);
+    --searchbox-border-normal: var(--grey-50);
+    --searchbox-border-hover: var(--grey-50);
+
+    --tab-background-normal: var(--grey-90);
+    --tab-background-pinned: var(--grey-90);
+    --tab-background-active: var(--grey-80);
+    --tab-background-hover: var(--grey-70);
+    --tab-border-color: var(--grey-60);
+
+    --close-icon-hover: hsla(0, 0%, 100%, 0.2);
+    --close-icon-active: hsla(0, 0%, 100%, 0.3);
+
+    --menu-background-color: var(--grey-60);
+    --menu-border-color: var(--grey-80);
+}
+
+body.dark-theme #newtab-menu::before {
+    -moz-context-properties: fill;
+    fill: var(--menu-background-color);
+    filter: url("img/filters.svg#fill");
 }
 
 html, body {
@@ -30,7 +69,7 @@ html, body {
 body {
     background-color: var(--tab-background-normal);
     font: message-box;
-    color: var(--primary-text-color);
+    color: var(--text-primary-color);
     display: flex;
     flex-direction: column;
 }
@@ -44,18 +83,17 @@ body {
     padding: 6px 4px;
     height: 35px;
     border-bottom: 1px solid hsla(0, 0%, 0%, 0.2);
-    background-color: var(--menu-background);
+    background-color: var(--topmenu-background-color);
 }
 
 #newtab {
-    margin: 0 4px;
     box-sizing: border-box;
     display: flex;
     flex: 0 20 auto;
     min-width: 26px;
     align-items: center;
     padding: 2px 4px;
-    text-shadow: var(--menu-button-text-shadow);
+    text-shadow: var(--topmenu-button-text-shadow);
 }
 
 canvas {
@@ -69,10 +107,14 @@ img, .tab *:not(.clickable) {
 }
 
 #newtab-label {
-    margin-left: 2px;
+    margin-left: 4px;
     white-space: nowrap;
     overflow: hidden;
     text-overflow: ellipsis;
+    /* text centering */
+    margin-top: 1px; /* take shadow under text into account */
+    height: 100%;
+    line-height: 100%;
 }
 
 @media screen and (max-width: 190px) {
@@ -89,10 +131,10 @@ img, .tab *:not(.clickable) {
     left: 3px;
     padding-bottom: 5px;
     flex-direction: column;
-    background: linear-gradient(hsla(0,0%,99%,1), hsla(0,0%,99%,.975) 10%, hsla(0,0%,98%,.975));
+    background-color: var(--menu-background-color);
     box-shadow: 0 3px 5px hsla(210,4%,10%,.1),
                 0 0 7px hsla(210,4%,10%,.1);
-    border: 1px solid ThreeDShadow;
+    border: 1px solid var(--menu-border-color);
 }
 
 body[platform="mac"] #newtab-menu {
@@ -111,11 +153,11 @@ body[platform="mac"] #newtab-menu {
 }
 
 .newtab-menu-identity:hover {
-    background-color: hsla(210,4%,10%,.07);
+    background-color: var(--close-icon-hover);
 }
 
 .newtab-menu-identity:hover:active {
-    background-color: hsla(210,4%,10%,.12);
+    background-color: var(--close-icon-active);
     box-shadow: 0 1px 0 hsla(210,4%,10%,.03) inset;
 }
 
@@ -136,43 +178,35 @@ body[platform="mac"] #newtab-menu {
 }
 
 [data-identity-color="blue"] {
-    --identity-tab-color: #0996f8;
-    --identity-icon-color: #00a7e0;
+    --identity-color: var(--blue-50);
 }
 
 [data-identity-color="turquoise"] {
-    --identity-tab-color: #01bdad;
-    --identity-icon-color: #01bdad;
+    --identity-color: var(--teal-50);
 }
 
 [data-identity-color="green"] {
-    --identity-tab-color: #57bd35;
-    --identity-icon-color:  #7dc14c;
+    --identity-color: var(--green-50);
 }
 
 [data-identity-color="yellow"] {
-    --identity-tab-color: #ffcb00;
-    --identity-icon-color: #ffcb00;
+    --identity-color: var(--yellow-50);
 }
 
 [data-identity-color="orange"] {
-    --identity-tab-color: #ff9216;
-    --identity-icon-color: #ff9216;
+    --identity-color: var(--orange-50);
 }
 
 [data-identity-color="red"] {
-    --identity-tab-color: #d92215;
-    --identity-icon-color: #d92215;
+    --identity-color: var(--red-50);
 }
 
 [data-identity-color="pink"] {
-    --identity-tab-color: #ea385e;
-    --identity-icon-color: #ee5195;
+    --identity-color: var(--magenta-50);
 }
 
 [data-identity-color="purple"] {
-    --identity-tab-color: #7a2f7a;
-    --identity-icon-color: #7a2f7a;
+    --identity-color: var(--purple-50);
 }
 
 [data-identity-icon="fingerprint"] {
@@ -229,7 +263,7 @@ body[platform="mac"] #newtab-menu {
     height: 16px;
     background-image: var(--identity-icon);
     -moz-context-properties: fill;
-    fill: var(--identity-icon-color);
+    fill: var(--identity-color);
     filter: url("img/filters.svg#fill");
     background-size: contain;
     background-repeat: no-repeat;
@@ -238,16 +272,16 @@ body[platform="mac"] #newtab-menu {
 
 .topmenu-button {
     border: 1px solid transparent; /* When we show a border on hover it won't move */
-    border-radius: var(--border-radius);
+    border-radius: var(--button-border-radius);
 }
 
 #newtab.menuopened,
 .topmenu-button:hover {
-    background-color: var(--menu-button-hover);
+    background-color: var(--close-icon-hover);
 }
 
 .topmenu-button:hover:active {
-    background-color: var(--menu-button-active);
+    background-color: var(--close-icon-active);
 }
 
 #newtab-icon {
@@ -258,7 +292,7 @@ body[platform="mac"] #newtab-menu {
     background-position: center;
     background-image: url("img/glyph-new-16.svg#standard");
     -moz-context-properties: fill;
-    fill: var(--icons-fill-color);
+    fill: var(--icon-primary-color);
     filter: url("img/filters.svg#fill");
 }
 
@@ -269,8 +303,8 @@ body[platform="mac"] #newtab-menu {
     padding: 1px;
     flex: 20 0 auto;
     min-width: 45px;
-    border-radius: var(--border-radius);
-    border: 1px solid hsla(240,5%,5%,.25);
+    border-radius: 4px;
+    border: 1px solid var(--searchbox-border-normal);
     box-shadow: 0 1px 4px rgba(0,0,0,.05);
     transition: border-color 0.1s, box-shadow 0.1s;
     cursor: text;
@@ -281,7 +315,7 @@ body[platform="win"] #searchbox {
 }
 
 #searchbox:hover {
-    border-color: hsla(240,5%,5%,.35);
+    border-color: var(--searchbox-border-hover);
     box-shadow: 0 1px 6px rgba(0,0,0,.1);
 }
 
@@ -301,9 +335,9 @@ body[platform="mac"] #searchbox.focused {
     background-position: center;
     background-image: url("img/find-icon.svg");
     -moz-context-properties: fill;
-    fill: var(--icons-fill-color);
+    fill: var(--icon-primary-color);
     filter: url("img/filters.svg#fill");
-    border-radius: var(--border-radius) 0 0 var(--border-radius);
+    border-radius: var(--button-border-radius) 0 0 var(--button-border-radius);
 }
 
 #searchbox-input {
@@ -312,7 +346,7 @@ body[platform="mac"] #searchbox.focused {
     padding: 0;
     box-shadow: none;
     border: 0;
-    border-radius: 0 var(--border-radius) var(--border-radius) 0;
+    border-radius: 0 var(--button-border-radius) var(--button-border-radius) 0;
 }
 
 body[platform="mac"] #searchbox-input {
@@ -337,7 +371,7 @@ body[platform="win"] #searchbox-input:placeholder-shown {
     background-position: center;
     background-image: url("img/settings.svg#standard");
     -moz-context-properties: fill;
-    fill: var(--icons-fill-color);
+    fill: var(--icon-primary-color);
     filter: url("img/filters.svg#fill");
 }
 
@@ -392,7 +426,7 @@ body[platform="win"] #searchbox-input:placeholder-shown {
 
 .tab.active {
     background-color: var(--tab-background-active);
-    color: var(--tab-text-color-active, var(--primary-text-color));
+    color: var(--tab-text-color-active, var(--text-primary-color));
 }
 
 .tab:not(.active):hover {
@@ -465,7 +499,7 @@ body[platform="win"] #searchbox-input:placeholder-shown {
 }
 
 .tab:not(.hasContext) {
-    --identity-tab-color: var(--default-tab-line-color);
+    --identity-color: var(--tab-line-default-color);
 }
 
 .tab-context {
@@ -473,7 +507,7 @@ body[platform="win"] #searchbox-input:placeholder-shown {
     height: 100%;
     background-image:
         linear-gradient(to right, hsla(0, 0%, 0%, 0.25) 17%, hsla(0, 0%, 0%, 0.1) 17%, transparent 67%),
-        linear-gradient(to right, var(--identity-tab-color), var(--identity-tab-color));
+        linear-gradient(to right, var(--identity-color), var(--identity-color));
     background-position: 0 0;
     background-repeat: no-repeat;
     transition: background-position 150ms ease-out;
@@ -494,7 +528,7 @@ body[platform="win"] #searchbox-input:placeholder-shown {
      * Note that this also (intentionally) overrides background-position
      * set by `.tab:not(.active)` with `0 0`.
      */
-    background: var(--identity-tab-color) no-repeat 0 0;
+    background: var(--identity-color) no-repeat 0 0;
     height: 2px;
     width: 20px;
     position: absolute;
@@ -542,7 +576,7 @@ body[platform="win"] #searchbox-input:placeholder-shown {
 }
 
 #tablist-wrapper:not(.shrinked) #tablist .tab-meta-image,
-#tablist-wrapper:not(.shrinked) #pinnedtablist:not(.compact) .tab-meta-image  {
+#tablist-wrapper:not(.shrinked) #pinnedtablist:not(.compact) .tab-meta-image {
     margin: 6px;
     min-width: 54px;
     height: 40px;
@@ -583,7 +617,7 @@ body[platform="win"] #searchbox-input:placeholder-shown {
 #tablist-wrapper:not(.shrinked) #pinnedtablist:not(.compact) .tab-icon-wrapper {
     margin-left: 0px;
     margin-top: 20px;
-    border-radius: var(--border-radius);
+    border-radius: var(--button-border-radius);
     background-color: white;
     box-shadow: 0 0 2px hsla(0, 0%, 0%, 0.08), 0 0 0 1px hsla(0, 0%, 0%, 0.08);
 }
@@ -601,13 +635,13 @@ body[platform="win"] #searchbox-input:placeholder-shown {
 
 .tab-icon.chrome-icon {
     -moz-context-properties: fill;
-    fill: var(--icons-fill-color);
+    fill: var(--icon-primary-color);
     filter: url("img/filters.svg#fill");
 }
 
 #tablist-wrapper:not(.shrinked) #tablist .tab-icon.chrome-icon,
 #pinnedtablist:not(.compact) .tab-icon.chrome-icon {
-    fill: #5a5b5c;
+    fill: var(--grey-90-a80);
 }
 
 .tab.loading .tab-icon {
@@ -663,7 +697,7 @@ body[platform="win"] #searchbox-input:placeholder-shown {
 }
 
 .tab.discarded .tab-meta-image {
-  opacity: 0.45;
+    opacity: 0.45;
 }
 
 .tab-title, .tab-host {
@@ -698,7 +732,7 @@ body[platform="win"] #searchbox-input:placeholder-shown {
     display: block;
     background-image: url("img/glyph-pin-pinned-12.svg#standard");
     -moz-context-properties: fill;
-    fill: var(--icons-fill-color);
+    fill: var(--icon-primary-color);
     filter: url("img/filters.svg#fill");
     background-position: center center;
     background-repeat: no-repeat;
@@ -717,11 +751,11 @@ body[platform="win"] #searchbox-input:placeholder-shown {
     margin: auto;
     background-image: url("img/close-icon.svg");
     -moz-context-properties: fill;
-    fill: var(--icons-fill-color);
+    fill: var(--icon-primary-color);
     filter: url("img/filters.svg#fill");
     background-position: center;
     background-repeat: no-repeat;
-    border-radius: var(--border-radius);
+    border-radius: var(--button-border-radius);
     opacity: 0;
 }
 
@@ -730,10 +764,10 @@ body[platform="win"] #searchbox-input:placeholder-shown {
 }
 
 .tab-close:hover {
-    background-color: var(--close-button-hover) !important;
+    background-color: var(--close-icon-hover);
 }
 .tab-close:hover:active {
-    background-color: var(--close-button-active) !important;
+    background-color: var(--close-icon-active);
 }
 
 #tablist-wrapper.shrinked #tablist .tab,
@@ -832,26 +866,4 @@ body[platform="win"] #searchbox-input:placeholder-shown {
 
 .hidden {
     display: none !important;
-}
-
-/* DARK THEME CUSTOMIZATIONS */
-body.dark-theme {
-    --tab-background-normal: hsl(240, 4%, 5%);
-    --tab-background-pinned: hsla(240, 4%, 20%, 0.15);
-    --tab-background-active: hsl(240, 2%, 20%);
-    --tab-background-hover: hsl(240, 5%, 30%, 0.25);
-    --tab-border-color: #38383D;
-    --searchbox-background: rgb(71, 71, 73);
-    --primary-text-color: rgb(255, 255, 255);
-    --icons-fill-color: #bebebe;
-    --close-button-hover: rgba(238, 238, 241, .1);
-    --close-button-active: rgba(238, 238, 241, .2);
-    --menu-background: #323234;
-    --menu-button-text-shadow: 0 1px rgba(0, 0, 0, .4);
-    --menu-button-hover: hsla(240, 10%, 94%, 0.2);
-    --menu-button-active: hsla(240, 10%, 94%, 0.3);
-}
-
-body.dark-theme #newtab-menu {
-    color: black;
 }
