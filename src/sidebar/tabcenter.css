@@ -1,21 +1,22 @@
 @import url("lib/contextmenu/contextmenu.css");
+@import url("lib/photon-colors.css");
 
 :root {
-    --tab-background-normal: hsl(0, 0%, 99%);
-    --tab-background-pinned: hsla(0, 0%, 80%, .15);
-    --tab-background-active: hsl(0, 0%, 87%);
-    --tab-background-hover: hsla(0, 0%, 80%, .25);
-    --tab-border-color: hsla(0, 0%, 0%, 0.06);
-    --default-tab-line-color: #1aa1ff;
-    --searchbox-background: #fff;
-    --primary-text-color: #18191a;
-    --icons-fill-color: #5a5b5c;
-    --close-button-hover: hsla(0, 0%, 0%, 0.16);
-    --close-button-active: hsla(0, 0%, 0%, 0.2);
-    --menu-background: hsl(0, 0%, 99%);
+    --tab-background-normal: var(--white-100);
+    --tab-background-pinned: var(--grey-10);
+    --tab-background-active: var(--grey-30);
+    --tab-background-hover: var(--grey-20);
+    --tab-border-color: var(--grey-30);
+    --default-tab-line-color: var(--blue-40);
+    --searchbox-background: var(--white-100);
+    --primary-text-color: var(--grey-90);
+    --secondary-text-color: var(--grey-50);
+    --primary-icon-color: var(--grey-90-a80);
+    --secondary-icon-color: var(--grey-90-a60);
+    --menu-background: var(--white-100);
     --menu-button-text-shadow: 0 1px rgba(255, 255, 255, .4);
-    --menu-button-hover: hsla(240, 5%, 5%, .1);
-    --menu-button-active: hsla(240, 5%, 5%, .15);
+    --menu-button-hover: var(--grey-20);
+    --menu-button-active: var(--grey-30);
     --border-radius: 4px;
 }
 
@@ -258,7 +259,7 @@ body[platform="mac"] #newtab-menu {
     background-position: center;
     background-image: url("img/glyph-new-16.svg#standard");
     -moz-context-properties: fill;
-    fill: var(--icons-fill-color);
+    fill: var(--primary-icon-color);
     filter: url("img/filters.svg#fill");
 }
 
@@ -301,7 +302,7 @@ body[platform="mac"] #searchbox.focused {
     background-position: center;
     background-image: url("img/find-icon.svg");
     -moz-context-properties: fill;
-    fill: var(--icons-fill-color);
+    fill: var(--primary-icon-color);
     filter: url("img/filters.svg#fill");
     border-radius: var(--border-radius) 0 0 var(--border-radius);
 }
@@ -337,7 +338,7 @@ body[platform="win"] #searchbox-input:placeholder-shown {
     background-position: center;
     background-image: url("img/settings.svg#standard");
     -moz-context-properties: fill;
-    fill: var(--icons-fill-color);
+    fill: var(--primary-icon-color);
     filter: url("img/filters.svg#fill");
 }
 
@@ -601,7 +602,7 @@ body[platform="win"] #searchbox-input:placeholder-shown {
 
 .tab-icon.chrome-icon {
     -moz-context-properties: fill;
-    fill: var(--icons-fill-color);
+    fill: var(--primary-icon-color);
     filter: url("img/filters.svg#fill");
 }
 
@@ -698,7 +699,7 @@ body[platform="win"] #searchbox-input:placeholder-shown {
     display: block;
     background-image: url("img/glyph-pin-pinned-12.svg#standard");
     -moz-context-properties: fill;
-    fill: var(--icons-fill-color);
+    fill: var(--primary-icon-color);
     filter: url("img/filters.svg#fill");
     background-position: center center;
     background-repeat: no-repeat;
@@ -717,7 +718,7 @@ body[platform="win"] #searchbox-input:placeholder-shown {
     margin: auto;
     background-image: url("img/close-icon.svg");
     -moz-context-properties: fill;
-    fill: var(--icons-fill-color);
+    fill: var(--primary-icon-color);
     filter: url("img/filters.svg#fill");
     background-position: center;
     background-repeat: no-repeat;
@@ -730,10 +731,10 @@ body[platform="win"] #searchbox-input:placeholder-shown {
 }
 
 .tab-close:hover {
-    background-color: var(--close-button-hover) !important;
+    background-color: var(--tab-background-hover) !important;
 }
 .tab-close:hover:active {
-    background-color: var(--close-button-active) !important;
+    background-color: var(--tab-background-active) !important;
 }
 
 #tablist-wrapper.shrinked #tablist .tab,
@@ -836,22 +837,29 @@ body[platform="win"] #searchbox-input:placeholder-shown {
 
 /* DARK THEME CUSTOMIZATIONS */
 body.dark-theme {
-    --tab-background-normal: hsl(240, 4%, 5%);
-    --tab-background-pinned: hsla(240, 4%, 20%, 0.15);
-    --tab-background-active: hsl(240, 2%, 20%);
-    --tab-background-hover: hsl(240, 5%, 30%, 0.25);
-    --tab-border-color: #38383D;
-    --searchbox-background: rgb(71, 71, 73);
-    --primary-text-color: rgb(255, 255, 255);
-    --icons-fill-color: #bebebe;
-    --close-button-hover: rgba(238, 238, 241, .1);
-    --close-button-active: rgba(238, 238, 241, .2);
-    --menu-background: #323234;
+    --tab-background-normal: var(--grey-90);
+    --tab-background-pinned: var(--grey-90);
+    --tab-background-active: var(--grey-80);
+    --tab-background-hover: var(--grey-70);
+    --tab-border-color: var(--grey-60);
+    --searchbox-border: var(--grey-30);
+    --searchbox-border-hover: #29292a;
+    --searchbox-background: var(--grey-60);
+    --primary-text-color: var(--white-100);
+    --secondary-text-color: var(--grey-10);
+    --primary-icon-color: var(--grey-10-a80);
+    --secondary-icon-color: var(--grey-10-a60);
+    --menu-background: var(--grey-70);
+    --menu-border-color: var(--grey-80);
     --menu-button-text-shadow: 0 1px rgba(0, 0, 0, .4);
-    --menu-button-hover: hsla(240, 10%, 94%, 0.2);
-    --menu-button-active: hsla(240, 10%, 94%, 0.3);
+    --menu-button-hover: var(--grey-60);
+    --menu-button-active: var(--grey-50);
+    --menu-item-hover: var(--grey-70);
+    --menu-item-active: var(--grey-60);
 }
 
-body.dark-theme #newtab-menu {
-    color: black;
+body.dark-theme #newtab-menu::before {
+    -moz-context-properties: fill;
+    fill: var(--menu-background);
+    filter: url("img/filters.svg#fill");
 }

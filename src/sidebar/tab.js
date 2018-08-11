@@ -171,14 +171,14 @@ SideTab.prototype = {
     toggleClass(this.view, "hidden", !show);
   },
   _setIcon(favIconUrl) {
-    // https://bugzilla.mozilla.org/show_bug.cgi?id=1462948
-    if (favIconUrl === "chrome://mozapps/skin/extensions/extensionGeneric-16.svg") {
-      favIconUrl = "img/extensions.svg";
-    }
     if (favIconUrl.startsWith("chrome://") && favIconUrl.endsWith(".svg")) {
       this._iconView.classList.add("chrome-icon");
     } else {
       this._iconView.classList.remove("chrome-icon");
+    }
+    // https://bugzilla.mozilla.org/show_bug.cgi?id=1462948
+    if (favIconUrl === "chrome://mozapps/skin/extensions/extensionGeneric-16.svg") {
+      favIconUrl = "img/extensions.svg";
     }
     this._iconView.style.backgroundImage = `url("${favIconUrl}")`;
     const imgTest = document.createElement("img");
