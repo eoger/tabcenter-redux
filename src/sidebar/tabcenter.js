@@ -95,6 +95,7 @@ TabCenter.prototype = {
       compactModeMode: 1/* COMPACT_MODE_DYNAMIC */,
       compactPins: true,
       themeIntegration: false,
+      showHidden: false,
     });
   },
   _applyPrefs(prefs) {

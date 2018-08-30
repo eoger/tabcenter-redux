@@ -109,5 +109,8 @@
   },
   "optionsSaveCustomCSS": {
     "message": "Enregistrer la CSS"
+  },
+  "optionsShowHidden": {
+    "message": "Afficher les onglets cachés"
   }
 }
