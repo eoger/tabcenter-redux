@@ -142,5 +142,9 @@
 
   "optionsSaveCustomCSS": {
     "message": "Save CSS"
+  },
+
+  "optionsShowHidden": {
+    "message": "Show hidden tabs"
   }
 }

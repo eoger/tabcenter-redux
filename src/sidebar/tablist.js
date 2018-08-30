@@ -27,6 +27,7 @@ function TabList(props) {
 
   this._compactModeMode = parseInt(this._props.prefs.compactModeMode);
   this._compactPins = this._props.prefs.compactPins;
+  this._showHidden = this._props.prefs.showHidden;
   this._setupListeners();
 
   if (browser.browserSettings.closeTabsByDoubleClick) { // Introduced in Firefox 61.
@@ -87,6 +88,9 @@ TabList.prototype = {
     if (changes.compactPins) {
       this._compactPins = changes.compactPins.newValue;
     }
+    if (changes.showHidden) {
+      this._showHidden = changes.showHidden.newValue;
+    }
     this._maybeShrinkTabs();
   },
   _onBrowserTabCreated(tab) {
@@ -135,7 +139,7 @@ TabList.prototype = {
     this._shiftTabsIndexes(direction, start, end);
     tab.index = toIndex;
 
-    if (tab.hidden) {
+    if (tab.hidden && !this._showHidden) {
       return;
     }
 
@@ -151,7 +155,7 @@ TabList.prototype = {
       return;
     }
     if (changeInfo.hasOwnProperty("hidden")) {
-      if (changeInfo.hidden) {
+      if (changeInfo.hidden && !this._showHidden) {
         this._removeTabView(sidetab);
       } else {
         this._appendTabView(sidetab);
@@ -237,19 +241,19 @@ TabList.prototype = {
   },
   _closeTabsAfter(tabIndex) {
     const toClose = [...this._tabs.values()]
-                    .filter(tab => tab.index > tabIndex && !tab.hidden)
+                    .filter(tab => tab.index > tabIndex && !(tab.hidden && !this._showHidden))
                     .map(tab => tab.id);
     browser.tabs.remove(toClose);
   },
   _closeAllTabsExcept(tabId) {
     const toClose = [...this._tabs.values()]
-                    .filter(tab => tab.id !== tabId && !tab.pinned && !tab.hidden)
+                    .filter(tab => tab.id !== tabId && !tab.pinned && !(tab.hidden && !this._showHidden))
                     .map(tab => tab.id);
     browser.tabs.remove(toClose);
   },
   _reloadAllTabs() {
     for (let tab of this._tabs.values()) {
-      if (!tab.hidden) {
+      if (!(tab.hidden && !this._showHidden)) {
         browser.tabs.reload(tab.id);
       }
     }
@@ -500,7 +504,7 @@ TabList.prototype = {
         activeTab = sidetab;
       }
       let fragment = tab.pinned ? pinnedFragment : unpinnedFragment;
-      if (!tab.hidden) {
+      if (!(tab.hidden && !this._showHidden)) {
         fragment.appendChild(sidetab.view);
       }
     }
@@ -599,7 +603,7 @@ TabList.prototype = {
     const sidetab = this.__create(tabInfo);
     // Bail early and don't insert the tab in the DOM: we'll do it later
     // if the tab becomes visible.
-    if (tabInfo.hidden) {
+    if (tabInfo.hidden && !this._showHidden) {
       return;
     }
     this._clearSearch();
@@ -634,7 +638,7 @@ TabList.prototype = {
       return;
     }
     const allTabs = [...this._tabs.values()]
-                    .filter(tab => tab.pinned === sidetab.pinned && !tab.hidden)
+                    .filter(tab => tab.pinned === sidetab.pinned && !(tab.hidden && !this._showHidden))
                     .sort((a, b) => a.index - b.index);
     const tabAfter = allTabs.find(tab => tab.index > sidetab.index);
     if (!tabAfter) {

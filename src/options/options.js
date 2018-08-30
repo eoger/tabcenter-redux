@@ -9,7 +9,7 @@ TabCenterOptions.prototype = {
       "optionsCompactModeStrict", "optionsCompactModeDynamic",
       "optionsCompactModeOff", "optionsCompactPins", "optionsDarkTheme",
       "optionsThemeIntegration", "optionsAdvancedTitle", "optionsCustomCSS",
-      "optionsCustomCSSWikiLink", "optionsSaveCustomCSS"];
+      "optionsCustomCSSWikiLink", "optionsSaveCustomCSS", "optionsShowHidden"];
     for (let opt of options) {
       this._setupTextContentLabel(opt);
     }
@@ -26,6 +26,7 @@ TabCenterOptions.prototype = {
     this._setupCheckboxOption("themeIntegration", "themeIntegration");
     this._setupDropdownOption("compactMode", "compactModeMode");
     this._setupCheckboxOption("compactPins", "compactPins", true);
+    this._setupCheckboxOption("showHidden", "showHidden");
 
     // Custom CSS
     browser.storage.local.get({
