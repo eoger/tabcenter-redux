@@ -32,11 +32,11 @@
     "description": "Reload Tab context menu item label."
   },
   "contextMenuPinTab": {
-    "message": "Épingler cet onglet",
+    "message": "Épingler l'onglet",
     "description": "Pin Tab context menu item label."
   },
   "contextMenuUnpinTab": {
-    "message": "Relâcher l'onglet",
+    "message": "Détacher l'onglet",
     "description": "Unpin Tab context menu item label."
   },
   "contextMenuMuteTab": {
@@ -105,7 +105,7 @@
     "message": "Feuille de style personnalisée"
   },
   "optionsCustomCSSWikiLink": {
-    "message": "Article Wiki CSS Tweaks (en Anglais)"
+    "message": "Article Wiki de paramétrage CSS (en anglais)"
   },
   "optionsSaveCustomCSS": {
     "message": "Enregistrer la CSS"
