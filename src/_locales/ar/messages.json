@@ -1,1 +1,59 @@
-{}
+{
+  "extensionDescription": {
+    "message": "إن إضافة Tab Center هي محاولة لحل بعض المشاكل التي ظهرت من الطريقة التي يستخدم بها الناس علامات التبويب (ما يعرف بمشكلة \"عدد تبويبات كثيرة\") و تقدم الإضافة واجهة أكثر تنوعاً و تماشياً مع التطورات المستقبلية. أول نسخة من هذه الإضافة لمتصفح فايرفوكس تقوم بترتيب علامات التبويب بشكل طولي و ليس عرضي. و هي مستوحاة بشكل كبير و تستعير أفكار من الإضافة الممتازة VerticalTabs."
+  },
+  "browserActionTitle": {
+    "message": "تفعيل\/إلغاء الإضافة",
+    "description": "Tooltip shown when hovering the toolbar button."
+  },
+  "sidebarTitle": {
+    "message": "علامات التبويب",
+    "description": "Label shown in the sidebar selector."
+  },
+  "newTabBtnLabel": {
+    "message": "علامة تبويب جديدة",
+    "description": "Label of the New Tab button in the top menu."
+  },
+  "newTabBtnTooltip": {
+    "message": "افتح علامة تبويب جديدة"
+  },
+  "searchPlaceholder": {
+    "message": "البحث في علامات التبويب"
+  },
+  "closeTabButtonTooltip": {
+    "message": "أغلق علامة التبويب"
+  },
+  "allTabsLabel": {
+    "message": "أظهر كل علامات التبويب…",
+    "description": "Shown at the bottom of the list of tabs if some tabs are filtered by the current search query."
+  },
+  "contextMenuReloadTab": {
+    "message": "أعِد تحميل الصفحة",
+    "description": "Reload Tab context menu item label."
+  },
+  "contextMenuPinTab": {
+    "message": "ثبّت علامة التبويب",
+    "description": "Pin Tab context menu item label."
+  },
+  "contextMenuUnpinTab": {
+    "message": "أزل تثبيت علامة التبويب",
+    "description": "Unpin Tab context menu item label."
+  },
+  "contextMenuMuteTab": {
+    "message": "كتم علامة التبويب",
+    "description": "Mute Tab context menu item label."
+  },
+  "contextMenuUnmuteTab": {
+    "message": "إلغاء كتم علامة التبويب",
+    "description": "Unmute Tab context menu item label."
+  },
+  "contextMenuCloseTab": {
+    "message": "أغلق علامة التبويب"
+  },
+  "contextMenuUndoCloseTab": {
+    "message": "التراجع عن إغلاق علامة التبويب"
+  },
+  "contextMenuDuplicateTab": {
+    "message": "تكرار علامة التبويب"
+  }
+}
