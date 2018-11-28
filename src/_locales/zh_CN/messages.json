@@ -102,12 +102,12 @@
     "message": "高级"
   },
   "optionsCustomCSS": {
-    "message": "自定义CSS"
+    "message": "自定义样式表"
   },
   "optionsCustomCSSWikiLink": {
     "message": "CSS 调整大全"
   },
   "optionsSaveCustomCSS": {
-    "message": "保存CSS"
+    "message": "保存 CSS"
   }
 }
