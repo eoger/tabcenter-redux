@@ -82,7 +82,7 @@ TabContextMenu.prototype = {
       onCommandFn: () => {
         browser.tabs.discard(tab.id);
       }
-    })
+    });
     if (this._props.canMoveToNewWindow) {
       items.push({
         label: browser.i18n.getMessage("contextMenuMoveTabToNewWindow"),
