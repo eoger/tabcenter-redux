@@ -46,6 +46,9 @@
   "contextMenuMoveTabToNewWindow": {
     "message": "移动到新窗口"
   },
+  "contextMenuDiscardTab": {
+    "message": "中断标签页"
+  },
   "contextMenuReloadAllTabs": {
     "message": "重新载入全部标签页"
   },

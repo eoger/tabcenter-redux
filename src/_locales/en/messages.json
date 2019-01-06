@@ -72,6 +72,10 @@
     "message": "Duplicate Tab"
   },
 
+  "contextMenuDiscardTab": {
+    "message": "Discard Tab"
+  },
+
   "contextMenuMoveTabToNewWindow": {
     "message": "Move to New Window"
   },
