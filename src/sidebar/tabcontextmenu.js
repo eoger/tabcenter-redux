@@ -77,6 +77,12 @@ TabContextMenu.prototype = {
         browser.tabs.duplicate(tab.id);
       }
     });
+    items.push({
+      label: browser.i18n.getMessage("contextMenuDiscardTab"),
+      onCommandFn: () => {
+        browser.tabs.discard(tab.id);
+      }
+    });
     if (this._props.canMoveToNewWindow) {
       items.push({
         label: browser.i18n.getMessage("contextMenuMoveTabToNewWindow"),

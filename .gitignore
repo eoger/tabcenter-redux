@@ -2,3 +2,4 @@
 src/sidebar/dist
 web-ext-artifacts
 node_modules
+package-lock.json
