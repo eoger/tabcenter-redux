@@ -57,16 +57,18 @@ SideTab.prototype = {
     this.thumbnailCanvas.id = `thumbnail-canvas-${this.id}`;
     this.thumbnailCanvasCtx = this.thumbnailCanvas.getContext("2d", {alpha: false});
   },
-  onUpdate(changeInfo) {
+  onUpdate(changeInfo, tab) {
     if (changeInfo.hasOwnProperty("hidden")) {
       this.hidden = changeInfo.hidden;
     }
     if (changeInfo.hasOwnProperty("title")) {
       this._updateTitle(changeInfo.title);
     }
-    if (changeInfo.hasOwnProperty("favIconUrl")) {
-      this._updateIcon(changeInfo.favIconUrl);
-    }
+    // to work around https://bugzilla.mozilla.org/show_bug.cgi?id=1450384
+    // if (changeInfo.hasOwnProperty("favIconUrl")) {
+    //   this._updateIcon(changeInfo.favIconUrl);
+    // }
+    this._updateIcon(tab.favIconUrl);
     if (changeInfo.hasOwnProperty("url")) {
       this._updateURL(changeInfo.url);
     }
@@ -188,7 +190,7 @@ SideTab.prototype = {
     };
   },
   _resetIcon() {
-    this._iconView.style.backgroundImage = "";
+    this._iconView.style.backgroundImage = "url(\"img/defaultFavicon.svg\")";
     this._iconView.classList.add("chrome-icon");
   },
   _updatePinned(pinned) {

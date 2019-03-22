@@ -161,7 +161,8 @@ TabList.prototype = {
       this._maybeUpdateTabThumbnail(sidetab);
     }
 
-    sidetab.onUpdate(changeInfo);
+    // tab info passed because of https://bugzilla.mozilla.org/show_bug.cgi?id=1450384
+    sidetab.onUpdate(changeInfo, tab);
     if (changeInfo.hasOwnProperty("pinned")) {
       this._onTabPinned(sidetab, tab);
     }
