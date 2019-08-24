@@ -2,6 +2,10 @@
   "extensionDescription": {
     "message": "Tab Center pretende solucionar alguno de los problemas que han surgido a raíz del uso de las pestañas por parte de los usuarios (principalmente el de tener \"demasiadas pestañas abiertas\") y proporcionar una base más versátil para futuras innovaciones de la interfaz.\nLa primera versión de este add-on de Firefox organiza las pestañas de una manera vertical en lugar de horizontal. Está profundamente inspirado y toma prestadas ideas del excelente add-on VerticalTabs."
   },
+  "browserActionTitle": {
+    "message": "Mostrar\/Ocultar Tab Center Redux",
+    "description": "Tooltip shown when hovering the toolbar button."
+  },
   "sidebarTitle": {
     "message": "Pestañas",
     "description": "Label shown in the sidebar selector."
@@ -90,6 +94,9 @@
   },
   "optionsDarkTheme": {
     "message": "Tema oscuro"
+  },
+  "optionsThemeIntegration": {
+    "message": "Integrar con el tema actual"
   },
   "optionsAdvancedTitle": {
     "message": "Ajustes avanzados"
