@@ -658,6 +658,10 @@ body[platform="win"] #searchbox-input:placeholder-shown {
     margin-left: 6px;
 }
 
+#tablist-wrapper .tab-title-wrapper :dir(rtl) {
+    margin-right: 6px;
+}
+
 .tab.discarded .tab-title {
     opacity: 0.5;
 }
@@ -679,8 +683,12 @@ body[platform="win"] #searchbox-input:placeholder-shown {
     display: none;
 }
 
-.tab-title-wrapper {
+.tab-title-wrapper :dir(ltr){
     mask-image: linear-gradient(to left, transparent 0, black 2em);
+}
+
+.tab-title-wrapper :dir(rtl){
+    mask-image: linear-gradient(to right, transparent 0, black 2em);
 }
 
 .tab:hover:not(.pinned) > .tab-title-wrapper {
