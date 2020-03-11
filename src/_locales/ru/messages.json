@@ -95,6 +95,9 @@
   "optionsDarkTheme": {
     "message": "Темная тема"
   },
+  "optionsThemeIntegration": {
+    "message": "Интеграция с текущей темой"
+  },
   "optionsAdvancedTitle": {
     "message": "Расширенные настройки"
   },

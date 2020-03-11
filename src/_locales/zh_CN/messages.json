@@ -2,6 +2,10 @@
   "extensionDescription": {
     "message": "标签页中心旨在解决人们使用标签页（尤其是太多标签页）时遇到的一些问题，并为未来的创新功能提供更多的基础。此 Firefox 附加组件以垂直方式而非水平方式排列标签页。它的灵感极大来源于附加组件 VerticalTabs 的想法。"
   },
+  "browserActionTitle": {
+    "message": "开关 Tab Center Redux",
+    "description": "Tooltip shown when hovering the toolbar button."
+  },
   "sidebarTitle": {
     "message": "标签页",
     "description": "Label shown in the sidebar selector."
@@ -12,6 +16,9 @@
   },
   "newTabBtnTooltip": {
     "message": "打开新标签页"
+  },
+  "searchPlaceholder": {
+    "message": "搜索标签页"
   },
   "closeTabButtonTooltip": {
     "message": "关闭标签页"
@@ -43,6 +50,12 @@
   "contextMenuCloseTab": {
     "message": "关闭标签页"
   },
+  "contextMenuUndoCloseTab": {
+    "message": "恢复关闭的标签页"
+  },
+  "contextMenuDuplicateTab": {
+    "message": "创建标签页副本"
+  },
   "contextMenuMoveTabToNewWindow": {
     "message": "移动到新窗口"
   },
@@ -61,19 +74,40 @@
   "optionsTitle": {
     "message": "设置"
   },
+  "optionsCompactMode": {
+    "message": "紧凑模式"
+  },
   "optionsCompactModeTooltip": {
     "message": "紧凑模式通过减少标签页的高度显示更多标签页。在动态模式下，它将在没有足够显示空间时自动激活。"
   },
+  "optionsCompactModeOff": {
+    "message": "禁用"
+  },
+  "optionsCompactModeDynamic": {
+    "message": "动态"
+  },
+  "optionsCompactModeStrict": {
+    "message": "始终"
+  },
+  "optionsCompactPins": {
+    "message": "紧凑型固定标签页"
+  },
   "optionsDarkTheme": {
-    "message": "黑夜主题"
+    "message": "深色主题"
+  },
+  "optionsThemeIntegration": {
+    "message": "配合当前主题"
+  },
+  "optionsAdvancedTitle": {
+    "message": "高级"
   },
   "optionsCustomCSS": {
-    "message": "自定义CSS"
+    "message": "自定义样式表"
   },
   "optionsCustomCSSWikiLink": {
-    "message": "点击查看CSS调整的说明（英文）"
+    "message": "CSS 调整大全"
   },
   "optionsSaveCustomCSS": {
-    "message": "保存CSS"
+    "message": "保存 CSS"
   }
 }

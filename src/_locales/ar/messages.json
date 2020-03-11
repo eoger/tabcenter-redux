@@ -1,1 +1,113 @@
-{}
+{
+  "extensionDescription": {
+    "message": "إن إضافة Tab Center هي محاولة لحل بعض المشاكل التي ظهرت من الطريقة التي يستخدم بها الناس علامات التبويب (ما يعرف بمشكلة \"عدد تبويبات كثيرة\") و تقدم الإضافة واجهة أكثر تنوعاً و تماشياً مع التطورات المستقبلية. أول نسخة من هذه الإضافة لمتصفح فايرفوكس تقوم بترتيب علامات التبويب بشكل طولي و ليس عرضي. و هي مستوحاة بشكل كبير و تستعير أفكار من الإضافة الممتازة VerticalTabs."
+  },
+  "browserActionTitle": {
+    "message": "تفعيل\/إلغاء الإضافة",
+    "description": "Tooltip shown when hovering the toolbar button."
+  },
+  "sidebarTitle": {
+    "message": "علامات التبويب",
+    "description": "Label shown in the sidebar selector."
+  },
+  "newTabBtnLabel": {
+    "message": "علامة تبويب جديدة",
+    "description": "Label of the New Tab button in the top menu."
+  },
+  "newTabBtnTooltip": {
+    "message": "افتح علامة تبويب جديدة"
+  },
+  "searchPlaceholder": {
+    "message": "البحث في علامات التبويب"
+  },
+  "closeTabButtonTooltip": {
+    "message": "أغلق علامة التبويب"
+  },
+  "allTabsLabel": {
+    "message": "أظهر كل علامات التبويب…",
+    "description": "Shown at the bottom of the list of tabs if some tabs are filtered by the current search query."
+  },
+  "contextMenuReloadTab": {
+    "message": "أعِد تحميل الصفحة",
+    "description": "Reload Tab context menu item label."
+  },
+  "contextMenuPinTab": {
+    "message": "ثبّت علامة التبويب",
+    "description": "Pin Tab context menu item label."
+  },
+  "contextMenuUnpinTab": {
+    "message": "أزل تثبيت علامة التبويب",
+    "description": "Unpin Tab context menu item label."
+  },
+  "contextMenuMuteTab": {
+    "message": "كتم علامة التبويب",
+    "description": "Mute Tab context menu item label."
+  },
+  "contextMenuUnmuteTab": {
+    "message": "إلغاء كتم علامة التبويب",
+    "description": "Unmute Tab context menu item label."
+  },
+  "contextMenuCloseTab": {
+    "message": "أغلق علامة التبويب"
+  },
+  "contextMenuUndoCloseTab": {
+    "message": "التراجع عن إغلاق علامة التبويب"
+  },
+  "contextMenuDuplicateTab": {
+    "message": "تكرار علامة التبويب"
+  },
+  "contextMenuMoveTabToNewWindow": {
+    "message": "إنتقل إلى نافذة جديدة"
+  },
+  "contextMenuReloadAllTabs": {
+    "message": "إعادة تحميل كافة علامات التبويب"
+  },
+  "contextMenuCloseTabsUnderneath": {
+    "message": "أغلق علامات التبويب في الأسفل"
+  },
+  "contextMenuCloseOtherTabs": {
+    "message": "أغلق علامات التبويب الأُخرى"
+  },
+  "settingsBtnTooltip": {
+    "message": "افتح الإعدادات"
+  },
+  "optionsTitle": {
+    "message": "الإعدادات"
+  },
+  "optionsCompactMode": {
+    "message": "الوضع المختصر"
+  },
+  "optionsCompactModeTooltip": {
+    "message": "إن الوضع المختصر يقلل من إرتفاع علامات التبويب لكي يتم إظهار عدد أكبر منهم. بينما في الإعدادات الديناميكية, سيتم تفعيل الوضع المختصر فقط عندما لا يبقى مساحة كافية."
+  },
+  "optionsCompactModeOff": {
+    "message": "معطّل"
+  },
+  "optionsCompactModeDynamic": {
+    "message": "ديناميكي"
+  },
+  "optionsCompactModeStrict": {
+    "message": "دوماً"
+  },
+  "optionsCompactPins": {
+    "message": "إظهار علامات التبويب المثبّتة بشكل مختصر"
+  },
+  "optionsDarkTheme": {
+    "message": "قالب ألوان داكنة"
+  },
+  "optionsThemeIntegration": {
+    "message": "دمج مع السمة الحالية"
+  },
+  "optionsAdvancedTitle": {
+    "message": "متقدّم"
+  },
+  "optionsCustomCSS": {
+    "message": "إضافة كود css مخصص"
+  },
+  "optionsCustomCSSWikiLink": {
+    "message": "مقالة الويكي لتخصيص كود ال css"
+  },
+  "optionsSaveCustomCSS": {
+    "message": "حفظ كود ال css"
+  }
+}
