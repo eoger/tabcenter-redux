@@ -3,7 +3,7 @@
     "message": "Tab Center essaie de résoudre certains des problèmes venant de la façon dont les gens utilisent les onglets (notamment le problème du « j'ai trop d'onglets ») et propose une base d'interface utilisateur polyvalente pour de futures innovation. La première version de ce module propose un arrangement vertical des onglets. Il est fortement inspiré et emprunte des idées à l'excellent module VerticalTabs."
   },
   "browserActionTitle": {
-    "message": "Activer\/désactiver Tab Center Redux",
+    "message": "Activer/désactiver Tab Center Redux",
     "description": "Tooltip shown when hovering the toolbar button."
   },
   "sidebarTitle": {
@@ -90,7 +90,7 @@
     "message": "Toujours"
   },
   "optionsCompactPins": {
-    "message": "Onglets épinglés compacts"
+    "message": "Réduire les onglets épinglés"
   },
   "optionsDarkTheme": {
     "message": "Thème sombre"
